@@ -3,7 +3,7 @@ import "./globals.css";
 import { BRAND } from "@/lib/content";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://blackbox.supply"),
+  metadataBase: new URL("https://blackboxsupplies.com"),
   title: {
     default: `${BRAND.name} — ${BRAND.tagline}`,
     template: `%s · ${BRAND.name}`,

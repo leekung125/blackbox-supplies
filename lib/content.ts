@@ -7,7 +7,7 @@ export const BRAND = {
   positioning:
     "A field catalog of the gear that matters when the moment goes wrong — dead phone, dark road, flat tire, lost keys, power out. Honestly sourced. Never overclaimed.",
   shortPositioning: "The gear that matters when the moment goes wrong.",
-  instagram: "blackbox.supply",
+  instagram: "blackboxsupplies",
 } as const;
 
 /**
