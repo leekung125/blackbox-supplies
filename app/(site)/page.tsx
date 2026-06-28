@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CategoryGlyph } from "@/components/category-glyph";
 import { CornerTicks } from "@/components/corner-ticks";
 import { ProductCard } from "@/components/product-card";
-import { ProductPlaceholder } from "@/components/product-placeholder";
+import { CategoryObject } from "@/components/object-art";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -24,6 +24,9 @@ export default function HomePage() {
       <section className="relative overflow-hidden border-b border-line">
         <div className="grid-faint pointer-events-none absolute inset-0 opacity-60" />
         <div className="bloom pointer-events-none absolute -top-40 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 opacity-70 blur-3xl" />
+        <div className="pointer-events-none absolute right-2 top-1/2 hidden h-[24rem] w-[24rem] -translate-y-1/2 opacity-95 lg:block xl:right-12">
+          <CategoryObject category="Power" className="h-full w-full drop-shadow-[0_0_44px_rgba(77,139,176,0.22)]" />
+        </div>
 
         <div className="relative mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-28">
           <div className="flex items-center gap-2">
@@ -169,11 +172,12 @@ export default function HomePage() {
               className="group relative flex flex-col overflow-hidden rounded-lg border border-line bg-card/40 transition-colors hover:border-accent/40"
             >
               <div className="relative">
-                <ProductPlaceholder
-                  category={d.category}
-                  caption={d.code}
-                  aspect="video"
-                  className="rounded-none border-0 border-b border-line"
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={d.thumb}
+                  alt={`${d.title} — Blackbox Supply film`}
+                  className="aspect-[3/4] w-full border-b border-line object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute right-3 top-3">
                   <Badge variant="accent">{d.status}</Badge>

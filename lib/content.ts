@@ -39,11 +39,13 @@ export interface VideoDrop {
   category: Category;
   categorySlug: string;
   status: "In production" | "Scheduled" | "Concept";
+  thumb: string;
 }
 
 export const VIDEO_DROPS: VideoDrop[] = [
   {
     code: "DROP 001",
+    thumb: "/films/dead-phone.png",
     title: "Dead Phone, Bad Timing",
     hook: "4 percent. No outlet. The train's already here.",
     category: "Power",
@@ -52,6 +54,7 @@ export const VIDEO_DROPS: VideoDrop[] = [
   },
   {
     code: "DROP 002",
+    thumb: "/films/dark-road.png",
     title: "Dark Road, No Light",
     hook: "Both hands busy. Zero light. Now what.",
     category: "Light",
@@ -60,6 +63,7 @@ export const VIDEO_DROPS: VideoDrop[] = [
   },
   {
     code: "DROP 003",
+    thumb: "/films/flat-tire.png",
     title: "Flat Tire, No Plan",
     hook: "Low-pressure light. 11pm. Every air pump 'out of service.'",
     category: "Car",

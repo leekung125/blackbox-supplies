@@ -1,3 +1,6 @@
+"use client";
+
+import { track } from "@vercel/analytics";
 import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
 
@@ -56,6 +59,7 @@ export function OutboundLink({
         href={href}
         target="_blank"
         rel={outboundRel(isAffiliate)}
+        onClick={() => track("product_outbound", { product: product.id, category: product.category, affiliate: isAffiliate })}
         className={`group inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2.5 text-sm transition-colors ${VARIANT_CLASS[variant]}`}
       >
         <span>{text}</span>

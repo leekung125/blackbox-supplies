@@ -1,4 +1,4 @@
-import { CategoryGlyph } from "@/components/category-glyph";
+import { CategoryObject } from "@/components/object-art";
 import { CornerTicks } from "@/components/corner-ticks";
 import { getCategoryByName } from "@/lib/categories";
 import type { Category } from "@/lib/products";
@@ -9,12 +9,6 @@ const RATIO: Record<Aspect, string> = {
   square: "aspect-square",
   video: "aspect-video",
   wide: "aspect-[3/2]",
-};
-
-const GLYPH_SIZE: Record<Aspect, string> = {
-  square: "h-12 w-12",
-  video: "h-14 w-14",
-  wide: "h-12 w-12",
 };
 
 /**
@@ -52,11 +46,11 @@ export function ProductPlaceholder({
         </span>
       </div>
 
-      {/* category glyph */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <CategoryGlyph
+      {/* code-drawn object illustration (same identity as the films) */}
+      <div className="absolute inset-0 flex items-center justify-center p-5">
+        <CategoryObject
           category={category}
-          className={`${GLYPH_SIZE[aspect]} text-accent/85 drop-shadow-[0_0_14px_rgba(77,139,176,0.4)]`}
+          className="h-[82%] w-[82%] drop-shadow-[0_0_26px_rgba(77,139,176,0.22)]"
         />
       </div>
 
@@ -68,7 +62,7 @@ export function ProductPlaceholder({
       {/* honest placeholder label + optional caption */}
       <div className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-2">
         <span className="kicker text-[0.5625rem] tracking-[0.18em] text-ink-faint/70">
-          Studio placeholder
+          Illustration
         </span>
         {caption ? (
           <span className="kicker max-w-[52%] truncate text-[0.5625rem] tracking-[0.14em] text-ink-faint/70">
