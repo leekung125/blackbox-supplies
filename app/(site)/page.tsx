@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Hero } from "@/components/hero";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
-import { Marquee } from "@/components/motion/marquee";
+import { TrustStrip } from "@/components/trust-strip";
 import { Tilt } from "@/components/motion/tilt";
 import { CATEGORIES } from "@/lib/categories";
 import { FAILURE_MOMENTS, VIDEO_DROPS } from "@/lib/content";
@@ -25,17 +25,6 @@ const KIT_LINES: Record<Category, string> = {
   Carry: "Keep what matters locatable, contained, reachable.",
 };
 
-const MARQUEE = [
-  "BLACK · BOX · SUPPLIES",
-  "GEAR FOR BAD TIMING",
-  "POWER",
-  "CAR",
-  "LIGHT",
-  "CARRY",
-  "HONESTLY SOURCED",
-  "NEVER OVERCLAIMED",
-];
-
 export default function HomePage() {
   const featured = getFeaturedProducts();
   const total = getAllProducts().length;
@@ -44,7 +33,7 @@ export default function HomePage() {
     <>
       <Hero total={total} />
 
-      <Marquee items={MARQUEE} className="border-b border-line bg-panel/30 py-4" />
+      <TrustStrip />
 
       {/* ----------------------------------------------------- FAILURE MOMENTS */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -59,14 +48,14 @@ export default function HomePage() {
             <StaggerItem key={m.label}>
               <Link
                 href={`/category/${m.categorySlug}`}
-                className="group relative block overflow-hidden rounded-lg border border-line bg-card/40 p-4 transition-all hover:-translate-y-0.5 hover:border-accent/30 hover:bg-card"
+                className="group relative block overflow-hidden rounded-xl border border-line bg-card/40 p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent/30 hover:bg-card"
               >
                 <CornerTicks className="border-accent/0 transition-colors group-hover:border-accent/25" />
-                <span className="mono text-[0.6rem] tracking-[0.18em] text-ink-faint">
+                <span className="mono text-[0.62rem] tracking-[0.2em] text-ink-faint">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-2 text-sm font-medium text-ink">{m.label}</p>
-                <p className="mt-1 text-xs text-ink-faint">{m.line}</p>
+                <p className="mt-2.5 text-[0.95rem] font-semibold leading-snug text-ink">{m.label}</p>
+                <p className="mt-1 text-xs leading-relaxed text-ink-dim">{m.line}</p>
               </Link>
             </StaggerItem>
           ))}
@@ -74,7 +63,7 @@ export default function HomePage() {
       </section>
 
       {/* ----------------------------------------------------------- FEATURED */}
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <Reveal>
           <SectionHeading
             kicker="Featured"
@@ -99,7 +88,7 @@ export default function HomePage() {
       </section>
 
       {/* ---------------------------------------------------------- FIELD KITS */}
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <Reveal>
           <SectionHeading
             kicker="Field kits"
@@ -146,7 +135,7 @@ export default function HomePage() {
       </section>
 
       {/* -------------------------------------------------------- LATEST DROPS */}
-      <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+      <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <Reveal>
           <SectionHeading
             kicker="Latest drops"
