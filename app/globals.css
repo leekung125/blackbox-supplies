@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+/* ----------------------------------------------------------------------------
+   Blackbox Supply — design tokens
+   base graphite/near-black · panels · cold-blue accent · off-white text
+   red ONLY as a tiny warning accent. No amber, no neon, no rainbow.
+---------------------------------------------------------------------------- */
+@theme {
+  --color-base: #06070b;
+  --color-panel: #0b0e14;
+  --color-card: #11151d;
+  --color-card-2: #161a23;
+  --color-line: #222a36;
+  --color-line-soft: #181d27;
+
+  --color-accent: #4d8bb0;
+  --color-accent-bright: #74aacb;
+  --color-accent-deep: #2c5a76;
+
+  --color-ink: #d8dde7;
+  --color-ink-dim: #9aa4b4;
+  --color-ink-faint: #7b8596;
+
+  --color-warn: #e8324a;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro",
+    Menlo, Consolas, "DejaVu Sans Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-base);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* Faint cold-blue vignette + atmosphere over the graphite base. */
+    background-image:
+      radial-gradient(
+        120% 80% at 50% -10%,
+        rgba(77, 139, 176, 0.08),
+        transparent 60%
+      ),
+      radial-gradient(
+        80% 50% at 100% 100%,
+        rgba(77, 139, 176, 0.04),
+        transparent 70%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(77, 139, 176, 0.3);
+    color: #ffffff;
+  }
+
+  /* Quiet, on-brand focus ring (keyboard accessibility kept intact). */
+  :focus-visible {
+    outline: 1px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer utilities {
+  /* Small letter-spaced uppercase mono tag — the "quiet HUD" voice. */
+  .kicker {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 0.6875rem;
+    line-height: 1;
+    color: var(--color-ink-faint);
+  }
+
+  /* Mono microcopy (prices, codes, readouts). */
+  .mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Ultra-subtle technical grid texture for section/card backgrounds. */
+  .grid-faint {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* Soft cold-blue bloom behind hero / placeholder glyphs. */
+  .bloom {
+    background: radial-gradient(
+      circle at center,
+      rgba(77, 139, 176, 0.22),
+      transparent 68%
+    );
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
