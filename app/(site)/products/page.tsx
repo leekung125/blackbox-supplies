@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ProductBrowser } from "@/components/product-browser";
 import { getAllProducts } from "@/lib/products";
+import { Reveal } from "@/components/motion/reveal";
 
 export const metadata: Metadata = {
   title: "All Gear",
@@ -12,7 +13,7 @@ export default function ProductsPage() {
   const products = getAllProducts();
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <Reveal blur={false} className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
       <div className="flex items-center gap-2">
         <span className="h-px w-6 bg-accent/60" aria-hidden />
         <span className="kicker text-accent-bright">The catalog</span>
@@ -29,6 +30,6 @@ export default function ProductsPage() {
       <div className="mt-10">
         <ProductBrowser products={products} />
       </div>
-    </div>
+    </Reveal>
   );
 }

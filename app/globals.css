@@ -49,6 +49,18 @@
     background-attachment: fixed;
   }
 
+  /* Filmic grain — the single biggest "dark feels premium not flat" upgrade. ~5%, fixed, GPU-cheap. */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
   ::selection {
     background: rgba(91, 147, 184, 0.26);
     color: #ffffff;
@@ -110,4 +122,47 @@
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* ── Ambient aurora (GPU-cheap: blur baked once, transform-animated) ──────── */
+.bbx-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.bbx-aurora::before,
+.bbx-aurora::after {
+  content: "";
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  will-change: transform;
+}
+.bbx-aurora::before {
+  width: 48%;
+  height: 64%;
+  top: -14%;
+  right: 6%;
+  background: radial-gradient(circle, rgba(91, 147, 184, 0.32), transparent 66%);
+  animation: bbx-aur-a 24s ease-in-out infinite;
+}
+.bbx-aurora::after {
+  width: 52%;
+  height: 58%;
+  bottom: -16%;
+  left: 4%;
+  background: radial-gradient(circle, rgba(52, 88, 116, 0.24), transparent 66%);
+  animation: bbx-aur-b 31s ease-in-out infinite;
+}
+@keyframes bbx-aur-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-8%, 6%, 0) scale(1.16); }
+}
+@keyframes bbx-aur-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(10%, -5%, 0) scale(1.22); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bbx-aurora::before,
+  .bbx-aurora::after { animation: none; }
 }

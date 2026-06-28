@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { BRAND } from "@/lib/content";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -52,7 +53,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="min-h-screen antialiased">
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
       </body>
     </html>

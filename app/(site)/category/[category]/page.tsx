@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CategoryGlyph } from "@/components/category-glyph";
+import { Reveal } from "@/components/motion/reveal";
 import { ProductCard } from "@/components/product-card";
 import { ButtonLink } from "@/components/ui/button-link";
 import { CATEGORY_SLUGS, getCategoryBySlug } from "@/lib/categories";
@@ -35,7 +36,7 @@ export default async function CategoryPage({
   const products = getProductsByCategory(meta.name);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <Reveal blur={false} className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
       <nav className="mono flex flex-wrap items-center gap-2 text-[0.7rem] uppercase tracking-[0.14em] text-ink-faint">
         <Link href="/" className="transition-colors hover:text-accent-bright">
           Home
@@ -81,6 +82,6 @@ export default async function CategoryPage({
           ← All gear
         </ButtonLink>
       </div>
-    </div>
+    </Reveal>
   );
 }

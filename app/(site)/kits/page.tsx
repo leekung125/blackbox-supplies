@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CategoryObject } from "@/components/object-art";
+import { Reveal } from "@/components/motion/reveal";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button-link";
 import { CATEGORIES } from "@/lib/categories";
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function KitsPage() {
   return (
-    <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
+    <Reveal blur={false} className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
       <div className="flex items-center gap-2">
         <span className="h-px w-6 bg-accent/60" aria-hidden />
         <span className="kicker text-accent-bright">Field kits</span>
@@ -77,6 +78,6 @@ export default function KitsPage() {
           );
         })}
       </div>
-    </div>
+    </Reveal>
   );
 }
