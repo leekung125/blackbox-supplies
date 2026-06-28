@@ -16,12 +16,12 @@ export function SiteHeader() {
           <Wordmark />
         </Link>
 
-        <nav className="flex items-center gap-1 sm:gap-2">
+        <nav className="flex items-center gap-0.5 sm:gap-2">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="mono rounded-sm px-2.5 py-1.5 text-[0.7rem] uppercase tracking-[0.16em] text-ink-dim transition-colors hover:bg-card hover:text-accent-bright sm:px-3"
+              className="mono rounded-sm px-2 py-1.5 text-[0.62rem] uppercase tracking-[0.12em] text-ink-dim transition-colors hover:bg-card hover:text-accent-bright sm:px-3 sm:text-[0.7rem] sm:tracking-[0.16em]"
             >
               {item.label}
             </Link>

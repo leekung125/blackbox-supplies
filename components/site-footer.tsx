@@ -30,6 +30,23 @@ export function SiteFooter() {
                 .
               </p>
             </div>
+
+            <div className="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+              <a
+                href={`https://instagram.com/${BRAND.instagram}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink-dim transition-colors hover:text-accent-bright"
+              >
+                @{BRAND.instagram}
+              </a>
+              <a
+                href={`mailto:${BRAND.email}`}
+                className="text-ink-dim transition-colors hover:text-accent-bright"
+              >
+                {BRAND.email}
+              </a>
+            </div>
           </div>
 
           {/* field categories */}

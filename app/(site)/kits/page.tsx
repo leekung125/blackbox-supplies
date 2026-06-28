@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { CategoryGlyph } from "@/components/category-glyph";
+import { CategoryObject } from "@/components/object-art";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button-link";
 import { CATEGORIES } from "@/lib/categories";
@@ -37,8 +37,9 @@ export default function KitsPage() {
             >
               <div className="bloom pointer-events-none absolute -right-12 -top-12 h-40 w-40 opacity-40 blur-2xl" />
               <div className="relative flex items-start gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-md border border-line bg-base text-accent">
-                  <CategoryGlyph category={c.name} className="h-6 w-6" />
+                <span className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-base/60">
+                  <div className="grid-faint absolute inset-0 opacity-50" aria-hidden />
+                  <CategoryObject category={c.name} className="relative h-[80%] w-[80%]" />
                 </span>
                 <div className="flex-1">
                   <div className="flex items-center gap-2">

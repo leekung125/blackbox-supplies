@@ -1,65 +1,63 @@
-/** The Blackbox Supply mark — a quiet "black box" with a cold-blue core. */
-export function BrandMark({ className = "h-7 w-7" }: { className?: string }) {
+/**
+ * BLACKBOX SUPPLIES — identity system (SVG, scalable).
+ * Mark: a minimal rounded "black box" with a top lid-slot (the subtle opening) and a single
+ * surgical cold-blue access dash. Wordmark: BlackBox (bold) + Supplies (regular).
+ * No mirrored-B, no cube, no crate, no glow. Off-white + a tiny blue accent only.
+ */
+
+const INK = "#e6e9f0";
+const ACCENT = "#5b93b8";
+
+/** The box mark on its own. `mono` renders box+slot+dash all in currentColor. */
+export function BrandMark({
+  className = "h-8 w-8",
+  mono = false,
+}: {
+  className?: string;
+  mono?: boolean;
+}) {
+  const stroke = mono ? "currentColor" : INK;
+  const dash = mono ? "currentColor" : ACCENT;
   return (
-    <svg
-      className={className}
-      viewBox="0 0 28 28"
-      fill="none"
-      aria-hidden
-    >
-      <rect
-        x="3.5"
-        y="3.5"
-        width="21"
-        height="21"
-        rx="4"
-        stroke="currentColor"
-        strokeOpacity="0.5"
-        strokeWidth="1.3"
-      />
-      <rect
-        x="9.5"
-        y="9.5"
-        width="9"
-        height="9"
-        rx="1.5"
-        fill="#4d8bb0"
-        fillOpacity="0.9"
-      />
-      <path
-        d="M3.5 8 V6 A2.5 2.5 0 0 1 6 3.5 H8"
-        stroke="#74aacb"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-      />
-      <path
-        d="M24.5 20 V22 A2.5 2.5 0 0 1 22 24.5 H20"
-        stroke="#74aacb"
-        strokeWidth="1.3"
-        strokeLinecap="round"
-      />
+    <svg className={className} viewBox="0 0 40 40" fill="none" aria-hidden>
+      <rect x="7" y="7" width="26" height="26" rx="7.5" stroke={stroke} strokeWidth="2.5" />
+      <line x1="15.5" y1="14" x2="24.5" y2="14" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" />
+      <line x1="14.5" y1="20.5" x2="25.5" y2="20.5" stroke={dash} strokeWidth="2.5" strokeLinecap="round" />
     </svg>
   );
 }
 
-/** Full lockup: mark + wordmark. */
+/** Horizontal lockup: mark + BlackBoxSupplies. */
 export function Wordmark({
   className = "",
-  markClassName = "h-7 w-7 text-ink",
+  markClassName = "h-7 w-7",
+  size = "text-[1.05rem]",
+  showMark = true,
 }: {
   className?: string;
   markClassName?: string;
+  size?: string;
+  showMark?: boolean;
 }) {
   return (
     <span className={`inline-flex items-center gap-2.5 ${className}`}>
-      <BrandMark className={markClassName} />
-      <span className="flex flex-col leading-none">
-        <span className="text-[0.95rem] font-semibold uppercase tracking-[0.2em] text-ink">
-          Blackbox
-        </span>
-        <span className="mono text-[0.6rem] uppercase tracking-[0.42em] text-ink-faint">
-          Supply
-        </span>
+      {showMark ? <BrandMark className={markClassName} /> : null}
+      <span className={`${size} leading-none tracking-tight text-ink`}>
+        <span className="font-bold">BlackBox</span>
+        <span className="font-normal text-ink-dim">Supplies</span>
+      </span>
+    </span>
+  );
+}
+
+/** Stacked lockup: mark over the wordmark (used on the link-in-bio). */
+export function WordmarkStacked({ className = "" }: { className?: string }) {
+  return (
+    <span className={`inline-flex flex-col items-center gap-4 ${className}`}>
+      <BrandMark className="h-12 w-12" />
+      <span className="text-xl leading-none tracking-tight text-ink">
+        <span className="font-bold">BlackBox</span>
+        <span className="font-normal text-ink-dim">Supplies</span>
       </span>
     </span>
   );

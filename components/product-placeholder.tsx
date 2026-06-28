@@ -73,7 +73,7 @@ export function ProductPlaceholder({
 
       {/* fine scanlines */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-50 mix-blend-overlay"
+        className="pointer-events-none absolute inset-0 opacity-25 mix-blend-overlay"
         style={{
           backgroundImage:
             "repeating-linear-gradient(to bottom, rgba(255,255,255,0.045) 0px, rgba(255,255,255,0.045) 1px, transparent 1px, transparent 3px)",

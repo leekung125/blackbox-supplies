@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Wordmark } from "@/components/wordmark";
+import { WordmarkStacked } from "@/components/wordmark";
 import { CATEGORIES } from "@/lib/categories";
 import { BRAND, DISCLOSURE_SHORT } from "@/lib/content";
 
@@ -22,7 +22,7 @@ export default function LinksPage() {
       <div className="bloom pointer-events-none absolute -top-16 left-1/2 h-72 w-72 -translate-x-1/2 opacity-60 blur-3xl" />
 
       <div className="relative flex flex-col items-center text-center">
-        <Wordmark markClassName="h-11 w-11 text-ink" className="flex-col gap-3" />
+        <WordmarkStacked />
         <p className="mono mt-5 text-[0.7rem] uppercase tracking-[0.3em] text-accent-bright">
           {BRAND.tagline}
         </p>

@@ -1,32 +1,32 @@
 @import "tailwindcss";
 
 /* ----------------------------------------------------------------------------
-   Blackbox Supply — design tokens
-   base graphite/near-black · panels · cold-blue accent · off-white text
-   red ONLY as a tiny warning accent. No amber, no neon, no rainbow.
+   BlackBoxSupplies — design tokens (v1)
+   Premium dark field catalog. Black · graphite · off-white · steel-gray.
+   Cold-blue is SURGICAL only (the mark dash, one active state, a hairline).
 ---------------------------------------------------------------------------- */
 @theme {
   --color-base: #06070b;
-  --color-panel: #0b0e14;
-  --color-card: #11151d;
-  --color-card-2: #161a23;
-  --color-line: #222a36;
-  --color-line-soft: #181d27;
+  --color-panel: #090c12;
+  --color-card: #0f131a;
+  --color-card-2: #141822;
+  --color-line: #1e2430;
+  --color-line-soft: #161b24;
 
-  --color-accent: #4d8bb0;
-  --color-accent-bright: #74aacb;
-  --color-accent-deep: #2c5a76;
+  --color-accent: #5b93b8;
+  --color-accent-bright: #84b6d6;
+  --color-accent-deep: #2f5874;
 
-  --color-ink: #d8dde7;
-  --color-ink-dim: #9aa4b4;
-  --color-ink-faint: #7b8596;
+  --color-ink: #e6e9f0;
+  --color-ink-dim: #9aa3b2;
+  --color-ink-faint: #6e7787;
 
   --color-warn: #e8324a;
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro",
-    Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Code", "Source Code Pro", Menlo,
+    Consolas, "DejaVu Sans Mono", monospace;
 }
 
 @layer base {
@@ -40,27 +40,20 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* Faint cold-blue vignette + atmosphere over the graphite base. */
-    background-image:
-      radial-gradient(
-        120% 80% at 50% -10%,
-        rgba(77, 139, 176, 0.08),
-        transparent 60%
-      ),
-      radial-gradient(
-        80% 50% at 100% 100%,
-        rgba(77, 139, 176, 0.04),
-        transparent 70%
-      );
+    /* near-pure graphite with one barely-there cold highlight — not over-blue */
+    background-image: radial-gradient(
+      100% 60% at 50% -15%,
+      rgba(91, 147, 184, 0.05),
+      transparent 55%
+    );
     background-attachment: fixed;
   }
 
   ::selection {
-    background: rgba(77, 139, 176, 0.3);
+    background: rgba(91, 147, 184, 0.26);
     color: #ffffff;
   }
 
-  /* Quiet, on-brand focus ring (keyboard accessibility kept intact). */
   :focus-visible {
     outline: 1px solid var(--color-accent);
     outline-offset: 2px;
@@ -73,36 +66,44 @@
 }
 
 @layer utilities {
-  /* Small letter-spaced uppercase mono tag — the "quiet HUD" voice. */
+  /* Small letter-spaced uppercase mono tag — the technical "field" voice. */
   .kicker {
     font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     font-size: 0.6875rem;
     line-height: 1;
     color: var(--color-ink-faint);
   }
 
-  /* Mono microcopy (prices, codes, readouts). */
   .mono {
     font-family: var(--font-mono);
     font-variant-numeric: tabular-nums;
   }
 
-  /* Ultra-subtle technical grid texture for section/card backgrounds. */
+  /* Hairline technical grid — extremely subtle. */
   .grid-faint {
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-    background-size: 44px 44px;
+      linear-gradient(to right, rgba(255, 255, 255, 0.014) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+    background-size: 46px 46px;
   }
 
-  /* Soft cold-blue bloom behind hero / placeholder glyphs. */
+  /* Restrained cold bloom — used sparingly behind a hero object. */
   .bloom {
     background: radial-gradient(
       circle at center,
-      rgba(77, 139, 176, 0.22),
-      transparent 68%
+      rgba(91, 147, 184, 0.16),
+      transparent 66%
+    );
+  }
+
+  /* Expensive, rare hairline-top sheen for premium panels. */
+  .panel-sheen {
+    background-image: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.022),
+      transparent 18%
     );
   }
 
