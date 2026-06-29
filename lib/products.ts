@@ -38,6 +38,8 @@ export interface Product {
   caption: string;
   status: string;
   disclosureRequired: boolean;
+  /** Real/generated product visual (path under /public, e.g. "/products/<id>.png"). Falls back to the code-drawn tile. */
+  image?: string;
   /** Campaign id this product is live in (e.g. "001"); empty/undefined otherwise. */
   campaign?: string;
   /** Role within the campaign: lead | hero | support. */

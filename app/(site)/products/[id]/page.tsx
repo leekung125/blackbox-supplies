@@ -76,6 +76,7 @@ export default async function ProductDetailPage({
             category={product.category}
             caption={product.subcategory}
             aspect="square"
+            image={product.image}
           />
 
           <div className="mt-5 rounded-lg border border-line bg-card/40 p-5">

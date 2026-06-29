@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { CornerTicks } from "@/components/corner-ticks";
 import { ProductCard } from "@/components/product-card";
-import { CategoryObject } from "@/components/object-art";
 import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button-link";
@@ -111,8 +110,17 @@ export default function HomePage() {
                   className="group relative flex items-center gap-5 overflow-hidden rounded-xl border border-line bg-card/40 p-5 transition-all hover:-translate-y-0.5 hover:border-accent/30 hover:bg-card"
                 >
                   <div className="relative grid h-20 w-20 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-base/60">
-                    <div className="grid-faint absolute inset-0 opacity-50" aria-hidden />
-                    <CategoryObject category={c.name} className="relative h-[80%] w-[80%]" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={c.repImage}
+                      alt={`${c.kitName} — representative gear`}
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.06]"
+                    />
+                    <div
+                      className="pointer-events-none absolute inset-0"
+                      style={{ background: "radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(3,4,8,0.5))" }}
+                      aria-hidden
+                    />
                   </div>
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">

@@ -64,8 +64,19 @@ export default function LinksPage() {
             className="group mt-3 flex items-center gap-4 overflow-hidden rounded-xl border border-line bg-card/40 p-4 transition-colors hover:border-accent/40 hover:bg-card"
           >
             <span className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-base/60">
-              <div className="grid-faint absolute inset-0 opacity-50" aria-hidden />
-              <CategoryObject category={lead.category} className="relative h-[78%] w-[78%]" />
+              {lead.image ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={lead.image}
+                  alt={`${lead.name} — generated visual`}
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <>
+                  <div className="grid-faint absolute inset-0 opacity-50" aria-hidden />
+                  <CategoryObject category={lead.category} className="relative h-[78%] w-[78%]" />
+                </>
+              )}
             </span>
             <span className="min-w-0 flex-1">
               <span className="block text-sm font-semibold text-ink">{lead.name}</span>

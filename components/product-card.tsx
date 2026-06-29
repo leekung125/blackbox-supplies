@@ -30,6 +30,7 @@ export function ProductCard({ product }: { product: Product }) {
           caption={product.subcategory}
           aspect="square"
           className="rounded-lg"
+          image={product.image}
         />
       </div>
 

@@ -38,7 +38,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "lead"
+    "campaignUse": "lead",
+    "image": "/products/power-bank-compact-10k.jpg"
   },
   {
     "id": "power-bank-highcap-20k",
@@ -80,7 +81,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "hero"
+    "campaignUse": "hero",
+    "image": "/products/power-bank-highcap-20k.jpg"
   },
   {
     "id": "power-gan-wall-65w",
@@ -121,7 +123,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "support"
+    "campaignUse": "support",
+    "image": "/products/power-gan-wall-65w.jpg"
   },
   {
     "id": "power-car-charger-multiport",
@@ -441,7 +444,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "support"
+    "campaignUse": "support",
+    "image": "/products/car-jump-starter-lithium.jpg"
   },
   {
     "id": "car-tire-inflator-cordless",
@@ -482,7 +486,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "support"
+    "campaignUse": "support",
+    "image": "/products/car-tire-inflator-cordless.jpg"
   },
   {
     "id": "car-dashcam-front",
@@ -603,7 +608,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "hero"
+    "campaignUse": "hero",
+    "image": "/products/car-trunk-organizer.jpg"
   },
   {
     "id": "car-vacuum-handheld",
@@ -845,7 +851,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "support"
+    "campaignUse": "support",
+    "image": "/products/light-edc-flashlight.jpg"
   },
   {
     "id": "light-emergency-lantern",
@@ -887,7 +894,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "support"
+    "campaignUse": "support",
+    "image": "/products/light-emergency-lantern.jpg"
   },
   {
     "id": "light-headlamp",
@@ -1284,7 +1292,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "hero"
+    "campaignUse": "hero",
+    "image": "/products/carry-card-tracker.jpg"
   },
   {
     "id": "carry-antitheft-backpack",
@@ -1402,7 +1411,8 @@
     "status": "live",
     "disclosureRequired": true,
     "campaign": "001",
-    "campaignUse": "support"
+    "campaignUse": "support",
+    "image": "/products/carry-tech-pouch.jpg"
   },
   {
     "id": "carry-tsa-lock",

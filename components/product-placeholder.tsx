@@ -22,13 +22,51 @@ export function ProductPlaceholder({
   caption,
   aspect = "square",
   className = "",
+  image,
 }: {
   category: Category;
   caption?: string;
   aspect?: Aspect;
   className?: string;
+  /** A real/generated product visual (path under /public). Falls back to the code-drawn tile. */
+  image?: string;
 }) {
   const meta = getCategoryByName(category);
+
+  if (image) {
+    return (
+      <div
+        className={`relative overflow-hidden rounded-md border border-line bg-card-2 ${RATIO[aspect]} ${className}`}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={image}
+          alt={caption ? `${meta.name} — ${caption}` : `${meta.name} — generated visual`}
+          className="absolute inset-0 h-full w-full object-cover"
+          loading="lazy"
+        />
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(130% 82% at 50% -12%, transparent 50%, rgba(3,4,8,0.6))" }}
+          aria-hidden
+        />
+        <div className="kicker absolute left-3 top-3 text-ink-faint/85">
+          Blackbox // {meta.lettermark}
+        </div>
+        <div className="absolute inset-x-3 bottom-3 flex items-end justify-between gap-2">
+          <span className="kicker text-[0.5625rem] tracking-[0.18em] text-ink-faint/75">
+            Generated
+          </span>
+          {caption ? (
+            <span className="kicker max-w-[52%] truncate text-[0.5625rem] tracking-[0.14em] text-ink-faint/75">
+              {caption}
+            </span>
+          ) : null}
+        </div>
+        <CornerTicks className="border-accent/30" />
+      </div>
+    );
+  }
 
   return (
     <div

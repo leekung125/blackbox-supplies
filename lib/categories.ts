@@ -13,6 +13,8 @@ export interface CategoryMeta {
   tagline: string;
   /** One honest sentence describing the category. */
   blurb: string;
+  /** Representative generated product visual (path under /public) for category cards. */
+  repImage: string;
 }
 
 export const CATEGORIES: CategoryMeta[] = [
@@ -24,6 +26,7 @@ export const CATEGORIES: CategoryMeta[] = [
     tagline: "When the battery dies first.",
     blurb:
       "Portable charge, wall and car power, and outage-grade stations — for the moment the percentage hits zero and there is no outlet in reach.",
+    repImage: "/products/power-bank-compact-10k.jpg",
   },
   {
     slug: "car",
@@ -33,6 +36,7 @@ export const CATEGORIES: CategoryMeta[] = [
     tagline: "For the breakdown you didn't plan.",
     blurb:
       "Jump starters, inflators, dash cams and roadside gear — the trunk you wish you'd packed before the shoulder of the highway.",
+    repImage: "/products/car-jump-starter-lithium.jpg",
   },
   {
     slug: "light",
@@ -42,6 +46,7 @@ export const CATEGORIES: CategoryMeta[] = [
     tagline: "When the lights go out.",
     blurb:
       "Flashlights, lanterns, headlamps and beacons — directed, hands-free, outage-ready light for the dark road and the black hallway.",
+    repImage: "/products/light-edc-flashlight.jpg",
   },
   {
     slug: "carry",
@@ -51,6 +56,7 @@ export const CATEGORIES: CategoryMeta[] = [
     tagline: "Find it. Secure it. Move.",
     blurb:
       "Trackers, organizers, locks and tools — keep what matters located, contained, and reachable when you're already late.",
+    repImage: "/products/carry-card-tracker.jpg",
   },
 ];
 
