@@ -186,7 +186,7 @@ export default function HomePage() {
 
         <Reveal delay={0.05}>
           <p className="mono mt-6 text-[0.7rem] uppercase tracking-[0.16em] text-ink-faint">
-            Some links are affiliate links · we have not personally tested these products ·{" "}
+            Source-only links · we have not personally tested these products ·{" "}
             <Link
               href="/disclosure"
               className="text-ink-dim underline decoration-line underline-offset-2 hover:text-accent-bright"

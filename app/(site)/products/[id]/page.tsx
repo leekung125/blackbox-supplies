@@ -109,7 +109,7 @@ export default async function ProductDetailPage({
               {meta.name}
             </Badge>
             <Badge variant="outline">{product.subcategory}</Badge>
-            <Badge variant="outline">Not tested</Badge>
+            <Badge variant="outline">{product.tested ? "Tested" : "Not tested"}</Badge>
           </div>
 
           <h1 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl">

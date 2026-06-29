@@ -1370,9 +1370,7 @@
     "videoHook": "Boarding's called. Your cables are one giant knot.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true,
-    "campaign": "",
-    "campaignUse": ""
+    "disclosureRequired": true
   },
   {
     "id": "carry-tech-pouch",

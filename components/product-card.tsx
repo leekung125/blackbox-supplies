@@ -50,7 +50,7 @@ export function ProductCard({ product }: { product: Product }) {
         </p>
 
         <div className="mt-4 flex items-center justify-between gap-2 border-t border-line-soft pt-3.5">
-          <NotTestedBadge />
+          <NotTestedBadge tested={product.tested} />
           <span className="mono inline-flex items-center gap-1 text-[0.7rem] uppercase tracking-[0.14em] text-ink-dim transition-colors group-hover:text-accent-bright">
             View
             <svg

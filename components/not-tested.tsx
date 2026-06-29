@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { NOT_TESTED_NOTE } from "@/lib/content";
 
-/** Compact badge for cards — surfaced wherever `tested === false`. */
-export function NotTestedBadge() {
-  return <Badge variant="outline">Not tested</Badge>;
+/** Compact trust badge for cards — bound to the product's real `tested` state (honest, not hard-coded). */
+export function NotTestedBadge({ tested = false }: { tested?: boolean }) {
+  return <Badge variant="outline">{tested ? "Tested" : "Not tested"}</Badge>;
 }
 
 /** Full honest note for the product detail page. */

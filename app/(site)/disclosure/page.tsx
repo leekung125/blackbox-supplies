@@ -21,9 +21,11 @@ export default function DisclosurePage() {
 
       <div className="mt-10 space-y-2">
         <Section title="Affiliate links">
-          Some outbound links on {BRAND.name} are affiliate links. If you buy through one, we may earn a
-          commission at no additional cost to you. It never changes the price you pay, and it does not decide
-          what we feature — selection is based on how well a product answers a specific failure moment.
+          Right now, every outbound link on {BRAND.name} is a plain <strong className="text-ink">source
+          link</strong> — we have not joined an affiliate program, so we earn no commission on anything you
+          buy. If that ever changes, affiliate links will be labeled clearly at the link itself; a commission
+          would come at no additional cost to you, would never change the price you pay, and would never
+          decide what we feature — selection is based on how well a product answers a specific failure moment.
         </Section>
         <Section title="We have not personally tested these products">
           {BRAND.name} is a sourcing catalog, not a testing lab. We have{" "}

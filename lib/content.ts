@@ -74,9 +74,11 @@ export const VIDEO_DROPS: VideoDrop[] = [
   },
 ];
 
-/** Short affiliate + AI disclosure line used in footers and near links. */
+/** Short disclosure line used in footers and near links. Honest to the CURRENT source-only state:
+ *  every outbound link is a source link (no affiliate program joined yet), so we earn nothing. The
+ *  per-link affiliate disclosure appears automatically if/when a real affiliateUrl is ever added. */
 export const DISCLOSURE_SHORT =
-  "Blackbox Supply may earn a commission on some outbound links, at no cost to you. We have not personally tested these products; details are sourced from public research and can change.";
+  "Outbound links are source links — we currently earn no commission. We have not personally tested these products; details are drawn from public research and can change.";
 
 /** The "not personally tested" microcopy. */
 export const NOT_TESTED_NOTE =
