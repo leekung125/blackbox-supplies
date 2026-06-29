@@ -38,6 +38,10 @@ export interface Product {
   caption: string;
   status: string;
   disclosureRequired: boolean;
+  /** Campaign id this product is live in (e.g. "001"); empty/undefined otherwise. */
+  campaign?: string;
+  /** Role within the campaign: lead | hero | support. */
+  campaignUse?: string;
 }
 
 /** All products, loaded from the local JSON at build time (server-side). */
@@ -55,20 +59,25 @@ export function getProductsByCategory(category: Category): Product[] {
   return products.filter((p) => p.category === category);
 }
 
-/** Curated featured set for the home page (a spread across all four categories). */
-const FEATURED_IDS: string[] = [
-  "power-bank-compact-10k",
-  "car-jump-starter-lithium",
-  "light-edc-flashlight",
-  "carry-bt-tracker",
-  "power-station-300wh",
-  "car-dashcam-front",
-];
+const USE_RANK: Record<string, number> = { lead: 0, hero: 1, support: 2 };
 
+/**
+ * Home-page featured set = the Campaign 001 selection installed by the Scout,
+ * ordered lead → hero → support. Falls back to a spread across the four fields
+ * if no campaign is installed yet.
+ */
 export function getFeaturedProducts(): Product[] {
-  const byId = new Map(products.map((p) => [p.id, p]));
-  return FEATURED_IDS.map((id) => byId.get(id)).filter(
-    (p): p is Product => Boolean(p)
+  const campaign = products
+    .filter((p) => p.campaign === "001")
+    .sort(
+      (a, b) =>
+        (USE_RANK[a.campaignUse ?? ""] ?? 9) - (USE_RANK[b.campaignUse ?? ""] ?? 9)
+    );
+  if (campaign.length) return campaign;
+
+  const seen = new Set<string>();
+  return products.filter((p) =>
+    seen.has(p.category) ? false : (seen.add(p.category), true)
   );
 }
 
