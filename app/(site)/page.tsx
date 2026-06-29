@@ -5,6 +5,7 @@ import { SectionHeading } from "@/components/section-heading";
 import { Badge } from "@/components/ui/badge";
 import { ButtonLink } from "@/components/ui/button-link";
 import { Hero } from "@/components/hero";
+import { ActiveCampaign } from "@/components/active-campaign";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { TrustStrip } from "@/components/trust-strip";
 import { Tilt } from "@/components/motion/tilt";
@@ -31,6 +32,8 @@ export default function HomePage() {
   return (
     <>
       <Hero total={total} />
+
+      <ActiveCampaign />
 
       <TrustStrip />
 
