@@ -149,9 +149,9 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <Reveal>
           <SectionHeading
-            kicker="Latest drops"
+            kicker="The incident files"
             title="The films"
-            description="Silent product micro-films, one per failure moment — cinematic, honest, made by the engine."
+            description="Short product films, one per failure moment — the boring object that quietly ends a bad night. Incident 001 is live."
           />
         </Reveal>
         <Stagger className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">

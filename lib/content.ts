@@ -40,23 +40,23 @@ export interface VideoDrop {
   hook: string;
   category: Category;
   categorySlug: string;
-  status: "In production" | "Scheduled" | "Concept";
+  status: "New" | "In production" | "Scheduled" | "Concept";
   thumb: string;
 }
 
 export const VIDEO_DROPS: VideoDrop[] = [
   {
-    code: "DROP 001",
-    thumb: "/films/dead-phone.png",
-    title: "Dead Phone, Bad Timing",
-    hook: "4 percent. No outlet. The train's already here.",
+    code: "INCIDENT 001",
+    thumb: "/films/dead-phone.jpg",
+    title: "The Box — Dead Phone",
+    hook: "This is the part where he panics. One percent, twenty minutes from home.",
     category: "Power",
     categorySlug: "power",
-    status: "In production",
+    status: "New",
   },
   {
-    code: "DROP 002",
-    thumb: "/films/dark-road.png",
+    code: "INCIDENT 002",
+    thumb: "/films/dark-road.jpg",
     title: "Dark Road, No Light",
     hook: "Both hands busy. Zero light. Now what.",
     category: "Light",
@@ -64,10 +64,10 @@ export const VIDEO_DROPS: VideoDrop[] = [
     status: "Scheduled",
   },
   {
-    code: "DROP 003",
-    thumb: "/films/flat-tire.png",
+    code: "INCIDENT 003",
+    thumb: "/films/flat-tire.jpg",
     title: "Flat Tire, No Plan",
-    hook: "Low-pressure light. 11pm. Every air pump 'out of service.'",
+    hook: "Low-pressure light. 11pm. Every air pump out of service.",
     category: "Car",
     categorySlug: "car",
     status: "Scheduled",

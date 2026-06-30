@@ -162,7 +162,8 @@
     "videoHook": "Maps on. Battery dropping. The dash is supposed to be helping.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/power-car-charger-multiport.jpg"
   },
   {
     "id": "power-cable-kit-6in1",
@@ -200,7 +201,8 @@
     "videoHook": "Right cable. Wrong end. Story of your life.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/power-cable-kit-6in1.jpg"
   },
   {
     "id": "power-station-300wh",
@@ -241,7 +243,8 @@
     "videoHook": "The grid blinks out. Yours doesn't.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/power-station-300wh.jpg"
   },
   {
     "id": "power-magsafe-wireless",
@@ -281,7 +284,8 @@
     "videoHook": "No cable. No outlet. Just snap and walk.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/power-magsafe-wireless.jpg"
   },
   {
     "id": "power-solar-rugged",
@@ -322,7 +326,8 @@
     "videoHook": "40 miles from the nearest outlet. The sun's your only plug.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/power-solar-rugged.jpg"
   },
   {
     "id": "power-laptop-bank-100w",
@@ -362,7 +367,8 @@
     "videoHook": "8 percent. 40 minutes. No outlet.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/power-laptop-bank-100w.jpg"
   },
   {
     "id": "power-travel-adapter-universal",
@@ -401,7 +407,8 @@
     "videoHook": "New country. Dead phone. Wrong plug.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/power-travel-adapter-universal.jpg"
   },
   {
     "id": "car-jump-starter-lithium",
@@ -528,7 +535,8 @@
     "videoHook": "Their word against yours. Unless something was watching.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/car-dashcam-front.jpg"
   },
   {
     "id": "car-dashcam-dual",
@@ -568,7 +576,8 @@
     "videoHook": "It came from behind. So did the proof.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/car-dashcam-dual.jpg"
   },
   {
     "id": "car-trunk-organizer",
@@ -648,7 +657,8 @@
     "videoHook": "Ten minutes until pickup. The seats look like a crime scene.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/car-vacuum-handheld.jpg"
   },
   {
     "id": "car-roadside-kit",
@@ -688,7 +698,8 @@
     "videoHook": "Shoulder of the highway. Trunk's empty. Now what?",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/car-roadside-kit.jpg"
   },
   {
     "id": "car-phone-mount-magnetic",
@@ -727,7 +738,8 @@
     "videoHook": "One sharp turn. The phone hits the floor. So does your exit.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/car-phone-mount-magnetic.jpg"
   },
   {
     "id": "car-obd2-scanner",
@@ -767,7 +779,8 @@
     "videoHook": "Check engine. The morning you're supposed to leave town.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/car-obd2-scanner.jpg"
   },
   {
     "id": "car-escape-tool",
@@ -809,7 +822,8 @@
     "videoHook": "The one tool you hope you never reach for.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/car-escape-tool.jpg"
   },
   {
     "id": "light-edc-flashlight",
@@ -934,7 +948,8 @@
     "videoHook": "Both hands busy. Zero light. Now what.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-headlamp.jpg"
   },
   {
     "id": "light-work-light-magnetic",
@@ -973,7 +988,8 @@
     "videoHook": "Broke down at night. Nowhere to set the light.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-work-light-magnetic.jpg"
   },
   {
     "id": "light-motion-sensor-indoor",
@@ -1013,7 +1029,8 @@
     "videoHook": "2am. Dark hallway. The switch is never where you reach.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-motion-sensor-indoor.jpg"
   },
   {
     "id": "light-keychain-flashlight",
@@ -1051,7 +1068,8 @@
     "videoHook": "Keys, gone. Into the dark gap by the curb.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-keychain-flashlight.jpg"
   },
   {
     "id": "light-camping-lantern-powerbank",
@@ -1090,7 +1108,8 @@
     "videoHook": "Dark campsite. Dying phone. No outlet for 30 miles.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-camping-lantern-powerbank.jpg"
   },
   {
     "id": "light-outdoor-security-solar",
@@ -1129,7 +1148,8 @@
     "videoHook": "Pitch-black driveway. Keys in one hand, groceries in the other.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-outdoor-security-solar.jpg"
   },
   {
     "id": "light-led-road-flares",
@@ -1169,7 +1189,8 @@
     "videoHook": "Dark shoulder. Headlights coming. Make sure they see you.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-led-road-flares.jpg"
   },
   {
     "id": "light-cob-work-floodlight",
@@ -1207,7 +1228,8 @@
     "videoHook": "You don't need a pinpoint. You need to see everything.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/light-cob-work-floodlight.jpg"
   },
   {
     "id": "carry-bt-tracker",
@@ -1249,7 +1271,8 @@
     "videoHook": "Keys, gone. You're already late.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-bt-tracker.jpg"
   },
   {
     "id": "carry-card-tracker",
@@ -1333,7 +1356,8 @@
     "videoHook": "Packed station. Bag on your back. Someone's hands too close.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-antitheft-backpack.jpg"
   },
   {
     "id": "carry-cable-organizer",
@@ -1370,7 +1394,8 @@
     "videoHook": "Boarding's called. Your cables are one giant knot.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-cable-organizer.jpg"
   },
   {
     "id": "carry-tech-pouch",
@@ -1449,7 +1474,8 @@
     "videoHook": "Carousel. Your bag. Zippers wide open.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-tsa-lock.jpg"
   },
   {
     "id": "carry-multi-tool",
@@ -1489,7 +1515,8 @@
     "videoHook": "One loose screw. Zero tools. Every time.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-multi-tool.jpg"
   },
   {
     "id": "carry-packing-cubes",
@@ -1527,7 +1554,8 @@
     "videoHook": "6am. Wrong city. Suitcase exploded across the bed.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-packing-cubes.jpg"
   },
   {
     "id": "carry-rfid-wallet",
@@ -1566,7 +1594,8 @@
     "videoHook": "At the gate. Passport, phone, boarding pass. One free hand.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-rfid-wallet.jpg"
   },
   {
     "id": "carry-luggage-scale",
@@ -1604,6 +1633,7 @@
     "videoHook": "Two pounds over. And the fee chart is right there.",
     "caption": "",
     "status": "candidate",
-    "disclosureRequired": true
+    "disclosureRequired": true,
+    "image": "/products/carry-luggage-scale.jpg"
   }
 ]
