@@ -1,189 +1,241 @@
 @import "tailwindcss";
 
-/* ----------------------------------------------------------------------------
-   BlackBoxSupplies — design tokens (v1)
-   Premium dark field catalog. Black · graphite · off-white · steel-gray.
-   Cold-blue is SURGICAL only (the mark dash, one active state, a hairline).
----------------------------------------------------------------------------- */
+/* ============================================================================
+   BLACKBOX SUPPLY — design system v6  (WARM DARK EDITORIAL COMMERCE)
+   A premium Amazon-finds / buying-guide publication that feels alive at night.
+   Espresso/charcoal environment with a soft warm light-field, dark gallery
+   cards that the product media sits INSIDE (no pasted-on look), and warm-PAPER
+   reading surfaces wherever long-form readability matters. One warm amber/brass
+   accent. Serif headlines (Newsreader) + Inter body + mono for labels/prices.
+   Video + motion carry the "alive"; the environment carries the mood.
+   Ref: DESIGN_DIRECTION.md + WORLD_CLASS_BAR.md + the LIVING WEBSITE brief.
+============================================================================ */
 @theme {
-  --color-base: #06070b;
-  --color-panel: #090c12;
-  --color-card: #0f131a;
-  --color-card-2: #141822;
-  --color-line: #1e2430;
-  --color-line-soft: #161b24;
+  /* ── warm dark environment (ground + dark gallery cards) ───────────────── */
+  --color-paper: #15110b;        /* espresso ground */
+  --color-base: #15110b;
+  --color-surface: #1e1810;      /* warm charcoal card (dark) */
+  --color-surface-2: #261f15;    /* raised warm panel */
+  --color-card: #1e1810;
+  --color-card-2: #2a2218;
 
-  --color-accent: #5b93b8;
-  --color-accent-bright: #84b6d6;
-  --color-accent-deep: #2f5874;
+  /* ── warm-PAPER reading surface (within the dark world) ────────────────── */
+  --color-readsurface: #f4efe4;  /* warm paper — long-form/guide reading cards */
+  --color-readsurface-2: #ebe3d4;
+  --color-readink: #221d14;      /* ink on warm paper */
+  --color-readink-dim: #5b5240;
 
-  --color-ink: #e6e9f0;
-  --color-ink-dim: #9aa3b2;
-  --color-ink-faint: #6e7787;
+  /* hairlines (warm, dark) */
+  --color-line: #302718;
+  --color-line-soft: #241d13;
+  --color-line-strong: #40341f;
 
-  --color-warn: #e8324a;
+  /* ink on dark */
+  --color-ink: #ebe3d1;          /* warm off-white body */
+  --color-ink-strong: #faf5ea;   /* headlines */
+  --color-ink-dim: #b2a78e;      /* secondary text */
+  --color-ink-2: #b2a78e;
+  --color-ink-faint: #897e66;    /* meta / eyebrows */
 
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
-    "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: var(--font-jbmono), ui-monospace, "SF Mono", "Cascadia Code",
-    Menlo, Consolas, monospace;
+  /* deeper anchor (header / footer) */
+  --color-dark: #100c07;
+  --color-dark-2: #18120a;
+  --color-graphite: #0d0a05;
+  --color-on-dark: #ebe3d1;
+  --color-on-dark-dim: #b2a78e;
+  --color-dark-line: #2c2415;
+
+  /* ── one warm amber/brass accent (premium-at-night) ────────────────────── */
+  --color-accent: #d99a45;       /* CTA bg / links on dark — amber */
+  --color-accent-strong: #c5852d;/* hover (deeper) */
+  --color-accent-bright: #edba66;/* bright accent for very-dark contexts */
+  --color-accent-ink: #9a6413;   /* accent text on warm PAPER (darker for AA) */
+  --color-accent-tint: #2b2113;  /* faint warm chip/wash on dark */
+  --color-on-accent: #1a1205;    /* dark text on amber */
+
+  /* warm cues — price/deal share the amber family */
+  --color-amber: #e0a352;
+  --color-amber-bright: #edba66;
+  --color-amber-tint: #2b2113;
+  --color-pine: #6f9b6a;
+
+  --font-display: var(--font-newsreader), ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-mono-geist), ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
 }
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background-color: #0a0705; }
 
   body {
-    background-color: var(--color-base);
+    background-color: transparent;
     color: var(--color-ink);
     font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* near-pure graphite with one barely-there cold highlight — not over-blue */
-    background-image: radial-gradient(
-      100% 60% at 50% -15%,
-      rgba(91, 147, 184, 0.05),
-      transparent 55%
-    );
-    background-attachment: fixed;
+    font-feature-settings: "kern", "liga";
   }
 
-  /* Filmic grain — the single biggest "dark feels premium not flat" upgrade. ~5%, fixed, GPU-cheap. */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: 60;
-    pointer-events: none;
-    opacity: 0.04;
-    mix-blend-mode: overlay;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+  /* The living background is the WebGL <Atmosphere/> mounted in layout.tsx. */
 
-  ::selection {
-    background: rgba(91, 147, 184, 0.26);
-    color: #ffffff;
-  }
+  h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-ink-strong); font-weight: 600; }
+  h1 { letter-spacing: -0.022em; line-height: 1.05; }
+  h2 { letter-spacing: -0.018em; line-height: 1.12; }
+  h3 { letter-spacing: -0.012em; line-height: 1.2; }
+  h4 { letter-spacing: -0.008em; line-height: 1.25; }
 
-  :focus-visible {
-    outline: 1px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+  ::selection { background: rgba(217, 154, 69, 0.26); color: #fff; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; border-radius: 3px; }
+  a { color: inherit; text-decoration: none; }
+  img { -webkit-user-drag: none; }
 }
 
 @layer utilities {
-  /* Small letter-spaced uppercase mono tag — the technical "field" voice. */
-  .kicker {
-    font-family: var(--font-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.6875rem;
-    line-height: 1;
-    color: var(--color-ink-faint);
+  /* eyebrow / kicker — warm mono */
+  .eyebrow { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.14em; font-size: 0.72rem; font-weight: 500; line-height: 1; color: var(--color-ink-faint); }
+  .eyebrow-accent { color: var(--color-accent); }
+
+  .display { font-family: var(--font-display); letter-spacing: -0.022em; }
+  .font-display { font-family: var(--font-display); }
+  .font-mono { font-family: var(--font-mono); }
+
+  .lede { font-size: 1.2rem; line-height: 1.6; color: var(--color-ink-dim); }
+  @media (min-width: 640px) { .lede { font-size: 1.3rem; } }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+  .nums { font-variant-numeric: tabular-nums; }
+
+  .ulink { color: var(--color-accent); background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1.5px; background-position: 0 100%; background-repeat: no-repeat; transition: background-size 0.3s cubic-bezier(0.16,1,0.3,1); }
+  .ulink:hover { background-size: 100% 1.5px; }
+
+  /* ── warm-PAPER reading surface: long-form readability inside the dark world ── */
+  .read-surface { background: var(--color-readsurface); color: var(--color-readink); border-radius: 1rem; }
+  .read-surface h1, .read-surface h2, .read-surface h3, .read-surface h4 { color: var(--color-readink); }
+  .read-surface .lede { color: var(--color-readink-dim); }
+  .read-surface .article p { color: var(--color-readink-dim); }
+  .read-surface .ulink { color: var(--color-accent-ink); }
+  .read-surface .eyebrow { color: #8a7350; }
+
+  .article p { color: var(--color-ink-dim); line-height: 1.75; font-size: 1.05rem; }
+  .article p + p { margin-top: 1.1em; }
+
+  /* premium card — an elevated, *lit* object on the dark ground. Depth comes from a
+     layered warm shadow + a faint warm hairline + a top edge-light, NOT a flat border. */
+  .bbx-card {
+    position: relative;
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 243, 228, 0.06);
+    border-radius: 1rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.32), 0 18px 38px -24px rgba(0,0,0,0.66);
+  }
+  .bbx-card::after {
+    content: "";
+    position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    box-shadow: inset 0 1px 0 0 rgba(255, 240, 222, 0.06);
   }
 
-  .mono {
-    font-family: var(--font-mono);
-    font-variant-numeric: tabular-nums;
+  /* hover lift — composited transform + shadow deepen + warm edge. Ease-out, ~400ms. */
+  .card-lift, .glow-hover {
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.4s ease;
+  }
+  .card-lift:hover, .glow-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4), 0 34px 58px -28px rgba(0,0,0,0.74);
+    border-color: rgba(217, 154, 69, 0.32);
   }
 
-  /* Hairline technical grid — extremely subtle. */
-  .grid-faint {
+  .rise { opacity: 0; transform: translateY(14px); animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+  @keyframes rise { to { opacity: 1; transform: translateY(0); } }
+
+  .stagger-rise > * { opacity: 0; animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both; }
+  .stagger-rise > *:nth-child(1) { animation-delay: 0.05s; }
+  .stagger-rise > *:nth-child(2) { animation-delay: 0.12s; }
+  .stagger-rise > *:nth-child(3) { animation-delay: 0.19s; }
+  .stagger-rise > *:nth-child(4) { animation-delay: 0.26s; }
+  .stagger-rise > *:nth-child(5) { animation-delay: 0.33s; }
+  .stagger-rise > *:nth-child(6) { animation-delay: 0.40s; }
+  .stagger-rise > *:nth-child(n+7) { animation-delay: 0.46s; }
+
+  .on-dark { background: var(--color-dark); color: var(--color-on-dark); }
+
+  /* HERO environment — a deep warm glow + a faint technical grid that fades out.
+     Layered under the hero content (section is `relative isolate`). Premium, not bland. */
+  .hero-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(62% 54% at 80% 6%, rgba(217, 154, 69, 0.16), transparent 60%),
+      radial-gradient(52% 60% at 8% 96%, rgba(150, 104, 58, 0.10), transparent 62%),
+      linear-gradient(180deg, rgba(255, 240, 222, 0.02), transparent 30%);
+  }
+  .hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
     background-image:
-      linear-gradient(to right, rgba(255, 255, 255, 0.014) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.014) 1px, transparent 1px);
+      linear-gradient(rgba(255, 240, 222, 0.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 240, 222, 0.028) 1px, transparent 1px);
     background-size: 46px 46px;
+    -webkit-mask-image: radial-gradient(72% 62% at 62% 26%, #000, transparent 76%);
+    mask-image: radial-gradient(72% 62% at 62% 26%, #000, transparent 76%);
   }
 
-  /* Restrained cold bloom — used sparingly behind a hero object. */
-  .bloom {
-    background: radial-gradient(
-      circle at center,
-      rgba(91, 147, 184, 0.16),
-      transparent 66%
-    );
-  }
+  /* thin brass rule used to open sections */
+  .rule-accent { height: 2px; width: 44px; background: linear-gradient(90deg, var(--color-accent), transparent); border-radius: 2px; }
 
-  /* Expensive, rare hairline-top sheen for premium panels. */
-  .panel-sheen {
-    background-image: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.022),
-      transparent 18%
-    );
-  }
+  /* ── infinite brand marquee ──────────────────────────────────────────────── */
+  .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+  .marquee-track { display: flex; width: max-content; animation: marquee 42s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee-item { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0 1.9rem; font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; letter-spacing: -0.01em; color: var(--color-ink-faint); white-space: nowrap; }
+  .marquee-item::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); opacity: 0.6; }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
-  .text-balance {
-    text-wrap: balance;
-  }
+  /* ── glass panel floating over the atmosphere ────────────────────────────── */
+  .glass { background: rgba(23, 18, 11, 0.5); backdrop-filter: blur(16px) saturate(1.15); -webkit-backdrop-filter: blur(16px) saturate(1.15); border: 1px solid rgba(255, 243, 228, 0.08); }
+  .glass-2 { background: rgba(16, 12, 7, 0.42); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 
-  /* Hero reveal — pure CSS so first-paint content is NEVER stuck invisible (no JS/hydration
-     dependency, unlike motion-on-mount). Compositor-driven, always completes. */
-  .hero-rise {
-    opacity: 0;
-    transform: translateY(15px);
-    animation: hero-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  /* ── product cutout tile — dark, with warm under-glow + contact shadow ───── */
+  .cutout-tile { background: radial-gradient(58% 52% at 50% 42%, rgba(224, 163, 82, 0.13), transparent 72%), linear-gradient(180deg, #221a11 0%, #14100a 100%); }
+  .cutout-shadow { filter: drop-shadow(0 22px 24px rgba(0, 0, 0, 0.55)); }
+
+  /* soft radial glow blob for hero/section accents */
+  .glow-blob { position: absolute; border-radius: 9999px; filter: blur(60px); background: radial-gradient(circle, rgba(217, 154, 69, 0.28), transparent 68%); pointer-events: none; }
+
+  /* hero centerpiece float */
+  .hero-float { animation: hero-float 5.5s ease-in-out infinite; }
+  @keyframes hero-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
+  @media (prefers-reduced-motion: reduce) { .hero-float { animation: none; } }
+
+  /* ── calm interactive background (Atmosphere) ────────────────────────────── */
+  .atmo-blooms { background: radial-gradient(38% 30% at 16% 10%, rgba(150, 88, 40, 0.10), transparent 60%), radial-gradient(44% 34% at 84% 92%, rgba(120, 68, 34, 0.09), transparent 62%); }
+  .atmo-grid {
+    background-image: linear-gradient(rgba(255, 240, 222, 0.022) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 240, 222, 0.022) 1px, transparent 1px);
+    background-size: 56px 56px;
+    -webkit-mask-image: radial-gradient(130% 100% at 50% -10%, #000 0%, transparent 78%);
+    mask-image: radial-gradient(130% 100% at 50% -10%, #000 0%, transparent 78%);
   }
-  @keyframes hero-rise {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  .atmo-cursor { background: radial-gradient(28rem 28rem at var(--mx, 50%) var(--my, 32%), rgba(224, 163, 82, 0.13), transparent 62%); }
+
+  .text-glow { text-shadow: 0 0 32px rgba(217, 154, 69, 0.28); }
+
+  /* scrub-hero hint dot */
+  .scrub-dot { animation: scrub-hint 2.6s cubic-bezier(0.5, 0, 0.5, 1) infinite; }
+  @keyframes scrub-hint { 0%, 100% { left: 0; } 50% { left: calc(100% - 8px); } }
+  @media (prefers-reduced-motion: reduce) { .scrub-dot { animation: none; } }
+
   @media (prefers-reduced-motion: reduce) {
-    .hero-rise {
-      animation: none;
-      opacity: 1;
-      transform: none;
-    }
+    .rise, .stagger-rise > * { animation: none; opacity: 1; transform: none; }
+    .card-lift:hover, .glow-hover:hover { transform: none; }
+    html { scroll-behavior: auto; }
   }
-}
-
-/* ── Ambient aurora (GPU-cheap: blur baked once, transform-animated) ──────── */
-.bbx-aurora {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-}
-.bbx-aurora::before,
-.bbx-aurora::after {
-  content: "";
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(72px);
-  will-change: transform;
-}
-.bbx-aurora::before {
-  width: 48%;
-  height: 64%;
-  top: -14%;
-  right: 6%;
-  background: radial-gradient(circle, rgba(91, 147, 184, 0.32), transparent 66%);
-  animation: bbx-aur-a 24s ease-in-out infinite;
-}
-.bbx-aurora::after {
-  width: 52%;
-  height: 58%;
-  bottom: -16%;
-  left: 4%;
-  background: radial-gradient(circle, rgba(52, 88, 116, 0.24), transparent 66%);
-  animation: bbx-aur-b 31s ease-in-out infinite;
-}
-@keyframes bbx-aur-a {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(-8%, 6%, 0) scale(1.16); }
-}
-@keyframes bbx-aur-b {
-  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
-  50% { transform: translate3d(10%, -5%, 0) scale(1.22); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .bbx-aurora::before,
-  .bbx-aurora::after { animation: none; }
 }

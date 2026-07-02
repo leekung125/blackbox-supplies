@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CategoryGlyph } from "@/components/category-glyph";
-import { NotTestedNote } from "@/components/not-tested";
 import { OutboundLink } from "@/components/outbound-link";
 import { ProductCard } from "@/components/product-card";
-import { ProductPlaceholder } from "@/components/product-placeholder";
-import { Badge } from "@/components/ui/badge";
-import { categorySlug, getCategoryByName } from "@/lib/categories";
-import { VIDEO_DROPS } from "@/lib/content";
-import {
-  getAllProducts,
-  getProductById,
-  getProductsByCategory,
-} from "@/lib/products";
+import { ProductThumb } from "@/components/product-thumb";
+import { getCategoryByName, categorySlug } from "@/lib/categories";
+import { getGuideBySlug, getGuidesForProduct } from "@/lib/guides";
+import { KITS } from "@/lib/kits";
+import { getAllProducts, getProductById, getRelatedProducts } from "@/lib/products";
 
 export const dynamicParams = false;
 
@@ -21,270 +15,173 @@ export function generateStaticParams() {
   return getAllProducts().map((p) => ({ id: p.id }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
   const product = getProductById(id);
   if (!product) return { title: "Not found" };
   return {
-    title: product.name,
-    description: product.problemSolved,
+    title: `${product.name} — ${product.category}`,
+    description: product.verdict || product.problemSolved,
   };
 }
 
-export default async function ProductDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const product = getProductById(id);
   if (!product) notFound();
 
   const meta = getCategoryByName(product.category);
-  const slug = categorySlug(product.category);
-  const relatedDrop = VIDEO_DROPS.find((d) => d.category === product.category);
-  const related = getProductsByCategory(product.category)
-    .filter((p) => p.id !== product.id)
-    .slice(0, 3);
+  const guide = getGuidesForProduct(product.id)[0] ?? getGuideBySlug(product.guideSlug);
+  const kit = KITS.find((k) =>
+    [k.buyFirstId, ...k.starterIds, ...k.betterIds, ...k.premiumIds].includes(product.id)
+  );
+  const alternatives = getRelatedProducts(product, 3);
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-      {/* breadcrumb */}
-      <nav className="mono flex flex-wrap items-center gap-2 text-[0.7rem] uppercase tracking-[0.14em] text-ink-faint">
-        <Link href="/" className="transition-colors hover:text-accent-bright">
-          Home
-        </Link>
+    <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+        <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
-        <Link
-          href={`/category/${slug}`}
-          className="transition-colors hover:text-accent-bright"
-        >
-          {meta.name}
-        </Link>
+        <Link href="/gear" className="hover:text-accent-strong">Gear</Link>
         <span aria-hidden>/</span>
-        <span className="text-ink-dim">{product.subcategory}</span>
+        <Link href={`/category/${categorySlug(product.category)}`} className="hover:text-accent-strong">{meta.name}</Link>
       </nav>
 
-      <div className="mt-8 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_1.2fr]">
-        {/* ----------------------------------------------------- LEFT: visual */}
-        <div className="lg:sticky lg:top-28 lg:self-start">
-          <ProductPlaceholder
-            category={product.category}
-            caption={product.subcategory}
-            aspect="square"
-            image={product.image}
-          />
+      <div className="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,0.9fr)_1.1fr]">
+        {/* LEFT — image + buy card (sticky) */}
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <div className="overflow-hidden rounded-2xl border border-line bg-surface-2">
+            <ProductThumb product={product} className="aspect-square w-full" pad="p-8 sm:p-10" />
+          </div>
 
-          <div className="mt-5 rounded-lg border border-line bg-card/40 p-5">
+          <div className="mt-5 rounded-2xl border border-line bg-surface p-5">
             <div className="flex items-end justify-between gap-3">
               <div>
-                <p className="kicker text-ink-faint">Price range · approx.</p>
-                <p className="mono mt-1.5 text-2xl text-ink">
-                  {product.priceRange}
-                </p>
+                <p className="text-xs font-medium uppercase tracking-wide text-ink-faint">Typical price</p>
+                <p className="nums mt-1 font-display text-2xl font-semibold text-ink">{product.priceRange}</p>
               </div>
-              <Badge variant="outline">Est. market price</Badge>
+              <span className="rounded-full border border-line bg-surface-2 px-2.5 py-1 text-[0.7rem] font-medium text-ink-2">Approx.</span>
             </div>
-
-            <OutboundLink
-              product={product}
-              variant="primary"
-              disclosure="full"
-              className="mt-5 [&>a]:w-full"
-            />
-
-            <NotTestedNote className="mt-4 border-t border-line-soft pt-4" />
+            {product.keySpec ? (
+              <div className="mt-4 rounded-xl border border-line-soft bg-surface-2 p-3">
+                <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-ink-faint">Key spec</p>
+                <p className="mt-1 text-[0.9rem] leading-snug text-ink-2">{product.keySpec}</p>
+              </div>
+            ) : null}
+            <OutboundLink product={product} variant="primary" disclosure="full" className="mt-5 [&>a]:w-full" />
+            <p className="mt-3 text-xs leading-relaxed text-ink-faint">
+              Opens the product on Amazon. Confirm the exact model and current price there.
+            </p>
           </div>
         </div>
 
-        {/* --------------------------------------------------- RIGHT: details */}
+        {/* RIGHT — the writeup */}
         <div>
-          <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="accent">
-              <CategoryGlyph category={product.category} className="h-3 w-3" />
-              {meta.name}
-            </Badge>
-            <Badge variant="outline">{product.subcategory}</Badge>
-            <Badge variant="outline">{product.tested ? "Tested" : "Not tested"}</Badge>
+          <div className="flex items-center gap-2 text-[0.78rem]">
+            <span className="eyebrow eyebrow-accent">{meta.name}</span>
+            <span className="text-ink-faint">·</span>
+            <span className="text-ink-faint">{product.brand}</span>
           </div>
-
-          <h1 className="mt-4 text-balance text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+          <h1 className="mt-2 text-balance font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
             {product.name}
           </h1>
 
-          <p className="mt-4 text-lg leading-relaxed text-ink-dim">
-            {product.problemSolved}
-          </p>
+          <p className="lede mt-4">{product.problemSolved}</p>
 
-          {/* failure moment callout */}
-          <div className="mt-6 rounded-lg border border-line bg-panel/60 p-5">
-            <p className="kicker text-warn/80">The failure moment</p>
-            <p className="mt-2 text-base leading-relaxed text-ink">
-              {product.failureMoment}
-            </p>
-          </div>
+          {/* quick verdict */}
+          {product.verdict ? (
+            <div className="mt-6 rounded-2xl border border-accent/25 bg-accent-tint p-5">
+              <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-accent-strong">Quick verdict</h2>
+              <p className="mt-2 text-[1.02rem] leading-relaxed text-ink">{product.verdict}</p>
+            </div>
+          ) : null}
 
-          {/* best for */}
-          <Detail label="Best for" className="mt-6">
-            {product.bestFor}
-          </Detail>
+          {/* good for */}
+          {product.bestFor ? (
+            <div className="mt-6">
+              <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-faint">Who it's for</h2>
+              <p className="mt-2 text-[0.98rem] leading-relaxed text-ink-2">{product.bestFor}</p>
+            </div>
+          ) : null}
 
           {/* key features */}
-          <section className="mt-8">
-            <h2 className="kicker text-ink-faint">Key features</h2>
-            <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-              {product.keyFeatures.map((f) => (
-                <li key={f} className="flex gap-2.5 text-sm text-ink-dim">
-                  <CheckTick />
-                  <span className="leading-snug">{f}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+          {product.keyFeatures.length ? (
+            <section className="mt-8">
+              <h2 className="font-display text-xl font-semibold text-ink">Key features</h2>
+              <ul className="mt-3.5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+                {product.keyFeatures.map((f) => (
+                  <li key={f} className="flex gap-2.5 text-[0.95rem] leading-snug text-ink-2">
+                    <svg className="mt-0.5 h-4 w-4 shrink-0 text-accent-strong" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 13 L9 17 L19 6" /></svg>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
-          {/* honest trade-offs */}
-          <section className="mt-8">
-            <h2 className="kicker text-ink-faint">Honest trade-offs</h2>
-            <ul className="mt-3 space-y-2">
-              {product.cons.map((c) => (
-                <li key={c} className="flex gap-2.5 text-sm text-ink-dim">
-                  <span
-                    className="mono mt-px shrink-0 text-warn/70"
-                    aria-hidden
-                  >
-                    –
-                  </span>
-                  <span className="leading-snug">{c}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
+          {/* what to know before you buy */}
+          {product.cons.length ? (
+            <section className="mt-8">
+              <h2 className="font-display text-xl font-semibold text-ink">What to know before you buy</h2>
+              <ul className="mt-3.5 space-y-2.5">
+                {product.cons.map((c) => (
+                  <li key={c} className="flex gap-2.5 text-[0.95rem] leading-relaxed text-ink-2">
+                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-amber" aria-hidden />
+                    <span>{c}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ) : null}
 
-          {/* claims we stand behind */}
-          <section className="mt-8 rounded-lg border border-line bg-card/30 p-5">
-            <h2 className="kicker text-accent-bright">What we&rsquo;ll say</h2>
-            <p className="mt-2 text-xs leading-relaxed text-ink-faint">
-              The only claims we make about this product. Specs vary by model —
-              verify on the source listing. We don&rsquo;t publish ratings,
-              testimonials, or guarantees.
+          {/* how we picked */}
+          <section className="mt-8 rounded-2xl border border-line bg-surface p-5">
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-faint">How we picked this</h2>
+            <p className="mt-2 text-sm leading-relaxed text-ink-2">
+              Chosen from manufacturer specs and public research — no paid placement, and no hands-on
+              testing we didn&rsquo;t do, so there are no invented reviews or numbers here. Specs and prices
+              vary by model and change over time, so confirm your exact one on the Amazon listing.
             </p>
-            <ul className="mt-3 space-y-2">
-              {product.allowedClaims.map((c) => (
-                <li key={c} className="flex gap-2.5 text-sm text-ink-dim">
-                  <span
-                    className="mono mt-px shrink-0 text-accent/80"
-                    aria-hidden
-                  >
-                    •
-                  </span>
-                  <span className="leading-snug">{c}</span>
-                </li>
-              ))}
-            </ul>
+            <Link href="/disclosure" className="ulink mt-3 inline-block text-sm font-semibold">How we work →</Link>
           </section>
 
-          {/* related film concept */}
-          <section className="mt-8">
-            <h2 className="kicker text-ink-faint">Related film concept</h2>
-            <div className="mt-3 flex items-start gap-3 rounded-lg border border-line bg-card/30 p-4">
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md border border-line bg-base text-accent">
-                <PlayGlyph />
-              </span>
-              <div>
-                <p className="text-sm italic leading-relaxed text-ink-dim">
-                  &ldquo;{product.videoHook}&rdquo;
-                </p>
-                {relatedDrop ? (
-                  <p className="mono mt-1.5 text-[0.7rem] uppercase tracking-[0.14em] text-ink-faint">
-                    {relatedDrop.code} · {relatedDrop.title} · {relatedDrop.status}
-                  </p>
-                ) : null}
-              </div>
-            </div>
-          </section>
-
-          <div className="mt-8">
+          <div className="mt-7">
             <OutboundLink product={product} variant="ghost" disclosure="compact" />
           </div>
         </div>
       </div>
 
-      {/* related products */}
-      {related.length > 0 ? (
-        <section className="mt-20 border-t border-line pt-12">
-          <div className="flex items-center gap-2">
-            <span className="kicker text-ink-faint">
-              More in {meta.kitName}
-            </span>
-            <Link
-              href={`/category/${slug}`}
-              className="mono ml-auto text-[0.7rem] uppercase tracking-[0.14em] text-accent-bright hover:underline"
-            >
-              View field →
+      {/* related guide + kit */}
+      {(guide || kit) ? (
+        <section className="mt-16 grid gap-5 sm:grid-cols-2">
+          {guide ? (
+            <Link href={`/guides/${guide.slug}`} className="group rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-accent/40">
+              <span className="eyebrow eyebrow-accent">Featured in a guide</span>
+              <h3 className="mt-2 font-display text-lg font-semibold text-ink group-hover:text-accent-strong">{guide.title}</h3>
+              <p className="mt-1 line-clamp-2 text-sm text-ink-2">{guide.dek}</p>
             </Link>
-          </div>
-          <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {related.map((p) => (
+          ) : null}
+          {kit ? (
+            <Link href={`/kits/${kit.id}`} className="group rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-accent/40">
+              <span className="eyebrow eyebrow-accent">Part of a kit</span>
+              <h3 className="mt-2 font-display text-lg font-semibold text-ink group-hover:text-accent-strong">{kit.name}</h3>
+              <p className="mt-1 line-clamp-2 text-sm text-ink-2">{kit.dek}</p>
+            </Link>
+          ) : null}
+        </section>
+      ) : null}
+
+      {/* alternatives */}
+      {alternatives.length ? (
+        <section className="mt-16 border-t border-line pt-12">
+          <h2 className="font-display text-2xl font-semibold text-ink">More in {meta.name}</h2>
+          <div className="mt-6 grid grid-cols-2 gap-5 lg:grid-cols-3">
+            {alternatives.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>
         </section>
       ) : null}
     </div>
-  );
-}
-
-function Detail({
-  label,
-  children,
-  className = "",
-}: {
-  label: string;
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <div className={`flex flex-col gap-1 ${className}`}>
-      <span className="kicker text-ink-faint">{label}</span>
-      <span className="text-sm leading-relaxed text-ink-dim">{children}</span>
-    </div>
-  );
-}
-
-function CheckTick() {
-  return (
-    <svg
-      className="mt-0.5 h-3.5 w-3.5 shrink-0 text-accent"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M5 13 L9 17 L19 6" />
-    </svg>
-  );
-}
-
-function PlayGlyph() {
-  return (
-    <svg
-      className="h-4 w-4"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M8 5 L19 12 L8 19 Z" />
-    </svg>
   );
 }

@@ -31,7 +31,7 @@ const CUES: { title: string; sub: string; icon: ReactNode }[] = [
   },
   {
     title: "Never overclaimed",
-    sub: "Not personally tested unless we say so. No fake reviews, ever.",
+    sub: "Honest specs from real sources — no fabricated reviews, ratings, or results.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2.5l7.5 3v6c0 4.5-3 7.8-7.5 9.5-4.5-1.7-7.5-5-7.5-9.5v-6z" />

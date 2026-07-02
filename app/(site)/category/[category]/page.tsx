@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CategoryGlyph } from "@/components/category-glyph";
-import { Reveal } from "@/components/motion/reveal";
 import { ProductCard } from "@/components/product-card";
-import { ButtonLink } from "@/components/ui/button-link";
-import { CATEGORY_SLUGS, getCategoryBySlug } from "@/lib/categories";
+import { CategoryGlyph } from "@/components/category-glyph";
+import { NewsletterCta } from "@/components/newsletter-cta";
+import { getCategoryBySlug, CATEGORY_SLUGS } from "@/lib/categories";
 import { getProductsByCategory } from "@/lib/products";
+import { getFieldScene } from "@/lib/scenes";
+import { getAllGuides } from "@/lib/guides";
+import { getAllKits } from "@/lib/kits";
 
 export const dynamicParams = false;
 
@@ -14,74 +16,70 @@ export function generateStaticParams() {
   return CATEGORY_SLUGS.map((category) => ({ category }));
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ category: string }>;
-}): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ category: string }> }): Promise<Metadata> {
   const { category } = await params;
   const meta = getCategoryBySlug(category);
-  if (!meta) return { title: "Field not found" };
-  return { title: `${meta.name} — ${meta.kitName}`, description: meta.blurb };
+  if (!meta) return { title: "Not found" };
+  return { title: `${meta.name} — BlackBox Supply`, description: meta.blurb };
 }
 
-export default async function CategoryPage({
-  params,
-}: {
-  params: Promise<{ category: string }>;
-}) {
+export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   const meta = getCategoryBySlug(category);
   if (!meta) notFound();
+
   const products = getProductsByCategory(meta.name);
+  const scene = getFieldScene(meta.name);
+  const guide = getAllGuides().find((g) => g.category === meta.name);
+  const kit = getAllKits().find((k) => k.id === (meta.kitName === "The Roadside Kit" ? "roadside-kit" : meta.kitName === "The Backup Power Kit" ? "backup-power-kit" : "road-trip-kit"));
 
   return (
-    <Reveal blur={false} className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <nav className="mono flex flex-wrap items-center gap-2 text-[0.7rem] uppercase tracking-[0.14em] text-ink-faint">
-        <Link href="/" className="transition-colors hover:text-accent-bright">
-          Home
-        </Link>
+    <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+        <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
-        <Link href="/products" className="transition-colors hover:text-accent-bright">
-          Catalog
-        </Link>
+        <Link href="/gear" className="hover:text-accent-strong">Gear</Link>
         <span aria-hidden>/</span>
-        <span className="text-ink-dim">{meta.name}</span>
+        <span className="text-ink-2">{meta.name}</span>
       </nav>
 
-      <div className="mt-8 flex items-start gap-4">
-        <span className="grid h-14 w-14 shrink-0 place-items-center rounded-md border border-line bg-base text-accent">
-          <CategoryGlyph category={meta.name} className="h-7 w-7" />
-        </span>
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="h-px w-6 bg-accent/60" aria-hidden />
-            <span className="kicker text-accent-bright">
-              {meta.kitName} · {products.length} units
-            </span>
+      <header className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        <div className="max-w-2xl">
+          <div className="flex items-center gap-2.5">
+            <CategoryGlyph category={meta.name} className="h-6 w-6 text-accent" />
+            <span className="eyebrow eyebrow-accent">{meta.tagline}</span>
           </div>
-          <h1 className="mt-2 text-balance text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-            {meta.name}
-          </h1>
-          <p className="mono mt-2 text-xs uppercase tracking-[0.18em] text-ink-faint">
-            {meta.tagline}
-          </p>
+          <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.05] text-ink sm:text-5xl">{meta.name}</h1>
+          <p className="lede mt-4">{meta.blurb}</p>
+          <p className="mt-3 text-sm text-ink-dim"><span className="font-medium text-ink-2">{scene.mood}</span> {scene.incident}</p>
         </div>
-      </div>
+        {guide ? (
+          <Link href={`/guides/${guide.slug}`} className="shrink-0 rounded-full border border-accent/40 bg-accent-tint px-5 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent hover:text-on-accent">
+            Read the {meta.name.toLowerCase()} guide →
+          </Link>
+        ) : null}
+      </header>
 
-      <p className="mt-5 max-w-2xl text-sm leading-relaxed text-ink-dim">{meta.blurb}</p>
-
-      <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </div>
 
-      <div className="mt-12">
-        <ButtonLink href="/products" variant="ghost">
-          ← All gear
-        </ButtonLink>
+      {kit ? (
+        <Link href={`/kits/${kit.id}`} className="group mt-14 flex items-center justify-between gap-4 rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-accent/40">
+          <div>
+            <span className="eyebrow eyebrow-accent">Build the kit</span>
+            <h3 className="mt-1.5 font-display text-xl font-semibold text-ink group-hover:text-accent-strong">{kit.name}</h3>
+            <p className="mt-1 text-sm text-ink-2">{kit.dek}</p>
+          </div>
+          <span className="shrink-0 text-accent-strong" aria-hidden>→</span>
+        </Link>
+      ) : null}
+
+      <div className="mt-16">
+        <NewsletterCta />
       </div>
-    </Reveal>
+    </div>
   );
 }

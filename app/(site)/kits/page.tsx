@@ -1,91 +1,72 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
-import { Badge } from "@/components/ui/badge";
-import { ButtonLink } from "@/components/ui/button-link";
-import { CATEGORIES } from "@/lib/categories";
-import { getProductsByCategory } from "@/lib/products";
+import { ProductThumb } from "@/components/product-thumb";
+import { getAllKits } from "@/lib/kits";
+import { getProductById } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Field Kits",
+  title: "Gear Kits",
   description:
-    "Pack by failure, not by brand. Power, Car, Light and Carry starter kits for bad timing — honestly sourced, not personally tested.",
+    "Curated gear kits by problem — roadside, road trip, winter, and backup power. Start with the essentials, upgrade when you're ready. Every item links straight to Amazon.",
 };
 
 export default function KitsPage() {
+  const kits = getAllKits();
+
   return (
-    <Reveal blur={false} className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-      <div className="flex items-center gap-2">
-        <span className="h-px w-6 bg-accent/60" aria-hidden />
-        <span className="kicker text-accent-bright">Field kits</span>
-      </div>
-      <h1 className="mt-3 text-balance text-4xl font-semibold tracking-tight text-ink sm:text-5xl">
-        Pack by failure, not by brand
-      </h1>
-      <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-dim">
-        Each field is a starter kit — the smallest set that covers a whole class of bad timing. Every
-        unit is sourced from public research, not personally tested.
-      </p>
+    <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+      <Reveal blur={false}>
+        <span className="eyebrow eyebrow-accent">Gear kits</span>
+        <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] text-ink sm:text-5xl">
+          Build the right kit for the drive.
+        </h1>
+        <p className="lede mt-4 max-w-2xl">
+          Each kit is the smallest set that solves one real problem — a breakdown, a long trip, a
+          winter road, an outage. Start with the essentials, add the upgrades when you&rsquo;re ready.
+          Every item links straight to Amazon.
+        </p>
+      </Reveal>
 
-      <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2">
-        {CATEGORIES.map((c) => {
-          const items = getProductsByCategory(c.name);
+      <div className="mt-10 grid gap-6 sm:grid-cols-2">
+        {kits.map((k) => {
+          const lead = getProductById(k.buyFirstId);
+          const count = new Set([...k.starterIds, ...k.betterIds, ...k.premiumIds]).size;
           return (
-            <div
-              key={c.slug}
-              className="relative overflow-hidden rounded-lg border border-line bg-card/40 p-6"
-            >
-              <div className="bloom pointer-events-none absolute -right-12 -top-12 h-40 w-40 opacity-40 blur-2xl" />
-              <div className="relative flex items-start gap-4">
-                <span className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-base/60">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={c.repImage}
-                    alt={`${c.kitName} — representative gear`}
-                    className="absolute inset-0 h-full w-full object-cover"
-                  />
-                  <div
-                    className="pointer-events-none absolute inset-0"
-                    style={{ background: "radial-gradient(120% 80% at 50% 0%, transparent 55%, rgba(3,4,8,0.5))" }}
-                    aria-hidden
-                  />
-                </span>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2">
-                    <h2 className="text-lg font-semibold text-ink">{c.kitName}</h2>
-                    <Badge variant="outline">{items.length} units</Badge>
-                  </div>
-                  <p className="mono mt-1 text-[0.7rem] uppercase tracking-[0.18em] text-ink-faint">
-                    {c.tagline}
-                  </p>
+            <Reveal key={k.id} blur={false}>
+              <Link
+                href={`/kits/${k.id}`}
+                className="bbx-card card-lift group flex h-full flex-col overflow-hidden"
+              >
+                <div className="relative aspect-[16/9] overflow-hidden">
+                  {lead ? <ProductThumb product={lead} className="h-full w-full" pad="p-8 sm:p-10" /> : null}
+                  <span className="absolute left-4 top-4 z-10 rounded-full bg-dark/75 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.14em] text-on-dark-dim ring-1 ring-white/10">
+                    Kit
+                  </span>
                 </div>
-              </div>
-
-              <p className="relative mt-4 text-sm leading-relaxed text-ink-dim">{c.blurb}</p>
-
-              <ul className="relative mt-4 space-y-1.5 border-t border-line-soft pt-4">
-                {items.slice(0, 5).map((p) => (
-                  <li key={p.id} className="flex items-center justify-between gap-3">
-                    <Link
-                      href={`/products/${p.id}`}
-                      className="text-sm text-ink-dim transition-colors hover:text-accent-bright"
-                    >
-                      {p.name}
-                    </Link>
-                    <span className="mono shrink-0 text-xs text-ink-faint">{p.priceRange}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="relative mt-5">
-                <ButtonLink href={`/category/${c.slug}`} variant="ghost">
-                  View {c.name} →
-                </ButtonLink>
-              </div>
-            </div>
+                <div className="flex flex-1 flex-col p-5">
+                  <h3 className="font-display text-2xl font-semibold text-ink-strong transition-colors group-hover:text-accent">
+                    {k.name}
+                  </h3>
+                  <p className="mt-1 text-[0.95rem] font-medium text-accent-strong">{k.tagline}</p>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-dim">{k.dek}</p>
+                  <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                    {count} picks · Build the kit
+                    <svg className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                      <path d="M5 12 H19 M13 6 L19 12 L13 18" />
+                    </svg>
+                  </span>
+                </div>
+              </Link>
+            </Reveal>
           );
         })}
       </div>
-    </Reveal>
+
+      <div className="mt-16">
+        <NewsletterCta />
+      </div>
+    </div>
   );
 }

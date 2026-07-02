@@ -1,49 +1,107 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Wordmark } from "@/components/wordmark";
-import { CATEGORIES } from "@/lib/categories";
 
 const NAV = [
-  { href: "/products", label: "All Gear" },
+  { href: "/guides", label: "Guides" },
+  { href: "/gear", label: "Gear" },
   { href: "/kits", label: "Kits" },
-  { href: "/disclosure", label: "Disclosure" },
+  { href: "/finds", label: "Finds" },
 ];
 
+/** Dark-accent header — the brand frame above the warm editorial content. */
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const reduce = useReducedMotion();
+  const isActive = (href: string) => pathname === href || pathname?.startsWith(href + "/");
+
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-base/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-dark text-on-dark">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/" aria-label="Blackbox Supply — home">
-          <Wordmark />
+        <Link href="/" aria-label="BlackBox Supply — home" className="shrink-0">
+          <Wordmark light markClassName="h-6 w-6 sm:h-7 sm:w-7" size="text-[0.95rem] sm:text-[1.05rem]" />
         </Link>
 
-        <nav className="flex items-center gap-0.5 sm:gap-2">
+        {/* desktop nav */}
+        <nav className="hidden items-center gap-8 md:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="mono whitespace-nowrap rounded-sm px-2 py-1.5 text-[0.64rem] uppercase tracking-[0.1em] text-ink-dim transition-colors hover:bg-card hover:text-accent-bright sm:px-3 sm:text-[0.7rem] sm:tracking-[0.16em]"
+              className={`relative py-1 text-sm font-medium transition-colors ${
+                isActive(item.href) ? "text-on-dark" : "text-on-dark-dim hover:text-on-dark"
+              }`}
             >
               {item.label}
+              {isActive(item.href) ? (
+                <span className="absolute -bottom-1 left-0 h-0.5 w-full rounded-full bg-accent-bright" aria-hidden />
+              ) : null}
             </Link>
           ))}
         </nav>
-      </div>
 
-      {/* category sub-rail */}
-      <div className="border-t border-line-soft bg-base/60">
-        <div className="mx-auto flex max-w-6xl items-center gap-1 overflow-x-auto px-4 py-2 sm:px-6">
-          <span className="kicker mr-2 shrink-0 text-ink-faint">Field</span>
-          {CATEGORIES.map((c) => (
-            <Link
-              key={c.slug}
-              href={`/category/${c.slug}`}
-              className="mono shrink-0 rounded-sm border border-transparent px-2.5 py-1 text-[0.7rem] uppercase tracking-[0.14em] text-ink-dim transition-colors hover:border-accent/30 hover:text-accent-bright"
-            >
-              {c.name}
-            </Link>
-          ))}
+        <div className="flex items-center gap-2">
+          <Link
+            href="/newsletter"
+            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-strong md:inline-flex"
+          >
+            Newsletter
+          </Link>
+
+          {/* mobile toggle */}
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label="Menu"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-dark-line text-on-dark md:hidden"
+          >
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round">
+              {open ? <path d="M6 6 L18 18 M18 6 L6 18" /> : <path d="M4 7 H20 M4 12 H20 M4 17 H20" />}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* mobile menu */}
+      <AnimatePresence>
+        {open ? (
+          <motion.nav
+            initial={reduce ? false : { height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden bg-dark-2 md:hidden"
+          >
+            <div className="mx-auto max-w-6xl px-4 py-2 sm:px-6">
+              {NAV.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpen(false)}
+                  className={`block border-b border-dark-line py-3.5 text-[0.95rem] font-medium ${
+                    isActive(item.href) ? "text-accent-bright" : "text-on-dark"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              ))}
+              <Link
+                href="/newsletter"
+                onClick={() => setOpen(false)}
+                className="mt-3 mb-2 block rounded-full bg-accent py-3 text-center text-sm font-semibold text-on-accent"
+              >
+                Join the newsletter
+              </Link>
+            </div>
+          </motion.nav>
+        ) : null}
+      </AnimatePresence>
     </header>
   );
 }

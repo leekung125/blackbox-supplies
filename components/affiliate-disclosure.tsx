@@ -30,8 +30,8 @@ export function AffiliateDisclosure({
       <span className="mono uppercase tracking-[0.14em] text-accent-bright">
         Disclosure ·{" "}
       </span>
-      This is an affiliate link. Blackbox Supply may earn a commission if you buy
-      through it, at no extra cost to you. See our{" "}
+      As an Amazon Associate, BlackBox earns from qualifying purchases — at no
+      extra cost to you. See our{" "}
       <Link
         href="/disclosure"
         className="text-ink-dim underline decoration-line underline-offset-2 transition-colors hover:text-accent-bright"

@@ -6,16 +6,7 @@ import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
 
 function ExternalArrow({ className = "" }: { className?: string }) {
   return (
-    <svg
-      className={className}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.6}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
       <path d="M7 17 L17 7 M9 7 H17 V15" />
     </svg>
   );
@@ -24,18 +15,15 @@ function ExternalArrow({ className = "" }: { className?: string }) {
 type Variant = "primary" | "ghost";
 
 const VARIANT_CLASS: Record<Variant, string> = {
-  primary:
-    "bg-accent text-[#04141d] font-medium hover:bg-accent-bright border border-accent/60 shadow-[0_8px_24px_-12px_rgba(77,139,176,0.7)]",
-  ghost:
-    "border border-line text-ink hover:border-accent/60 hover:text-accent-bright bg-card/40",
+  primary: "bg-accent text-on-accent font-semibold hover:bg-accent-strong",
+  ghost: "border border-line-strong text-ink font-semibold hover:border-accent hover:text-accent bg-surface",
 };
 
 /**
- * The single outbound CTA for a product.
- * - Links to `affiliateUrl` if present, else `sourceUrl` (never fabricated).
- * - Affiliate links get rel="sponsored"; all get nofollow/noopener/noreferrer.
- * - When the link is a real affiliate link, the affiliate disclosure is shown
- *   nearby (full sentence by default, or a compact tag).
+ * The single outbound CTA for a product → the specific Amazon product page
+ * (uses `affiliateUrl` once it exists, else the Amazon source link — never fabricated).
+ * Honest by design: names the retailer ("Amazon") but never claims a live price.
+ * Affiliate links get rel="sponsored" + the affiliate disclosure nearby.
  */
 export function OutboundLink({
   product,
@@ -51,7 +39,7 @@ export function OutboundLink({
   className?: string;
 }) {
   const { href, isAffiliate } = getOutboundLink(product);
-  const text = label ?? (isAffiliate ? "View at retailer" : "View source");
+  const text = label ?? "Check price on Amazon";
 
   return (
     <div className={className}>
@@ -60,16 +48,13 @@ export function OutboundLink({
         target="_blank"
         rel={outboundRel(isAffiliate)}
         onClick={() => track("product_outbound", { product: product.id, category: product.category, affiliate: isAffiliate })}
-        className={`group inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2.5 text-sm transition-colors ${VARIANT_CLASS[variant]}`}
+        className={`group inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm transition-colors ${VARIANT_CLASS[variant]}`}
       >
         <span>{text}</span>
-        <ExternalArrow className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+        <ExternalArrow className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
       </a>
       {isAffiliate && disclosure !== "none" ? (
-        <AffiliateDisclosure
-          variant={disclosure === "compact" ? "compact" : "full"}
-          className="mt-2"
-        />
+        <AffiliateDisclosure variant={disclosure === "compact" ? "compact" : "full"} className="mt-2" />
       ) : null}
     </div>
   );

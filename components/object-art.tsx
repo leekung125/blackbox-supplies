@@ -113,10 +113,12 @@ function TrackerArt() {
 }
 
 const BY_CATEGORY: Record<Category, FC> = {
-  Power: PowerBankArt,
-  Car: InflatorArt,
-  Light: FlashlightArt,
-  Carry: TrackerArt,
+  "Jump Starters": PowerBankArt,
+  "Tire Inflators": InflatorArt,
+  "Dash Cams": TrackerArt,
+  "Power & Charging": PowerBankArt,
+  "Roadside Safety": FlashlightArt,
+  "Car Utility": TrackerArt,
 };
 
 export function CategoryObject({ category, className = "" }: { category: Category; className?: string }) {

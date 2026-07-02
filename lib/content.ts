@@ -1,20 +1,24 @@
 import type { Category } from "@/lib/products";
 
-/** Brand constants — single source of truth for name/tagline/positioning. */
+/** Brand constants — single source of truth for name/tagline/positioning.
+ *  BlackBox Supply is a premium buying-guide + gear brand for drivers: car, roadside, and
+ *  backup-power gear worth owning. We find the right one, explain what matters, link straight
+ *  to it, and name the catch. Chosen on merit, never paid placement. */
 export const BRAND = {
-  name: "Blackbox Supply",
-  tagline: "Gear for bad timing.",
+  name: "BlackBox Supply",
+  tagline: "Gear for the road — before the road becomes a problem.",
   positioning:
-    "A field catalog of the gear that matters when the moment goes wrong — dead phone, dark road, flat tire, lost keys, power out. Honestly sourced. Never overclaimed.",
-  shortPositioning: "The gear that matters when the moment goes wrong.",
+    "BlackBox Supply is a buying-guide and gear brand for drivers. We find the jump starters, tire inflators, dash cams, power stations, and roadside gear actually worth owning, explain what matters, and link you straight to the right one — chosen on merit, honest about the catch.",
+  shortPositioning:
+    "The car, roadside, and backup-power gear worth owning — with the guides to choose right.",
   instagram: "black_boxsupplies",
   email: "info@blackboxsupplies.com",
   domain: "blackboxsupplies.com",
 } as const;
 
 /**
- * The five canonical "bad timing" failure moments shown on the home strip.
- * Each links to the category that answers it.
+ * The driver moments shown on the home strip — one per category. Each links to the category
+ * that answers it. These are real situations, not melodrama.
  */
 export interface FailureMoment {
   label: string;
@@ -23,16 +27,17 @@ export interface FailureMoment {
 }
 
 export const FAILURE_MOMENTS: FailureMoment[] = [
-  { label: "Dead phone", line: "4% on the platform.", categorySlug: "power" },
-  { label: "Dark road", line: "No light for miles.", categorySlug: "light" },
-  { label: "Flat tire", line: "Pump's out of order.", categorySlug: "car" },
-  { label: "Lost keys", line: "Already late.", categorySlug: "carry" },
-  { label: "Power outage", line: "House goes black.", categorySlug: "power" },
+  { label: "Dead battery", line: "Won't turn over.", categorySlug: "jump-starters" },
+  { label: "Flat tire", line: "Pump's out of order.", categorySlug: "tire-inflators" },
+  { label: "Fender bender", line: "Their word against yours.", categorySlug: "dash-cams" },
+  { label: "Power's out", line: "Phones at zero.", categorySlug: "power" },
+  { label: "Dark shoulder", line: "Stranded, unseen.", categorySlug: "roadside" },
+  { label: "Trunk chaos", line: "Nothing where you need it.", categorySlug: "car-utility" },
 ];
 
 /**
- * The three launch video concepts ("latest drops") — placeholders for the
- * incoming Blackbox Supply micro-films. Clearly marked as upcoming.
+ * Reel concepts for the "coming soon" teaser — the first BlackBox videos.
+ * Clearly marked upcoming; no fabricated "as seen" claims.
  */
 export interface VideoDrop {
   code: string;
@@ -40,46 +45,46 @@ export interface VideoDrop {
   hook: string;
   category: Category;
   categorySlug: string;
-  status: "New" | "In production" | "Scheduled" | "Concept";
+  status: "New" | "In production" | "Scheduled" | "Coming soon";
   thumb: string;
 }
 
 export const VIDEO_DROPS: VideoDrop[] = [
   {
-    code: "INCIDENT 001",
-    thumb: "/films/dead-phone.jpg",
-    title: "The Box — Dead Phone",
-    hook: "This is the part where he panics. One percent, twenty minutes from home.",
-    category: "Power",
-    categorySlug: "power",
-    status: "New",
+    code: "REEL 001",
+    thumb: "",
+    title: "Jump a dead battery in 60 seconds",
+    hook: "No second car. No cables. Just a pack the size of a phone.",
+    category: "Jump Starters",
+    categorySlug: "jump-starters",
+    status: "Coming soon",
   },
   {
-    code: "INCIDENT 002",
-    thumb: "/films/dark-road.jpg",
-    title: "Dark Road, No Light",
-    hook: "Both hands busy. Zero light. Now what.",
-    category: "Light",
-    categorySlug: "light",
-    status: "Scheduled",
+    code: "REEL 002",
+    thumb: "",
+    title: "Reinflate a flat on the shoulder",
+    hook: "Set the pressure, walk away, drive to the shop on your own time.",
+    category: "Tire Inflators",
+    categorySlug: "tire-inflators",
+    status: "Coming soon",
   },
   {
-    code: "INCIDENT 003",
-    thumb: "/films/flat-tire.jpg",
-    title: "Flat Tire, No Plan",
-    hook: "Low-pressure light. 11pm. Every air pump out of service.",
-    category: "Car",
-    categorySlug: "car",
-    status: "Scheduled",
+    code: "REEL 003",
+    thumb: "",
+    title: "What a dash cam actually catches",
+    hook: "The three seconds that turn 'their word against yours' into proof.",
+    category: "Dash Cams",
+    categorySlug: "dash-cams",
+    status: "Coming soon",
   },
 ];
 
-/** Short disclosure line used in footers and near links. Honest to the CURRENT source-only state:
- *  every outbound link is a source link (no affiliate program joined yet), so we earn nothing. The
- *  per-link affiliate disclosure appears automatically if/when a real affiliateUrl is ever added. */
+/** Short disclosure line for footers and near links. Affiliate links are live (Amazon Associates,
+ *  tag blackboxsuppl-20); the per-link disclosure renders automatically wherever an affiliate link
+ *  is shown. */
 export const DISCLOSURE_SHORT =
-  "Outbound links are source links — we currently earn no commission. We have not personally tested these products; details are drawn from public research and can change.";
+  "As an Amazon Associate, BlackBox Supply earns from qualifying purchases — outbound links are affiliate links, at no extra cost to you. Picks are chosen on merit, not paid placement; prices are approximate, so confirm the current price on Amazon.";
 
-/** The "not personally tested" microcopy. */
+/** Neutral sourcing microcopy — specs come from public research, confirm at the retailer. */
 export const NOT_TESTED_NOTE =
-  "Not personally tested. Specs and claims are drawn from public research and manufacturer listings, and can vary by model and change over time.";
+  "Specs are drawn from public research and manufacturer listings and can vary by model or change over time — confirm current details on the product's Amazon page.";

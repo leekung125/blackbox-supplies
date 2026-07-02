@@ -1,62 +1,82 @@
 import type { Category } from "@/lib/products";
 
 export interface CategoryMeta {
-  /** URL slug, e.g. "power" for /category/power */
+  /** URL slug, e.g. "jump-starters" for /category/jump-starters */
   slug: string;
   /** Display name — matches the `category` field in the product data. */
   name: Category;
-  /** Mono lettermark used on placeholder tiles, e.g. "PWR". */
+  /** Mono lettermark used on placeholder tiles. */
   lettermark: string;
-  /** The field-kit name for /kits, e.g. "The Power Kit". */
+  /** The kit slug most related to this category. */
   kitName: string;
-  /** Short, HUD-style line. */
+  /** Short line for cards. */
   tagline: string;
   /** One honest sentence describing the category. */
   blurb: string;
-  /** Representative generated product visual (path under /public) for category cards. */
-  repImage: string;
+  /** Product whose image represents the category on cards. */
+  heroProductId: string;
 }
 
 export const CATEGORIES: CategoryMeta[] = [
   {
-    slug: "power",
-    name: "Power",
-    lettermark: "PWR",
-    kitName: "The Power Kit",
-    tagline: "When the battery dies first.",
+    slug: "jump-starters",
+    name: "Jump Starters",
+    lettermark: "JMP",
+    kitName: "The Roadside Kit",
+    tagline: "Start a dead battery yourself.",
     blurb:
-      "Portable charge, wall and car power, and outage-grade stations — for the moment the percentage hits zero and there is no outlet in reach.",
-    repImage: "/products/power-bank-compact-10k.jpg",
+      "Lithium jump packs that crank a dead 12V battery with no second car and no waiting on a stranger with cables — the single highest-value thing in any trunk.",
+    heroProductId: "noco-boost-gb40-1000a-ultrasafe",
   },
   {
-    slug: "car",
-    name: "Car",
-    lettermark: "CAR",
-    kitName: "The Car Kit",
+    slug: "tire-inflators",
+    name: "Tire Inflators",
+    lettermark: "AIR",
+    kitName: "The Roadside Kit",
+    tagline: "Never chase a gas-station pump.",
+    blurb:
+      "Cordless compressors that reinflate a low or slow-leaking tire on the shoulder — set the PSI, walk away, and drive to a shop on your own schedule.",
+    heroProductId: "astroai-cordless-tire-inflator-160",
+  },
+  {
+    slug: "dash-cams",
+    name: "Dash Cams",
+    lettermark: "CAM",
+    kitName: "The Road Trip Kit",
+    tagline: "Proof when it's your word against theirs.",
+    blurb:
+      "Front, rear, and cabin cameras that record the road and protect you in an insurance dispute, a hit-and-run, or a rideshare shift.",
+    heroProductId: "viofo-a229-plus",
+  },
+  {
+    slug: "power",
+    name: "Power & Charging",
+    lettermark: "PWR",
+    kitName: "The Backup Power Kit",
+    tagline: "Keep everything running, anywhere.",
+    blurb:
+      "Portable power stations, high-output banks, car chargers, and inverters for road trips, camping, outages, and the daily commute.",
+    heroProductId: "jackery-explorer-1000-v2-portable",
+  },
+  {
+    slug: "roadside",
+    name: "Roadside Safety",
+    lettermark: "SOS",
+    kitName: "The Roadside Kit",
     tagline: "For the breakdown you didn't plan.",
     blurb:
-      "Jump starters, inflators, dash cams and roadside gear — the trunk you wish you'd packed before the shoulder of the highway.",
-    repImage: "/products/car-jump-starter-lithium.jpg",
+      "Jumper cables, LED flares, escape tools, and the grab-and-go kit that turns a stranding into an inconvenience.",
+    heroProductId: "lifeline-4388aaa-excursion-road-76",
   },
   {
-    slug: "light",
-    name: "Light",
-    lettermark: "LGT",
-    kitName: "The Light Kit",
-    tagline: "When the lights go out.",
+    slug: "car-utility",
+    name: "Car Utility",
+    lettermark: "UTL",
+    kitName: "The Road Trip Kit",
+    tagline: "The gear a prepared driver keeps ready.",
     blurb:
-      "Flashlights, lanterns, headlamps and beacons — directed, hands-free, outage-ready light for the dark road and the black hallway.",
-    repImage: "/products/light-edc-flashlight.jpg",
-  },
-  {
-    slug: "carry",
-    name: "Carry",
-    lettermark: "CRY",
-    kitName: "The Carry Kit",
-    tagline: "Find it. Secure it. Move.",
-    blurb:
-      "Trackers, organizers, locks and tools — keep what matters located, contained, and reachable when you're already late.",
-    repImage: "/products/carry-card-tracker.jpg",
+      "Organizers, chargers, battery tools, mounts, and cabin gear — the quality upgrades that live in the car full-time and quietly earn their place.",
+    heroProductId: "drive-car-trunk-organizer",
   },
 ];
 
@@ -70,7 +90,6 @@ export function getCategoryBySlug(slug: string): CategoryMeta | undefined {
 }
 
 export function getCategoryByName(name: Category): CategoryMeta {
-  // Names come from typed product data, so this is always present.
   return BY_NAME.get(name)!;
 }
 
