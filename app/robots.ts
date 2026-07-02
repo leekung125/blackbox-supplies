@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://blackboxsupplies.com/sitemap.xml",
+    sitemap: "https://www.blackboxsupplies.com/sitemap.xml",
   };
 }

@@ -8,7 +8,7 @@ import { getProductById } from "@/lib/products";
  * - itemListElement order mirrors the guide's real editorial pick order
  */
 
-const BASE = "https://blackboxsupplies.com";
+const BASE = "https://www.blackboxsupplies.com";
 
 export function organizationSchema() {
   return {

@@ -4,7 +4,7 @@ import { KITS } from "@/lib/kits";
 import { CATEGORIES } from "@/lib/categories";
 import { getAllProducts } from "@/lib/products";
 
-const BASE = "https://blackboxsupplies.com";
+const BASE = "https://www.blackboxsupplies.com";
 
 /**
  * lastModified only where we have a REAL content date (guides carry `updated`).
