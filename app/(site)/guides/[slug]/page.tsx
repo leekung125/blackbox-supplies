@@ -7,6 +7,8 @@ import { NewsletterCta } from "@/components/newsletter-cta";
 import { getAllGuides, getGuideBySlug, GUIDE_SLUGS, type GuidePick } from "@/lib/guides";
 import { getKitById } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema, guideSchema } from "@/lib/schema";
 
 export const dynamicParams = false;
 
@@ -18,7 +20,20 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const guide = getGuideBySlug(slug);
   if (!guide) return { title: "Guide not found" };
-  return { title: guide.title, description: guide.dek };
+  const lead = getProductById(guide.picks[0]?.productId ?? "");
+  const ogImage = guide.heroImage ?? lead?.image;
+  return {
+    title: guide.title,
+    description: guide.dek,
+    alternates: { canonical: `/guides/${guide.slug}` },
+    openGraph: {
+      type: "article",
+      title: guide.title,
+      description: guide.dek,
+      url: `/guides/${guide.slug}`,
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
+  };
 }
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -33,6 +48,16 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <JsonLd
+        data={[
+          ...guideSchema(guide),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Guides", path: "/guides" },
+            { name: guide.title, path: `/guides/${guide.slug}` },
+          ]),
+        ]}
+      />
       {/* breadcrumb */}
       <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
         <Link href="/" className="hover:text-accent-strong">Home</Link>

@@ -5,6 +5,8 @@ import { Analytics } from "@vercel/analytics/next";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { Atmosphere } from "@/components/atmosphere";
 import { BRAND } from "@/lib/content";
+import { JsonLd } from "@/components/json-ld";
+import { organizationSchema, webSiteSchema } from "@/lib/schema";
 
 // Editorial serif voice — headlines, guide titles, the "real publication" signal.
 const newsreader = Newsreader({
@@ -71,6 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${newsreader.variable} ${inter.variable} ${mono.variable}`}>
       <body className="min-h-screen antialiased">
+        <JsonLd data={[organizationSchema(), webSiteSchema()]} />
         <Atmosphere />
         <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
