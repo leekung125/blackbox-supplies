@@ -89,6 +89,66 @@ export function guideSchema(guide: Guide) {
   ];
 }
 
+/**
+ * Product page schema: Product + editorial Review by the Organization.
+ * positiveNotes/negativeNotes mirror the on-page keyFeatures/cons verbatim.
+ * Deliberately NO offers (we don't sell) and NO aggregateRating (we have none).
+ */
+export function productSchema(p: {
+  id: string;
+  name: string;
+  brand: string;
+  verdict: string;
+  keyFeatures: string[];
+  cons: string[];
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${BASE}/products/${p.id}#product`,
+    name: p.name,
+    brand: { "@type": "Brand", name: p.brand },
+    ...(p.image ? { image: p.image } : {}),
+    review: {
+      "@type": "Review",
+      author: { "@id": `${BASE}/#organization` },
+      reviewBody: p.verdict,
+      ...(p.keyFeatures.length
+        ? {
+            positiveNotes: {
+              "@type": "ItemList",
+              itemListElement: p.keyFeatures.map((f, i) => ({ "@type": "ListItem", position: i + 1, name: f })),
+            },
+          }
+        : {}),
+      ...(p.cons.length
+        ? {
+            negativeNotes: {
+              "@type": "ItemList",
+              itemListElement: p.cons.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c })),
+            },
+          }
+        : {}),
+    },
+  };
+}
+
+export function categorySchema(name: string, slug: string, productIds: { id: string; name: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${name} — researched picks`,
+    numberOfItems: productIds.length,
+    itemListElement: productIds.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: p.name,
+      url: `${BASE}/products/${p.id}`,
+    })),
+  };
+}
+
 export function guidesHubSchema() {
   return {
     "@context": "https://schema.org",

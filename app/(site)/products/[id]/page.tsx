@@ -8,6 +8,8 @@ import { getCategoryByName, categorySlug } from "@/lib/categories";
 import { getGuideBySlug, getGuidesForProduct } from "@/lib/guides";
 import { KITS } from "@/lib/kits";
 import { getAllProducts, getProductById, getRelatedProducts } from "@/lib/products";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema, productSchema } from "@/lib/schema";
 
 export const dynamicParams = false;
 
@@ -19,9 +21,19 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
   const { id } = await params;
   const product = getProductById(id);
   if (!product) return { title: "Not found" };
+  const title = `${product.name}: our take, key specs & honest trade-offs`;
+  const description = product.verdict || product.problemSolved;
   return {
-    title: `${product.name} — ${product.category}`,
-    description: product.verdict || product.problemSolved,
+    title,
+    description,
+    alternates: { canonical: `/products/${product.id}` },
+    openGraph: {
+      type: "article",
+      title,
+      description,
+      url: `/products/${product.id}`,
+      ...(product.image ? { images: [{ url: product.image }] } : {}),
+    },
   };
 }
 
@@ -39,6 +51,16 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <JsonLd
+        data={[
+          productSchema(product),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: meta.name, path: `/category/${categorySlug(product.category)}` },
+            { name: product.name, path: `/products/${product.id}` },
+          ]),
+        ]}
+      />
       <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>

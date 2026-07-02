@@ -7,50 +7,37 @@ import { getAllProducts } from "@/lib/products";
 const BASE = "https://blackboxsupplies.com";
 
 /**
- * Priorities encode the revenue architecture: guides are the engine (0.9),
- * categories and kits route intent (0.8), product pages convert (0.6).
+ * lastModified only where we have a REAL content date (guides carry `updated`).
+ * Everything else omits it — an always-`now` lastmod trains crawlers to distrust
+ * the site's freshness signals. priority/changeFrequency omitted (ignored by Google).
  */
+
+/** "July 2026" -> 2026-07-01 (guides store human-readable update months). */
+function parseGuideUpdated(updated: string): Date | undefined {
+  const d = new Date(`1 ${updated}`);
+  return Number.isNaN(d.getTime()) ? undefined : d;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
-
   const core: MetadataRoute.Sitemap = [
-    { url: BASE, lastModified: now, changeFrequency: "weekly", priority: 1 },
-    { url: `${BASE}/guides`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${BASE}/kits`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE}/products`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${BASE}/finds`, lastModified: now, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${BASE}/gear`, lastModified: now, changeFrequency: "weekly", priority: 0.6 },
-    { url: `${BASE}/newsletter`, lastModified: now, changeFrequency: "monthly", priority: 0.4 },
-    { url: `${BASE}/disclosure`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-  ];
+    "",
+    "/guides",
+    "/kits",
+    "/products",
+    "/finds",
+    "/gear",
+    "/newsletter",
+    "/disclosure",
+  ].map((p) => ({ url: `${BASE}${p}` }));
 
-  const guides: MetadataRoute.Sitemap = GUIDES.map((g) => ({
-    url: `${BASE}/guides/${g.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.9,
-  }));
+  const guides: MetadataRoute.Sitemap = GUIDES.map((g) => {
+    const lastModified = parseGuideUpdated(g.updated);
+    return { url: `${BASE}/guides/${g.slug}`, ...(lastModified ? { lastModified } : {}) };
+  });
 
-  const kits: MetadataRoute.Sitemap = KITS.map((k) => ({
-    url: `${BASE}/kits/${k.id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
-  const categories: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({
-    url: `${BASE}/category/${c.slug}`,
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.8,
-  }));
-
-  const products: MetadataRoute.Sitemap = getAllProducts().map((p) => ({
-    url: `${BASE}/products/${p.id}`,
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.6,
-  }));
+  const kits: MetadataRoute.Sitemap = KITS.map((k) => ({ url: `${BASE}/kits/${k.id}` }));
+  const categories: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({ url: `${BASE}/category/${c.slug}` }));
+  const products: MetadataRoute.Sitemap = getAllProducts().map((p) => ({ url: `${BASE}/products/${p.id}` }));
 
   return [...core, ...guides, ...kits, ...categories, ...products];
 }

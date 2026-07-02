@@ -9,6 +9,8 @@ import { getProductsByCategory } from "@/lib/products";
 import { getFieldScene } from "@/lib/scenes";
 import { getAllGuides } from "@/lib/guides";
 import { getAllKits } from "@/lib/kits";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema, categorySchema } from "@/lib/schema";
 
 export const dynamicParams = false;
 
@@ -20,7 +22,11 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
   const { category } = await params;
   const meta = getCategoryBySlug(category);
   if (!meta) return { title: "Not found" };
-  return { title: `${meta.name} — BlackBox Supply`, description: meta.blurb };
+  return {
+    title: `${meta.name}: researched picks & buying notes`,
+    description: meta.blurb,
+    alternates: { canonical: `/category/${meta.slug}` },
+  };
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
@@ -35,6 +41,16 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+      <JsonLd
+        data={[
+          categorySchema(meta.name, meta.slug, products.map((p) => ({ id: p.id, name: p.name }))),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Gear", path: "/gear" },
+            { name: meta.name, path: `/category/${meta.slug}` },
+          ]),
+        ]}
+      />
       <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>

@@ -35,16 +35,7 @@ export const metadata: Metadata = {
   description: BRAND.positioning,
   applicationName: BRAND.name,
   authors: [{ name: BRAND.name }],
-  keywords: [
-    "best portable jump starters",
-    "best cordless tire inflators",
-    "best dash cams",
-    "portable power stations",
-    "roadside emergency kit",
-    "car gear",
-    "backup power",
-    "car accessories buying guide",
-  ],
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     siteName: BRAND.name,
