@@ -8,16 +8,27 @@ import { getAllGuides, getGuideBySlug, GUIDE_SLUGS, type GuidePick } from "@/lib
 import { getKitById } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
 import { JsonLd } from "@/components/json-ld";
-import { breadcrumbSchema, guideSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, guideSchema } from "@/lib/schema";
+import { ARTICLE_SLUGS, getArticleBySlug } from "@/lib/articles";
+import { ArticleView } from "@/components/article-view";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return GUIDE_SLUGS.map((slug) => ({ slug }));
+  return [...GUIDE_SLUGS, ...ARTICLE_SLUGS].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
+  const article = getArticleBySlug(slug);
+  if (article) {
+    return {
+      title: article.title,
+      description: article.dek,
+      alternates: { canonical: `/guides/${article.slug}` },
+      openGraph: { type: "article", title: article.title, description: article.dek, url: `/guides/${article.slug}` },
+    };
+  }
   const guide = getGuideBySlug(slug);
   if (!guide) return { title: "Guide not found" };
   const lead = getProductById(guide.picks[0]?.productId ?? "");
@@ -38,6 +49,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const article = getArticleBySlug(slug);
+  if (article) {
+    return (
+      <>
+        <JsonLd
+          data={[
+            articleSchema(article),
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Guides", path: "/guides" },
+              { name: article.title, path: `/guides/${article.slug}` },
+            ]),
+          ]}
+        />
+        <ArticleView article={article} />
+      </>
+    );
+  }
   const guide = getGuideBySlug(slug);
   if (!guide) notFound();
 

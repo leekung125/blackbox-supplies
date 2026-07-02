@@ -89,6 +89,22 @@ export function guideSchema(guide: Guide) {
   ];
 }
 
+/** Question/comparison article page schema. */
+export function articleSchema(a: { slug: string; title: string; dek: string; updated: string; category: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${BASE}/guides/${a.slug}#article`,
+    headline: a.title,
+    description: a.dek,
+    url: `${BASE}/guides/${a.slug}`,
+    dateModified: a.updated,
+    author: { "@id": `${BASE}/#organization` },
+    publisher: { "@id": `${BASE}/#organization` },
+    articleSection: a.category,
+  };
+}
+
 /**
  * Product page schema: Product + editorial Review by the Organization.
  * positiveNotes/negativeNotes mirror the on-page keyFeatures/cons verbatim.

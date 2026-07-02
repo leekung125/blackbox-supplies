@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { ARTICLES } from "@/lib/articles";
 import { GUIDES } from "@/lib/guides";
 import { KITS } from "@/lib/kits";
 import { CATEGORIES } from "@/lib/categories";
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/products",
     "/finds",
     "/gear",
+    "/methodology",
     "/newsletter",
     "/disclosure",
   ].map((p) => ({ url: `${BASE}${p}` }));
@@ -35,9 +37,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return { url: `${BASE}/guides/${g.slug}`, ...(lastModified ? { lastModified } : {}) };
   });
 
+  const articles: MetadataRoute.Sitemap = ARTICLES.map((a) => {
+    const lastModified = parseGuideUpdated(a.updated);
+    return { url: `${BASE}/guides/${a.slug}`, ...(lastModified ? { lastModified } : {}) };
+  });
+
   const kits: MetadataRoute.Sitemap = KITS.map((k) => ({ url: `${BASE}/kits/${k.id}` }));
   const categories: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({ url: `${BASE}/category/${c.slug}` }));
   const products: MetadataRoute.Sitemap = getAllProducts().map((p) => ({ url: `${BASE}/products/${p.id}` }));
 
-  return [...core, ...guides, ...kits, ...categories, ...products];
+  return [...core, ...guides, ...articles, ...kits, ...categories, ...products];
 }
