@@ -19,8 +19,8 @@ const CUES: { title: string; sub: string; icon: ReactNode }[] = [
     ),
   },
   {
-    title: "Always source-linked",
-    sub: "Every pick points to a retailer or review source. No dead ends.",
+    title: "Straight to the product",
+    sub: "Every pick links to the exact model — no vague “search Amazon” dead ends.",
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
         <path d="M9 15l6-6" />

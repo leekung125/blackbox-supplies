@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "BlackBox Supply — Gear for bad timing.";
+export const alt = "BlackBox Supply — Genuinely useful gear, researched.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -35,10 +35,10 @@ export default function OpengraphImage() {
           <div style={{ fontSize: 54, fontWeight: 400, letterSpacing: 10, color: "#d6b26a" }}>SUPPLY</div>
         </div>
         <div style={{ marginTop: 34, fontSize: 30, letterSpacing: 5, color: "#c9c2b4" }}>
-          GEAR FOR BAD TIMING.
+          GENUINELY USEFUL GEAR
         </div>
         <div style={{ marginTop: 20, fontSize: 20, letterSpacing: 2, color: "#8d8776" }}>
-          Researched car & roadside gear — honest buying guides
+          Researched · ranked · honest about the catch — never sponsored
         </div>
       </div>
     ),

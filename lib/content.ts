@@ -1,16 +1,16 @@
 import type { Category } from "@/lib/products";
 
 /** Brand constants — single source of truth for name/tagline/positioning.
- *  BlackBox Supply is a premium buying-guide + gear brand for drivers: car, roadside, and
- *  backup-power gear worth owning. We find the right one, explain what matters, link straight
- *  to it, and name the catch. Chosen on merit, never paid placement. */
+ *  BlackBox Supply is a buying-guide + gear brand for genuinely useful gear: cooling, car,
+ *  desk, home, and travel. We research the right one, explain what matters, link straight to it,
+ *  and name the catch. Chosen on merit, never paid placement. */
 export const BRAND = {
   name: "BlackBox Supply",
-  tagline: "Gear for the road — before the road becomes a problem.",
+  tagline: "Genuinely useful gear, researched — not sponsored.",
   positioning:
-    "BlackBox Supply is a buying-guide and gear brand for drivers. We find the jump starters, tire inflators, dash cams, power stations, and roadside gear actually worth owning, explain what matters, and link you straight to the right one — chosen on merit, honest about the catch.",
+    "BlackBox Supply researches genuinely useful gear — cooling, car, desk, home, and travel — and links you straight to the one worth buying. Chosen on merit, never paid placement, and honest about the catch.",
   shortPositioning:
-    "The car, roadside, and backup-power gear worth owning — with the guides to choose right.",
+    "Genuinely useful gear, researched — with the guides to choose the right one.",
   instagram: "black_boxsupplies",
   email: "info@blackboxsupplies.com",
   domain: "blackboxsupplies.com",
