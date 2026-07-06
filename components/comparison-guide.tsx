@@ -17,7 +17,7 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
     <div className="px-4 py-10 sm:px-6">
       {/* ── narrow editorial intro ─────────────────────────────────────────── */}
       <div className="mx-auto max-w-3xl">
-        <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+        <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
           <Link href="/" className="hover:text-accent-strong">Home</Link>
           <span aria-hidden>/</span>
           <Link href="/guides" className="hover:text-accent-strong">Guides</Link>
@@ -131,7 +131,7 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
           <p className="article mt-3 text-[0.98rem]">{guide.tradeoffs}</p>
         </section>
 
-        <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-faint">
+        <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-dim">
           How we choose: picks are ranked from manufacturer specs, DOE/SACC data, and independent
           lab reviews — no paid placement, ever. Numbers are real or marked unverified; we never
           invent a spec, rating, or price. Outbound links are Amazon affiliate links: as an Amazon

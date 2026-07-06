@@ -155,7 +155,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         ]}
       />
       {/* breadcrumb */}
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
         <Link href="/guides" className="hover:text-accent-strong">Guides</Link>
@@ -165,9 +165,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <div className="flex flex-wrap items-center gap-2 text-[0.78rem]">
           <span className="eyebrow eyebrow-accent">{guide.category}</span>
           <span className="text-ink-faint">·</span>
-          <span className="text-ink-faint">{guide.readMinutes} min read</span>
+          <span className="text-ink-dim">{guide.readMinutes} min read</span>
           <span className="text-ink-faint">·</span>
-          <span className="text-ink-faint">Updated {guide.updated}</span>
+          <span className="text-ink-dim">Updated {guide.updated}</span>
         </div>
         <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-[2.9rem]">
           {guide.title}
@@ -294,7 +294,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* disclosure note */}
-      <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-faint">
+      <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-dim">
         How we choose: picks are based on rigorous research and manufacturer specs — no paid placement, ever. Outbound links are Amazon affiliate links: as an Amazon Associate, BlackBox Supply earns from qualifying purchases, at no extra cost to you. <Link href="/disclosure" className="ulink font-semibold">Full disclosure</Link>.
       </p>
 
@@ -355,7 +355,7 @@ function PickRow({ pick }: { pick: GuidePick }) {
           <div className="mt-1 flex items-center gap-2 text-sm">
             <span className="nums font-semibold text-ink">{p.priceRange}</span>
             <span className="text-ink-faint">·</span>
-            <span className="text-ink-faint">{p.subcategory}</span>
+            <span className="text-ink-dim">{p.subcategory}</span>
           </div>
           <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-2">{pick.why}</p>
           <div className="mt-4 flex flex-wrap items-center gap-3">

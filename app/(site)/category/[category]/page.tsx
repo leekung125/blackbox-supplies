@@ -51,7 +51,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           ]),
         ]}
       />
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
         <Link href="/gear" className="hover:text-accent-strong">Gear</Link>
@@ -67,7 +67,9 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           </div>
           <h1 className="mt-3 font-display text-4xl font-semibold leading-[1.05] text-ink sm:text-5xl">{meta.name}</h1>
           <p className="lede mt-4">{meta.blurb}</p>
-          <p className="mt-3 text-sm text-ink-dim"><span className="font-medium text-ink-2">{scene.mood}</span> {scene.incident}</p>
+          {scene ? (
+            <p className="mt-3 text-sm text-ink-dim"><span className="font-medium text-ink-2">{scene.mood}</span> {scene.incident}</p>
+          ) : null}
         </div>
         {guide ? (
           <Link href={`/guides/${guide.slug}`} className="shrink-0 rounded-full border border-accent/40 bg-accent-tint px-5 py-2.5 text-sm font-semibold text-accent-strong transition-colors hover:bg-accent hover:text-on-accent">

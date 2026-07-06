@@ -27,7 +27,7 @@ export function FindCard({ find }: { find: RareFind }) {
         </h3>
         <p className="mt-2 flex-1 text-[0.94rem] leading-relaxed text-ink-dim">{find.whyClick}</p>
 
-        <p className="mt-3.5 border-t border-line-soft pt-3 text-sm leading-relaxed text-ink-faint">
+        <p className="mt-3.5 border-t border-line-soft pt-3 text-sm leading-relaxed text-ink-dim">
           <span className="font-semibold text-ink-dim">Solves:</span> {find.problem}
         </p>
 

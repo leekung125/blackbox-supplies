@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { ARTICLES } from "@/lib/articles";
+import { EXTRA_ARTICLES } from "@/lib/articles-extra";
 import { GUIDES } from "@/lib/guides";
 import { KITS } from "@/lib/kits";
 import { CATEGORIES } from "@/lib/categories";
@@ -13,8 +14,10 @@ const BASE = "https://www.blackboxsupplies.com";
  * the site's freshness signals. priority/changeFrequency omitted (ignored by Google).
  */
 
-/** "July 2026" -> 2026-07-01 (guides store human-readable update months). */
+/** Parse a content date: ISO ("2026-07-04") or human month ("July 2026"). */
 function parseGuideUpdated(updated: string): Date | undefined {
+  const iso = new Date(updated);
+  if (!Number.isNaN(iso.getTime())) return iso;
   const d = new Date(`1 ${updated}`);
   return Number.isNaN(d.getTime()) ? undefined : d;
 }
@@ -22,11 +25,14 @@ function parseGuideUpdated(updated: string): Date | undefined {
 export default function sitemap(): MetadataRoute.Sitemap {
   const core: MetadataRoute.Sitemap = [
     "",
+    "/heat",
+    "/useful",
+    "/gear",
     "/guides",
     "/kits",
     "/products",
     "/finds",
-    "/gear",
+    "/about",
     "/methodology",
     "/newsletter",
     "/disclosure",
@@ -37,7 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return { url: `${BASE}/guides/${g.slug}`, ...(lastModified ? { lastModified } : {}) };
   });
 
-  const articles: MetadataRoute.Sitemap = ARTICLES.map((a) => {
+  const articles: MetadataRoute.Sitemap = [...ARTICLES, ...EXTRA_ARTICLES].map((a) => {
     const lastModified = parseGuideUpdated(a.updated);
     return { url: `${BASE}/guides/${a.slug}`, ...(lastModified ? { lastModified } : {}) };
   });

@@ -16,6 +16,8 @@ function lowPrice(pr: string) {
 // Premium only — BlackBox carries gear worth owning.
 const HEAT_COUNT = (heatData as { priceRange: string }[]).filter((p) => lowPrice(p.priceRange) >= 50).length;
 const USEFUL_COUNT = (usefulData as { priceRange: string }[]).filter((p) => lowPrice(p.priceRange) >= 50).length;
+const CAR_CATS = new Set(["Jump Starters", "Tire Inflators", "Dash Cams", "Power & Charging", "Roadside Safety", "Car Utility"]);
+const CAR_COUNT = getAllProducts().filter((p) => CAR_CATS.has(p.category as string)).length;
 
 const VERTICALS = [
   {
@@ -23,7 +25,7 @@ const VERTICALS = [
     name: "Cooling",
     tag: "Beat the heat",
     blurb: "Portable AC, fans, and evaporative coolers for apartments and dorms with no central air.",
-    image: "/products/heat/midea-duo-14-000-btu-smart.png",
+    image: "/home/cool.jpg",
     count: HEAT_COUNT,
   },
   {
@@ -31,7 +33,7 @@ const VERTICALS = [
     name: "Genuinely useful upgrades",
     tag: "Gear worth owning",
     blurb: "A curated shortlist of desk, charging, sleep, and travel upgrades built to last — not cheap gadgets.",
-    image: "/products/useful/benq-screenbar-monitor-light-bar.png",
+    image: "/home/useful.jpg",
     count: USEFUL_COUNT,
   },
   {
@@ -39,8 +41,8 @@ const VERTICALS = [
     name: "Car & roadside",
     tag: "For when the road goes wrong",
     blurb: "Jump starters, tire inflators, dash cams, and emergency kits — the gear worth keeping in the trunk.",
-    image: "/products/shot-noco-boost-gb40-1000a-ultrasafe.png",
-    count: 71,
+    image: "/home/car.jpg",
+    count: CAR_COUNT,
   },
 ];
 
@@ -59,7 +61,7 @@ const WHY = [
 export default function HomePage() {
   const articles = getAllArticles();
   const featured = FEATURED_SLUGS.map((s) => articles.find((a) => a.slug === s)).filter(Boolean).slice(0, 4);
-  const totalPicks = getAllProducts().length + HEAT_COUNT + USEFUL_COUNT;
+  const totalPicks = getAllProducts().length;
 
   return (
     <>
@@ -98,7 +100,7 @@ export default function HomePage() {
               {[{ n: `${totalPicks}+`, label: "researched picks" }, { n: `${articles.length}`, label: "buying guides" }, { n: "0", label: "paid placements" }].map((st) => (
                 <div key={st.label}>
                   <div className="nums font-display text-3xl font-semibold text-ink-strong">{st.n}</div>
-                  <div className="mt-0.5 text-xs uppercase tracking-wide text-ink-faint">{st.label}</div>
+                  <div className="mt-0.5 text-xs uppercase tracking-wide text-ink-dim">{st.label}</div>
                 </div>
               ))}
             </div>
@@ -109,7 +111,7 @@ export default function HomePage() {
             <div className="relative mx-auto w-full max-w-[25rem]">
               <div className="glow-blob left-1/2 top-1/2 h-[110%] w-[110%] -translate-x-1/2 -translate-y-1/2 opacity-80" />
               <Link href="/heat" className="hero-float relative block aspect-square overflow-hidden rounded-[1.5rem] border border-line-strong bg-[#0c0906] shadow-[0_0_60px_-4px_rgba(217,154,69,0.28),0_46px_90px_-34px_rgba(0,0,0,0.85)]">
-                <Image src="/products/heat/midea-duo-14-000-btu-smart.png" alt="Portable AC for a no-AC apartment" fill priority sizes="(max-width: 1024px) 90vw, 420px" className="object-cover" />
+                <Image src="/home/hero.jpg" alt="A cool, calm room at golden hour — genuinely useful gear in context" fill priority sizes="(max-width: 1024px) 90vw, 420px" className="object-cover" />
                 <div className="pointer-events-none absolute inset-0 rounded-[1.5rem] ring-1 ring-inset ring-white/[0.06]" />
               </Link>
               <p className="eyebrow eyebrow-accent mt-5 text-center">This week — beat the heat →</p>
@@ -124,7 +126,7 @@ export default function HomePage() {
       {/* VERTICALS */}
       <section className="border-y border-line glass-2">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <Reveal blur={false}><SectionHead eyebrow="What we cover" title="Three things worth owning" href="/guides" linkLabel="All guides" /></Reveal>
+          <Reveal blur={false}><SectionHead eyebrow="What we cover" title="Three things worth owning" /></Reveal>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {VERTICALS.map((v, i) => (
               <Reveal key={v.href} delay={i * 0.05}>

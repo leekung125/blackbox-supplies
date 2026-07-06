@@ -26,7 +26,7 @@ export function AffiliateDisclosure({
   }
 
   return (
-    <p className={`text-xs leading-relaxed text-ink-faint ${className}`}>
+    <p className={`text-xs leading-relaxed text-ink-dim ${className}`}>
       <span className="mono uppercase tracking-[0.14em] text-accent-bright">
         Disclosure ·{" "}
       </span>

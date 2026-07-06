@@ -44,7 +44,7 @@ export function Wordmark({
       {showMark ? <BrandMark className={markClassName} light={light} /> : null}
       <span className={`${size} font-sans leading-none tracking-[-0.01em] ${light ? "text-[#ece4d2]" : "text-ink"}`}>
         <span className="font-bold">BlackBox</span>
-        <span className={`font-normal ${light ? "text-white/45" : "text-ink-faint"}`}>Supplies</span>
+        <span className={`font-normal ${light ? "text-[#b2a78e]" : "text-ink-faint"}`}>Supplies</span>
       </span>
     </span>
   );
@@ -57,7 +57,7 @@ export function WordmarkStacked({ className = "", light = false }: { className?:
       <BrandMark className="h-12 w-12" light={light} />
       <span className={`font-sans text-xl leading-none tracking-[-0.01em] ${light ? "text-[#ece4d2]" : "text-ink"}`}>
         <span className="font-bold">BlackBox</span>
-        <span className={`font-normal ${light ? "text-white/45" : "text-ink-faint"}`}>Supplies</span>
+        <span className={`font-normal ${light ? "text-[#b2a78e]" : "text-ink-faint"}`}>Supplies</span>
       </span>
     </span>
   );

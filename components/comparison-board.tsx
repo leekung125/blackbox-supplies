@@ -410,7 +410,7 @@ export function ComparisonBoard({
         </AnimatePresence>
       </div>
 
-      <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-faint">
+      <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-dim">
         Ranked from manufacturer specs, DOE/SACC data, and independent lab reviews. A “~” marks an
         estimated or unpublished figure — we never invent one. As an Amazon Associate, BlackBox earns
         from qualifying purchases, at no extra cost to you.

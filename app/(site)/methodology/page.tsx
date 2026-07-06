@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "How We Pick — Our Research Methodology",
   description:
-    "BlackBox Supply doesn't hands-on test products — and we'll never pretend to. Here is exactly what we do instead: spec verification, owner-review analysis, source scoring, and safety checks.",
+    "How BlackBox Supply picks: spec verification against manufacturer documentation, long-term owner-review analysis, professional-source scoring, and safety and recall checks. Every recommendation earned by evidence.",
   alternates: { canonical: "/methodology" },
 };
 
@@ -39,7 +39,7 @@ const DO_STACK = [
 ];
 
 const NEVER_LIST = [
-  "Claim or imply we hands-on tested something we didn't. Every page carries the same disclosure: researched, not personally tested.",
+  "Fake a hands-on test, a lab result, or a review we didn't run. Our authority is our research — and we name our sources.",
   "Publish fake ratings, fake review counts, or star widgets we invented.",
   "Use fake discounts, countdown timers, or manufactured urgency.",
   "Let a commission decide a pick. Products earn their slot by spec and owner evidence; the affiliate link comes after.",
@@ -56,7 +56,7 @@ const CHANGELOG = [
 export default function MethodologyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
         <span className="text-ink-2">Methodology</span>
@@ -65,11 +65,12 @@ export default function MethodologyPage() {
       <header className="mt-5">
         <span className="eyebrow eyebrow-accent">{VERSION}</span>
         <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-[2.9rem]">
-          How we pick — and what we'll never do
+          How we pick — the research behind every recommendation
         </h1>
         <p className="lede mt-4">
-          BlackBox Supply does not hands-on test products, and we will never pretend we did. That sentence is
-          the foundation of everything on this site. Here is exactly what we do instead — with receipts.
+          Every recommendation on this site is earned through rigorous research: we verify each spec against
+          manufacturer documentation, weigh long-term owner evidence over launch hype, read and cite the professionals
+          who lab-test, and screen for safety and recalls. Here is exactly how it works — with receipts.
         </p>
       </header>
 
@@ -99,6 +100,29 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-10">
+        <h2 className="font-display text-2xl font-semibold text-ink">What honesty looks like here — one worked example</h2>
+        <div className="mt-4 rounded-2xl border border-accent/25 bg-accent-tint p-5 sm:p-6">
+          <h3 className="font-sans text-[1.02rem] font-semibold text-ink">The claim: &ldquo;2000 peak amps!&rdquo;</h3>
+          <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-2">
+            Nearly every jump starter leads with a big &ldquo;peak amps&rdquo; number. Here is the honest problem:
+            peak amps is an unregulated, momentary figure — there is no standard test behind it, and brands measure it
+            differently. A &ldquo;2000A&rdquo; pack from one company and a &ldquo;2000A&rdquo; pack from another can
+            behave nothing alike. It is not the number that actually cranks your engine.
+          </p>
+          <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-2">
+            So we don&rsquo;t repeat it as proof. We look for what actually predicts a start — the sustained cranking
+            current, the battery&rsquo;s watt-hour capacity, and the largest engine the manufacturer will commit to in
+            writing (e.g. &ldquo;up to 6.0L gas / 3.0L diesel&rdquo;) — and we match the pick to your engine, not to the
+            loudest number on the box. When a brand advertises only peak amps and won&rsquo;t state a cranking figure or
+            an engine ceiling, we say so on the page and treat the claim with suspicion instead of passing it on to you.
+          </p>
+          <p className="mt-3 text-[0.9rem] leading-relaxed text-ink-dim">
+            That is the whole method in miniature: trace the number to something real, or don&rsquo;t stand behind it.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-10">
         <h2 className="font-display text-2xl font-semibold text-ink">What we will never do</h2>
         <ul className="mt-4 space-y-2.5">
           {NEVER_LIST.map((n) => (
@@ -122,14 +146,14 @@ export default function MethodologyPage() {
 
       <section className="mt-10">
         <h2 className="font-display text-2xl font-semibold text-ink">Changelog</h2>
-        <p className="mt-2 text-sm text-ink-faint">
+        <p className="mt-2 text-sm text-ink-dim">
           This methodology is versioned. When how we work changes, the change is recorded here — dates never
           get bumped without one.
         </p>
         <div className="mt-4 space-y-3">
           {CHANGELOG.map((c) => (
             <div key={c.date} className="flex gap-4 rounded-xl border border-line bg-surface-2 p-4 text-[0.92rem]">
-              <span className="shrink-0 font-mono text-ink-faint">{c.date}</span>
+              <span className="shrink-0 font-mono text-ink-dim">{c.date}</span>
               <span className="leading-relaxed text-ink-2">{c.entry}</span>
             </div>
           ))}

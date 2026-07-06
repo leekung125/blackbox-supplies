@@ -35,7 +35,7 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
         <Link href="/kits" className="hover:text-accent-strong">Kits</Link>
@@ -51,7 +51,7 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
       </header>
 
       <div className="mt-7 rounded-2xl border border-line bg-surface-2 p-5 sm:p-6">
-        <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-faint">The problem it solves</h2>
+        <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-2">The problem it solves</h2>
         <p className="mt-2 text-[1.02rem] leading-relaxed text-ink">{kit.problem}</p>
       </div>
 
@@ -60,7 +60,7 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
         <section className="mt-10">
           <div className="flex items-center gap-2.5">
             <span className="rounded-full bg-accent px-3 py-1 text-xs font-semibold text-on-accent">Buy this first</span>
-            <span className="text-sm text-ink-faint">The one thing to start with.</span>
+            <span className="text-sm text-ink-dim">The one thing to start with.</span>
           </div>
           <div className="mt-4 overflow-hidden rounded-2xl border border-accent/25 bg-surface">
             <div className="flex flex-col sm:flex-row">
@@ -110,7 +110,7 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
         </section>
       ) : null}
 
-      <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-faint">
+      <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-dim">
         Outbound links are Amazon affiliate links. As an Amazon Associate, BlackBox Supply earns from qualifying purchases, at no extra cost to you. Prices are approximate — confirm the current price on Amazon. <Link href="/disclosure" className="ulink font-semibold">Full disclosure</Link>.
       </p>
 
@@ -144,7 +144,7 @@ function KitTier({
         >
           {label}
         </span>
-        <span className="text-sm text-ink-faint">{note}</span>
+        <span className="text-sm text-ink-dim">{note}</span>
       </div>
       <div className="mt-4 grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-4">
         {products.map((p) => (p ? <ProductCard key={p.id} product={p} /> : null))}

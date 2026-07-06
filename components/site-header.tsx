@@ -7,9 +7,10 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Wordmark } from "@/components/wordmark";
 
 const NAV = [
+  { href: "/useful", label: "Useful" },
+  { href: "/heat", label: "Cooling" },
+  { href: "/gear", label: "Car" },
   { href: "/guides", label: "Guides" },
-  { href: "/gear", label: "Gear" },
-  { href: "/kits", label: "Kits" },
   { href: "/finds", label: "Finds" },
 ];
 

@@ -33,7 +33,7 @@ export default function FindsPage() {
         ))}
       </div>
 
-      <p className="mt-10 text-sm text-ink-faint">
+      <p className="mt-10 text-sm text-ink-dim">
         Looking for the main gear? <Link href="/gear" className="ulink font-semibold">Browse all gear</Link> or{" "}
         <Link href="/guides" className="ulink font-semibold">read the buying guides</Link>.
       </p>

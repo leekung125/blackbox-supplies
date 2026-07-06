@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { OutboundLink } from "@/components/outbound-link";
+import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { ProductCard } from "@/components/product-card";
 import { ProductThumb } from "@/components/product-thumb";
 import { getCategoryByName, categorySlug } from "@/lib/categories";
@@ -12,6 +13,9 @@ import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, productSchema } from "@/lib/schema";
 
 export const dynamicParams = false;
+
+/** Single honest "as of" date for approximate prices + the desk byline. No live-price fabrication. */
+const AS_OF = "July 2026";
 
 export function generateStaticParams() {
   return getAllProducts().map((p) => ({ id: p.id }));
@@ -61,7 +65,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           ]),
         ]}
       />
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
         <Link href="/gear" className="hover:text-accent-strong">Gear</Link>
@@ -79,19 +83,21 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="mt-5 rounded-2xl border border-line bg-surface p-5">
             <div className="flex items-end justify-between gap-3">
               <div>
-                <p className="text-xs font-medium uppercase tracking-wide text-ink-faint">Typical price</p>
+                <p className="text-xs font-medium uppercase tracking-wide text-ink-dim">
+                  Typical price <span className="normal-case text-ink-dim/80">· as of {AS_OF}</span>
+                </p>
                 <p className="nums mt-1 font-display text-2xl font-semibold text-ink">{product.priceRange}</p>
               </div>
               <span className="rounded-full border border-line bg-surface-2 px-2.5 py-1 text-[0.7rem] font-medium text-ink-2">Approx.</span>
             </div>
             {product.keySpec ? (
               <div className="mt-4 rounded-xl border border-line-soft bg-surface-2 p-3">
-                <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-ink-faint">Key spec</p>
+                <p className="text-[0.68rem] font-semibold uppercase tracking-wide text-ink-dim">Key spec</p>
                 <p className="mt-1 text-[0.9rem] leading-snug text-ink-2">{product.keySpec}</p>
               </div>
             ) : null}
             <OutboundLink product={product} variant="primary" disclosure="full" className="mt-5 [&>a]:w-full" />
-            <p className="mt-3 text-xs leading-relaxed text-ink-faint">
+            <p className="mt-3 text-xs leading-relaxed text-ink-dim">
               Opens the product on Amazon. Confirm the exact model and current price there.
             </p>
           </div>
@@ -102,11 +108,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <div className="flex items-center gap-2 text-[0.78rem]">
             <span className="eyebrow eyebrow-accent">{meta.name}</span>
             <span className="text-ink-faint">·</span>
-            <span className="text-ink-faint">{product.brand}</span>
+            <span className="text-ink-dim">{product.brand}</span>
           </div>
           <h1 className="mt-2 text-balance font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl">
             {product.name}
           </h1>
+
+          <p className="mt-3 text-sm text-ink-dim">
+            By the{" "}
+            <Link href="/methodology" className="ulink font-medium">BlackBox gear desk</Link>
+            {" "}· Updated {AS_OF}
+          </p>
 
           <p className="lede mt-4">{product.problemSolved}</p>
 
@@ -121,7 +133,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           {/* good for */}
           {product.bestFor ? (
             <div className="mt-6">
-              <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-faint">Who it's for</h2>
+              <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-2">Who it's for</h2>
               <p className="mt-2 text-[0.98rem] leading-relaxed text-ink-2">{product.bestFor}</p>
             </div>
           ) : null}
@@ -158,7 +170,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
           {/* how we picked */}
           <section className="mt-8 rounded-2xl border border-line bg-surface p-5">
-            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-faint">How we picked this</h2>
+            <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-2">How we picked this</h2>
             <p className="mt-2 text-sm leading-relaxed text-ink-2">
               Chosen from manufacturer specs and public research — no paid placement, and no hands-on
               testing we didn&rsquo;t do, so there are no invented reviews or numbers here. Specs and prices
@@ -168,7 +180,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </section>
 
           <div className="mt-7">
-            <OutboundLink product={product} variant="ghost" disclosure="compact" />
+            <OutboundLink product={product} variant="primary" disclosure="compact" />
           </div>
         </div>
       </div>
@@ -204,6 +216,13 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           </div>
         </section>
       ) : null}
+
+      {/* Mobile: persistent buy action once the top buy card scrolls away */}
+      <StickyBuyBar
+        name={product.name}
+        priceRange={product.priceRange}
+        affiliateUrl={product.affiliateUrl}
+      />
     </div>
   );
 }

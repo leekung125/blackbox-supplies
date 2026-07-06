@@ -1,13 +1,16 @@
 import productsData from "@/data/products.json";
+import heatData from "@/data/heat-products.json";
+import usefulData from "@/data/useful-products.json";
 
-/** The six tight categories BlackBox Supply carries — car, roadside, and backup-power gear. */
+/** The car catalog's tight categories, plus any cooling/useful category string (broad catalog). */
 export type Category =
   | "Jump Starters"
   | "Tire Inflators"
   | "Dash Cams"
   | "Power & Charging"
   | "Roadside Safety"
-  | "Car Utility";
+  | "Car Utility"
+  | (string & {});
 
 /**
  * The specific, real Amazon product this catalog slot maps to.
@@ -83,7 +86,59 @@ export interface Product {
   amazon?: AmazonMatch;
 }
 
-export const products: Product[] = productsData as unknown as Product[];
+/** Thin catalogs (cooling/useful) carry less data than the car catalog; adapt them to the full
+ *  Product shape with safe fallbacks so every advertised item gets its own real product page. */
+function adaptThin(t: Record<string, unknown>): Product {
+  const affiliate = (t.affiliateUrl as string) ?? "";
+  const blurb = (t.blurb as string) ?? "";
+  return {
+    id: t.id as string,
+    name: t.name as string,
+    brand: (t.brand as string) ?? "",
+    category: (t.category as Category) ?? "Car Utility",
+    subcategory: "",
+    sourceUrl: affiliate.split("?")[0],
+    affiliateUrl: affiliate,
+    priceRange: (t.priceRange as string) ?? "",
+    tested: false,
+    verified: true,
+    problemSolved: blurb,
+    failureMoment: "",
+    bestFor: "",
+    keyFeatures: [],
+    cons: [],
+    allowedClaims: [],
+    forbiddenClaims: [],
+    visualAngle: "",
+    videoHook: "",
+    caption: blurb,
+    status: "live",
+    disclosureRequired: true,
+    image: t.image as string | undefined,
+    linkStatus: "live",
+    tier: "support",
+    priority: 0,
+    guide: "",
+    guideSlug: (t.guideSlug as string) ?? "",
+    keySpec: (t.keySpec as string) ?? "",
+    verdict: "",
+    whyItMatters: "",
+    buyingNotes: "",
+    homepageEligible: false,
+    linksEligible: true,
+  };
+}
+
+const carProducts = productsData as unknown as Product[];
+const thinProducts = [
+  ...(heatData as Record<string, unknown>[]),
+  ...(usefulData as Record<string, unknown>[]),
+].map(adaptThin);
+// Merge all catalogs; the rich car record wins on any id collision.
+const _byId = new Map<string, Product>();
+for (const p of [...thinProducts, ...carProducts]) _byId.set(p.id, p);
+
+export const products: Product[] = Array.from(_byId.values());
 
 export function getAllProducts(): Product[] {
   return products;

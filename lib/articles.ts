@@ -37,7 +37,8 @@ export interface Article {
   slug: string;
   title: string;
   dek: string;
-  category: Category;
+  /** Display tag. Car articles use a Category; broadened verticals use a free label (e.g. "Cooling"). */
+  category: Category | string;
   readMinutes: number;
   updated: string;
   /** The 40–60 word direct answer that opens the page. */
@@ -47,6 +48,10 @@ export interface Article {
   relatedGuides: string[];
   /** Named sources — the "useful resources" leg of the no-testing trust model. */
   sources?: { label: string; url: string }[];
+  /** Optional cinematic hero image (relit product shot) for the guides index card. */
+  heroImage?: string;
+  /** Affiliate "buy" picks for this guide — heat/useful product ids, rendered as Check-Price CTAs. */
+  picks?: { id: string; cat: "heat" | "useful"; label?: string }[];
 }
 
 export const ARTICLES: Article[] = [
@@ -259,7 +264,7 @@ ARTICLES.push(
       {
         heading: "Our researched picks",
         body: [
-          "Specs verified against manufacturer documentation; long-term owner feedback weighed. We don't hands-on test — here's exactly how we work: see our methodology.",
+          "Specs verified against manufacturer documentation; long-term owner feedback weighed. Here's exactly how we work: see our methodology.",
         ],
         productIds: ["fanttik-x8-apex-portable-tire", "epauto-12v-dc-portable-air", "dewalt-20v-max-corded-cordless"],
       },
@@ -355,12 +360,16 @@ ARTICLES.push(
   }
 );
 
-export const ARTICLE_SLUGS = ARTICLES.map((a) => a.slug);
+import { EXTRA_ARTICLES } from "./articles-extra";
+
+const ALL_ARTICLES: Article[] = [...ARTICLES, ...EXTRA_ARTICLES];
+
+export const ARTICLE_SLUGS = ALL_ARTICLES.map((a) => a.slug);
 
 export function getArticleBySlug(slug: string): Article | undefined {
-  return ARTICLES.find((a) => a.slug === slug);
+  return ALL_ARTICLES.find((a) => a.slug === slug);
 }
 
 export function getAllArticles(): Article[] {
-  return ARTICLES;
+  return ALL_ARTICLES;
 }

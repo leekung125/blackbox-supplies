@@ -4,15 +4,19 @@ import { getGuideBySlug } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
 import { GuideCard } from "@/components/guide-card";
 import { ProductCard } from "@/components/product-card";
+import { GuidePicks } from "@/components/guide-picks";
+import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import { resolvePicks, matchByText } from "@/lib/affiliate-picks";
 
 /** Renders a question/comparison article in the site's editorial voice. */
 export function ArticleView({ article }: { article: Article }) {
   const related = article.relatedGuides.map(getGuideBySlug).filter(Boolean);
+  const picks = resolvePicks(article.picks);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-faint">
+      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
         <Link href="/guides" className="hover:text-accent-strong">Guides</Link>
@@ -38,6 +42,9 @@ export function ArticleView({ article }: { article: Article }) {
         <p className="mt-2 text-[1.02rem] leading-relaxed text-ink">{article.answerFirst}</p>
       </div>
 
+      {/* quick-verdict buy box — the highest-lift conversion element */}
+      <GuidePicks picks={picks} />
+
       {article.sections.map((s) => (
         <section key={s.heading} className="mt-10">
           <h2 className="font-display text-2xl font-semibold text-ink">{s.heading}</h2>
@@ -56,13 +63,23 @@ export function ArticleView({ article }: { article: Article }) {
                   </tr>
                 </thead>
                 <tbody>
-                  {s.table.rows.map((row, ri) => (
-                    <tr key={ri} className="border-b border-line/60 last:border-0">
-                      {row.map((cell, ci) => (
-                        <td key={ci} className={`px-4 py-3 align-top leading-relaxed ${ci === 0 ? "font-medium text-ink" : "text-ink-2"}`}>{cell}</td>
-                      ))}
-                    </tr>
-                  ))}
+                  {s.table.rows.map((row, ri) => {
+                    const rowPick = matchByText(row[0] ?? "", picks);
+                    return (
+                      <tr key={ri} className="border-b border-line/60 last:border-0">
+                        {row.map((cell, ci) => (
+                          <td key={ci} className={`px-4 py-3 align-top leading-relaxed ${ci === 0 ? "font-medium text-ink" : "text-ink-2"}`}>
+                            {cell}
+                            {ci === 0 && rowPick ? (
+                              <a href={rowPick.affiliateUrl} target="_blank" rel="sponsored nofollow noopener noreferrer" className="mt-1.5 inline-block text-xs font-semibold text-accent hover:text-accent-strong">
+                                Check price on Amazon →
+                              </a>
+                            ) : null}
+                          </td>
+                        ))}
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -115,8 +132,8 @@ export function ArticleView({ article }: { article: Article }) {
               </li>
             ))}
           </ul>
-          <p className="mt-3 text-[0.82rem] leading-relaxed text-ink-faint">
-            Research-based, not hands-on tested — our picks come from verified manufacturer specs and long-term owner feedback. How we work: <Link href="/methodology" className="ulink">our methodology</Link>.
+          <p className="mt-3 text-[0.82rem] leading-relaxed text-ink-dim">
+            Research-driven — our picks come from verified manufacturer specs and long-term owner feedback. How we work: <Link href="/methodology" className="ulink">our methodology</Link>.
           </p>
         </section>
       ) : null}
@@ -133,6 +150,8 @@ export function ArticleView({ article }: { article: Article }) {
       <div className="mt-14">
         <NewsletterCta />
       </div>
+
+      <StickyBuyBar pick={picks[0]} />
     </div>
   );
 }

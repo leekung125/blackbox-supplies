@@ -47,12 +47,12 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
   },
   {
     n: "04",
-    title: "No fake reviews or testing",
+    title: "No fabricated reviews or ratings",
     body: (
       <>
-        We don&rsquo;t publish reviews, star ratings, testimonials, or claims of hands-on testing we
-        didn&rsquo;t do. We avoid &ldquo;best ever,&rdquo; &ldquo;guaranteed,&rdquo; and safety or medical
-        guarantees. Copy sticks to honest function, who a product is for, and its real tradeoffs.
+        We never invent reviews, star ratings, or testimonials, and we skip &ldquo;best ever,&rdquo;
+        &ldquo;guaranteed,&rdquo; and safety or medical guarantees. Copy sticks to honest function, who a
+        product is for, and its real tradeoffs.
       </>
     ),
   },
@@ -108,7 +108,7 @@ export default function DisclosurePage() {
         ))}
       </div>
 
-      <p className="mt-8 text-center text-sm text-ink-faint">
+      <p className="mt-8 text-center text-sm text-ink-dim">
         Looking for the gear? <Link href="/gear" className="ulink font-semibold">Browse all gear</Link> or{" "}
         <Link href="/guides" className="ulink font-semibold">read the buying guides</Link>.
       </p>

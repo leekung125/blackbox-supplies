@@ -5,8 +5,8 @@ import { NewsletterForm } from "@/components/newsletter-form";
  * gear, and guide footers.
  */
 export function NewsletterCta({
-  heading = "Get useful gear notes before you need them.",
-  dek = "A few times a month: practical buying guides, Amazon finds, and simple kit picks for power, car, travel and home. No hype, no fake reviews.",
+  heading = "The gear actually worth buying — one email a week.",
+  dek = "The cooling, desk, kitchen, and car gear worth owning — with the honest catch on each. One genuinely useful email a week. No spam, no fake reviews, unsubscribe anytime.",
 }: {
   heading?: string;
   dek?: string;

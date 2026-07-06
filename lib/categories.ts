@@ -1,4 +1,6 @@
 import type { Category } from "@/lib/products";
+import heatData from "@/data/heat-products.json";
+import usefulData from "@/data/useful-products.json";
 
 export interface CategoryMeta {
   /** URL slug, e.g. "jump-starters" for /category/jump-starters */
@@ -17,7 +19,7 @@ export interface CategoryMeta {
   heroProductId: string;
 }
 
-export const CATEGORIES: CategoryMeta[] = [
+const CAR_CATEGORIES: CategoryMeta[] = [
   {
     slug: "jump-starters",
     name: "Jump Starters",
@@ -80,6 +82,29 @@ export const CATEGORIES: CategoryMeta[] = [
   },
 ];
 
+function slugify(s: string): string {
+  return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+// Register the cooling/useful catalog categories so each gets a real /category page + slug.
+const _extraNames = Array.from(
+  new Set(
+    [...(heatData as { category: string }[]), ...(usefulData as { category: string }[])].map((p) => p.category)
+  )
+).filter((n) => n && !CAR_CATEGORIES.some((c) => c.name === n));
+
+const EXTRA_CATEGORIES: CategoryMeta[] = _extraNames.map((name) => ({
+  slug: slugify(name),
+  name,
+  lettermark: name.replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase() || "GEN",
+  kitName: "",
+  tagline: "Genuinely useful gear, researched.",
+  blurb: `Researched ${name.toLowerCase()} worth owning — chosen on merit, honest about the catch.`,
+  heroProductId: "",
+}));
+
+export const CATEGORIES: CategoryMeta[] = [...CAR_CATEGORIES, ...EXTRA_CATEGORIES];
+
 const BY_SLUG = new Map(CATEGORIES.map((c) => [c.slug, c]));
 const BY_NAME = new Map(CATEGORIES.map((c) => [c.name, c]));
 
@@ -90,7 +115,17 @@ export function getCategoryBySlug(slug: string): CategoryMeta | undefined {
 }
 
 export function getCategoryByName(name: Category): CategoryMeta {
-  return BY_NAME.get(name)!;
+  return (
+    BY_NAME.get(name) ?? {
+      slug: slugify(String(name)),
+      name,
+      lettermark: String(name).replace(/[^A-Za-z]/g, "").slice(0, 3).toUpperCase() || "GEN",
+      kitName: "",
+      tagline: "",
+      blurb: "",
+      heroProductId: "",
+    }
+  );
 }
 
 export function categorySlug(name: Category): string {

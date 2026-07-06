@@ -19,12 +19,12 @@ export default function LinksPage() {
   const featured = heroes.find((p) => p.image) ?? heroes[0];
 
   const rows = [
-    { href: "/gear", label: "The five to know", sub: "Our top gear picks" },
-    { href: "/guides/best-portable-jump-starters", label: "Best jump starters", sub: "Buying guide" },
-    { href: "/guides/best-cordless-tire-inflators", label: "Best tire inflators", sub: "Buying guide" },
-    { href: "/guides/best-dash-cams", label: "Best dash cams", sub: "Buying guide" },
+    { href: "/heat", label: "Beat the Heat", sub: "Portable AC, fans & cooling for no-AC apartments" },
+    { href: "/useful", label: "Genuinely useful things", sub: "The stuff you didn't know you needed" },
+    { href: "/gear", label: "Car & roadside gear", sub: "Jump starters, tire inflators, dash cams" },
+    { href: "/guides", label: "Buying guides", sub: "Know what to buy before you buy" },
     { href: "/kits/roadside-kit", label: "The Roadside Kit", sub: "What to keep in your car" },
-    { href: "/guides", label: "All buying guides", sub: "Know what to buy" },
+    { href: "/finds", label: "Latest finds", sub: "Fresh picks, updated often" },
   ];
 
   return (
@@ -32,7 +32,7 @@ export default function LinksPage() {
       <div className="mx-auto flex max-w-md flex-col">
         <header className="flex flex-col items-center text-center">
           <WordmarkStacked light />
-          <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-2">{BRAND.shortPositioning}</p>
+          <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-2">Genuinely useful gear that solves real problems — cooling, car &amp; roadside, home, and the stuff you didn&apos;t know you needed. Pick a lane:</p>
         </header>
 
         {featured ? (
@@ -61,7 +61,7 @@ export default function LinksPage() {
             >
               <span>
                 <span className="block text-sm font-semibold text-ink">{r.label}</span>
-                <span className="block text-xs text-ink-faint">{r.sub}</span>
+                <span className="block text-xs text-ink-dim">{r.sub}</span>
               </span>
               <span className="text-ink-faint transition-colors group-hover:text-accent" aria-hidden>→</span>
             </Link>
@@ -84,12 +84,12 @@ export default function LinksPage() {
         >
           <span>
             <span className="block text-sm font-semibold text-ink">Instagram</span>
-            <span className="block text-xs text-ink-faint">@{BRAND.instagram}</span>
+            <span className="block text-xs text-ink-dim">@{BRAND.instagram}</span>
           </span>
           <span className="text-ink-faint transition-colors group-hover:text-accent" aria-hidden>→</span>
         </a>
 
-        <Link href="/disclosure" className="mt-6 text-center text-xs text-ink-faint underline decoration-line underline-offset-2 hover:text-ink-2">
+        <Link href="/disclosure" className="mt-6 text-center text-xs text-ink-dim underline decoration-line underline-offset-2 hover:text-ink-2">
           How we work &amp; disclosure
         </Link>
       </div>

@@ -125,7 +125,7 @@ export function ScrubHero({ stats }: { stats: { products: number; guides: number
                 <div className="nums font-display text-3xl font-semibold text-ink-strong">
                   <CountUp to={st.n} suffix={st.s} />
                 </div>
-                <div className="mt-0.5 text-xs uppercase tracking-wide text-ink-faint">{st.label}</div>
+                <div className="mt-0.5 text-xs uppercase tracking-wide text-ink-dim">{st.label}</div>
               </div>
             ))}
           </div>
