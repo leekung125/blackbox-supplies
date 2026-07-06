@@ -1,21 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { OutboundLink } from "@/components/outbound-link";
 import { GuideCard } from "@/components/guide-card";
+import { GuidePicks } from "@/components/guide-picks";
+import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { getAllGuides, getGuideBySlug, GUIDE_SLUGS, type GuidePick } from "@/lib/guides";
 import { getKitById } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
+import { matchByText, productToPick, type ResolvedPick } from "@/lib/affiliate-picks";
 import { JsonLd } from "@/components/json-ld";
-import { articleSchema, breadcrumbSchema, guideSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqSchema, guideSchema } from "@/lib/schema";
 import { ARTICLE_SLUGS, getArticleBySlug } from "@/lib/articles";
 import { ArticleView } from "@/components/article-view";
+import { COMPARISON_GUIDE_SLUGS, getComparisonGuideBySlug } from "@/lib/comparison-guides";
+import { ComparisonGuideView } from "@/components/comparison-guide";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return [...GUIDE_SLUGS, ...ARTICLE_SLUGS].map((slug) => ({ slug }));
+  return [...GUIDE_SLUGS, ...COMPARISON_GUIDE_SLUGS, ...ARTICLE_SLUGS].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -26,7 +32,22 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       title: article.title,
       description: article.dek,
       alternates: { canonical: `/guides/${article.slug}` },
-      openGraph: { type: "article", title: article.title, description: article.dek, url: `/guides/${article.slug}` },
+      openGraph: { type: "article", title: article.title, description: article.dek, url: `/guides/${article.slug}`, ...(article.heroImage ? { images: [{ url: article.heroImage }] } : {}) },
+    };
+  }
+  const cmp = getComparisonGuideBySlug(slug);
+  if (cmp) {
+    return {
+      title: cmp.title,
+      description: cmp.dek,
+      alternates: { canonical: `/guides/${cmp.slug}` },
+      openGraph: {
+        type: "article",
+        title: cmp.title,
+        description: cmp.dek,
+        url: `/guides/${cmp.slug}`,
+        ...(cmp.heroImage ? { images: [{ url: cmp.heroImage }] } : {}),
+      },
     };
   }
   const guide = getGuideBySlug(slug);
@@ -61,12 +82,50 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               { name: "Guides", path: "/guides" },
               { name: article.title, path: `/guides/${article.slug}` },
             ]),
+            ...(article.faq?.length ? [faqSchema(article.faq)] : []),
           ]}
         />
         <ArticleView article={article} />
       </>
     );
   }
+  const cmp = getComparisonGuideBySlug(slug);
+  if (cmp) {
+    return (
+      <>
+        <JsonLd
+          data={[
+            {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: cmp.title,
+              description: cmp.dek,
+              dateModified: cmp.updated,
+              ...(cmp.heroImage ? { image: cmp.heroImage } : {}),
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "ItemList",
+              name: cmp.title,
+              numberOfItems: cmp.products.length,
+              itemListElement: cmp.products.map((p, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                name: p.name,
+              })),
+            },
+            breadcrumbSchema([
+              { name: "Home", path: "/" },
+              { name: "Guides", path: "/guides" },
+              { name: cmp.title, path: `/guides/${cmp.slug}` },
+            ]),
+          ]}
+        />
+        <ComparisonGuideView guide={cmp} />
+      </>
+    );
+  }
+
   const guide = getGuideBySlug(slug);
   if (!guide) notFound();
 
@@ -74,6 +133,14 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const heroImg = guide.heroImage ?? lead?.image;
   const related = guide.relatedGuides.map(getGuideBySlug).filter(Boolean).slice(0, 3);
   const kit = guide.relatedKit ? getKitById(guide.relatedKit) : undefined;
+
+  // Resolve each guide pick (car catalog) to the buy-CTA shape used by GuidePicks / StickyBuyBar.
+  const picks: ResolvedPick[] = guide.picks
+    .map((pk) => {
+      const p = getProductById(pk.productId);
+      return p ? productToPick(p, pk.role) : undefined;
+    })
+    .filter((p): p is ResolvedPick => Boolean(p));
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
@@ -110,9 +177,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
       {heroImg ? (
         <div className="mt-7 overflow-hidden rounded-2xl border border-line bg-surface-2">
-          <div className="aspect-[16/9]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={heroImg} alt={guide.title} className="h-full w-full object-cover" fetchPriority="high" />
+          <div className="relative aspect-[16/9]">
+            <Image src={heroImg} alt={guide.title} fill priority sizes="(min-width: 768px) 48rem, 100vw" className="object-cover" />
           </div>
         </div>
       ) : null}
@@ -122,6 +188,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-accent-strong">The short version</h2>
         <p className="mt-2 text-[1.02rem] leading-relaxed text-ink">{guide.quickAnswer}</p>
       </div>
+
+      {/* quick-verdict buy box — the highest-lift conversion element */}
+      <GuidePicks picks={picks} />
 
       {/* who this is for */}
       <section className="mt-10">
@@ -169,13 +238,23 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
                 </tr>
               </thead>
               <tbody>
-                {guide.comparison.rows.map((row, i) => (
-                  <tr key={i} className="border-t border-line">
-                    {row.map((cell, j) => (
-                      <td key={j} className={`px-4 py-3 ${j === 0 ? "font-semibold text-ink" : "text-ink-2"}`}>{cell}</td>
-                    ))}
-                  </tr>
-                ))}
+                {guide.comparison.rows.map((row, i) => {
+                  const rowPick = matchByText(row[0] ?? "", picks);
+                  return (
+                    <tr key={i} className="border-t border-line">
+                      {row.map((cell, j) => (
+                        <td key={j} className={`px-4 py-3 align-top ${j === 0 ? "font-semibold text-ink" : "text-ink-2"}`}>
+                          {cell}
+                          {j === 0 && rowPick ? (
+                            <a href={rowPick.affiliateUrl} target="_blank" rel="sponsored nofollow noopener noreferrer" className="mt-1.5 block text-xs font-semibold text-accent hover:text-accent-strong">
+                              Check price on Amazon →
+                            </a>
+                          ) : null}
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -216,7 +295,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
       {/* disclosure note */}
       <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-faint">
-        How we choose: picks are based on public research and manufacturer specs — no paid placement, and no hands-on testing we didn&rsquo;t do. Outbound links are Amazon affiliate links: as an Amazon Associate, BlackBox Supply earns from qualifying purchases, at no extra cost to you. <Link href="/disclosure" className="ulink font-semibold">Full disclosure</Link>.
+        How we choose: picks are based on rigorous research and manufacturer specs — no paid placement, ever. Outbound links are Amazon affiliate links: as an Amazon Associate, BlackBox Supply earns from qualifying purchases, at no extra cost to you. <Link href="/disclosure" className="ulink font-semibold">Full disclosure</Link>.
       </p>
 
       {/* related kit */}
@@ -248,6 +327,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <div className="mt-16">
         <NewsletterCta />
       </div>
+
+      <StickyBuyBar pick={picks[0]} />
     </div>
   );
 }
@@ -262,8 +343,9 @@ function PickRow({ pick }: { pick: GuidePick }) {
           href={`/products/${p.id}`}
           className="relative aspect-[5/3] w-full shrink-0 overflow-hidden rounded-xl border border-line bg-surface-2 sm:aspect-square sm:w-36"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={p.image} alt={p.name} className="h-full w-full object-cover" loading="lazy" />
+          {p.image ? (
+            <Image src={p.image} alt={p.name} fill sizes="(min-width: 640px) 9rem, 100vw" className="object-cover" />
+          ) : null}
         </Link>
         <div className="min-w-0 flex-1">
           <span className="inline-block rounded-full bg-accent px-2.5 py-1 text-[0.7rem] font-semibold text-on-accent">{pick.role}</span>
