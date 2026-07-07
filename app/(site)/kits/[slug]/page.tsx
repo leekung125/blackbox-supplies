@@ -5,6 +5,7 @@ import { ProductCard } from "@/components/product-card";
 import { ProductThumb } from "@/components/product-thumb";
 import { OutboundLink } from "@/components/outbound-link";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getKitById, KIT_SLUGS } from "@/lib/kits";
 import { getGuideBySlug } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
@@ -35,11 +36,13 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
-        <Link href="/" className="hover:text-accent-strong">Home</Link>
-        <span aria-hidden>/</span>
-        <Link href="/kits" className="hover:text-accent-strong">Kits</Link>
-      </nav>
+      <Breadcrumbs
+        trail={[
+          { label: "Home", href: "/" },
+          { label: "Kits", href: "/kits" },
+          { label: kit.name },
+        ]}
+      />
 
       <header className="mt-5 max-w-3xl">
         <span className="eyebrow eyebrow-accent">Gear kit</span>

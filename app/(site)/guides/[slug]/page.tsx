@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { OutboundLink } from "@/components/outbound-link";
 import { GuideCard } from "@/components/guide-card";
 import { GuidePicks } from "@/components/guide-picks";
+import { AwardStrip } from "@/components/award-strip";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { getAllGuides, getGuideBySlug, GUIDE_SLUGS, type GuidePick } from "@/lib/guides";
@@ -189,6 +190,9 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         <p className="mt-2 text-[1.02rem] leading-relaxed text-ink">{guide.quickAnswer}</p>
       </div>
 
+      {/* award strip — the shortlist above the fold, for the ~half who never scroll */}
+      <AwardStrip picks={picks} anchor="the-picks" />
+
       {/* quick-verdict buy box — the highest-lift conversion element */}
       <GuidePicks picks={picks} />
 
@@ -212,7 +216,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       </section>
 
       {/* the picks */}
-      <section className="mt-12">
+      <section id="the-picks" className="mt-12 scroll-mt-24">
         <h2 className="font-display text-2xl font-semibold text-ink">The picks</h2>
         <p className="mt-2 text-sm text-ink-2">
           Each pick links straight to Amazon — confirm the exact model, options, and current price there.

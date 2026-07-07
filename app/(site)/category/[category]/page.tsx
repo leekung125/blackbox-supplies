@@ -10,6 +10,7 @@ import { getFieldScene } from "@/lib/scenes";
 import { getAllGuides } from "@/lib/guides";
 import { getAllKits } from "@/lib/kits";
 import { JsonLd } from "@/components/json-ld";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { breadcrumbSchema, categorySchema } from "@/lib/schema";
 
 export const dynamicParams = false;
@@ -51,13 +52,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           ]),
         ]}
       />
-      <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
-        <Link href="/" className="hover:text-accent-strong">Home</Link>
-        <span aria-hidden>/</span>
-        <Link href="/gear" className="hover:text-accent-strong">Gear</Link>
-        <span aria-hidden>/</span>
-        <span className="text-ink-2">{meta.name}</span>
-      </nav>
+      <Breadcrumbs
+        trail={[
+          { label: "Home", href: "/" },
+          { label: "Gear", href: "/gear" },
+          { label: meta.name },
+        ]}
+      />
 
       <header className="mt-6 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-2xl">

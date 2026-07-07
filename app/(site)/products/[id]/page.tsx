@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { OutboundLink } from "@/components/outbound-link";
-import { StickyBuyBar } from "@/components/sticky-buy-bar";
+import { StickyCta } from "@/components/sticky-cta";
 import { ProductCard } from "@/components/product-card";
 import { ProductThumb } from "@/components/product-thumb";
 import { getCategoryByName, categorySlug } from "@/lib/categories";
@@ -101,6 +101,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
               Opens the product on Amazon. Confirm the exact model and current price there.
             </p>
           </div>
+
+          {/* Sentinel: once this scrolls past, the mobile sticky buy bar slides up. */}
+          <div id="sticky-cta-anchor" aria-hidden className="h-px w-full" />
         </div>
 
         {/* RIGHT — the writeup */}
@@ -218,11 +221,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       ) : null}
 
       {/* Mobile: persistent buy action once the top buy card scrolls away */}
-      <StickyBuyBar
-        name={product.name}
-        priceRange={product.priceRange}
-        affiliateUrl={product.affiliateUrl}
-      />
+      <StickyCta product={product} />
     </div>
   );
 }
