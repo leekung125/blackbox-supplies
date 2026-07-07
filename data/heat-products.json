@@ -7,6 +7,21 @@
     "priceRange": "$500-$650",
     "keySpec": "14,000 BTU (12,000 SACC) inverter cool + heat, cools up to 550 sq ft, ultra-quiet ~42 dB, Alexa/Google + app control, self-drain window kit.",
     "blurb": "A 14,000 BTU inverter portable AC that cools rooms up to 550 sq ft while running near-silent (~42 dB), with app and voice control and no bucket to empty.",
+    "verdict": "One of the quietest, most efficient portable ACs you can buy: the inverter compressor holds a steady temperature at around 42 dB instead of cycling loudly, and it both cools and heats, so it earns its place year-round.",
+    "bestFor": "Bedrooms and living spaces up to 550 sq ft where a window unit isn't an option and noise matters - light sleepers and anyone who wants app or voice control.",
+    "keyFeatures": [
+      "14,000 BTU (12,000 SACC) inverter compressor for steady, efficient cooling",
+      "Cools spaces up to 550 sq ft, plus a heat mode for cooler months",
+      "Runs near-silent at about 42 dB",
+      "Alexa, Google, and app control",
+      "Self-draining design with an included window kit"
+    ],
+    "cons": [
+      "Still needs a window for the exhaust hose, so placement isn't fully flexible",
+      "At 14,000 BTU it's a large, heavy unit to move between rooms",
+      "Portable ACs are inherently less efficient than a same-BTU window unit",
+      "In very humid climates the self-drain won't keep up and you'll need to drain it"
+    ],
     "image": "/products/heat/midea-duo-14-000-btu-smart.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0FC2SGGF9?tag=blackboxsuppl-20",
     "asin": "B0FC2SGGF9"
@@ -19,6 +34,21 @@
     "priceRange": "$550-$720",
     "keySpec": "14,000 BTU (12,000 SACC) NEX inverter, DUAL-HOSE for faster/efficient cooling, up to 600 sq ft, Wi-Fi smart control, low noise.",
     "blurb": "A dual-hose 14,000 BTU inverter AC that cools up to 600 sq ft faster and more efficiently than single-hose units, with quiet operation and Wi-Fi control.",
+    "verdict": "The dual-hose design is the real story - it pulls exhaust air from outside instead of from your room, so it cools faster and more efficiently than the single-hose units it competes with, and the NEX inverter keeps it quiet.",
+    "bestFor": "Larger or sun-facing rooms up to 600 sq ft where single-hose units struggle to keep up, and anyone who wants efficient cooling with Wi-Fi control.",
+    "keyFeatures": [
+      "Dual-hose design cools faster and more efficiently than single-hose units",
+      "14,000 BTU (12,000 SACC) NEX inverter compressor",
+      "Handles rooms up to 600 sq ft",
+      "Wi-Fi smart control",
+      "Low-noise operation"
+    ],
+    "cons": [
+      "Two hoses to route to the window take more setup than a single-hose unit",
+      "Premium price for the dual-hose inverter design",
+      "Large, heavy unit that needs a nearby window",
+      "Like all portable ACs, less efficient than a comparable window unit"
+    ],
     "image": "/products/heat/whynter-nex-arc-1230wn-14-000.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09TP51PPH?tag=blackboxsuppl-20",
     "asin": "B09TP51PPH"
@@ -31,6 +61,21 @@
     "priceRange": "$899-$1,499",
     "keySpec": "6,100 BTU cool / 6,800 BTU heat, up to 8 hrs cordless on add-on battery, no permanent window vent, app control, Sleep/Auto/Pet modes ~44 dB.",
     "blurb": "A cordless portable AC that cools and heats with no permanent window vent - run it up to 8 hours on the add-on battery for tents, vans, or off-grid rooms.",
+    "verdict": "The rare portable AC that runs off a battery with no permanent window vent, so it can actually cool a tent, van, or off-grid room. It cools and heats, but at 6,100 BTU it's built for small spaces, not a living room.",
+    "bestFor": "Campers, van-lifers, and anyone cooling a small, off-grid space where there's no window to vent a normal unit.",
+    "keyFeatures": [
+      "6,100 BTU cooling / 6,800 BTU heating in one unit",
+      "Runs up to 8 hours cordless on the add-on battery",
+      "No permanent window vent required",
+      "App control with Sleep, Auto, and Pet modes",
+      "Quiet at around 44 dB"
+    ],
+    "cons": [
+      "The battery is a separate add-on that raises the total cost significantly",
+      "6,100 BTU only cools a small space, not a full-size room",
+      "Premium price compared with conventional portable ACs",
+      "Cordless runtime drops when running at full cooling power"
+    ],
     "image": "/products/heat/ecoflow-wave-3-portable-air-conditioner.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0F4D4Z18S?tag=blackboxsuppl-20",
     "asin": "B0F4D4Z18S"
@@ -43,6 +88,21 @@
     "priceRange": "$280-$360",
     "keySpec": "10,000 BTU (5,550 DOE), cools up to 450 sq ft, 3-in-1 AC/dehumidifier/fan, 'Follow Me' remote thermostat, casters + window kit, ~26 lb.",
     "blurb": "A 10,000 BTU 3-in-1 AC, dehumidifier, and fan for rooms up to 450 sq ft. Light enough on its casters to roll from bedroom to living room as you need it.",
+    "verdict": "A no-frills, budget-friendly 3-in-1 that cools, dehumidifies, and runs as a fan, with a 'Follow Me' remote that reads the temperature where you are. A dependable pick for a medium room without paying for smart features.",
+    "bestFor": "Renters and budget shoppers cooling a bedroom or office up to 450 sq ft who want a light, roll-anywhere unit.",
+    "keyFeatures": [
+      "10,000 BTU (5,550 DOE) cooling for rooms up to 450 sq ft",
+      "3-in-1 air conditioner, dehumidifier, and fan",
+      "'Follow Me' remote acts as a thermostat where you sit",
+      "Casters and an included window kit",
+      "Light at about 26 lb for a portable AC"
+    ],
+    "cons": [
+      "Single-hose design re-draws some warm air, so it's less efficient than dual-hose",
+      "No app or voice control",
+      "Fixed-speed compressor cycles louder than an inverter unit",
+      "Needs a window for the exhaust hose"
+    ],
     "image": "/products/heat/black-decker-10-000-btu-3.png",
     "affiliateUrl": "https://www.amazon.com/dp/B01DLPUWG2?tag=blackboxsuppl-20",
     "asin": "B01DLPUWG2"
@@ -55,6 +115,21 @@
     "priceRange": "$150-$200",
     "keySpec": "43\" oscillating tower (80 deg), evaporative cooling with ice packs, ~33 dB on low, 4 speeds / 4 modes, 12H timer, app + Alexa/Google.",
     "blurb": "A 43-inch evaporative tower cooler that chills air with ice packs - no window venting, low energy use, and quiet ~33 dB operation with app and voice control.",
+    "verdict": "A quiet, low-energy way to cool without venting a window - it chills air by evaporating water over ice packs. It works best in dry heat; in humid climates an evaporative cooler adds moisture and cools less.",
+    "bestFor": "Dry-climate homes and anyone who wants gentle, low-cost cooling in a space where a portable AC can't be vented.",
+    "keyFeatures": [
+      "43-inch oscillating tower reaches an 80-degree spread",
+      "Evaporative cooling with ice packs - no window venting",
+      "Quiet at about 33 dB on low",
+      "4 speeds and 4 modes with a 12-hour timer",
+      "App plus Alexa and Google control"
+    ],
+    "cons": [
+      "Evaporative coolers only cool well in dry climates and add humidity in muggy ones",
+      "Needs regular water and ice-pack refills to feel cold",
+      "Not a true air conditioner - it won't reach AC-level temperatures",
+      "Cooling effect is localized to the airflow path"
+    ],
     "image": "/products/heat/dreo-43-evaporative-air-swamp-cooler.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0GN9KL2YR?tag=blackboxsuppl-20",
     "asin": "B0GN9KL2YR"
@@ -65,8 +140,23 @@
     "brand": "Hessaire",
     "category": "Portable AC",
     "priceRange": "$150-$220",
-    "keySpec": "1,300 CFM, cools up to 500 sq ft, 2-speed high-velocity fan, ~53 dB, continuous water hookup + tank, rugged wheeled housing for…",
+    "keySpec": "1,300 CFM, cools up to 500 sq ft, 2-speed high-velocity fan, ~53 dB, continuous water hookup plus a fillable tank, in a rugged wheeled housing built for garages, patios, and workshops.",
     "blurb": "A rugged 1,300 CFM evaporative cooler built for garages, patios, and workshops - it cools up to 500 sq ft of open space that a regular AC can't handle.",
+    "verdict": "A rugged, high-output swamp cooler built for the spaces a regular AC can't handle - open garages, patios, and workshops. It moves serious air, but like all evaporative coolers it needs dry heat to work well.",
+    "bestFor": "Garages, workshops, patios, and other open or semi-open dry-climate spaces up to 500 sq ft.",
+    "keyFeatures": [
+      "1,300 CFM output cools up to 500 sq ft of open space",
+      "2-speed high-velocity fan",
+      "Continuous water-line hookup plus a fillable tank",
+      "Rugged wheeled housing built for tough spaces",
+      "No window venting required"
+    ],
+    "cons": [
+      "Only cools effectively in dry climates; adds humidity in humid ones",
+      "Louder than a home fan at about 53 dB",
+      "Best for open or ventilated spaces, not sealed rooms",
+      "Needs a steady water supply or frequent tank refills"
+    ],
     "image": "/products/heat/hessaire-mc18m-portable-evaporative-swamp-cooler.png",
     "affiliateUrl": "https://www.amazon.com/dp/B078HFGJ3T?tag=blackboxsuppl-20",
     "asin": "B078HFGJ3T"
@@ -77,8 +167,23 @@
     "brand": "Shark",
     "category": "Cooling Fans",
     "priceRange": "$279-$300",
-    "keySpec": "Bladeless; pivots from vertical Tower Mode to horizontal Air Blanket Mode; twists vents multi-directionally; 180-degree oscillation; adjustable…",
+    "keySpec": "Bladeless design that pivots from a vertical Tower Mode to a horizontal Air Blanket Mode, with multi-directional vents, 180-degree oscillation, and remote control.",
     "blurb": "A bladeless tower fan that pivots from an upright column of air to a horizontal air blanket, with 180-degree oscillation to cover a whole room.",
+    "verdict": "A bladeless fan that does something most don't - it pivots from an upright column of air to a horizontal 'air blanket' overhead, with multi-directional vents to aim the flow. Versatile and safe around kids, though you pay a premium for the design.",
+    "bestFor": "Households wanting one flexible, kid-safe fan that can cool a seated person, a bed, or a whole room from different angles.",
+    "keyFeatures": [
+      "Bladeless, kid- and pet-safe design",
+      "Pivots from vertical Tower Mode to horizontal Air Blanket Mode",
+      "Multi-directional vents aim airflow where you want it",
+      "180-degree oscillation for whole-room coverage",
+      "Remote control"
+    ],
+    "cons": [
+      "Premium price for a fan",
+      "Bladeless tower fans move less raw air than a large box fan",
+      "Tall design takes up vertical space",
+      "It's a fan - it circulates air but doesn't lower room temperature"
+    ],
     "image": "/products/heat/shark-turboblade-bladeless-tower-fan-tf202s.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0DSJYSZL3?tag=blackboxsuppl-20",
     "asin": "B0DSJYSZL3"
@@ -89,8 +194,23 @@
     "brand": "Dyson",
     "category": "Cooling Fans",
     "priceRange": "$430-$550",
-    "keySpec": "Bladeless Air Multiplier loop amplifier; fully-sealed HEPA H13 + activated carbon filtration; 350-degree oscillation; auto mode with real-time…",
+    "keySpec": "Bladeless Air Multiplier loop, fully-sealed HEPA H13 plus activated-carbon filtration, 350-degree oscillation, and auto mode with real-time air-quality reporting to the app.",
     "blurb": "A bladeless fan and sealed HEPA H13 purifier in one - it cools you while capturing allergens and fine particles, with 350-degree oscillation and auto mode.",
+    "verdict": "Two machines in one: a bladeless cooling fan and a sealed HEPA H13 purifier that captures allergens and fine particles, with auto mode reacting to real-time air quality. Excellent air, premium price - and remember it cools you, not the room.",
+    "bestFor": "Allergy sufferers and anyone who wants clean air and a cooling breeze from a single quiet, bladeless machine.",
+    "keyFeatures": [
+      "Fully-sealed HEPA H13 plus activated-carbon filtration",
+      "Bladeless Air Multiplier projects a smooth airstream",
+      "350-degree oscillation",
+      "Auto mode reacts to real-time air-quality readings",
+      "App and voice control"
+    ],
+    "cons": [
+      "Expensive for a fan",
+      "Replacement filters are a recurring cost",
+      "Purifies and circulates air but does not lower room temperature",
+      "Maximum airflow is gentler than a dedicated high-CFM fan"
+    ],
     "image": "/products/heat/dyson-purifier-cool-tp07-bladeless-tower.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09LT8THGS?tag=blackboxsuppl-20",
     "asin": "B09LT8THGS"
@@ -101,8 +221,23 @@
     "brand": "Dreo",
     "category": "Cooling Fans",
     "priceRange": "$90-$110",
-    "keySpec": "90-degree oscillation; 4 modes (Normal/Natural/Sleep/Auto); up to 12 speeds; quiet operation; 26 ft airflow; LED display with touch + remote; 12H…",
+    "keySpec": "90-degree oscillation, 4 modes (Normal/Natural/Sleep/Auto), up to 12 speeds, quiet operation, 26 ft airflow, LED touch display with remote, and a 12-hour timer.",
     "blurb": "A quiet oscillating tower fan with up to 12 speeds and 4 modes, pushing air about 26 ft across the room, with an LED display, remote, and 12-hour timer.",
+    "verdict": "A quiet, well-priced oscillating tower with a genuinely wide speed range and useful modes, pushing air about 26 ft. A strong value pick for everyday room cooling.",
+    "bestFor": "Bedrooms, living rooms, and offices that need quiet, adjustable airflow without spending much.",
+    "keyFeatures": [
+      "Up to 12 speeds for fine control",
+      "4 modes: Normal, Natural, Sleep, and Auto",
+      "Reaches about 26 ft of airflow",
+      "LED touch display with remote",
+      "12-hour timer and quiet operation"
+    ],
+    "cons": [
+      "Oscillation is 90 degrees, narrower than some tower fans",
+      "A fan, so it circulates air rather than cooling the room",
+      "Tall footprint needs floor space",
+      "No smart-home or app control"
+    ],
     "image": "/products/heat/dreo-cruiser-pro-t1-oscillating-tower.png",
     "affiliateUrl": "https://www.amazon.com/dp/B08PDDSDHY?tag=blackboxsuppl-20",
     "asin": "B08PDDSDHY"
@@ -115,6 +250,21 @@
     "priceRange": "$80-$100",
     "keySpec": "42 in. tall bladeless design; 120-degree oscillation; 20dB quiet brushless DC motor; 28 ft/s velocity; 12 speeds; 4 modes; 12H timer; remote.",
     "blurb": "A 42-inch bladeless tower fan with a whisper-quiet 20 dB DC motor and 12 speeds - quiet enough to run all night without disturbing your sleep.",
+    "verdict": "A whisper-quiet bladeless tower built around a brushless DC motor that drops to around 20 dB - quiet enough to run beside the bed all night - while still moving air at 28 ft/s. Strong value for light sleepers.",
+    "bestFor": "Bedrooms and nurseries where near-silent, all-night airflow matters.",
+    "keyFeatures": [
+      "Bladeless design, safe around kids and pets",
+      "Quiet brushless DC motor as low as 20 dB",
+      "28 ft/s airflow velocity",
+      "12 speeds and 4 modes",
+      "120-degree oscillation with a 12-hour timer and remote"
+    ],
+    "cons": [
+      "A fan - it moves air but doesn't lower room temperature",
+      "Tall tower needs floor space",
+      "Bladeless towers move less raw air than a large box fan",
+      "No app or voice control"
+    ],
     "image": "/products/heat/dreo-42-inch-bladeless-tower-fan.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09M8PMW26?tag=blackboxsuppl-20",
     "asin": "B09M8PMW26"
@@ -125,8 +275,23 @@
     "brand": "Shark",
     "category": "Cooling Fans",
     "priceRange": "$179-$249",
-    "keySpec": "Indoor + outdoor; integrated portable misting (removable tank, ice-fillable, up to ~12 degrees cooler); 70 ft reach; corded or cordless up to 24H…",
+    "keySpec": "Indoor and outdoor use, integrated portable misting (removable, ice-fillable tank, up to ~12 degrees cooler), 70 ft reach, and corded or cordless run up to 24 hours.",
     "blurb": "An indoor/outdoor fan with built-in misting that feels up to 12 degrees cooler - 70 ft of reach and cordless run up to 24 hours for patios and yards.",
+    "verdict": "A genuinely versatile indoor/outdoor fan that runs corded or cordless and adds a fine mist - fill the tank with ice and it can feel up to 12 degrees cooler. Ideal for patios and yards where you want cooling without a power outlet nearby.",
+    "bestFor": "Patios, decks, garages, and outdoor gatherings that need long-range, cordless airflow with optional misting.",
+    "keyFeatures": [
+      "Works indoors and outdoors",
+      "Integrated misting with a removable, ice-fillable tank (up to ~12 degrees cooler)",
+      "70 ft of airflow reach",
+      "Runs corded or cordless up to 24 hours",
+      "Weather-resistant build"
+    ],
+    "cons": [
+      "Misting can dampen nearby surfaces, so it's best used outdoors",
+      "The mist tank needs refilling for continuous cooling",
+      "Cordless runtime is shorter at higher fan speeds",
+      "Larger and heavier than a basic indoor fan"
+    ],
     "image": "/products/heat/shark-flexbreeze-pro-mist-fan-fa302.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0DMBXVFDK?tag=blackboxsuppl-20",
     "asin": "B0DMBXVFDK"
@@ -139,6 +304,21 @@
     "priceRange": "$55-$80",
     "keySpec": "42.5 in. tall, 13x13 in. footprint; 3 quiet speeds; widespread oscillation; Fresh Air Ionizer; 7.5H auto-off timer; multi-function remote.",
     "blurb": "A slim 42-inch oscillating tower fan with 3 quiet speeds, a fresh-air ionizer, a 7.5-hour timer, and remote - a dependable, space-saving pick for any room.",
+    "verdict": "A long-running best-seller for a reason: a slim, dependable oscillating tower with a small footprint, quiet speeds, a timer, and a remote - basic, but it just works and costs little.",
+    "bestFor": "Anyone wanting an affordable, space-saving tower fan for a bedroom, office, or apartment.",
+    "keyFeatures": [
+      "Slim 13x13-inch footprint, 42.5 inches tall",
+      "3 quiet speeds with widespread oscillation",
+      "Fresh Air Ionizer option",
+      "7.5-hour auto-off timer",
+      "Multi-function remote"
+    ],
+    "cons": [
+      "Basic plastic build without smart features",
+      "A fan, so it circulates air rather than cooling it",
+      "Only 3 speed settings",
+      "Narrower airflow than premium bladeless towers"
+    ],
     "image": "/products/heat/lasko-wind-curve-2551-42-inch.png",
     "affiliateUrl": "https://www.amazon.com/dp/B006SROQ3Q?tag=blackboxsuppl-20",
     "asin": "B006SROQ3Q"
@@ -151,6 +331,21 @@
     "priceRange": "$99-$130",
     "keySpec": "Bladeless wearable neck fan with a real semiconductor (Peltier) cooling plate against the back of the neck, not just airflow.",
     "blurb": "A bladeless neck fan with a real cooling plate that chills the back of your neck, not just blowing air. Hands-free relief on walks, commutes, and errands.",
+    "verdict": "Unlike ordinary neck fans, this one presses a real thermoelectric cooling plate against the back of your neck for an actual cold sensation, not just moving air. Genuine hands-free relief, though the cooling plate is heavier on the battery.",
+    "bestFor": "Commuters, walkers, and outdoor workers who want real cooling on the neck without holding anything.",
+    "keyFeatures": [
+      "Bladeless, hair-safe wearable design",
+      "Real semiconductor (Peltier) cooling plate on the neck",
+      "Cools by contact, not just airflow",
+      "Hands-free, wraparound fit",
+      "USB rechargeable"
+    ],
+    "cons": [
+      "The cooling plate draws more battery, so cold-plate runtime is limited",
+      "Heavier than a simple airflow-only neck fan",
+      "The cold sensation is localized to the neck contact area",
+      "Premium price versus basic neck fans"
+    ],
     "image": "/products/heat/torras-coolify-2s-neck-air-conditioner.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BXKJGSSX?tag=blackboxsuppl-20",
     "asin": "B0BXKJGSSX"
@@ -161,8 +356,23 @@
     "brand": "JISULIFE",
     "category": "Personal Cooling",
     "priceRange": "$50-$65",
-    "keySpec": "Bladeless (hair-safe) hands-free neck fan, stepless knob with up to 100 speed settings, front LED display showing speed/battery, 5000mAh…",
+    "keySpec": "Bladeless, hair-safe hands-free neck fan with a stepless knob up to 100 speed settings, a front LED display for speed and battery, and a 5000mAh rechargeable battery.",
     "blurb": "A bladeless, hair-safe neck fan with up to 100 speed settings and a front display for battery. The 5000mAh charge keeps it running all day, hands-free.",
+    "verdict": "A well-made hands-free neck fan with an unusually fine speed range and a front display so you always know the battery level. It moves air rather than chilling it, but the big 5000mAh battery keeps it going all day.",
+    "bestFor": "Anyone wanting all-day, hands-free airflow for commutes, errands, or outdoor chores.",
+    "keyFeatures": [
+      "Bladeless, hair-safe design",
+      "Stepless knob with up to 100 speed settings",
+      "Front LED display for speed and battery",
+      "5000mAh battery for all-day runtime",
+      "USB rechargeable"
+    ],
+    "cons": [
+      "Moves air but doesn't produce cold air like a cooling-plate model",
+      "Noticeable noise at the highest speeds",
+      "Battery life drops sharply at top speed",
+      "Fit can feel bulky on smaller necks"
+    ],
     "image": "/products/heat/jisulife-portable-neck-fan-pro-100.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BYSKX3BX?tag=blackboxsuppl-20",
     "asin": "B0BYSKX3BX"
@@ -173,8 +383,23 @@
     "brand": "HandFan",
     "category": "Personal Cooling",
     "priceRange": "$20-$28",
-    "keySpec": "2-in-1 handheld fan + water mister with refillable tank; press for a fine cooling mist while the fan blows; multiple speeds, USB rechargeable…",
-    "blurb": "Covers the misting sub-category.",
+    "keySpec": "2-in-1 handheld fan and water mister with a refillable tank - press for a fine cooling mist while the fan blows; multiple speeds and USB rechargeable.",
+    "blurb": "A pocket-size handheld fan with a built-in water mister - one press releases a fine, cooling spray while the fan blows. Refill the tank and recharge over USB for the beach, festivals, or a hot commute.",
+    "verdict": "A cheap, genuinely fun way to cool off on the move - one press releases a fine mist while the fan blows, and it recharges over USB. The tank is tiny, but for the price it's an easy grab for hot days.",
+    "bestFor": "Festivals, the beach, theme parks, and hot commutes where you want quick, portable relief.",
+    "keyFeatures": [
+      "2-in-1 handheld fan and water mister",
+      "Refillable tank sprays a fine cooling mist",
+      "Multiple fan speeds",
+      "USB rechargeable",
+      "Pocketable, lightweight design"
+    ],
+    "cons": [
+      "Small tank empties quickly with frequent misting",
+      "Mist can dampen a phone or glasses held nearby",
+      "Personal-scale airflow only",
+      "Not built for continuous all-day cooling"
+    ],
     "image": "/products/gen/handfan-portable-handheld-misting-fan-spray.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07P43HX84?tag=blackboxsuppl-20",
     "asin": "B07P43HX84"
@@ -185,8 +410,23 @@
     "brand": "Saatva",
     "category": "Cooling Sleep",
     "priceRange": "$275-$295",
-    "keySpec": "3-inch graphite-infused memory foam layer; graphite naturally pulls heat away from the body; medium-firm contouring feel; removable/washable cover;…",
+    "keySpec": "3-inch graphite-infused memory foam layer; the graphite naturally pulls heat away from the body; medium-firm contouring feel; removable, washable cover.",
     "blurb": "A 3-inch memory foam topper with graphite worked in to draw body heat away, so a hot mattress sleeps cooler. Medium-firm feel with a washable cover.",
+    "verdict": "A quality 3-inch memory foam topper with graphite worked into the foam to pull heat away, so a hot or too-firm mattress sleeps cooler and more cushioned. Medium-firm feel with a washable cover.",
+    "bestFor": "Hot sleepers who want to add cushioning to a firm or aging mattress without buying a new bed.",
+    "keyFeatures": [
+      "3-inch graphite-infused memory foam",
+      "Graphite draws body heat away from the surface",
+      "Medium-firm contouring feel",
+      "Removable, washable cover",
+      "Queen size"
+    ],
+    "cons": [
+      "Memory foam still retains more heat than latex or innerspring",
+      "3 inches of loft may require deeper fitted sheets",
+      "Changes the firmness of your existing mattress",
+      "New foam can have a mild initial odor that fades"
+    ],
     "image": "/products/heat/saatva-graphite-memory-foam-mattress-topper.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0CXZKD732?tag=blackboxsuppl-20",
     "asin": "B0CXZKD732"
@@ -197,8 +437,23 @@
     "brand": "Tempur-Pedic",
     "category": "Cooling Sleep",
     "priceRange": "$349-$449",
-    "keySpec": "3 inches of TEMPUR-ES material that adapts to shape/weight/temperature; premium cool-to-touch knit cooling cover; washable cover; medium feel; sizes…",
+    "keySpec": "3 inches of TEMPUR-ES material that adapts to your shape, weight, and temperature; a cool-to-touch knit cover; washable cover; medium feel; multiple sizes.",
     "blurb": "Three inches of Tempur-Pedic foam that molds to your shape, under a cool-to-the-touch cover. Turns a too-firm or hot bed into a cushioned, cooler sleep.",
+    "verdict": "Genuine Tempur-Pedic foam that molds precisely to your body under a cool-to-the-touch cover - it turns a too-firm or hot bed into a cushioned, cooler sleep. Premium foam at a premium price.",
+    "bestFor": "Sleepers who want authentic TEMPUR contouring and pressure relief added to an existing mattress.",
+    "keyFeatures": [
+      "3 inches of TEMPUR-ES material",
+      "Adapts to your shape, weight, and temperature",
+      "Cool-to-touch knit cover",
+      "Washable cover",
+      "Medium feel, multiple sizes"
+    ],
+    "cons": [
+      "Premium price for a topper",
+      "Dense memory foam sleeps warmer than latex despite the cool cover",
+      "Adds noticeable height to the mattress",
+      "New foam may have a light initial odor that dissipates"
+    ],
     "image": "/products/heat/tempur-pedic-tempur-adapt-cooling-3.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07V7R7V8F?tag=blackboxsuppl-20",
     "asin": "B07V7R7V8F"
@@ -209,8 +464,23 @@
     "brand": "ViscoSoft",
     "category": "Cooling Sleep",
     "priceRange": "$250-$300 (list ~$399, frequently discounted)",
-    "keySpec": "4-inch dual-layer copper-infused memory foam (copper transfers heat away); Drift-Cool washable cover with anti-slip backing and adjustable straps;…",
+    "keySpec": "4-inch dual-layer copper-infused memory foam (copper carries heat away); Drift-Cool washable cover with anti-slip backing and adjustable straps.",
     "blurb": "A thick 4-inch copper-infused foam topper that pulls heat away as you sleep. The washable cover has anti-slip backing and straps so it stays put on the bed.",
+    "verdict": "A thick, plush 4-inch copper-infused topper that adds real cushioning while copper carries heat away from the surface. The included washable cover has anti-slip backing and straps so it stays put.",
+    "bestFor": "Hot sleepers who want maximum added cushioning and a topper that won't slide around the bed.",
+    "keyFeatures": [
+      "4-inch dual-layer copper-infused memory foam",
+      "Copper helps transfer heat away from the body",
+      "Drift-Cool washable cover",
+      "Anti-slip backing with adjustable straps",
+      "Queen size"
+    ],
+    "cons": [
+      "4 inches raises mattress height and may need deep-pocket sheets",
+      "Memory foam still retains some heat even with copper",
+      "Thick foam is heavy to move and slow to expand at first",
+      "New foam can have a mild odor that fades"
+    ],
     "image": "/products/heat/viscosoft-4-inch-active-cooling-copper.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07R6TB9L2?tag=blackboxsuppl-20",
     "asin": "B07R6TB9L2"
@@ -221,8 +491,23 @@
     "brand": "SHEEX",
     "category": "Cooling Sleep",
     "priceRange": "$100-$160",
-    "keySpec": "100% TENCEL Lyocell sateen; SHEEX CoolX moisture-wicking, cool-to-touch fabric; set = 1 flat, 1 fitted, 2 pillowcases; hypoallergenic; King…",
+    "keySpec": "100% TENCEL Lyocell sateen with SHEEX CoolX moisture-wicking, cool-to-touch fabric; hypoallergenic; set includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases; multiple sizes.",
     "blurb": "A TENCEL lyocell sheet set that feels cool to the touch and wicks moisture, so you sleep dry on warm nights. Includes a flat, fitted, and two pillowcases.",
+    "verdict": "A TENCEL Lyocell sheet set engineered to feel cool to the touch and wick moisture, so you sleep dry through warm nights. A soft, breathable upgrade over standard cotton.",
+    "bestFor": "Hot or sweaty sleepers who want cooling, moisture-wicking sheets that feel silky rather than crisp.",
+    "keyFeatures": [
+      "100% TENCEL Lyocell sateen",
+      "SHEEX CoolX moisture-wicking, cool-to-touch fabric",
+      "Hypoallergenic",
+      "Set includes 1 flat sheet, 1 fitted sheet, and 2 pillowcases",
+      "Multiple sizes"
+    ],
+    "cons": [
+      "Premium price versus standard cotton sheets",
+      "Lyocell can wrinkle without prompt folding",
+      "Silky sateen feel isn't for those who prefer crisp percale",
+      "Requires gentle-cycle care to protect the fabric"
+    ],
     "image": "/products/heat/sheex-arctic-aire-max-cooling-sheet.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07FN78W35?tag=blackboxsuppl-20",
     "asin": "B07FN78W35"
@@ -233,8 +518,23 @@
     "brand": "Bedsure",
     "category": "Cooling Sleep",
     "priceRange": "$40-$60",
-    "keySpec": "60% rayon-from-bamboo / 40% cotton blend; Q-Max 0.375 cool-to-touch; deep pocket up to 18\"; PureWoven silky finish; endorsed by Forbes Vetted & NY…",
-    "blurb": "Below the $50 target but the highest-volume / highest-intent bedding item here — Bedsure cooling sheets are a mass-market Amazon best-seller with heavy press (Forbes…",
+    "keySpec": "60% rayon-from-bamboo / 40% cotton blend with a Q-Max 0.375 cool-to-touch rating; PureWoven silky finish; deep pockets fit mattresses up to 18 inches.",
+    "blurb": "Bamboo-viscose cooling sheets with a cool-to-the-touch feel and a silky, breathable weave that helps you sleep dry on warm nights. Deep pockets fit mattresses up to 18 inches, and the price makes cooling bedding easy to try.",
+    "verdict": "An affordable, mass-market favorite: a bamboo-viscose blend with a measured cool-to-the-touch feel and a silky weave, in deep-pocket sizing. The easiest, lowest-cost way to try cooling sheets.",
+    "bestFor": "Budget shoppers who want silky, cool-feeling sheets and deep pockets for a thick mattress.",
+    "keyFeatures": [
+      "60% rayon-from-bamboo / 40% cotton blend",
+      "Q-Max 0.375 cool-to-touch rating",
+      "PureWoven silky finish",
+      "Deep pockets fit mattresses up to 18 inches",
+      "Queen size"
+    ],
+    "cons": [
+      "Bamboo-viscose can wrinkle and may pill over time",
+      "Cool-touch feel is milder than premium Lyocell sets",
+      "Budget construction versus higher-end brands",
+      "Silky finish can feel slippery to some sleepers"
+    ],
     "image": "/products/gen/bedsure-bamboo-viscose-cooling-sheets-queen.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0FN2ZNH3R?tag=blackboxsuppl-20",
     "asin": "B0FN2ZNH3R"
@@ -245,8 +545,23 @@
     "brand": "Elegear",
     "category": "Cooling Sleep",
     "priceRange": "$46-$60",
-    "keySpec": "Double-sided Japanese Arc-Chill 3.0 cool fiber, Q-Max > 0.5 (vs ~0.2 ordinary fabric); absorbs body heat to drop skin temp ~4-9°F; lightweight summer…",
-    "blurb": "The single most demo-able product in the category: the 'cool-to-the-touch reveal' and thermal-camera style before/after is a proven viral format on TikTok photo mode /…",
+    "keySpec": "Double-sided Japanese Arc-Chill 3.0 cool fiber with a Q-Max above 0.5 (versus ~0.2 for ordinary fabric); absorbs body heat to lower skin temperature by roughly 4-9°F; lightweight for summer.",
+    "blurb": "A double-sided cooling blanket woven from Japanese Arc-Chill fiber that feels genuinely cold to the touch and absorbs body heat, dropping skin temperature by roughly 4-9°F. Lightweight for summer, it's an easy swap for a hot comforter.",
+    "verdict": "A double-sided cooling blanket whose Arc-Chill fiber feels genuinely cold to the touch and pulls body heat away, dropping skin temperature by roughly 4-9°F. A simple summer swap for a too-warm comforter - but it's a single-season, one-purpose piece.",
+    "bestFor": "Hot sleepers who want a lightweight, cool-to-the-touch blanket for warm nights or naps on the couch.",
+    "keyFeatures": [
+      "Double-sided Japanese Arc-Chill 3.0 cool fiber",
+      "Q-Max above 0.5 versus ~0.2 for ordinary fabric",
+      "Absorbs body heat to lower skin temperature ~4-9°F",
+      "Lightweight for summer",
+      "Queen size, 79 x 86 inches"
+    ],
+    "cons": [
+      "The cool-touch side only feels cold where skin contacts it",
+      "Provides no warmth - it's a summer-only blanket",
+      "The cool sensation fades as the fabric absorbs heat, then refreshes",
+      "Needs gentle washing to preserve the cooling fiber"
+    ],
     "image": "/products/gen/elegear-revolutionary-cooling-blanket-arc-chill.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09Q5TCXBN?tag=blackboxsuppl-20",
     "asin": "B09Q5TCXBN"
@@ -257,8 +572,23 @@
     "brand": "LUCID",
     "category": "Cooling Sleep",
     "priceRange": "$50-$75",
-    "keySpec": "3-inch gel-infused memory foam that draws heat away; ventilated open-cell design for airflow; pressure-relieving plush feel; CertiPUR-US certified;…",
+    "keySpec": "3-inch gel-infused memory foam that draws heat away; ventilated open-cell design for airflow; pressure-relieving plush feel; CertiPUR-US certified.",
     "blurb": "A 3-inch gel memory foam topper, ventilated to keep air moving and heat down. An affordable way to add plush, cooler cushioning to any bed.",
+    "verdict": "An affordable 3-inch gel memory foam topper, ventilated to keep air moving so heat doesn't build up. A low-cost way to add plush, cooler cushioning to almost any bed.",
+    "bestFor": "Budget shoppers who want to soften a firm mattress and sleep a little cooler.",
+    "keyFeatures": [
+      "3-inch gel-infused memory foam",
+      "Ventilated open-cell design for airflow",
+      "Pressure-relieving plush feel",
+      "CertiPUR-US certified foam",
+      "Queen size"
+    ],
+    "cons": [
+      "Gel slows but doesn't eliminate memory-foam heat retention",
+      "Budget foam is less durable than premium toppers",
+      "New foam has an initial odor that airs out over a few days",
+      "3 inches may require deeper fitted sheets"
+    ],
     "image": "/products/heat/lucid-3-inch-gel-memory-foam.png",
     "affiliateUrl": "https://www.amazon.com/dp/B01H2OCVYO?tag=blackboxsuppl-20",
     "asin": "B01H2OCVYO"
@@ -269,8 +599,23 @@
     "brand": "Midea",
     "category": "Dorm Cooling",
     "priceRange": "$110-$160",
-    "keySpec": "3.3 cu ft single-door compact fridge with small freezer chiller; 42 dB whisper-quiet compressor; Energy Star (~0.56 kWh/day); reversible door;…",
+    "keySpec": "3.3 cu ft single-door compact fridge with a small freezer chiller; ~42 dB whisper-quiet compressor; Energy Star rated (~0.56 kWh/day); reversible door.",
     "blurb": "A 3.3 cu ft compact fridge with a small freezer that runs whisper-quiet at 42 dB. Energy Star efficient, with a reversible door for a dorm or office corner.",
+    "verdict": "A quiet, Energy Star compact fridge with a small freezer chiller that runs at a whisper-quiet 42 dB - a solid, efficient pick for a dorm, office, or bedroom corner.",
+    "bestFor": "Dorm rooms, offices, and bedrooms needing quiet, efficient cold storage in a small footprint.",
+    "keyFeatures": [
+      "3.3 cu ft single-door compact fridge",
+      "Small built-in freezer chiller",
+      "Whisper-quiet 42 dB compressor",
+      "Energy Star rated (~0.56 kWh/day)",
+      "Reversible door"
+    ],
+    "cons": [
+      "The freezer chiller is small and frosts up over time",
+      "3.3 cu ft holds only modest groceries",
+      "Single door with limited shelf space",
+      "Manual temperature dial, no digital control"
+    ],
     "image": "/products/heat/midea-whs-121lb1-mini-fridge-3.png",
     "affiliateUrl": "https://www.amazon.com/dp/B00JXQ4PFS?tag=blackboxsuppl-20",
     "asin": "B00JXQ4PFS"
@@ -281,8 +626,23 @@
     "brand": "Frigidaire",
     "category": "Dorm Cooling",
     "priceRange": "$140-$200",
-    "keySpec": "3.2 cu ft retro-styled 2-door compact refrigerator with separate freezer compartment; built-in side bottle opener; rounded chrome-handle vintage…",
+    "keySpec": "3.2 cu ft retro-styled 2-door compact refrigerator with a separate freezer compartment; built-in side bottle opener; rounded chrome-handle vintage styling.",
     "blurb": "A 3.2 cu ft retro two-door mini fridge with a separate freezer and a built-in side bottle opener. The vintage styling looks at home in any room.",
+    "verdict": "A charming retro two-door mini fridge with a real separate freezer compartment and a built-in bottle opener. The vintage styling stands out, and the two-door layout keeps frozen items separate.",
+    "bestFor": "Dorms, game rooms, and offices where looks matter and you want a separate freezer in a compact fridge.",
+    "keyFeatures": [
+      "3.2 cu ft retro-styled compact refrigerator",
+      "Separate freezer compartment behind its own door",
+      "Built-in side bottle opener",
+      "Rounded chrome-handle vintage styling",
+      "Compact footprint"
+    ],
+    "cons": [
+      "The freezer is a small compartment that needs manual defrosting",
+      "Retro styling comes at a premium over plain models",
+      "Modest 3.2 cu ft capacity",
+      "Runs louder than premium compact fridges"
+    ],
     "image": "/products/heat/frigidaire-efr840-retro-2-door-mini.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07YT1RLZC?tag=blackboxsuppl-20",
     "asin": "B07YT1RLZC"
@@ -293,8 +653,23 @@
     "brand": "Dreo",
     "category": "Dorm Cooling",
     "priceRange": "$70-$110",
-    "keySpec": "Bladeless oscillating tower fan; 2026 upgraded DC motor; 28 ft/s velocity; 20 dB ultra-quiet sleep mode; 8 speeds / 4 modes; 90 degree oscillation;…",
+    "keySpec": "Bladeless oscillating tower fan with a 2026 upgraded DC motor; 28 ft/s velocity; 20 dB ultra-quiet sleep mode; 8 speeds and 4 modes; 90-degree oscillation; WiFi and voice control.",
     "blurb": "A bladeless tower fan whose DC motor drops to 20 dB for sleep yet still pushes air 28 ft. Eight speeds plus WiFi and voice control for any room.",
+    "verdict": "A quiet bladeless tower whose upgraded DC motor drops to about 20 dB for sleep yet still pushes air at 28 ft/s, with WiFi and voice control for hands-free adjustment. Strong all-round value for a bedroom or dorm.",
+    "bestFor": "Bedrooms and dorms wanting quiet, smart-controllable airflow that won't disturb sleep.",
+    "keyFeatures": [
+      "Bladeless oscillating tower design",
+      "2026 upgraded DC motor",
+      "28 ft/s airflow velocity",
+      "20 dB ultra-quiet sleep mode",
+      "8 speeds, 4 modes, and WiFi plus voice control"
+    ],
+    "cons": [
+      "A fan - it circulates air but doesn't cool the room",
+      "Oscillation is 90 degrees, narrower than some towers",
+      "Tall design needs floor space",
+      "Smart features require app setup and Wi-Fi"
+    ],
     "image": "/products/heat/dreo-tower-fan-2026-upgraded-dc.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BTY58CS4?tag=blackboxsuppl-20",
     "asin": "B0BTY58CS4"
@@ -305,8 +680,23 @@
     "brand": "Serta",
     "category": "Dorm Cooling",
     "priceRange": "$60-$95",
-    "keySpec": "3-inch ThermaGel-infused cooling memory foam topper; Twin XL (the standard dorm bed size); pressure-relieving; made in the USA; well-reviewed value…",
+    "keySpec": "3-inch ThermaGel-infused cooling memory foam topper in Twin XL (the standard dorm-bed size); pressure-relieving; made in the USA.",
     "blurb": "A 3-inch ThermaGel memory foam topper in Twin XL, the exact dorm-bed size. Cooling gel and pressure relief make a thin campus mattress far more comfortable.",
+    "verdict": "A cooling gel memory foam topper sized specifically in Twin XL - the standard dorm-bed size - that adds real pressure relief and a cooler surface to a thin campus mattress.",
+    "bestFor": "College students upgrading a thin Twin XL dorm mattress for comfort and cooler sleep.",
+    "keyFeatures": [
+      "3-inch ThermaGel-infused cooling memory foam",
+      "Twin XL - the standard dorm-bed size",
+      "Pressure-relieving cushioning",
+      "Made in the USA",
+      "Cooling gel surface"
+    ],
+    "cons": [
+      "Only available here in Twin XL - not for a full or queen bed",
+      "Gel slows but doesn't stop memory-foam heat retention",
+      "Budget foam is less durable than premium toppers",
+      "New foam has an initial odor that airs out"
+    ],
     "image": "/products/heat/serta-thermagel-cooling-memory-foam-mattress.png",
     "affiliateUrl": "https://www.amazon.com/dp/B08898ZCT6?tag=blackboxsuppl-20",
     "asin": "B08898ZCT6"
@@ -317,8 +707,23 @@
     "brand": "Dreo",
     "category": "Dorm Cooling",
     "priceRange": "$35-$50",
-    "keySpec": "12-inch desktop air-circulator fan; 70 ft powerful airflow; 25 dB quiet operation; 120 degree adjustable tilt; 3 speeds; compact footprint for a desk…",
-    "blurb": "Fits the small-space dorm-desk niche the tower fan misses and rides the trusted Dreo brand halo.",
+    "keySpec": "12-inch desktop air-circulator fan; 70 ft focused airflow; 25 dB quiet operation; 120-degree adjustable tilt; 3 speeds; compact enough for a desk or nightstand.",
+    "blurb": "A compact 12-inch air circulator that pushes a focused stream of air up to 70 ft while staying quiet at 25 dB. The small footprint and 120-degree tilt make it a good fit for a desk, nightstand, or tight dorm room.",
+    "verdict": "A compact desktop air circulator that throws a focused stream up to 70 ft while staying quiet at 25 dB, with a wide 120-degree tilt. The small footprint fits a desk or nightstand where a tower fan won't.",
+    "bestFor": "Desks, nightstands, and tight dorm rooms that need targeted airflow in a small footprint.",
+    "keyFeatures": [
+      "12-inch desktop air-circulator fan",
+      "70 ft of focused airflow",
+      "Quiet 25 dB operation",
+      "120-degree adjustable tilt",
+      "3 speeds in a compact footprint"
+    ],
+    "cons": [
+      "Personal-scale coverage, not whole-room cooling",
+      "A fan, so it moves air rather than lowering temperature",
+      "Takes up desk or shelf space",
+      "Manual controls, no smart features"
+    ],
     "image": "/products/gen/dreo-12-inch-table-air-circulator.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BSH75KZ3?tag=blackboxsuppl-20",
     "asin": "B0BSH75KZ3"
@@ -329,8 +734,23 @@
     "brand": "Koonie",
     "category": "Dorm Cooling",
     "priceRange": "$30-$40",
-    "keySpec": "8-inch battery-operated clip-on fan; 10000mAh rechargeable battery (up to ~24 hrs); 4 speeds; strong 3-inch sturdy clamp; USB rechargeable; converts…",
-    "blurb": "Solves the lofted-bed / bunk-bed airflow problem that a floor fan can't — pure dorm-specific buyer intent.",
+    "keySpec": "8-inch battery-operated clip-on fan; 10000mAh rechargeable battery (up to ~24 hrs); 4 speeds; strong 3-inch clamp; USB rechargeable; converts to a desk fan.",
+    "blurb": "A rechargeable 8-inch clip-on fan with a strong clamp that grips a bunk rail, stroller, treadmill, or shelf. The 10000mAh battery runs up to about 24 hours, and it converts to a standing desk fan when you unclip it.",
+    "verdict": "A rechargeable clip-on fan with a strong clamp that solves the airflow problem a floor fan can't reach - bunk rails, strollers, treadmills, and shelves. The big 10000mAh battery runs up to about 24 hours, and it converts to a desk fan when unclipped.",
+    "bestFor": "Bunk and lofted beds, strollers, treadmills, tents, and workbenches that need cordless, clip-anywhere airflow.",
+    "keyFeatures": [
+      "8-inch battery-operated clip-on fan",
+      "10000mAh battery for up to ~24 hours",
+      "4 speeds",
+      "Strong 3-inch clamp",
+      "USB rechargeable; converts to a desk fan"
+    ],
+    "cons": [
+      "Moves air but doesn't produce cold air",
+      "Runtime drops sharply at the highest speed",
+      "Clamp size limits where it can grip",
+      "Airflow covers a personal area, not a whole room"
+    ],
     "image": "/products/gen/koonie-10000mah-rechargeable-clip-on-fan.png",
     "affiliateUrl": "https://www.amazon.com/dp/B08866RDYK?tag=blackboxsuppl-20",
     "asin": "B08866RDYK"

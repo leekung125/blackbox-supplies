@@ -2,6 +2,11 @@ import type { CategoryMeta, ComparableProduct } from "@/lib/comparison-schema";
 import type { SortOption } from "@/components/comparison-board";
 import { PORTABLE_AC_META } from "@/lib/comparison-schema";
 import { PORTABLE_AC_PRODUCTS } from "@/lib/comparison-portable-ac";
+import { JUMP_STARTER_GUIDE } from "@/lib/comparison-jump-starters";
+import { TIRE_INFLATOR_GUIDE } from "@/lib/comparison-tire-inflators";
+import { DASH_CAMS_GUIDE } from "@/lib/comparison-dash-cams";
+import { POWER_STATION_GUIDE } from "@/lib/comparison-power-stations";
+import { FANS_GUIDE } from "@/lib/comparison-fans";
 
 /**
  * COMPARISON GUIDES — the BlackBox V2 interactive guides.
@@ -101,7 +106,14 @@ const PORTABLE_AC: ComparisonGuide = {
   relatedGuides: [],
 };
 
-export const COMPARISON_GUIDES: ComparisonGuide[] = [PORTABLE_AC];
+export const COMPARISON_GUIDES: ComparisonGuide[] = [
+  PORTABLE_AC,
+  JUMP_STARTER_GUIDE,
+  TIRE_INFLATOR_GUIDE,
+  DASH_CAMS_GUIDE,
+  POWER_STATION_GUIDE,
+  FANS_GUIDE,
+];
 
 export const COMPARISON_GUIDE_SLUGS = COMPARISON_GUIDES.map((g) => g.slug);
 
