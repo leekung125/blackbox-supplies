@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 import { AffiliateCard, type AffiliateProduct } from "@/components/affiliate-card";
+import { SectionNav } from "@/components/section-nav";
 import { JsonLd } from "@/components/json-ld";
 import { affiliateListSchema, breadcrumbSchema } from "@/lib/schema";
 import { EXTRA_ARTICLES } from "@/lib/articles-extra";
@@ -101,6 +102,8 @@ export default function HeatPage() {
           </div>
         </section>
       ) : null}
+
+      <SectionNav sections={cats.map((c) => ({ id: c.toLowerCase().replace(/\s+/g, "-"), label: c }))} />
 
       {cats.map((cat) => (
         <section key={cat} className="mt-14 scroll-mt-24" id={cat.toLowerCase().replace(/\s+/g, "-")}>

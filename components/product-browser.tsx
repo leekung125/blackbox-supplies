@@ -23,7 +23,8 @@ export function ProductBrowser({ products }: { products: Product[] }) {
 
   const filters: { key: Filter; label: string }[] = [
     { key: "all", label: "All gear" },
-    ...CATEGORIES.map((c) => ({ key: c.name as Filter, label: c.name })),
+    // only show categories that actually have products in this set (no dead "Kitchen 0" chips)
+    ...CATEGORIES.filter((c) => (counts[c.name] ?? 0) > 0).map((c) => ({ key: c.name as Filter, label: c.name })),
   ];
 
   return (

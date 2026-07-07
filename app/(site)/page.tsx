@@ -6,6 +6,7 @@ import { Spotlight } from "@/components/fx/spotlight";
 import { Reveal } from "@/components/motion/reveal";
 import { getAllArticles } from "@/lib/articles";
 import { getAllProducts } from "@/lib/products";
+import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import heatData from "@/data/heat-products.json";
 import usefulData from "@/data/useful-products.json";
 
@@ -60,7 +61,8 @@ const WHY = [
 
 export default function HomePage() {
   const articles = getAllArticles();
-  const featured = FEATURED_SLUGS.map((s) => articles.find((a) => a.slug === s)).filter(Boolean).slice(0, 4);
+  const featured = FEATURED_SLUGS.map((s) => articles.find((a) => a.slug === s)).filter(Boolean).slice(0, 3);
+  const acCompare = COMPARISON_GUIDES[0];
   const totalPicks = getAllProducts().length;
 
   return (
@@ -153,8 +155,18 @@ export default function HomePage() {
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <Reveal blur={false}><SectionHead eyebrow="Read before you buy" title="The buying guides" href="/guides" linkLabel="All guides" /></Reveal>
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {acCompare ? (
+            <Reveal>
+              <Link href={`/guides/${acCompare.slug}`} className="bbx-card card-lift group flex h-full flex-col p-5 ring-1 ring-accent/30">
+                <span className="mono text-[0.65rem] font-bold uppercase tracking-[0.14em] text-accent-bright">★ Interactive · compare {acCompare.products.length}</span>
+                <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-ink-strong transition-colors group-hover:text-accent">{acCompare.title}</h3>
+                <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-dim">Sort by cooling, quiet, or price — the winner rises to the top, each links straight to Amazon.</p>
+                <span className="mt-3 text-sm font-semibold text-accent">Compare &amp; pick →</span>
+              </Link>
+            </Reveal>
+          ) : null}
           {featured.map((a, i) => (
-            <Reveal key={a!.slug} delay={i * 0.05}>
+            <Reveal key={a!.slug} delay={(i + 1) * 0.05}>
               <Link href={`/guides/${a!.slug}`} className="bbx-card card-lift group flex h-full flex-col p-5">
                 <span className="mono text-[0.65rem] uppercase tracking-[0.14em] text-accent-strong">{a!.category}</span>
                 <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-ink-strong transition-colors group-hover:text-accent">{a!.title}</h3>
