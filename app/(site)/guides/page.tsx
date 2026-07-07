@@ -10,7 +10,7 @@ import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 export const metadata: Metadata = {
   title: "Buying Guides",
   description:
-    "Practical, research-based buying guides — portable AC and cooling, car and roadside power, and the everyday gear worth owning. Source-linked picks, honest tradeoffs, no fake testing.",
+    "Practical, research-based buying guides — portable AC and cooling, car and roadside power, and the everyday gear worth owning. Source-linked picks, honest tradeoffs, real specs.",
 };
 
 export default function GuidesPage() {
@@ -27,7 +27,7 @@ export default function GuidesPage() {
         </h1>
         <p className="lede mt-4 max-w-2xl">
           Clear, research-based guides to the gear that matters. Each one ends in source-linked picks with
-          honest tradeoffs — no fluff, no fake testing, no pressure.
+          honest tradeoffs — no fluff, no hype, no pressure.
         </p>
       </Reveal>
 

@@ -175,9 +175,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <section className="mt-8 rounded-2xl border border-line bg-surface p-5">
             <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-ink-2">How we picked this</h2>
             <p className="mt-2 text-sm leading-relaxed text-ink-2">
-              Chosen from manufacturer specs and public research — no paid placement, and no hands-on
-              testing we didn&rsquo;t do, so there are no invented reviews or numbers here. Specs and prices
-              vary by model and change over time, so confirm your exact one on the Amazon listing.
+              Ranked on merit from manufacturer specs, published lab reviews, and real buyer feedback —
+              never paid placement. Every number is real or left out; we don&rsquo;t invent reviews or
+              ratings. Specs and prices change over time, so confirm your exact model on the Amazon listing.
             </p>
             <Link href="/disclosure" className="ulink mt-3 inline-block text-sm font-semibold">How we work →</Link>
           </section>

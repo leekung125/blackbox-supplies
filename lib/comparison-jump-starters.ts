@@ -417,7 +417,7 @@ export const JUMP_STARTER_GUIDE: ComparisonGuide = {
   categoryLabel: "Jump Starters",
   updated: "July 2026",
   readMinutes: 8,
-  heroImage: "/home/car.jpg",
+  heroImage: "/guides/hero-jump-starters.png",
   quickAnswer:
     "Ignore the giant peak-amp number on the box and match the unit to your engine. For a typical car or small SUV, the NOCO Boost GB40 (rated to 6.0L gas / 3.0L diesel) is the safe, proven default. Bigger truck or diesel? Step up to the NOCO GB70 or a 4000A GOOLOO. Want the cheapest capable booster? The GOOLOO GP2000 does 2000A for under $80. Want a unit that also inflates tires and runs AC power? The DeWalt DXAEPS14.",
   whoFor: [

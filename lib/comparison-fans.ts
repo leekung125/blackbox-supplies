@@ -349,7 +349,7 @@ export const FANS_GUIDE: ComparisonGuide = {
   categoryLabel: "Cooling Fans",
   updated: "July 2026",
   readMinutes: 8,
-  heroImage: "/home/cool.jpg",
+  heroImage: "/guides/hero-fans.png",
   quickAnswer:
     "For most people, a bladeless tower is the sweet spot: safe, easy to clean, and quiet. The Shark TurboBlade wins on sheer flexibility — it points air anywhere in the room. Want the quietest bedroom fan for a fraction of the price? The Dreo 42-inch bladeless (20 dB DC motor). On a tight budget, the Lasko Wind Curve does the job for around $60. Ignore 'reach in feet' marketing and match the fan to the room and the noise you can live with.",
   whoFor: [

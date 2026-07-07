@@ -319,7 +319,7 @@ export const POWER_STATION_GUIDE: ComparisonGuide = {
   categoryLabel: "Power Stations",
   updated: "July 2026",
   readMinutes: 8,
-  heroImage: "/home/car.jpg",
+  heroImage: "/guides/hero-power-stations.png",
   quickAnswer:
     "Buy on two numbers: watt-hours (how long it runs) and watts (what it can run at once). For most people a ~1kWh LiFePO4 station like the BLUETTI AC180 (1,152Wh, 1,800W) powers a fridge, laptops, and phones through an outage or a weekend off-grid. Want the same class ~11 lb lighter and charged in an hour? The Jackery 1000 v2. Just need to keep phones and a CPAP alive camping? The Anker C300 does it for a third of the price. And skip anything that isn't LiFePO4 if you plan to keep it for years.",
   whoFor: [

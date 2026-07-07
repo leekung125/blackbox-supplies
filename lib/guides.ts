@@ -52,6 +52,7 @@ export const GUIDES: Guide[] = [
   // ────────────────────────────────────────────────────── ROADSIDE EMERGENCY KIT
   {
     slug: "roadside-emergency-kit",
+    heroImage: "/home/car.jpg",
     title: "The Roadside Emergency Kit: What Belongs in Your Trunk",
     dek: "You don't need a hundred-piece kit where ninety pieces are filler. You need the specific gear that covers the failures that actually happen. Here's the list.",
     category: "Roadside Safety",
@@ -104,6 +105,7 @@ export const GUIDES: Guide[] = [
   // ─────────────────────────────────────────── CAR GEAR WORTH KEEPING IN TRUNK
   {
     slug: "car-gear-worth-keeping-in-your-trunk",
+    heroImage: "/guides/hero-jump-starters.png",
     title: "Car Gear Worth Keeping in Your Trunk",
     dek: "Beyond the emergencies, a handful of quality upgrades quietly make every drive better. These are the ones that earn their permanent spot in the car.",
     category: "Car Utility",

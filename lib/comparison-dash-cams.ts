@@ -392,7 +392,7 @@ export const DASH_CAMS_GUIDE: ComparisonGuide = {
   categoryLabel: "Dash Cams",
   updated: "July 2026",
   readMinutes: 8,
-  heroImage: "/home/car.jpg",
+  heroImage: "/guides/hero-dash-cams.png",
   quickAnswer:
     "Most drivers should buy a front-and-rear cam with a Sony STARVIS 2 sensor — the VIOFO A229 Plus is the reference pick, because plates that stay legible day and night are what actually win an insurance dispute. Want to spend the least? The ROVE R2-4K gives you sharp 4K front footage and one of the biggest track records in the category for around $100. The number that matters most isn't megapixels — it's whether the plate in front of you is readable at night.",
   whoFor: [

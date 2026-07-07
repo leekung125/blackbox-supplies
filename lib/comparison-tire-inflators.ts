@@ -353,7 +353,7 @@ export const TIRE_INFLATOR_GUIDE: ComparisonGuide = {
   categoryLabel: "Tire Inflators",
   updated: "July 2026",
   readMinutes: 7,
-  heroImage: "/home/car.jpg",
+  heroImage: "/guides/hero-tire-inflators.png",
   quickAnswer:
     "For most drivers, a self-contained cordless inflator with preset auto-shutoff is the buy: set your target PSI, press start, and it stops itself. The Fanttik X8 APEX is the best all-rounder — fastest fills, longest runtime, and it doubles as a power bank. Want the same idea for less? The AstroAI L7 fits a glovebox for around $40. Already own DeWalt or Milwaukee batteries? Buy the bare tool in your ecosystem.",
   whoFor: [
