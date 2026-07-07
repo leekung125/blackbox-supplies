@@ -4,6 +4,10 @@ import type { Category } from "@/lib/products";
  * Buying-guide content model. Guides are the revenue engine: useful, honest editorial that ends in
  * real, affiliate-linked product picks. Language is research-based — never "we tested" (we haven't),
  * never invented reviews or numbers. Picks reference real product slugs in the catalog.
+ *
+ * NOTE: four topics (jump starters, tire inflators, dash cams, portable power) were consolidated into
+ * the interactive comparison guides (lib/comparison-*.ts, "-compared" slugs), which are now canonical.
+ * Old /guides/<legacy> paths permanently redirect to the -compared counterpart (see next.config.ts).
  */
 export interface GuidePick {
   productId: string;
@@ -45,161 +49,6 @@ export interface Guide {
 }
 
 export const GUIDES: Guide[] = [
-  // ─────────────────────────────────────────────────────────────── JUMP STARTERS
-  {
-    slug: "best-portable-jump-starters",
-    title: "The Best Portable Jump Starters",
-    dek: "A lithium jump pack is the one piece of car gear that pays for itself the first time your battery dies. Here's how to pick the right one — and which we'd buy.",
-    category: "Jump Starters",
-    readMinutes: 7,
-    updated: "July 2026",
-    quickAnswer:
-      "For most cars, a compact 1000A lithium jump starter like the NOCO Boost GB40 is the right call — it cranks a dead battery with no second car, fits in the glovebox, and doubles as a phone bank. Drive a truck, big V8, or diesel? Step up to a 2000A+ pack. That's the whole decision.",
-    whoFor: [
-      "Anyone who's ever waited on a stranger with jumper cables",
-      "New drivers and parents building a first car kit",
-      "Commuters who park alone, and cold-climate drivers whose battery quits in winter",
-    ],
-    buyFirst:
-      "Buy a compact 1000A lithium pack first. A dead battery is the most common reason a car won't move, and a self-contained pack means you're never depending on a second running vehicle. Match the amp rating up if your engine is large — never down.",
-    checkBeforeBuying: [
-      { label: "Peak amps vs. your engine", detail: "1000A covers most 4- and 6-cylinder gas engines. Big V8s, trucks, and diesels want 2000A or more. Cold weather lowers real output, so don't buy to the bare minimum." },
-      { label: "Honest amp ratings", detail: "Premium brands (NOCO) rate conservatively; budget brands (GOOLOO, AVAPOW) print optimistic peak numbers. Don't compare a NOCO 1000A one-to-one with a budget 4000A — judge by the engine size the maker lists." },
-      { label: "Safety protections", detail: "Look for spark-proof and reverse-polarity protection. It's the difference between a mistake being a beep and being a burnt hand." },
-      { label: "It has to be charged", detail: "A jump pack that's sat flat in the trunk for a year won't help. Top it up a few times a year — or buy a batteryless supercapacitor unit that's always ready." },
-    ],
-    mistakes: [
-      "Relying on jumper cables — they need a second running car and a willing stranger, at night, on a shoulder.",
-      "Buying the biggest 'peak amp' budget number instead of matching the maker's rated engine size.",
-      "Letting it self-discharge until it's dead the one time you finally need it.",
-    ],
-    picks: [
-      { productId: "noco-boost-gb40-1000a-ultrasafe", role: "Best overall", why: "The default everyone else is compared to: honest 1000A, spark-proof UltraSafe clamps, genuinely pocketable, and it cranks the vast majority of everyday gas cars." },
-      { productId: "noco-boost-hd-gb70-2000a", role: "Best for trucks & diesels", why: "Doubles the GB40's output for big V8s, diesels, boats, and RVs while keeping NOCO's safety pedigree. What serious truck owners actually buy." },
-      { productId: "hulkman-alpha85-2000a-smart-jump", role: "Best smart display", why: "A color LCD shows exact charge, voltage, and jump readiness so you're not guessing at LED dots — plus 2000A and fast USB-C recharge." },
-      { productId: "gooloo-gp4000-4000a-peak-lithium", role: "Best value power", why: "The most cranking amps per dollar. Covers essentially all gas engines and big diesels for well under premium-brand heavy-duty pricing — just remember the peak number runs optimistic." },
-      { productId: "gooloo-gp2000-2000a-compact-lithium", role: "Best budget compact", why: "Small, light, and cheap, but still cranks bigger engines. The easy glovebox-backup pick for students and second cars." },
-      { productId: "autowit-supercap-2-batteryless-supercapacitor", role: "The never-dies pick", why: "Holds no charge, so it never dies in the glovebox and shrugs off heat and cold. It charges itself from your weak battery in minutes, then jumps — ideal as a leave-it-in-the-car unit." },
-    ],
-    comparison: {
-      columns: ["Pick", "Peak amps", "Handles up to", "Best for", "Approx. price"],
-      rows: [
-        ["NOCO Boost GB40", "1000A", "6.0L gas / 3.0L diesel", "Most cars", "$80–$100"],
-        ["NOCO Boost GB70", "2000A", "8.0L gas / 6.0L diesel", "Trucks & diesels", "$150–$180"],
-        ["Hulkman Alpha85", "2000A", "8.5L gas / 6.0L diesel", "Smart display", "$100–$130"],
-        ["GOOLOO GP4000", "4000A*", "All gas / 10L diesel", "Value power", "$90–$130"],
-        ["GOOLOO GP2000", "2000A*", "8.0L gas / 6.0L diesel", "Budget compact", "$60–$80"],
-      ],
-    },
-    tradeoffs:
-      "Size, power, and price pull against each other. A compact 1000A pack wins on pocketability and covers most drivers; a 2000A+ unit is peace of mind for big engines and cold climates but heavier and pricier. Budget brands give you more printed amps per dollar — just discount the headline number and read what engine they actually rate it for.",
-    relatedGuides: ["roadside-emergency-kit", "best-cordless-tire-inflators", "best-portable-power-for-road-trips"],
-    relatedKit: "roadside-kit",
-  },
-
-  // ─────────────────────────────────────────────────────────── TIRE INFLATORS
-  {
-    slug: "best-cordless-tire-inflators",
-    title: "The Best Cordless Tire Inflators",
-    dek: "A portable inflator turns a low or slow-leaking tire from a tow-truck problem into a two-minute one. Here's what matters and which to buy.",
-    category: "Tire Inflators",
-    readMinutes: 6,
-    updated: "July 2026",
-    quickAnswer:
-      "For most drivers, a rechargeable cordless inflator with a preset PSI and auto-shutoff — like the Fanttik X8 APEX — is the sweet spot: set your pressure, walk away, and it stops itself. Want to spend less? A corded 12V unit like the EPAuto is slower but always ready off the car battery.",
-    whoFor: [
-      "Anyone who's watched a low-pressure light come on far from a gas station",
-      "Drivers who want to top off tires at home on their own schedule",
-      "Cyclists and motorcyclists who need one pump for everything",
-    ],
-    buyFirst:
-      "Start with a cordless unit that has a digital preset and auto-shutoff. That one feature — set the target PSI and it stops on its own — is what makes an inflator a walk-away tool instead of a babysitting job.",
-    checkBeforeBuying: [
-      { label: "Preset PSI + auto-shutoff", detail: "The single feature that matters. Dial in the pressure, start it, and it stops itself — no over-inflating, no standing there watching a gauge." },
-      { label: "Cordless vs. corded", detail: "Cordless is convenient and works away from the car, but needs charging. Corded 12V units are slower and tethered to the socket, but they're always ready off the car's battery." },
-      { label: "Max PSI and speed", detail: "150 PSI is plenty for any car or SUV; you only need more for high-pressure applications. Bigger tires fill faster on higher-airflow units — a pocket inflator is slower on a truck tire." },
-      { label: "Tool-brand ecosystems", detail: "If you already own DeWalt, Milwaukee, or Ryobi batteries, a bare-tool inflator on that platform is often the best value — just remember the battery is sold separately." },
-    ],
-    mistakes: [
-      "Buying the cheapest no-name unit with a wildly optimistic PSI/speed claim.",
-      "Getting a tiny pocket inflator for truck tires — it'll work, but slowly and hot.",
-      "Letting a cordless unit sit dead — keep it charged or keep a corded one as backup.",
-    ],
-    picks: [
-      { productId: "fanttik-x8-apex-portable-tire", role: "Best overall", why: "Reviewers' repeated best-cordless pick: fast, ~±1 PSI accurate, long runtime, premium build, and it doubles as a power bank and work light. Fills a car tire in about a minute." },
-      { productId: "astroai-cordless-tire-inflator-160", role: "Best value", why: "A complete kit with its own 20V battery and a 12V car adapter for backup power — real 160 PSI without buying into any tool ecosystem." },
-      { productId: "astroai-l7-compact-cordless-tire", role: "Best compact / budget", why: "Sub-one-pound, fits a glovebox, and cheap enough to keep one in every car. Slower on big tires, perfect for everyday top-offs." },
-      { productId: "dewalt-20v-max-corded-cordless", role: "Best for tool owners", why: "Runs off a DeWalt 20V battery, a 12V socket, or a wall outlet — three power sources so it never leaves you stuck. Bare tool if you're already in the ecosystem." },
-      { productId: "epauto-12v-dc-portable-air", role: "Best corded backup", why: "The foolproof budget pick: plug into the 12V socket and it's always ready, no charging. Slower and tethered, but it lives in the trunk and just works." },
-    ],
-    comparison: {
-      columns: ["Pick", "Max PSI", "Power", "Best for", "Approx. price"],
-      rows: [
-        ["Fanttik X8 APEX", "150", "Rechargeable, USB-C", "Best overall", "$70–$90"],
-        ["AstroAI 160 PSI kit", "160", "20V battery + 12V", "Value", "$50–$65"],
-        ["AstroAI L7", "150", "Rechargeable", "Compact / budget", "$35–$45"],
-        ["DeWalt DCC020IB", "160", "20V / 12V / 110V", "Tool owners", "$99 tool-only"],
-        ["EPAuto 12V", "~100", "Corded 12V", "Always-ready backup", "$30–$40"],
-      ],
-    },
-    tradeoffs:
-      "Cordless wins on convenience and versatility; corded wins on always-ready simplicity and price. Premium units are faster and more accurate, but any inflator with auto-shutoff will get you home. If you can only keep one thing charged in the trunk, a corded 12V unit removes that worry entirely.",
-    relatedGuides: ["best-portable-jump-starters", "roadside-emergency-kit", "car-gear-worth-keeping-in-your-trunk"],
-    relatedKit: "roadside-kit",
-  },
-
-  // ─────────────────────────────────────────────────────────────── DASH CAMS
-  {
-    slug: "best-dash-cams",
-    title: "The Best Dash Cams for Everyday Drivers",
-    dek: "A dash cam is cheap insurance that pays off exactly once — when a crash becomes your word against theirs. Here's how to choose and which we'd fit.",
-    category: "Dash Cams",
-    readMinutes: 8,
-    updated: "July 2026",
-    quickAnswer:
-      "For most drivers, a front-and-rear setup with Sony STARVIS 2 sensors — the VIOFO A229 Plus — is the best balance of clear plate-readable footage and price. Want the smallest, cheapest way in? A single 4K front cam like the ROVE R2-4K. Rideshare or delivery? Get a 3-channel with an interior camera.",
-    whoFor: [
-      "Commuters who want proof in a fender-bender or hit-and-run",
-      "Uber, Lyft, and delivery drivers who need front and cabin coverage",
-      "Parents of new drivers, and anyone who parks on the street overnight",
-    ],
-    buyFirst:
-      "Decide front-only or front-and-rear first. Front-only covers most incidents cheaply; front-and-rear covers the rear-end hits and tailgaters you can't see coming. Then pick a Sony STARVIS 2 sensor if night footage matters — it's the difference between reading a plate and guessing at it.",
-    checkBeforeBuying: [
-      { label: "Sensor beats megapixels", detail: "A Sony STARVIS 2 sensor reads license plates at night far better than a cheap '4K' that's soft after dark. Sensor quality matters more than the headline resolution number." },
-      { label: "Channels: front / rear / cabin", detail: "Front-only is cheapest. Front+rear covers tailgaters. A third interior channel is for rideshare and delivery drivers who need cabin footage." },
-      { label: "Parking mode + power", detail: "Buffered parking mode records hits while you're away, but usually needs a hardwire kit for constant power. Check whether it's included." },
-      { label: "The SD card is separate", detail: "Most cams don't include a card. Budget for a 256GB+ high-endurance microSD — regular cards fail under constant recording." },
-    ],
-    mistakes: [
-      "Buying on the '4K' number alone and getting a soft sensor that can't read a plate at night.",
-      "Forgetting the hardwire kit for parking mode, then wondering why it's off when parked.",
-      "Using a normal microSD card that dies in months instead of a high-endurance one.",
-    ],
-    picks: [
-      { productId: "viofo-a229-plus", role: "Best overall", why: "Dual Sony STARVIS 2 sensors record sharp 1440p front and rear — the plate-readable day-and-night footage that actually wins an insurance dispute, without paying 4K prices." },
-      { productId: "viofo-a119-mini-2", role: "Best compact front-only", why: "Tiny enough to hide behind the mirror, but STARVIS 2 night footage punches far above its size and price. The discreet front-cam default." },
-      { productId: "rove-r2-4k", role: "Best budget 4K", why: "The internet's default value 4K cam with one of the largest review counts anywhere — an easy, cheap yes for a first dash cam." },
-      { productId: "viofo-a139-pro", role: "Best for rideshare (3-channel)", why: "True 4K front plus an infrared interior camera and a rear channel — the total-coverage setup Uber, Lyft, and delivery drivers need in one install." },
-      { productId: "nextbase-iq-4k-smart-dash", role: "Best connected / premium", why: "Built-in 4G LTE, live view, and Emergency SOS make it a smart guardian that can call for help on impact — the premium halo pick." },
-      { productId: "garmin-dash-cam-mini-2", role: "Smallest, most trusted brand", why: "Barely bigger than a car key, dead-simple setup, and Garmin's name — the set-and-forget choice for cautious buyers." },
-    ],
-    comparison: {
-      columns: ["Pick", "Resolution", "Channels", "Best for", "Approx. price"],
-      rows: [
-        ["VIOFO A229 Plus", "1440p + 1440p", "Front + rear", "Best overall", "$200–$260"],
-        ["VIOFO A119 Mini 2", "2K 1440p", "Front only", "Compact", "$100–$130"],
-        ["ROVE R2-4K", "4K", "Front only", "Budget 4K", "$90–$120"],
-        ["VIOFO A139 Pro", "4K + 1080p + 1080p", "Front + cabin + rear", "Rideshare", "$300–$360"],
-        ["Nextbase iQ", "4K + 1440p", "Front + rear + LTE", "Connected / premium", "$400–$600"],
-      ],
-    },
-    tradeoffs:
-      "More channels and a better sensor cost more and take longer to install (running a rear line is a 30–45 minute job or a shop visit). Front-only STARVIS 2 covers most drivers beautifully; the jump to 4K matters most for reading distant plates in daylight. Connected cams add live view and SOS but lock the best features behind a subscription.",
-    relatedGuides: ["car-gear-worth-keeping-in-your-trunk", "best-portable-power-for-road-trips", "roadside-emergency-kit"],
-    relatedKit: "road-trip-kit",
-  },
-
   // ────────────────────────────────────────────────────── ROADSIDE EMERGENCY KIT
   {
     slug: "roadside-emergency-kit",
@@ -248,60 +97,8 @@ export const GUIDES: Guide[] = [
     },
     tradeoffs:
       "An all-in-one kit gets you covered fast but skimps on the cables and compressor; buying the heavy-duty versions of those separately is what makes the kit actually reliable. Everything here is cheap relative to a single tow or a night stranded — the real cost is not having it when the shoulder is dark and cold.",
-    relatedGuides: ["best-portable-jump-starters", "best-cordless-tire-inflators", "car-gear-worth-keeping-in-your-trunk"],
+    relatedGuides: ["best-jump-starters-compared", "best-tire-inflators-compared", "car-gear-worth-keeping-in-your-trunk"],
     relatedKit: "roadside-kit",
-  },
-
-  // ─────────────────────────────────────────── PORTABLE POWER FOR ROAD TRIPS
-  {
-    slug: "best-portable-power-for-road-trips",
-    title: "The Best Portable Power for Car & Road Trips",
-    dek: "Power stations and big banks keep phones, laptops, and small gear alive on the road and through an outage — without a loud, gas-hungry generator. Here's how to size one.",
-    category: "Power & Charging",
-    readMinutes: 8,
-    updated: "July 2026",
-    quickAnswer:
-      "For a do-everything road-trip and outage unit, a ~1000Wh LiFePO4 power station like the Jackery Explorer 1000 v2 is the sweet spot — a real 1500W AC outlet, all-day device power, and a battery rated for thousands of cycles. Just need to keep phones and a laptop alive? A 20,000–27,000mAh bank is far cheaper and flies with you.",
-    whoFor: [
-      "Road-trippers, car campers, and van-lifers who want AC power off-grid",
-      "Anyone who wants calm, right-sized outage backup without a generator",
-      "Remote workers keeping a laptop and phone alive between outlets",
-    ],
-    buyFirst:
-      "Match capacity to what you actually run. A big power bank covers phones and a laptop for pennies; a power station is worth it once you need a real wall outlet for a mini-fridge, CPAP, or camp gear. Don't buy a station big enough for appliances it can't sustain for long.",
-    checkBeforeBuying: [
-      { label: "Watt-hours (Wh) = how long", detail: "Capacity is measured in Wh. A ~300Wh unit keeps devices going; ~1000Wh runs small appliances for a while. Match it to what you need to keep on, not the biggest number." },
-      { label: "Watts (W) = what it can run", detail: "The AC inverter's continuous watts decides what plugs in. 300W runs laptops and a CPAP; 1500W+ runs most car-camp gear. 'Surge' figures are brief peaks, not continuous." },
-      { label: "LiFePO4 lasts longer", detail: "Newer LiFePO4 chemistry survives thousands of charge cycles vs. hundreds for older packs — worth it for something you'll keep for years." },
-      { label: "The airline limit", detail: "Power banks over ~100Wh (roughly 27,000mAh) generally can't fly. A 20,000–27,000mAh bank is the practical carry-on ceiling; power stations are car/home only." },
-    ],
-    mistakes: [
-      "Buying a power station big enough for a space heater or fridge it can only run for minutes.",
-      "Letting backup power sit uncharged until the storm or trip is already here.",
-      "Bringing a power bank that's too big to fly, or too small for a laptop.",
-    ],
-    picks: [
-      { productId: "jackery-explorer-1000-v2-portable", role: "Best overall", why: "1070Wh of LiFePO4 with a real 1500W AC outlet, ~1-hour recharge, and the brand people actually trust — the definitive road-trip and outage anchor." },
-      { productId: "ecoflow-river-2-pro-portable", role: "Best mid-size", why: "768Wh in a 17-pound body that recharges in about 70 minutes — enough to run a mini-fridge or CPAP overnight without hauling a 30-pound brick." },
-      { productId: "anker-solix-c300-portable-power", role: "Best compact value", why: "288Wh and a genuine 300W AC output in a grab-and-go size with fast USB-C — light, affordable backup for phones, laptops, and a CPAP." },
-      { productId: "anker-prime-power-bank", role: "Best power bank", why: "27,650mAh and 250W tops off a laptop, phone, and tablet at once, then refills itself in ~37 minutes — and still flies carry-on." },
-      { productId: "jackery-solarsaga-100w-portable-solar", role: "Best off-grid add-on", why: "A foldable 100W panel that recharges a Jackery Explorer from the sun — the piece that makes multi-day, no-outlet trips actually work." },
-      { productId: "bestek-300w-car-power-inverter", role: "Cheapest AC in the car", why: "Plugs into the 12V socket to run a laptop or CPAP off the engine — the simplest, cheapest way to get a wall outlet on a drive." },
-    ],
-    comparison: {
-      columns: ["Pick", "Capacity", "AC output", "Best for", "Approx. price"],
-      rows: [
-        ["Jackery Explorer 1000 v2", "1070Wh", "1500W", "Best overall", "$449–$799"],
-        ["EcoFlow River 2 Pro", "768Wh", "800W", "Mid-size / fast charge", "$329–$599"],
-        ["Anker SOLIX C300", "288Wh", "300W", "Compact value", "$179–$299"],
-        ["Anker Prime bank", "27,650mAh", "USB only", "Laptop + phones", "$129–$179"],
-        ["BESTEK inverter", "—", "300W (from car)", "Cheap AC in the car", "$28–$40"],
-      ],
-    },
-    tradeoffs:
-      "Capacity, weight, and price all climb together. A power bank is cheap, flies, and covers phones and a laptop; a power station adds a real wall outlet but you feel every extra pound and dollar. Size to the trip you actually take most — most people over-buy capacity they'll rarely use, then resent carrying it.",
-    relatedGuides: ["best-portable-jump-starters", "best-dash-cams", "car-gear-worth-keeping-in-your-trunk"],
-    relatedKit: "backup-power-kit",
   },
 
   // ─────────────────────────────────────────── CAR GEAR WORTH KEEPING IN TRUNK
@@ -352,7 +149,7 @@ export const GUIDES: Guide[] = [
     },
     tradeoffs:
       "None of this is dramatic — it's the quiet layer of gear that removes small daily frictions. The rule is simple: spend on the things that have to work (charger, maintainer, vacuum) and don't let a low price talk you into clutter you'll never use. Buy the good version of a few things, not the cheap version of many.",
-    relatedGuides: ["best-dash-cams", "best-portable-power-for-road-trips", "roadside-emergency-kit"],
+    relatedGuides: ["best-dash-cams-compared", "best-power-stations-compared", "roadside-emergency-kit"],
     relatedKit: "road-trip-kit",
   },
 ];

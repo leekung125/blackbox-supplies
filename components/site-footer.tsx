@@ -7,9 +7,9 @@ const COLS: { title: string; links: { href: string; label: string; external?: bo
     title: "Guides",
     links: [
       { href: "/guides/best-portable-air-conditioners", label: "Portable air conditioners" },
-      { href: "/guides/best-portable-jump-starters", label: "Jump starters" },
-      { href: "/guides/best-cordless-tire-inflators", label: "Tire inflators" },
-      { href: "/guides/best-dash-cams", label: "Dash cams" },
+      { href: "/guides/best-jump-starters-compared", label: "Jump starters" },
+      { href: "/guides/best-tire-inflators-compared", label: "Tire inflators" },
+      { href: "/guides/best-dash-cams-compared", label: "Dash cams" },
     ],
   },
   {

@@ -86,27 +86,64 @@ export interface Product {
   amazon?: AmazonMatch;
 }
 
+/** Coerce an unknown JSON value into a clean string (trimmed), or "" when absent/blank. */
+function str(v: unknown): string {
+  return typeof v === "string" ? v.trim() : "";
+}
+
+/** First non-empty string among several candidate JSON fields. */
+function firstStr(...vs: unknown[]): string {
+  for (const v of vs) {
+    const s = str(v);
+    if (s) return s;
+  }
+  return "";
+}
+
+/** Coerce an unknown JSON value into a clean string[] — accepts an array (filtering blanks)
+ *  or a single string, and returns [] when absent. Never yields undefined entries. */
+function strArr(v: unknown): string[] {
+  if (Array.isArray(v)) {
+    return v.map((x) => str(x)).filter((s) => s.length > 0);
+  }
+  const s = str(v);
+  return s ? [s] : [];
+}
+
+/** First non-empty string[] among several candidate JSON fields. */
+function firstArr(...vs: unknown[]): string[] {
+  for (const v of vs) {
+    const a = strArr(v);
+    if (a.length) return a;
+  }
+  return [];
+}
+
 /** Thin catalogs (cooling/useful) carry less data than the car catalog; adapt them to the full
- *  Product shape with safe fallbacks so every advertised item gets its own real product page. */
+ *  Product shape with safe fallbacks so every advertised item gets its own real product page.
+ *  Rich copy fields (verdict/bestFor/keyFeatures/cons/whyItMatters/buyingNotes/keySpec) are
+ *  mapped from the JSON when present, and fall back to sensible empties when absent — never
+ *  undefined, and never fabricated. */
 function adaptThin(t: Record<string, unknown>): Product {
-  const affiliate = (t.affiliateUrl as string) ?? "";
-  const blurb = (t.blurb as string) ?? "";
+  const affiliate = str(t.affiliateUrl);
+  const blurb = str(t.blurb);
   return {
     id: t.id as string,
     name: t.name as string,
-    brand: (t.brand as string) ?? "",
-    category: (t.category as Category) ?? "Car Utility",
+    brand: str(t.brand),
+    category: (str(t.category) as Category) || "Car Utility",
     subcategory: "",
     sourceUrl: affiliate.split("?")[0],
     affiliateUrl: affiliate,
-    priceRange: (t.priceRange as string) ?? "",
+    priceRange: str(t.priceRange),
     tested: false,
     verified: true,
     problemSolved: blurb,
     failureMoment: "",
-    bestFor: "",
-    keyFeatures: [],
-    cons: [],
+    bestFor: str(t.bestFor),
+    // keyFeatures accepts the primary field or a features/highlights array fallback.
+    keyFeatures: firstArr(t.keyFeatures, t.features, t.highlights),
+    cons: strArr(t.cons),
     allowedClaims: [],
     forbiddenClaims: [],
     visualAngle: "",
@@ -114,16 +151,18 @@ function adaptThin(t: Record<string, unknown>): Product {
     caption: blurb,
     status: "live",
     disclosureRequired: true,
-    image: t.image as string | undefined,
+    image: str(t.image) || undefined,
     linkStatus: "live",
     tier: "support",
     priority: 0,
     guide: "",
-    guideSlug: (t.guideSlug as string) ?? "",
-    keySpec: (t.keySpec as string) ?? "",
-    verdict: "",
-    whyItMatters: "",
-    buyingNotes: "",
+    guideSlug: str(t.guideSlug),
+    keySpec: str(t.keySpec),
+    verdict: str(t.verdict),
+    // whyItMatters / buyingNotes: map when the copy pass adds them; else the blurb / an empty
+    // string keep the page from rendering undefined.
+    whyItMatters: firstStr(t.whyItMatters, t.whyItMattersText),
+    buyingNotes: firstStr(t.buyingNotes, t.buyingNotesText, t.buyingGuide),
     homepageEligible: false,
     linksEligible: true,
   };
