@@ -38,7 +38,20 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
   const products = getProductsByCategory(meta.name);
   const scene = getFieldScene(meta.name);
   const guide = getAllGuides().find((g) => g.category === meta.name);
-  const kit = getAllKits().find((k) => k.id === (meta.kitName === "The Roadside Kit" ? "roadside-kit" : meta.kitName === "The Backup Power Kit" ? "backup-power-kit" : "road-trip-kit"));
+
+  // The vertical this category belongs to — drives the breadcrumb + which kit (if any) fits.
+  const COOLING_CATS = new Set(["Portable AC", "Cooling Fans", "Personal Cooling", "Cooling Sleep", "Dorm Cooling"]);
+  const CAR_CATS = new Set(["Jump Starters", "Tire Inflators", "Dash Cams", "Power & Charging", "Roadside Safety", "Car Utility"]);
+  const vertical = COOLING_CATS.has(meta.name)
+    ? { label: "Cooling", href: "/heat" }
+    : CAR_CATS.has(meta.name)
+      ? { label: "Car & roadside", href: "/gear" }
+      : { label: "Useful gear", href: "/useful" };
+
+  // Kits are car-vertical bundles — only surface one on a car category page.
+  const kit = CAR_CATS.has(meta.name)
+    ? getAllKits().find((k) => k.id === (meta.kitName === "The Roadside Kit" ? "roadside-kit" : meta.kitName === "The Backup Power Kit" ? "backup-power-kit" : "road-trip-kit"))
+    : undefined;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -47,7 +60,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
           categorySchema(meta.name, meta.slug, products.map((p) => ({ id: p.id, name: p.name }))),
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Gear", path: "/gear" },
+            { name: vertical.label, path: vertical.href },
             { name: meta.name, path: `/category/${meta.slug}` },
           ]),
         ]}
@@ -55,7 +68,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
       <Breadcrumbs
         trail={[
           { label: "Home", href: "/" },
-          { label: "Gear", href: "/gear" },
+          { label: vertical.label, href: vertical.href },
           { label: meta.name },
         ]}
       />

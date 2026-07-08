@@ -53,6 +53,15 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   );
   const alternatives = getRelatedProducts(product, 3);
 
+  // Breadcrumb middle crumb = the product's vertical (not always "Gear"/car).
+  const COOLING_CATS = new Set(["Portable AC", "Cooling Fans", "Personal Cooling", "Cooling Sleep", "Dorm Cooling"]);
+  const CAR_CATS = new Set(["Jump Starters", "Tire Inflators", "Dash Cams", "Power & Charging", "Roadside Safety", "Car Utility"]);
+  const vertical = COOLING_CATS.has(String(product.category))
+    ? { label: "Cooling", href: "/heat" }
+    : CAR_CATS.has(String(product.category))
+      ? { label: "Car & roadside", href: "/gear" }
+      : { label: "Useful gear", href: "/useful" };
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
       <JsonLd
@@ -60,6 +69,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           productSchema(product),
           breadcrumbSchema([
             { name: "Home", path: "/" },
+            { name: vertical.label, path: vertical.href },
             { name: meta.name, path: `/category/${categorySlug(product.category)}` },
             { name: product.name, path: `/products/${product.id}` },
           ]),
@@ -68,7 +78,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
-        <Link href="/gear" className="hover:text-accent-strong">Gear</Link>
+        <Link href={vertical.href} className="hover:text-accent-strong">{vertical.label}</Link>
         <span aria-hidden>/</span>
         <Link href={`/category/${categorySlug(product.category)}`} className="hover:text-accent-strong">{meta.name}</Link>
       </nav>
