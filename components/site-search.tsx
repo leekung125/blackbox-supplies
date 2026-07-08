@@ -163,7 +163,7 @@ export function SiteSearch({
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: reduce ? 0.12 : 0.2, ease: [0.16, 1, 0.3, 1] }}
             style={{ transformOrigin: "top" }}
-            className="absolute left-0 top-[calc(100%+0.6rem)] z-50 w-[min(30rem,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-dark-line bg-[#141009]/95 shadow-[0_28px_70px_-24px_rgba(0,0,0,0.92)] backdrop-blur-xl"
+            className="fixed inset-x-2 top-[4.25rem] z-50 overflow-hidden rounded-2xl border border-dark-line bg-[#141009]/95 shadow-[0_28px_70px_-24px_rgba(0,0,0,0.92)] backdrop-blur-xl sm:absolute sm:inset-x-auto sm:left-0 sm:top-[calc(100%+0.6rem)] sm:w-[min(30rem,calc(100vw-2rem))]"
           >
             {/* soft amber aura at the top edge */}
             <div className="pointer-events-none absolute inset-x-0 top-0 h-16 bg-[radial-gradient(60%_100%_at_50%_0%,rgba(217,154,69,0.14),transparent_70%)]" aria-hidden />

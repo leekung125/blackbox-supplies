@@ -29,8 +29,8 @@ export function SiteHeader() {
           <Wordmark light markClassName="h-6 w-6 sm:h-7 sm:w-7" size="text-[0.95rem] sm:text-[1.05rem]" showMark />
         </Link>
 
-        {/* always-visible search (sm+) — the fastest intent → product path */}
-        <SiteSearch className="hidden min-w-0 flex-1 sm:block sm:max-w-sm" />
+        {/* always-visible search — mobile + desktop; the fastest intent → product path */}
+        <SiteSearch className="min-w-0 flex-1 sm:max-w-sm" placeholder="Search gear…" />
 
         <nav className="ml-auto hidden shrink-0 items-center gap-6 lg:flex">
           {NAV.map((item) => (
@@ -83,9 +83,6 @@ export function SiteHeader() {
             className="overflow-hidden bg-dark-2 lg:hidden"
           >
             <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
-              <div className="sm:hidden">
-                <SiteSearch onNavigate={() => setOpen(false)} />
-              </div>
               {NAV.map((item) => (
                 <Link
                   key={item.href}
