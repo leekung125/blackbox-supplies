@@ -39,7 +39,7 @@ export function Atmosphere() {
 
   return (
     <div ref={ref} className="pointer-events-none fixed inset-0 -z-10" aria-hidden style={{ ["--mx" as string]: "50%", ["--my" as string]: "32%" }}>
-      <div className="absolute inset-0 bg-[#0a0705]" />
+      <div className="absolute inset-0 bg-[#070504]" />
       <div className="atmo-blooms absolute inset-0" />
       <div className="atmo-grid absolute inset-0" />
       <div className="atmo-cursor absolute inset-0" />

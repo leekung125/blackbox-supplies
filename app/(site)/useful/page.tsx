@@ -10,7 +10,8 @@ import usefulData from "@/data/useful-products.json";
 
 const GUIDES = EXTRA_ARTICLES.filter((a) => a.category === "Useful Gear");
 
-const ALL = usefulData as AffiliateProduct[];
+// On-brand only — off-brand drift (kitchen, sleep, home-org, lifestyle) is excluded from browse.
+const ALL = (usefulData as (AffiliateProduct & { offBrand?: boolean })[]).filter((p) => !p.offBrand);
 
 function lowPrice(pr: string) {
   const m = pr.match(/([0-9][0-9,]*)/);
@@ -19,25 +20,22 @@ function lowPrice(pr: string) {
 // Premium only — BlackBox carries gear worth owning, not $10 gadgets.
 const ITEMS = ALL.filter((p) => lowPrice(p.priceRange) >= 50);
 
-const ORDER = ["Desk & Tech", "Sleep & Comfort", "Travel & EDC", "Kitchen", "Home & Organization", "Problem Solvers"];
+const ORDER = ["Desk & Tech", "Travel & EDC", "Problem Solvers"];
 const CAT_BLURB: Record<string, string> = {
-  "Desk & Tech": "The upgrades that quietly make a desk setup better — lighting, charging, power.",
-  "Sleep & Comfort": "Considered pieces for better rest and a calmer space.",
-  "Travel & EDC": "Carry and everyday gear built to last, not to break in a month.",
-  Kitchen: "The few kitchen tools genuinely worth the counter space.",
-  "Home & Organization": "Storage and organization that actually earns its place.",
-  "Problem Solvers": "Clever fixes for the annoyances worth spending on.",
+  "Desk & Tech": "The upgrades that quietly make a work setup better — lighting, charging, power, mounts.",
+  "Travel & EDC": "Everyday-carry tools and tech built to last, not to break in a month — multitools, chargers, trackers.",
+  "Problem Solvers": "Practical fixes for the everyday annoyances worth spending on.",
 };
 
 export const metadata: Metadata = {
-  title: "Genuinely Useful Upgrades — Gear Worth Owning",
+  title: "Work & Everyday Utility — Gear Worth Owning",
   description:
-    "A curated shortlist of genuinely useful, premium everyday gear — desk and charging upgrades, better sleep, travel and EDC that lasts. Real, verified Amazon picks with honest notes.",
+    "The practical work-desk and everyday-carry gear worth owning — charging, power, lighting, mounts, trackers, and multitools. Real, verified Amazon picks with honest notes.",
   alternates: { canonical: "/useful" },
   openGraph: {
     type: "website",
-    title: "Genuinely Useful Upgrades — Gear Worth Owning",
-    description: "A curated shortlist of premium desk, charging, kitchen, travel, and home gear worth the money. Real, verified picks.",
+    title: "Work & Everyday Utility — Gear Worth Owning",
+    description: "Practical work-desk and everyday-carry utility gear worth the money — charging, power, mounts, tools. Real, verified picks.",
     url: "/useful",
   },
 };
@@ -51,12 +49,12 @@ export default function UsefulPage() {
         breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Useful", path: "/useful" }]),
         affiliateListSchema("Genuinely useful upgrades — gear worth owning", ITEMS),
       ]} />
-      <span className="eyebrow eyebrow-accent">Genuinely useful upgrades</span>
+      <span className="eyebrow eyebrow-accent">Work &amp; everyday utility</span>
       <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">Gear worth owning</h1>
       <p className="lede mt-4 max-w-2xl">
-        A curated shortlist of {ITEMS.length} genuinely useful things worth the money — desk and charging
-        upgrades, better sleep, and travel gear built to last. Every pick is a real, verified Amazon listing,
-        researched from specs and reviews, with an honest note on why it earns its place.
+        A curated shortlist of {ITEMS.length} practical work-desk and everyday-carry upgrades worth the money —
+        charging, power, lighting, mounts, trackers, and multitools built to last. Every pick is a real, verified
+        Amazon listing, researched from specs and reviews, with an honest note on why it earns its place.
       </p>
       <AffiliateDisclosure className="mt-5 max-w-2xl" />
 

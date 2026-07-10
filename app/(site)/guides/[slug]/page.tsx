@@ -13,7 +13,7 @@ import { getKitById } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
 import { matchByText, productToPick, type ResolvedPick } from "@/lib/affiliate-picks";
 import { JsonLd } from "@/components/json-ld";
-import { articleSchema, breadcrumbSchema, faqSchema, guideSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, comparisonGuideSchema, faqSchema, guideSchema } from "@/lib/schema";
 import { ARTICLE_SLUGS, getArticleBySlug } from "@/lib/articles";
 import { ArticleView } from "@/components/article-view";
 import { COMPARISON_GUIDE_SLUGS, getComparisonGuideBySlug } from "@/lib/comparison-guides";
@@ -96,25 +96,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <>
         <JsonLd
           data={[
-            {
-              "@context": "https://schema.org",
-              "@type": "Article",
-              headline: cmp.title,
-              description: cmp.dek,
-              dateModified: cmp.updated,
-              ...(cmp.heroImage ? { image: cmp.heroImage } : {}),
-            },
-            {
-              "@context": "https://schema.org",
-              "@type": "ItemList",
-              name: cmp.title,
-              numberOfItems: cmp.products.length,
-              itemListElement: cmp.products.map((p, i) => ({
-                "@type": "ListItem",
-                position: i + 1,
-                name: p.name,
-              })),
-            },
+            ...comparisonGuideSchema(cmp),
             breadcrumbSchema([
               { name: "Home", path: "/" },
               { name: "Guides", path: "/guides" },
@@ -299,7 +281,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
       {/* disclosure note */}
       <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-dim">
-        How we choose: picks are based on rigorous research and manufacturer specs — no paid placement, ever. Outbound links are Amazon affiliate links: as an Amazon Associate, BlackBox Supply earns from qualifying purchases, at no extra cost to you. <Link href="/disclosure" className="ulink font-semibold">Full disclosure</Link>.
+        How we choose: picks are based on rigorous research and manufacturer specs — no paid placement, ever. Outbound links are Amazon affiliate links: as an Amazon Associate, BlackBox Supplies earns from qualifying purchases, at no extra cost to you. <Link href="/disclosure" className="ulink font-semibold">Full disclosure</Link>.
       </p>
 
       {/* related kit */}

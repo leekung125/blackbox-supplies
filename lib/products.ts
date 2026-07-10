@@ -81,8 +81,18 @@ export interface Product {
   verdict: string;
   whyItMatters: string;
   buyingNotes: string;
+  /** Honest buyer Q&A → product-page accordion + FAQPage JSON-LD. Never fabricate the answer;
+   *  omit when there's nothing real to say. */
+  faq?: { q: string; a: string }[];
+  /** Decision Receipt (the trust backbone) — all empty-safe. */
+  whoShouldAvoid?: string;
+  mainTradeoff?: string;
+  whatCouldChange?: string;
   homepageEligible: boolean;
   linksEligible: boolean;
+  /** Off-brand / niche-drift (kitchen, sleep, lifestyle, etc.). Kept for now (page still renders)
+   *  but excluded from every browse/promo surface. Prune after dependency review. */
+  offBrand?: boolean;
   amazon?: AmazonMatch;
 }
 
@@ -163,8 +173,18 @@ function adaptThin(t: Record<string, unknown>): Product {
     // string keep the page from rendering undefined.
     whyItMatters: firstStr(t.whyItMatters, t.whyItMattersText),
     buyingNotes: firstStr(t.buyingNotes, t.buyingNotesText, t.buyingGuide),
+    // faq: pass through real Q&A pairs when the copy pass adds them; else omit (optional field).
+    faq: Array.isArray(t.faq)
+      ? (t.faq as Record<string, unknown>[])
+          .map((f) => ({ q: str(f?.q), a: str(f?.a) }))
+          .filter((f) => f.q && f.a)
+      : undefined,
+    whoShouldAvoid: firstStr(t.whoShouldAvoid) || undefined,
+    mainTradeoff: firstStr(t.mainTradeoff) || undefined,
+    whatCouldChange: firstStr(t.whatCouldChange) || undefined,
     homepageEligible: false,
     linksEligible: true,
+    offBrand: t.offBrand === true,
   };
 }
 
@@ -179,8 +199,28 @@ for (const p of [...thinProducts, ...carProducts]) _byId.set(p.id, p);
 
 export const products: Product[] = Array.from(_byId.values());
 
+/** EVERY product incl. off-brand — for product pages / generateStaticParams (no 404s). */
 export function getAllProducts(): Product[] {
   return products;
+}
+
+/** Parse the low end of a price range like "$80–$100" → 80 (0 when unparseable/absent). */
+export function lowPrice(priceRange: string): number {
+  const m = (priceRange || "").match(/([0-9][0-9,]*)/);
+  return m ? parseInt(m[1].replace(/,/g, ""), 10) : 0;
+}
+
+/** A "main-grid" product: on-brand AND ≥ $25. Sub-$25 items stay fully reachable via kits,
+ *  related picks, category detail, and /finds — but they never out-rank the $100+ revenue
+ *  drivers at the top of the big browse grids. Mirrors the ≥$50 gate on /heat & /useful. */
+export function isMainProduct(p: Product): boolean {
+  return lowPrice(p.priceRange) >= 25 && !p.offBrand;
+}
+
+/** The niche catalog: on-brand utility+readiness gear only. Use this for all BROWSE/PROMO
+ *  surfaces (homepage, verticals, search, featured, sitemap). Off-brand drift is excluded. */
+export function getCoreProducts(): Product[] {
+  return products.filter((p) => !p.offBrand);
 }
 
 export function getProductById(id: string): Product | undefined {
@@ -189,7 +229,7 @@ export function getProductById(id: string): Product | undefined {
 
 export function getProductsByCategory(category: Category): Product[] {
   return products
-    .filter((p) => p.category === category)
+    .filter((p) => p.category === category && !p.offBrand)
     .sort((a, b) => b.priority - a.priority);
 }
 
@@ -202,26 +242,26 @@ export function getProductsByGuide(guideSlug: string): Product[] {
 /** Home-page hero set = the 5 hero-tier products, one per guide, highest priority first. */
 export function getFeaturedProducts(): Product[] {
   return products
-    .filter((p) => p.tier === "hero")
+    .filter((p) => p.tier === "hero" && !p.offBrand)
     .sort((a, b) => b.priority - a.priority);
 }
 
-/** The launch catalog — top N by priority. */
+/** The launch catalog — top N by priority (on-brand only). */
 export function getTopProducts(n = 20): Product[] {
-  return [...products].sort((a, b) => b.priority - a.priority).slice(0, n);
+  return getCoreProducts().sort((a, b) => b.priority - a.priority).slice(0, n);
 }
 
-/** Products eligible for the social /links funnel. */
+/** Products eligible for the social /links funnel (on-brand only). */
 export function getLinksProducts(): Product[] {
   return products
-    .filter((p) => p.linksEligible)
+    .filter((p) => p.linksEligible && !p.offBrand)
     .sort((a, b) => b.priority - a.priority);
 }
 
-/** Related picks for a product page: same category, highest priority, excluding self. */
+/** Related picks for a product page: same category, highest priority, excluding self + off-brand. */
 export function getRelatedProducts(p: Product, n = 3): Product[] {
   return products
-    .filter((x) => x.id !== p.id && x.category === p.category)
+    .filter((x) => x.id !== p.id && x.category === p.category && !x.offBrand)
     .sort((a, b) => b.priority - a.priority)
     .slice(0, n);
 }

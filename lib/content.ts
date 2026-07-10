@@ -1,19 +1,33 @@
 import type { Category } from "@/lib/products";
 
 /** Brand constants — single source of truth for name/tagline/positioning.
- *  BlackBox Supply is a buying-guide + gear brand for genuinely useful gear: cooling, car,
+ *  BlackBox Supplies is a buying-guide + gear brand for genuinely useful gear: cooling, car,
  *  desk, home, and travel. We research the right one, explain what matters, link straight to it,
  *  and name the catch. Chosen on merit, never paid placement. */
 export const BRAND = {
-  name: "BlackBox Supply",
+  name: "BlackBox Supplies",
   tagline: "Genuinely useful gear, researched — not sponsored.",
   positioning:
-    "BlackBox Supply researches genuinely useful gear — cooling, car, desk, home, and travel — and links you straight to the one worth buying. Chosen on merit, never paid placement, and honest about the catch.",
+    "BlackBox Supplies researches genuinely useful gear — cooling, car, desk, home, and travel — and links you straight to the one worth buying. Chosen on merit, never paid placement, and honest about the catch.",
   shortPositioning:
     "Genuinely useful gear, researched — with the guides to choose the right one.",
   instagram: "black_boxsupplies",
   email: "info@blackboxsupplies.com",
   domain: "blackboxsupplies.com",
+} as const;
+
+/**
+ * The named, accountable editorial owner behind every guide's method and verdicts — the honest
+ * E-E-A-T substitute for a faceless brand: a real, named person who owns the standard, not a
+ * fake lab or invented credentials. Deliberately explicit that the work is RESEARCH-based, not
+ * hands-on lab testing, so no false "we crash-tested this" impression is created. Used as the
+ * `author` in comparison-guide Article JSON-LD and can be surfaced in on-page bylines.
+ */
+// Trust comes from a transparent PROCESS, not a fabricated person. No fake staff personas.
+export const EDITOR = {
+  name: "BlackBox Editorial",
+  role: "Research & standards",
+  bio: "Every BlackBox verdict is set by our editorial process — not a single named reviewer. We cross-check manufacturer spec sheets, published independent test data, and long-term verified-buyer reviews. It's research-based analysis, not hands-on lab testing, and we never claim otherwise.",
 } as const;
 
 /**
@@ -83,7 +97,7 @@ export const VIDEO_DROPS: VideoDrop[] = [
  *  tag blackboxsuppl-20); the per-link disclosure renders automatically wherever an affiliate link
  *  is shown. */
 export const DISCLOSURE_SHORT =
-  "As an Amazon Associate, BlackBox Supply earns from qualifying purchases — outbound links are affiliate links, at no extra cost to you. Picks are chosen on merit, not paid placement; prices are approximate, so confirm the current price on Amazon.";
+  "As an Amazon Associate, BlackBox Supplies earns from qualifying purchases — outbound links are affiliate links, at no extra cost to you. Picks are chosen on merit, not paid placement; prices are approximate, so confirm the current price on Amazon.";
 
 /** Neutral sourcing microcopy — specs come from public research, confirm at the retailer. */
 export const NOT_TESTED_NOTE =

@@ -9,7 +9,7 @@ import { getFeaturedProducts } from "@/lib/products";
 export const metadata: Metadata = {
   title: "Links",
   description:
-    "BlackBox Supply — the car, roadside, and backup-power gear worth owning. The top picks, the buying guides, and the kits, in one place.",
+    "BlackBox Supplies — the car, roadside, and backup-power gear worth owning. The top picks, the buying guides, and the kits, in one place.",
   // Link-in-bio utility page — real content lives on the guides; keep it out of the index.
   robots: { index: false, follow: true },
 };

@@ -172,3 +172,65 @@ export const GUIDE_SLUGS = GUIDES.map((g) => g.slug);
 export function getGuidesForProduct(productId: string): Guide[] {
   return GUIDES.filter((g) => g.picks.some((p) => p.productId === productId));
 }
+
+// ─────────────────────────────────────────────────────────────────────────────
+// UNIFIED GUIDE RESOLVER
+// The comparison guides (lib/comparison-guides.ts) are the crown-jewel money pages, but the
+// legacy resolvers above only ever knew the two legacy guides — so kit "read the guide" links,
+// category→flagship-guide buttons, product-page cross-links, sitemap, and llms.txt all silently
+// missed the 6 comparison guides. These helpers union both models. (No import cycle: comparison
+// guides never import this file.)
+import {
+  COMPARISON_GUIDES,
+  getComparisonGuideBySlug,
+  type ComparisonGuide,
+} from "./comparison-guides";
+
+/** A guide normalized for cross-linking — works for legacy AND comparison guides. */
+export interface GuideRef {
+  slug: string;
+  title: string;
+  categoryLabel: string;
+  kind: "guide" | "comparison";
+}
+
+/** Resolve a slug against legacy guides first, then comparison guides. */
+export function getAnyGuideBySlug(slug: string): Guide | ComparisonGuide | undefined {
+  return BY_SLUG.get(slug) ?? getComparisonGuideBySlug(slug);
+}
+
+/** Every guide slug (legacy + comparison) — for sitemap, llms.txt, nav, static params. */
+export const ALL_GUIDE_SLUGS: string[] = [
+  ...GUIDE_SLUGS,
+  ...COMPARISON_GUIDES.map((g) => g.slug),
+];
+
+/** Normalized ref for any slug — lets relatedGuides render links across both models. */
+export function guideRefForSlug(slug: string): GuideRef | undefined {
+  const g = BY_SLUG.get(slug);
+  if (g) return { slug: g.slug, title: g.title, categoryLabel: g.category as string, kind: "guide" };
+  const c = getComparisonGuideBySlug(slug);
+  if (c) return { slug: c.slug, title: c.title, categoryLabel: c.categoryLabel, kind: "comparison" };
+  return undefined;
+}
+
+/** Every guide (legacy + comparison) that features a product, for product-page cross-linking. */
+export function getAllGuidesForProduct(productId: string): GuideRef[] {
+  const refs: GuideRef[] = GUIDES.filter((g) => g.picks.some((p) => p.productId === productId)).map(
+    (g) => ({ slug: g.slug, title: g.title, categoryLabel: g.category as string, kind: "guide" as const }),
+  );
+  for (const c of COMPARISON_GUIDES) {
+    if (c.products.some((p) => p.id === productId)) {
+      refs.push({ slug: c.slug, title: c.title, categoryLabel: c.categoryLabel, kind: "comparison" });
+    }
+  }
+  return refs;
+}
+
+/** The flagship comparison guide for a category label (e.g. category-hub → its guide). */
+export function getComparisonGuideForCategory(label: string): ComparisonGuide | undefined {
+  const want = label.toLowerCase();
+  return COMPARISON_GUIDES.find(
+    (g) => g.categoryLabel.toLowerCase() === want || g.meta.label.toLowerCase() === want,
+  );
+}

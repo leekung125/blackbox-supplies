@@ -22,9 +22,19 @@
       "Portable ACs are inherently less efficient than a same-BTU window unit",
       "In very humid climates the self-drain won't keep up and you'll need to drain it"
     ],
-    "image": "/products/heat/midea-duo-14-000-btu-smart.png",
+    "image": "/products/scene/midea-duo-14-000-btu-smart.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0FC2SGGF9?tag=blackboxsuppl-20",
-    "asin": "B0FC2SGGF9"
+    "asin": "B0FC2SGGF9",
+    "whoShouldAvoid": "Anyone without a window to vent to, or who needs to move the unit between rooms daily - at 14,000 BTU this is a large, heavy single-hose unit that still needs a window for the exhaust hose, so it is the wrong pick for a truly go-anywhere setup.",
+    "mainTradeoff": "You pay a premium and haul a heavy unit in exchange for the near-silent (~42 dB) inverter compressor and a year-round heat mode.",
+    "whatCouldChange": "If your room is sun-facing or over ~550 sq ft, the dual-hose Whynter NEX cools faster and more efficiently for a similar price; and in a very humid climate you should verify the self-drain keeps up before relying on it.",
+    "whyItMatters": "The inverter compressor is the whole point: instead of slamming on and off like a cheap portable AC, it modulates to hold a steady temperature at around 42 dB, which is what makes it quiet enough to sleep beside.",
+    "buyingNotes": "Check the SACC rating, not the headline BTU. It's marketed at 14,000 BTU but its SACC figure is about 12,000 - that lower number is the honest measure of how much room it actually cools (up to ~550 sq ft). Also confirm your window opening fits the included kit, and that you have a nearby window at all, since single-hose units still need one.",
+    "faq": [
+      { "q": "Does it really cool a 550 sq ft room?", "a": "In a normally shaded, insulated room, yes - the ~12,000 SACC rating is sized for spaces up to about 550 sq ft. A sun-facing or poorly insulated room of that size cools more slowly, and single-hose units lose some efficiency because they draw replacement air from the rest of the house." },
+      { "q": "Do I have to empty a water bucket?", "a": "Under normal conditions no - it's designed to self-evaporate condensate out the exhaust. In very humid climates it can produce more water than it can evaporate, and you'll need to attach the drain or empty it." },
+      { "q": "Does the heat mode replace a furnace?", "a": "It adds supplemental heat for cooler months so you get year-round use from one unit, but it's a heat-pump assist for mild cold, not a substitute for a dedicated furnace in deep winter." }
+    ]
   },
   {
     "id": "whynter-nex-arc-1230wn-14-000",
@@ -49,9 +59,19 @@
       "Large, heavy unit that needs a nearby window",
       "Like all portable ACs, less efficient than a comparable window unit"
     ],
-    "image": "/products/heat/whynter-nex-arc-1230wn-14-000.png",
+    "image": "/products/scene/whynter-nex-arc-1230wn-14-000.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09TP51PPH?tag=blackboxsuppl-20",
-    "asin": "B09TP51PPH"
+    "asin": "B09TP51PPH",
+    "whoShouldAvoid": "Budget shoppers and anyone cooling a small bedroom - the dual-hose inverter design carries a premium price and its efficiency edge only pays off in larger or sun-facing rooms, so a small space doesn't justify the cost.",
+    "mainTradeoff": "You accept more setup (two hoses to route to the window) and a higher price for faster, more efficient cooling than single-hose units deliver.",
+    "whatCouldChange": "If quiet operation and a heat mode matter more to you than dual-hose efficiency, the near-priced single-hose Midea Duo is the alternative; verify your window can fit the dual-hose kit before buying.",
+    "whyItMatters": "Dual-hose is the reason to buy this over a cheaper single-hose unit: one hose pulls outside air to cool the compressor while the other exhausts it, so it doesn't create the negative pressure that sucks warm air back into your room - which is why it cools faster and holds up in larger, sun-facing spaces.",
+    "buyingNotes": "Confirm your window can accommodate the dual-hose bracket - two hoses need more width than a single-hose kit. And weigh whether you need it: the dual-hose efficiency edge mainly shows in bigger or hot rooms; in a small bedroom a single-hose unit is fine.",
+    "faq": [
+      { "q": "What's the real advantage of dual-hose over single-hose?", "a": "A single-hose AC exhausts room air outside, creating a slight vacuum that pulls warm, unconditioned air in through gaps in the house. Dual-hose draws its cooling air from outdoors instead, so it doesn't fight itself - the payoff is faster cooling and better performance in large or sunny rooms." },
+      { "q": "Is it noticeably louder than a single-hose unit?", "a": "It uses the NEX inverter compressor for quiet, modulated running rather than loud on/off cycling. Two hoses don't add much noise; the compressor type matters more than the hose count." },
+      { "q": "Will it fit a standard sliding or double-hung window?", "a": "It ships with a window kit, but because it's dual-hose it needs more bracket width than a single-hose model - measure your window opening before ordering." }
+    ]
   },
   {
     "id": "ecoflow-wave-3-portable-air-conditioner",
@@ -76,9 +96,19 @@
       "Premium price compared with conventional portable ACs",
       "Cordless runtime drops when running at full cooling power"
     ],
-    "image": "/products/heat/ecoflow-wave-3-portable-air-conditioner.png",
+    "image": "/products/scene/ecoflow-wave-3-portable-air-conditioner.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0F4D4Z18S?tag=blackboxsuppl-20",
-    "asin": "B0F4D4Z18S"
+    "asin": "B0F4D4Z18S",
+    "whoShouldAvoid": "Anyone trying to cool a full-size bedroom or living room - at 6,100 BTU it's built for a tent, van, or small off-grid space, and it's the priciest wrong tool for a room a conventional portable AC could simply vent through a window.",
+    "mainTradeoff": "You pay a steep premium - and the battery is a separate add-on - for the one thing normal portable ACs can't do: cordless cooling with no permanent window vent.",
+    "whatCouldChange": "If you actually have a window and grid power, the Midea or Whynter cool far more room for less money; confirm you genuinely need the add-on battery before committing, since it raises the total cost significantly.",
+    "whyItMatters": "It does the one thing a normal portable AC can't: run off a battery with no permanent window vent, so it can actually cool a tent, van, or off-grid room where there's no outlet or window to work with.",
+    "buyingNotes": "Check whether the price you see includes the add-on battery - it's sold separately and roughly doubles the total cost. Also note the 6,100 BTU rating is built for a small enclosed space, not a full-size room.",
+    "faq": [
+      { "q": "How long does it run on battery?", "a": "EcoFlow rates the add-on battery for up to about 8 hours, but that's at lower settings - running at full cooling power draws it down considerably faster. Plan for shorter runtime if you're cooling hard in real heat." },
+      { "q": "Can it cool my bedroom?", "a": "Only a small one. At 6,100 BTU it's sized for a tent, van, or compact off-grid space - a standard bedroom or living room needs a 10,000+ BTU unit vented through a window." },
+      { "q": "Does it need a window or hose?", "a": "It has an exhaust duct like any AC, since the heat has to go somewhere, but it doesn't require a permanent window installation - you can vent it through a tent flap or van window, which is what makes it usable off-grid." }
+    ]
   },
   {
     "id": "black-decker-10-000-btu-3",
@@ -103,9 +133,19 @@
       "Fixed-speed compressor cycles louder than an inverter unit",
       "Needs a window for the exhaust hose"
     ],
-    "image": "/products/heat/black-decker-10-000-btu-3.png",
+    "image": "/products/scene/black-decker-10-000-btu-3.png",
     "affiliateUrl": "https://www.amazon.com/dp/B01DLPUWG2?tag=blackboxsuppl-20",
-    "asin": "B01DLPUWG2"
+    "asin": "B01DLPUWG2",
+    "whoShouldAvoid": "Light sleepers and anyone cooling a large or sun-facing room - the fixed-speed compressor cycles louder than an inverter unit and single-hose cooling struggles past 450 sq ft, so a bedroom or bigger space is better served by a quieter inverter.",
+    "mainTradeoff": "You give up inverter quiet, smart control, and dual-hose efficiency in exchange for the lowest price and a light (~26 lb), roll-anywhere body.",
+    "whatCouldChange": "If your budget can stretch, the Midea Duo trades up to a much quieter inverter with app and voice control; and if your room runs over 450 sq ft you'll want more BTU or a dual-hose design to keep up.",
+    "whyItMatters": "It's the honest budget pick: a no-frills single-hose 3-in-1 that cools, dehumidifies, and runs as a fan for a mid-size room without paying for inverter or smart features.",
+    "buyingNotes": "Look past the 10,000 BTU headline to the ~5,550 DOE rating - that newer, stricter number reflects real-world cooling and matches its up-to-450 sq ft claim. Being a fixed-speed single-hose unit, it cycles on and off louder than an inverter, so it's not the pick if noise is your priority.",
+    "faq": [
+      { "q": "Why does the box say 10,000 BTU but reviews mention 5,550?", "a": "5,550 is the DOE rating, a stricter modern test that better reflects actual cooling; 10,000 is the older ASHRAE-style number. Both describe the same machine - size your room against the DOE figure." },
+      { "q": "What is 'Follow Me' on the remote?", "a": "The remote has its own temperature sensor, so the AC reads the temperature where you're sitting rather than only at the unit - handy for keeping your side of the room comfortable." },
+      { "q": "Is it quiet enough for a bedroom?", "a": "It's a fixed-speed compressor, so it turns on and off with an audible cycle rather than running at a steady low hum like an inverter unit. Light sleepers usually prefer an inverter model." }
+    ]
   },
   {
     "id": "dreo-43-evaporative-air-swamp-cooler",
@@ -130,9 +170,19 @@
       "Not a true air conditioner - it won't reach AC-level temperatures",
       "Cooling effect is localized to the airflow path"
     ],
-    "image": "/products/heat/dreo-43-evaporative-air-swamp-cooler.png",
+    "image": "/products/scene/dreo-43-evaporative-air-swamp-cooler.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0GN9KL2YR?tag=blackboxsuppl-20",
-    "asin": "B0GN9KL2YR"
+    "asin": "B0GN9KL2YR",
+    "whoShouldAvoid": "Anyone in a humid climate - an evaporative cooler adds moisture and barely cools in muggy air, so if your summers are humid you need a true compressor AC, not this ice-pack tower.",
+    "mainTradeoff": "You give up true AC-level cooling for low energy use, near-silence (~33 dB), and no window venting - and the effect is localized to the airflow path, not the whole room.",
+    "whatCouldChange": "In dry heat this is a strong low-cost pick, but if your region is humid the compressor-based Midea or BLACK+DECKER units are the honest answer; check your local humidity before buying.",
+    "whyItMatters": "It cools without a window vent or a compressor by evaporating water over ice packs, which is why it sips power and runs near-silent - but that mechanism only produces real cooling in dry air.",
+    "buyingNotes": "Check your climate humidity before buying. Evaporative (swamp) coolers add moisture to the air and cool best in dry heat; in a humid region they raise the mugginess and barely drop the temperature. It also needs regular water and ice-pack refills to feel cold.",
+    "faq": [
+      { "q": "Is this an air conditioner?", "a": "No. It's an evaporative cooler - it lowers temperature by evaporating water, not with a refrigerant compressor. It can't reach the cold temperatures an AC can, and it doesn't vent out a window." },
+      { "q": "Will it work where I live?", "a": "It works well in dry climates and poorly in humid ones. If your summers are muggy, an evaporative cooler adds humidity and gives little relief - you'd want a compressor AC instead." },
+      { "q": "Do I have to use ice?", "a": "Ice packs aren't required but make the output noticeably colder; without them you get cooler-than-fan air in dry heat. Either way you have to keep the water tank filled." }
+    ]
   },
   {
     "id": "hessaire-mc18m-portable-evaporative-swamp-cooler",
@@ -157,9 +207,19 @@
       "Best for open or ventilated spaces, not sealed rooms",
       "Needs a steady water supply or frequent tank refills"
     ],
-    "image": "/products/heat/hessaire-mc18m-portable-evaporative-swamp-cooler.png",
+    "image": "/products/scene/hessaire-mc18m-portable-evaporative-swamp-cooler.png",
     "affiliateUrl": "https://www.amazon.com/dp/B078HFGJ3T?tag=blackboxsuppl-20",
-    "asin": "B078HFGJ3T"
+    "asin": "B078HFGJ3T",
+    "whoShouldAvoid": "Anyone cooling a sealed indoor room or living in a humid climate - this is engineered for open or semi-open dry-climate spaces like garages, patios, and workshops, and in a closed room or muggy air it won't cool and only adds humidity.",
+    "mainTradeoff": "You accept fan-level noise (~53 dB) and dry-climate-only, open-space operation in exchange for high 1,300 CFM output and rugged, ventless portability no compressor AC matches outdoors.",
+    "whatCouldChange": "If you need to cool an enclosed room rather than a garage or patio, a compressor portable AC is the right tool; and in a humid region any evaporative cooler underperforms - verify your climate is dry before buying.",
+    "whyItMatters": "It's built for the open, semi-outdoor spaces a regular AC can't handle - garages, patios, workshops - moving a lot of air (1,300 CFM) and running off a continuous water line so you're not constantly refilling.",
+    "buyingNotes": "Match it to open or well-ventilated dry-climate space, not a sealed room. Like any evaporative cooler it needs dry air to cool and airflow to carry off the humidity it adds; at ~53 dB it's louder than a home fan. Decide up front whether you'll use the continuous hose hookup or the fillable tank.",
+    "faq": [
+      { "q": "Can I use it inside a closed room?", "a": "Not effectively. Evaporative coolers need a path for air to move through - a cracked door, window, or open garage - otherwise humidity builds up and cooling stops. It's designed for open or semi-open spaces." },
+      { "q": "How is it different from a portable AC?", "a": "It has no compressor or refrigerant and doesn't need a window exhaust - it cools by evaporating water. That makes it ideal outdoors and in garages, but it only works in dry climates and can't hit AC-cold temperatures." },
+      { "q": "Do I have to keep filling it with water?", "a": "You can hook it to a garden hose for continuous supply, or use the built-in tank and refill it manually. High output empties the tank faster, so the hose hookup is better for all-day use." }
+    ]
   },
   {
     "id": "shark-turboblade-bladeless-tower-fan-tf202s",
@@ -184,9 +244,19 @@
       "Tall design takes up vertical space",
       "It's a fan - it circulates air but doesn't lower room temperature"
     ],
-    "image": "/products/heat/shark-turboblade-bladeless-tower-fan-tf202s.png",
+    "image": "/products/scene/shark-turboblade-bladeless-tower-fan-tf202s.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0DSJYSZL3?tag=blackboxsuppl-20",
-    "asin": "B0DSJYSZL3"
+    "asin": "B0DSJYSZL3",
+    "whoShouldAvoid": "Skip it if you just want to blast a hot room with maximum airflow for cheap — a $30 high-CFM box fan moves more raw air; the TurboBlade's ~$280 premium buys the pivoting vertical-to-horizontal design and bladeless kid safety, not brute wind. It also won't lower room temperature.",
+    "mainTradeoff": "You pay a fan-premium (~$280) for the pivoting bladeless 'air blanket' versatility and get less raw airflow than a cheap box fan.",
+    "whatCouldChange": "If you don't need the pivot or bladeless safety, the Dreo bladeless towers here do quiet room airflow at a third of the price — and since this hovers near $280, confirm the current price before buying.",
+    "whyItMatters": "The pivot is what you're paying for: it swings from an upright column of air to a horizontal overhead 'air blanket,' so one fan can cool a seated person, a whole bed, or a room from angles a fixed tower can't reach - and it's bladeless, so it's safe around kids and pets.",
+    "buyingNotes": "Decide if you actually need the pivoting, bladeless versatility. It's premium-priced for a fan, and a plain high-CFM box fan moves more raw air for far less. Remember it circulates air, it doesn't lower room temperature. Confirm the current price, which hovers near $280.",
+    "faq": [
+      { "q": "Does it cool the room down?", "a": "No - like any fan it moves air to make you feel cooler as it evaporates moisture off your skin; it doesn't lower the actual air temperature. For that you need an AC." },
+      { "q": "What's the point of the pivoting head?", "a": "It rotates from vertical (a normal tower column) to horizontal (blowing across a bed or down from overhead), so you can aim airflow where a fixed tower fan can't - over a whole bed, for example." },
+      { "q": "Is it safe around children and pets?", "a": "Yes, it's bladeless - there's no exposed spinning blade to reach into, which is a common reason people choose this style over a traditional fan." }
+    ]
   },
   {
     "id": "dyson-purifier-cool-tp07-bladeless-tower",
@@ -211,9 +281,19 @@
       "Purifies and circulates air but does not lower room temperature",
       "Maximum airflow is gentler than a dedicated high-CFM fan"
     ],
-    "image": "/products/heat/dyson-purifier-cool-tp07-bladeless-tower.png",
+    "image": "/products/scene/dyson-purifier-cool-tp07-bladeless-tower.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09LT8THGS?tag=blackboxsuppl-20",
-    "asin": "B09LT8THGS"
+    "asin": "B09LT8THGS",
+    "whoShouldAvoid": "Skip it if you only want a cooling breeze — you're paying $430+ plus recurring HEPA filter costs for the purifier half; without allergies or air-quality concerns, a plain tower fan cools you for a fraction of the price and its airflow is gentler than a dedicated high-CFM fan.",
+    "mainTradeoff": "You accept a high upfront price and ongoing filter costs to get sealed HEPA purification and cooling in one machine.",
+    "whatCouldChange": "If clean air isn't a priority the purifier is wasted spend and a standard fan makes more sense; it's also worth pricing a separate fan plus standalone purifier, which can total less than the TP07.",
+    "whyItMatters": "It's two machines in one: a bladeless cooling fan and a fully sealed HEPA H13 purifier that captures allergens and fine particles, so allergy sufferers get clean air and a breeze from a single quiet unit.",
+    "buyingNotes": "Only worth it if you value the purifier - you're paying $430+ up front plus recurring filter replacements. If you just want a breeze, a plain tower fan costs a fraction. Note it purifies and circulates air but doesn't lower room temperature, and its airflow is gentler than a dedicated high-CFM fan.",
+    "faq": [
+      { "q": "Does the TP07 actually cool a room?", "a": "It doesn't drop the room's temperature - it's a fan plus purifier. It makes you feel cooler with airflow, the same as any fan, while also filtering the air." },
+      { "q": "How often do the filters need replacing, and what does it cost?", "a": "Dyson recommends replacing the combined HEPA and carbon filter roughly once a year with typical use, and replacements are a recurring cost - factor that in against a filter-free fan." },
+      { "q": "Is the HEPA filtration genuinely sealed?", "a": "Yes - it uses a fully sealed HEPA H13 system, meaning air is forced through the filter rather than leaking around it, so captured particles aren't re-released. That sealed design is the main reason to pick it over a basic fan." }
+    ]
   },
   {
     "id": "dreo-cruiser-pro-t1-oscillating-tower",
@@ -238,9 +318,19 @@
       "Tall footprint needs floor space",
       "No smart-home or app control"
     ],
-    "image": "/products/heat/dreo-cruiser-pro-t1-oscillating-tower.png",
+    "image": "/products/scene/dreo-cruiser-pro-t1-oscillating-tower.png",
     "affiliateUrl": "https://www.amazon.com/dp/B08PDDSDHY?tag=blackboxsuppl-20",
-    "asin": "B08PDDSDHY"
+    "asin": "B08PDDSDHY",
+    "whoShouldAvoid": "Skip it if you want smart-home control or wide coverage — oscillation is only 90 degrees and there's no WiFi, app, or voice; a large or open room may not feel evenly covered.",
+    "mainTradeoff": "You get a strong price and a wide 12-speed range but give up smart control and settle for a narrower 90-degree sweep.",
+    "whatCouldChange": "For a few dollars more the Dreo 42-inch bladeless (safer around kids) or the 2026 Dreo WiFi tower (voice control) is the better pick — choose this only if 90-degree coverage and manual control are fine.",
+    "whyItMatters": "It's the value pick for everyday room cooling: a quiet oscillating tower with an unusually wide 12-speed range and useful modes for well under $100, without paying for smart features you may not use.",
+    "buyingNotes": "Check that 90-degree oscillation covers your layout - it's narrower than some tower fans, so a large open room may not feel evenly covered. And note there's no app or voice control if smart-home integration matters to you.",
+    "faq": [
+      { "q": "How wide does it oscillate?", "a": "90 degrees - enough for a seating area or bedroom, but narrower than the 120-degree or wider sweep on some towers. In a big open room the airflow may not reach every corner." },
+      { "q": "Is it quiet enough to sleep with?", "a": "It has a Sleep mode and low speeds that run quietly; with up to 12 speeds you can dial airflow down to a soft background level for the night." },
+      { "q": "Can I control it with Alexa or an app?", "a": "No - it's remote and touch-panel only. If you want voice or app control, Dreo's WiFi tower models add that for a bit more." }
+    ]
   },
   {
     "id": "dreo-42-inch-bladeless-tower-fan",
@@ -265,9 +355,19 @@
       "Bladeless towers move less raw air than a large box fan",
       "No app or voice control"
     ],
-    "image": "/products/heat/dreo-42-inch-bladeless-tower-fan.png",
+    "image": "/products/scene/dreo-42-inch-bladeless-tower-fan.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09M8PMW26?tag=blackboxsuppl-20",
-    "asin": "B09M8PMW26"
+    "asin": "B09M8PMW26",
+    "whoShouldAvoid": "Skip it if you want smart-home or voice control — this model has none; and if you need brute whole-room airflow, a bladeless tower moves less raw air than a big box fan.",
+    "mainTradeoff": "You get near-silent ~20 dB all-night airflow and bladeless safety, but no app or voice control.",
+    "whatCouldChange": "If WiFi/voice matters, the 2026 upgraded Dreo bladeless tower is a small step up in price; if near-silent operation isn't a priority, a basic bladed tower like the Lasko saves money.",
+    "whyItMatters": "The brushless DC motor is the reason to pick it: it drops to around 20 dB - quiet enough to run beside the bed all night - while still moving air at 28 ft/s, and being bladeless it's safe around kids and pets.",
+    "buyingNotes": "If smart control matters, note this model has no app or voice - it's remote and touch only. And like all bladeless towers it moves less raw air than a big box fan, so it's for quiet all-night comfort, not brute whole-room wind.",
+    "faq": [
+      { "q": "How quiet is it really?", "a": "Its brushless DC motor drops to about 20 dB on the lowest setting - quieter than a typical AC-motor fan and low enough to sleep beside. Higher speeds are naturally louder as airflow increases." },
+      { "q": "Why bladeless?", "a": "There's no exposed blade, so it's safer around children and pets and easier to wipe clean. The tradeoff is that bladeless towers move less raw air than a large bladed box fan." },
+      { "q": "Does it have WiFi or voice control?", "a": "No - this model is remote and touch only. Dreo's 2026 upgraded tower adds WiFi and voice if you want smart control." }
+    ]
   },
   {
     "id": "shark-flexbreeze-pro-mist-fan-fa302",
@@ -292,9 +392,19 @@
       "Cordless runtime is shorter at higher fan speeds",
       "Larger and heavier than a basic indoor fan"
     ],
-    "image": "/products/heat/shark-flexbreeze-pro-mist-fan-fa302.png",
+    "image": "/products/scene/shark-flexbreeze-pro-mist-fan-fa302.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0DMBXVFDK?tag=blackboxsuppl-20",
-    "asin": "B0DMBXVFDK"
+    "asin": "B0DMBXVFDK",
+    "whoShouldAvoid": "Skip it if you only need an indoor bedroom fan — the misting, weather-resistant build, and 70-ft outdoor reach are wasted inside, where the mist can dampen surfaces and the size and $179+ price are overkill.",
+    "mainTradeoff": "You pay more for indoor/outdoor cordless-plus-misting versatility and get a larger, heavier fan than a basic indoor model.",
+    "whatCouldChange": "If you'll never cool a patio, deck, or yard and won't use the mist, a plain indoor tower fan costs far less — confirm you actually want the cordless and misting features before paying the premium.",
+    "whyItMatters": "It's genuinely versatile: runs corded or cordless for up to 24 hours, works indoors or out to 70 ft, and adds a fine mist that can feel up to 12 degrees cooler - so it cools a patio or yard with no outlet nearby.",
+    "buyingNotes": "Make sure you'll use the outdoor and misting features - that's what the premium buys. Indoors the mist can dampen surfaces, and it's larger and heavier than a basic room fan. Cordless runtime drops at higher speeds, and the mist tank needs refilling for continuous cooling.",
+    "faq": [
+      { "q": "Can I use the misting indoors?", "a": "It's best outdoors - the mist can leave nearby surfaces damp in an enclosed room. Inside, you'd typically run it as a plain fan and save the mist for the patio or yard." },
+      { "q": "Does it really run 24 hours on battery?", "a": "Up to about 24 hours at lower speeds; running on high draws the battery down much faster. The corded option is there for continuous indoor use." },
+      { "q": "How does the mist make it cooler?", "a": "Fill the tank (with ice for more effect) and it sprays a fine mist into the airflow - as the water evaporates it can feel up to ~12 degrees cooler. It works best in dry outdoor air." }
+    ]
   },
   {
     "id": "lasko-wind-curve-2551-42-inch",
@@ -319,9 +429,19 @@
       "Only 3 speed settings",
       "Narrower airflow than premium bladeless towers"
     ],
-    "image": "/products/heat/lasko-wind-curve-2551-42-inch.png",
+    "image": "/products/scene/lasko-wind-curve-2551-42-inch.png",
     "affiliateUrl": "https://www.amazon.com/dp/B006SROQ3Q?tag=blackboxsuppl-20",
-    "asin": "B006SROQ3Q"
+    "asin": "B006SROQ3Q",
+    "whoShouldAvoid": "Skip it if you want bladeless safety around kids and pets, fine speed control, or a premium quiet DC motor — this is a basic bladed tower with only 3 speeds and a plastic build.",
+    "mainTradeoff": "You get a proven, low-cost, space-saving tower, but accept a basic plastic build with just 3 speeds and no smart features.",
+    "whatCouldChange": "If you want more than 3 speeds, bladeless safety, or a quieter DC motor, stepping up to a Dreo tower is worth the extra $25-$50; at $55-$80 it's hard to beat for a simple bedroom fan.",
+    "whyItMatters": "It's the proven, low-cost, space-saving default: a slim oscillating tower with a small footprint, quiet speeds, a timer, and a remote that simply works for years without costing much.",
+    "buyingNotes": "Set expectations for a basic fan - just 3 speed settings, a plastic build, and no smart features or bladeless safety. If you want fine speed control, a quieter DC motor, or a kid-safe bladeless design, you'll need to step up to a Dreo.",
+    "faq": [
+      { "q": "How many speeds does it have?", "a": "Three. That's fewer than the 8 to 12 on premium towers, but for a simple bedroom or office fan most people find three is enough." },
+      { "q": "What does the ionizer do?", "a": "The Fresh Air Ionizer releases negative ions intended to help freshen the air. It's optional and you can leave it off; it's not a substitute for a true air purifier." },
+      { "q": "Is it safe around kids?", "a": "It's a traditional bladed tower with a grille rather than a bladeless design. It's enclosed, but if you specifically want no internal blade, a bladeless tower is the safer choice." }
+    ]
   },
   {
     "id": "torras-coolify-2s-neck-air-conditioner",
@@ -346,9 +466,19 @@
       "The cold sensation is localized to the neck contact area",
       "Premium price versus basic neck fans"
     ],
-    "image": "/products/heat/torras-coolify-2s-neck-air-conditioner.png",
+    "image": "/products/scene/torras-coolify-2s-neck-air-conditioner.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BXKJGSSX?tag=blackboxsuppl-20",
-    "asin": "B0BXKJGSSX"
+    "asin": "B0BXKJGSSX",
+    "whoShouldAvoid": "Skip it if you need continuous, all-day airflow — the semiconductor cooling plate is battery-hungry, so the cold-plate runtime is short, and a plain airflow-only neck fan like the JISULIFE Pro runs far longer for less money. Also not for anyone expecting whole-body relief; the cold sensation only reaches the back-of-neck contact area.",
+    "mainTradeoff": "You accept more weight, a higher price, and limited cold-plate runtime in exchange for a genuine cold-to-the-touch Peltier sensation that ordinary neck fans, which only move air, can't deliver.",
+    "whatCouldChange": "If you realize you only want moving air rather than real cold contact, a cheaper, longer-running bladeless neck fan like the JISULIFE Pro is the better pick — verify the current cold-plate runtime against how long you'll actually be outdoors before buying.",
+    "whyItMatters": "Unlike ordinary neck fans that only move air, it presses a real thermoelectric (Peltier) plate against the back of your neck for an actual cold sensation - genuine hands-free relief in humid heat where a warm breeze does nothing.",
+    "buyingNotes": "Check the runtime you need against the cold-plate mode - the Peltier plate is battery-hungry, so cooling-plate runtime is much shorter than fan-only. It's also heavier and pricier than a plain airflow neck fan, and the cold is localized to the neck contact area.",
+    "faq": [
+      { "q": "Does the cold plate actually feel cold, or is it just a fan?", "a": "It has a real semiconductor (Peltier) cooling plate that gets cold to the touch against your neck - a genuine cold sensation, not just moving air. That's the main reason to choose it over a standard neck fan." },
+      { "q": "How long does the cooling plate last on a charge?", "a": "Running the cold plate draws far more power than the fan alone, so plate runtime is limited - much shorter than fan-only mode. If you need all-day continuous cooling, a plain airflow neck fan runs longer." },
+      { "q": "Will it cool my whole body?", "a": "No - the cold sensation is concentrated where the plate contacts the back of your neck, plus airflow from the sides. It's targeted relief, not whole-body cooling." }
+    ]
   },
   {
     "id": "jisulife-portable-neck-fan-pro-100",
@@ -373,9 +503,19 @@
       "Battery life drops sharply at top speed",
       "Fit can feel bulky on smaller necks"
     ],
-    "image": "/products/heat/jisulife-portable-neck-fan-pro-100.png",
+    "image": "/products/scene/jisulife-portable-neck-fan-pro-100.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BYSKX3BX?tag=blackboxsuppl-20",
-    "asin": "B0BYSKX3BX"
+    "asin": "B0BYSKX3BX",
+    "whoShouldAvoid": "Skip it if you want actual cold air — this moves air but doesn't chill it, so in humid or extreme heat a warm breeze on the neck won't feel like the relief a cooling-plate model (the TORRAS COOLiFY 2S) provides. Also not ideal for smaller necks, where the fit can feel bulky.",
+    "mainTradeoff": "You give up any real cold-plate sensation for a lighter, cheaper, hands-free fan with an unusually fine 100-speed range and a big 5000mAh battery that lasts all day.",
+    "whatCouldChange": "If you decide you want genuine cold contact instead of just a breeze, step up to the TORRAS COOLiFY 2S with its Peltier plate; and since this one gets audible at its top speeds, confirm the speed you'll actually use stays quiet enough for you.",
+    "whyItMatters": "It's the all-day airflow pick: a bladeless, hair-safe neck fan with a big 5000mAh battery and an unusually fine 100-speed range, plus a front display so you always know the battery level - hands-free for commutes and errands.",
+    "buyingNotes": "Understand it moves air but doesn't produce cold like a Peltier-plate model, so in extreme or humid heat a breeze on the neck has limits. It gets audibly louder at top speeds and battery life drops sharply there, and the fit can feel bulky on smaller necks.",
+    "faq": [
+      { "q": "Does it blow cold air?", "a": "No - it circulates ambient air, it doesn't chill it. In dry heat that breeze feels refreshing; in humid or extreme heat you may want a cooling-plate model like the TORRAS COOLiFY 2S instead." },
+      { "q": "How long does the battery last?", "a": "The 5000mAh battery is sized for all-day use at low-to-medium speeds; at the top speeds it drains much faster. The front display shows the remaining battery so you're not caught out." },
+      { "q": "Will it catch my hair?", "a": "It's bladeless - the airflow comes through vents rather than an exposed blade - so it's designed to be hair-safe, unlike older bladed neck fans." }
+    ]
   },
   {
     "id": "handfan-portable-handheld-misting-fan-spray",
@@ -400,9 +540,19 @@
       "Personal-scale airflow only",
       "Not built for continuous all-day cooling"
     ],
-    "image": "/products/gen/handfan-portable-handheld-misting-fan-spray.png",
+    "image": "/products/scene/handfan-portable-handheld-misting-fan-spray.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07P43HX84?tag=blackboxsuppl-20",
-    "asin": "B07P43HX84"
+    "asin": "B07P43HX84",
+    "whoShouldAvoid": "Skip it if you need hands-free or sustained cooling — you have to hold it, the water tank is tiny and empties fast, and it isn't built to run continuously all day. A wearable neck fan is the better call for commutes or long outdoor shifts.",
+    "mainTradeoff": "You give up tank capacity, runtime, and hands-free use in exchange for a dirt-cheap, pocketable fan-plus-mister you can grab for a hot afternoon.",
+    "whatCouldChange": "If you'd rather not hold it or constantly refill the tank, a neck fan (the JISULIFE Pro or TORRAS COOLiFY 2S) is the upgrade; and because the mist can dampen a phone or glasses, it really only makes sense outdoors — reconsider if you need cooling indoors near electronics.",
+    "whyItMatters": "It's a cheap, grab-and-go way to cool off on the move: a pocketable handheld fan with a built-in mister - one press releases a fine cooling spray while the fan blows - for festivals, the beach, or a hot commute.",
+    "buyingNotes": "Set expectations for its scale: the water tank is small and empties quickly with frequent misting, it's personal-scale airflow only, and it's not built to run continuously all day. The mist can dampen a phone or glasses held nearby, so it's really an outdoor tool.",
+    "faq": [
+      { "q": "How long does the water tank last?", "a": "Not long with steady misting - the tank is small, so it's meant for occasional spritzes to cool off, not continuous misting. It refills quickly under a tap." },
+      { "q": "Is it hands-free?", "a": "No - you hold it. For hands-free cooling on a commute or long shift, a wearable neck fan is the better tool; this is for quick, portable relief you grab when you need it." },
+      { "q": "Can I use it near my phone?", "a": "Be careful - the mist is fine but can dampen electronics or glasses held close. It's best used outdoors where a little spray isn't a problem." }
+    ]
   },
   {
     "id": "saatva-graphite-memory-foam-mattress-topper",
@@ -427,9 +577,10 @@
       "Changes the firmness of your existing mattress",
       "New foam can have a mild initial odor that fades"
     ],
-    "image": "/products/heat/saatva-graphite-memory-foam-mattress-topper.png",
+    "image": "/products/scene/saatva-graphite-memory-foam-mattress-topper.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0CXZKD732?tag=blackboxsuppl-20",
-    "asin": "B0CXZKD732"
+    "asin": "B0CXZKD732",
+    "offBrand": true
   },
   {
     "id": "tempur-pedic-tempur-adapt-cooling-3",
@@ -454,9 +605,10 @@
       "Adds noticeable height to the mattress",
       "New foam may have a light initial odor that dissipates"
     ],
-    "image": "/products/heat/tempur-pedic-tempur-adapt-cooling-3.png",
+    "image": "/products/scene/tempur-pedic-tempur-adapt-cooling-3.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07V7R7V8F?tag=blackboxsuppl-20",
-    "asin": "B07V7R7V8F"
+    "asin": "B07V7R7V8F",
+    "offBrand": true
   },
   {
     "id": "viscosoft-4-inch-active-cooling-copper",
@@ -481,9 +633,10 @@
       "Thick foam is heavy to move and slow to expand at first",
       "New foam can have a mild odor that fades"
     ],
-    "image": "/products/heat/viscosoft-4-inch-active-cooling-copper.png",
+    "image": "/products/scene/viscosoft-4-inch-active-cooling-copper.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07R6TB9L2?tag=blackboxsuppl-20",
-    "asin": "B07R6TB9L2"
+    "asin": "B07R6TB9L2",
+    "offBrand": true
   },
   {
     "id": "sheex-arctic-aire-max-cooling-sheet",
@@ -508,9 +661,10 @@
       "Silky sateen feel isn't for those who prefer crisp percale",
       "Requires gentle-cycle care to protect the fabric"
     ],
-    "image": "/products/heat/sheex-arctic-aire-max-cooling-sheet.png",
+    "image": "/products/scene/sheex-arctic-aire-max-cooling-sheet.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07FN78W35?tag=blackboxsuppl-20",
-    "asin": "B07FN78W35"
+    "asin": "B07FN78W35",
+    "offBrand": true
   },
   {
     "id": "bedsure-bamboo-viscose-cooling-sheets-queen",
@@ -535,9 +689,10 @@
       "Budget construction versus higher-end brands",
       "Silky finish can feel slippery to some sleepers"
     ],
-    "image": "/products/gen/bedsure-bamboo-viscose-cooling-sheets-queen.png",
+    "image": "/products/scene/bedsure-bamboo-viscose-cooling-sheets-queen.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0FN2ZNH3R?tag=blackboxsuppl-20",
-    "asin": "B0FN2ZNH3R"
+    "asin": "B0FN2ZNH3R",
+    "offBrand": true
   },
   {
     "id": "elegear-revolutionary-cooling-blanket-arc-chill",
@@ -562,9 +717,10 @@
       "The cool sensation fades as the fabric absorbs heat, then refreshes",
       "Needs gentle washing to preserve the cooling fiber"
     ],
-    "image": "/products/gen/elegear-revolutionary-cooling-blanket-arc-chill.png",
+    "image": "/products/scene/elegear-revolutionary-cooling-blanket-arc-chill.png",
     "affiliateUrl": "https://www.amazon.com/dp/B09Q5TCXBN?tag=blackboxsuppl-20",
-    "asin": "B09Q5TCXBN"
+    "asin": "B09Q5TCXBN",
+    "offBrand": true
   },
   {
     "id": "lucid-3-inch-gel-memory-foam",
@@ -589,9 +745,10 @@
       "New foam has an initial odor that airs out over a few days",
       "3 inches may require deeper fitted sheets"
     ],
-    "image": "/products/heat/lucid-3-inch-gel-memory-foam.png",
+    "image": "/products/scene/lucid-3-inch-gel-memory-foam.png",
     "affiliateUrl": "https://www.amazon.com/dp/B01H2OCVYO?tag=blackboxsuppl-20",
-    "asin": "B01H2OCVYO"
+    "asin": "B01H2OCVYO",
+    "offBrand": true
   },
   {
     "id": "midea-whs-121lb1-mini-fridge-3",
@@ -616,9 +773,19 @@
       "Single door with limited shelf space",
       "Manual temperature dial, no digital control"
     ],
-    "image": "/products/heat/midea-whs-121lb1-mini-fridge-3.png",
+    "image": "/products/scene/midea-whs-121lb1-mini-fridge-3.png",
     "affiliateUrl": "https://www.amazon.com/dp/B00JXQ4PFS?tag=blackboxsuppl-20",
-    "asin": "B00JXQ4PFS"
+    "asin": "B00JXQ4PFS",
+    "whoShouldAvoid": "Anyone who needs a real freezer or space for actual groceries should skip it — the 'freezer' is a tiny chiller compartment that frosts up, and 3.3 cu ft holds only modest food; it also has a manual dial, not digital control.",
+    "mainTradeoff": "You give up freezer capacity and digital temperature control in exchange for whisper-quiet (~42 dB), Energy Star-efficient cold storage in a small footprint.",
+    "whatCouldChange": "If you actually want a separate freezer behind its own door, the Frigidaire EFR840 two-door is the better pick; and since it's a plain box, a smaller cube fridge undercuts it if you only need a few drinks — confirm the current price band ($110-$160).",
+    "whyItMatters": "It hits the sweet spot for a dorm, office, or bedroom corner: a quiet ~42 dB compressor and Energy Star efficiency in a compact 3.3 cu ft box, so it stays cold cheaply without humming through the night.",
+    "buyingNotes": "Check what you need from the freezer - it's a small chiller compartment, not a true freezer, and it frosts up over time and needs manual defrosting. It also uses a manual temperature dial rather than digital control. The door is reversible if your corner needs it to swing the other way.",
+    "faq": [
+      { "q": "Does it have a real freezer?", "a": "It has a small freezer chiller compartment inside the main box - enough for ice or a few frozen items, but not a separate freezer with its own door. For that, the Frigidaire EFR840 two-door is the pick." },
+      { "q": "Is it quiet enough for a bedroom or dorm?", "a": "Yes - the compressor runs at about 42 dB, a low hum most people sleep through. It cycles on and off like any compressor fridge, but it's on the quiet end for a compact unit." },
+      { "q": "How much does it cost to run?", "a": "It's Energy Star rated at roughly 0.56 kWh per day, so running costs are low - a few dollars a month in most areas." }
+    ]
   },
   {
     "id": "frigidaire-efr840-retro-2-door-mini",
@@ -643,9 +810,19 @@
       "Modest 3.2 cu ft capacity",
       "Runs louder than premium compact fridges"
     ],
-    "image": "/products/heat/frigidaire-efr840-retro-2-door-mini.png",
+    "image": "/products/scene/frigidaire-efr840-retro-2-door-mini.png",
     "affiliateUrl": "https://www.amazon.com/dp/B07YT1RLZC?tag=blackboxsuppl-20",
-    "asin": "B07YT1RLZC"
+    "asin": "B07YT1RLZC",
+    "whoShouldAvoid": "Skip it if quiet operation matters most or you don't care about looks — you pay a styling premium and it runs louder than plain compact fridges, and its separate freezer still needs manual defrosting.",
+    "mainTradeoff": "You pay extra for retro styling and a true separate freezer door, and accept more noise plus manual defrost versus a plain unit.",
+    "whatCouldChange": "If quiet efficiency beats looks, the Midea WHS-121LB1 runs quieter (~42 dB) and is Energy Star rated; the retro premium narrows during sales, so verify the current price ($140-$200) before choosing.",
+    "whyItMatters": "It's the compact fridge with a real separate freezer behind its own door, wrapped in retro styling with a built-in bottle opener - so frozen items stay frozen and it looks the part in a dorm or game room.",
+    "buyingNotes": "Weigh the styling premium against plainer units, and set noise expectations - it runs louder than premium compact fridges. The freezer is a small compartment that needs manual defrosting, and 3.2 cu ft is modest capacity.",
+    "faq": [
+      { "q": "Is the freezer separate from the fridge?", "a": "Yes - it's a true two-door design with the freezer behind its own door, so frozen items stay colder and separate, unlike single-door units with just an internal chiller." },
+      { "q": "Does the freezer need defrosting?", "a": "Yes - it's a manual-defrost compartment, so frost builds up over time and you'll need to defrost it periodically. That's typical for compact two-door fridges at this size." },
+      { "q": "Is it noisy?", "a": "It runs louder than premium compact fridges. If quiet operation is your priority over looks, the Midea WHS-121LB1 is quieter at about 42 dB." }
+    ]
   },
   {
     "id": "dreo-tower-fan-2026-upgraded-dc",
@@ -670,9 +847,19 @@
       "Tall design needs floor space",
       "Smart features require app setup and Wi-Fi"
     ],
-    "image": "/products/heat/dreo-tower-fan-2026-upgraded-dc.png",
+    "image": "/products/scene/dreo-tower-fan-2026-upgraded-dc.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BTY58CS4?tag=blackboxsuppl-20",
-    "asin": "B0BTY58CS4"
+    "asin": "B0BTY58CS4",
+    "whoShouldAvoid": "Anyone in a genuinely hot room expecting the temperature to drop should skip it — this is a fan that moves air, not an AC, and its 90-degree oscillation is narrower than some towers, so it won't cool the air or cover a wide space.",
+    "mainTradeoff": "You give up any real temperature reduction (and wider oscillation) for very quiet, smart-controllable airflow that drops to ~20 dB for sleep.",
+    "whatCouldChange": "If you don't need WiFi and voice control, Dreo's near-identical 42-inch bladeless tower costs less for the same airflow; if the room truly needs to be cooled, step up to a portable AC instead.",
+    "whyItMatters": "It's the smart, quiet all-rounder: a bladeless DC-motor tower that drops to about 20 dB for sleep yet still pushes air 28 ft, with WiFi and voice control so you can adjust it hands-free from bed or across the room.",
+    "buyingNotes": "Remember it's a fan - it circulates air, it doesn't cool the room. Check that 90-degree oscillation suits your space (narrower than some towers), and note the smart features need app setup and a WiFi connection. If you don't need WiFi and voice, the near-identical 42-inch Dreo costs less.",
+    "faq": [
+      { "q": "Does the WiFi and voice control work with Alexa and Google?", "a": "Yes - it connects over WiFi to the Dreo app and works with Alexa and Google voice assistants, so you can change speed or turn it off without getting up." },
+      { "q": "How quiet is the sleep mode?", "a": "The DC motor drops to about 20 dB on its lowest setting - quiet enough to run through the night beside the bed. Higher speeds get louder as airflow rises." },
+      { "q": "Will it cool down a hot room?", "a": "No - like any fan it moves air to make you feel cooler, it doesn't lower the room's actual temperature. For that you need a portable AC." }
+    ]
   },
   {
     "id": "serta-thermagel-cooling-memory-foam-mattress",
@@ -697,9 +884,19 @@
       "Budget foam is less durable than premium toppers",
       "New foam has an initial odor that airs out"
     ],
-    "image": "/products/heat/serta-thermagel-cooling-memory-foam-mattress.png",
+    "image": "/products/scene/serta-thermagel-cooling-memory-foam-mattress.png",
     "affiliateUrl": "https://www.amazon.com/dp/B08898ZCT6?tag=blackboxsuppl-20",
-    "asin": "B08898ZCT6"
+    "asin": "B08898ZCT6",
+    "whoShouldAvoid": "Skip it if you're not on a Twin XL bed — this listing is Twin XL only, not full or queen — and if you sleep very hot, since gel-infused memory foam still retains more heat than latex or fiber toppers.",
+    "mainTradeoff": "You gain dorm-sized pressure relief and a cooler-than-bare-foam surface, but accept that gel memory foam sleeps warmer than latex or a cool-touch fiber topper.",
+    "whatCouldChange": "If your bed isn't a Twin XL dorm mattress, a copper- or graphite-infused topper in your size cools more effectively; verify the size fits your frame before buying.",
+    "whyItMatters": "It's sized specifically in Twin XL - the standard dorm-bed size - so it turns a thin, hard campus mattress into a cushioned, cooler-sleeping surface without buying a new bed.",
+    "buyingNotes": "Check the size fits your frame - this listing is Twin XL only, not full or queen. And set expectations on cooling: the gel infusion slows heat buildup but memory foam still sleeps warmer than latex or a cool-touch fiber topper. New foam has an initial odor that airs out.",
+    "faq": [
+      { "q": "Will this fit a standard dorm bed?", "a": "Yes - it's Twin XL, the size most college dorm mattresses use. Confirm your bed is Twin XL and not a regular Twin, which is shorter." },
+      { "q": "Does the cooling gel actually keep it cool?", "a": "The gel infusion helps slow heat buildup so it sleeps cooler than plain memory foam, but it's still memory foam - it retains more heat than latex or a cool-touch fiber topper. It's about cushioning first, cooling second." },
+      { "q": "Does it smell when new?", "a": "Like most memory foam, it can have a mild odor out of the package that airs out over a few days. Unboxing it in a ventilated room speeds that up." }
+    ]
   },
   {
     "id": "dreo-12-inch-table-air-circulator",
@@ -724,9 +921,19 @@
       "Takes up desk or shelf space",
       "Manual controls, no smart features"
     ],
-    "image": "/products/gen/dreo-12-inch-table-air-circulator.png",
+    "image": "/products/scene/dreo-12-inch-table-air-circulator.png",
     "affiliateUrl": "https://www.amazon.com/dp/B0BSH75KZ3?tag=blackboxsuppl-20",
-    "asin": "B0BSH75KZ3"
+    "asin": "B0BSH75KZ3",
+    "whoShouldAvoid": "Anyone trying to cool a whole room or several people should skip it — it throws a focused, personal-scale stream, not broad coverage, and being a fan it moves air rather than lowering temperature.",
+    "mainTradeoff": "You trade room-wide coverage for a compact, quiet (~25 dB), targeted airstream that fits a desk or nightstand where a tower fan won't.",
+    "whatCouldChange": "If you need whole-room circulation, a tower fan like Dreo's bladeless tower covers far more area; and a real temperature drop still requires a portable AC, not a circulator.",
+    "whyItMatters": "An air circulator throws a focused, high-velocity stream up to 70 ft - very different from a fan's soft breeze - so it actually moves and mixes the air in a room, all from a quiet 25 dB desktop footprint.",
+    "buyingNotes": "Match it to the job: it's personal, targeted airflow in a compact size, not whole-room cooling, and it takes up desk or shelf space. Controls are manual with no smart features. Like any fan it moves air rather than lowering temperature.",
+    "faq": [
+      { "q": "What's the difference between an air circulator and a regular fan?", "a": "A circulator sends a tight, high-velocity column of air a long distance (up to 70 ft here) to mix the room's air, while a regular fan spreads a wider, softer breeze. Circulators are better for moving air around a space; fans are better for blowing directly on a person." },
+      { "q": "Is it quiet enough for a desk or bedside?", "a": "Yes - it runs at about 25 dB on low, quiet enough for a desk, nightstand, or study session. Higher speeds are louder as airflow increases." },
+      { "q": "Can it cool a whole room?", "a": "It circulates air well for its size but throws a focused stream rather than broad coverage - it's personal-scale. For whole-room airflow a tower fan covers more area, and to actually lower temperature you need an AC." }
+    ]
   },
   {
     "id": "koonie-10000mah-rechargeable-clip-on-fan",
@@ -751,8 +958,18 @@
       "Clamp size limits where it can grip",
       "Airflow covers a personal area, not a whole room"
     ],
-    "image": "/products/gen/koonie-10000mah-rechargeable-clip-on-fan.png",
+    "image": "/products/scene/koonie-10000mah-rechargeable-clip-on-fan.png",
     "affiliateUrl": "https://www.amazon.com/dp/B08866RDYK?tag=blackboxsuppl-20",
-    "asin": "B08866RDYK"
+    "asin": "B08866RDYK",
+    "whoShouldAvoid": "Skip it if you want whole-room airflow or cold air — it covers only a personal area and runtime drops sharply at top speed — or if you have no rail, edge, or surface for its 3-inch clamp to grip.",
+    "mainTradeoff": "You give up room-wide coverage and full top-speed runtime for cordless, clip-anywhere placement a floor fan simply can't reach — bunk rails, strollers, treadmills, tents.",
+    "whatCouldChange": "If you always have an outlet and a flat surface, a corded desk circulator like the Dreo 12-inch gives steadier airflow for less; the clip-on's only real edge is its 10000mAh battery and clamp.",
+    "whyItMatters": "The strong clamp and big 10000mAh battery solve a problem floor fans can't: cordless airflow clipped exactly where you need it - a bunk rail, stroller, treadmill, tent, or shelf - for up to about 24 hours.",
+    "buyingNotes": "Check that you have an edge or rail the 3-inch clamp can grip; the clamp size limits where it mounts. Runtime drops sharply at the highest speed, and it covers a personal area, not a whole room. It moves air but doesn't produce cold.",
+    "faq": [
+      { "q": "How long does the battery last?", "a": "Up to about 24 hours on the lowest speed thanks to the 10000mAh battery; on the highest speed runtime drops sharply. It recharges over USB and can run while plugged in." },
+      { "q": "What can the clamp attach to?", "a": "It has a strong 3-inch clamp for rails, bed frames, strollers, treadmills, tent poles, and shelf edges. Anything much thicker than the clamp opening won't fit - check your mounting spot first." },
+      { "q": "Can I use it as a regular desk fan?", "a": "Yes - unclip it and it stands as a desk fan, so it works both clipped to a rail and sitting on a surface." }
+    ]
   }
 ]

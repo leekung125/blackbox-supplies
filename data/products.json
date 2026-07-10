@@ -30,7 +30,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-fanttik-x8-apex-portable-tire.png",
+    "image": "/products/scene/fanttik-x8-apex-portable-tire.png",
     "linkStatus": "affiliate-live",
     "tier": "hero",
     "priority": 100,
@@ -56,7 +56,10 @@
       "tradeoffs": "Premium price. 150 PSI is plenty for cars but not high-volume commercial truck tires. Recharges over USB-C.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you inflate high-volume truck tires or want swappable batteries on the road — its 150 PSI ceiling and fixed built-in USB-C battery are aimed at cars, bikes, and SUVs, not commercial rigs.",
+    "mainTradeoff": "You pay a premium price for a pocket-sized unit — you're buying the fastest fill and best build in the compact class, not the cheapest way to get air.",
+    "whatCouldChange": "If you already own a Milwaukee M12 or DeWalt 20V battery, a bare-tool inflator can undercut it on price and add power-source flexibility; verify the current $70-90 street price hasn't crept up before paying full retail."
   },
   {
     "id": "jackery-explorer-1000-v2-portable",
@@ -90,7 +93,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-jackery-explorer-1000-v2-portable.png",
+    "image": "/products/scene/jackery-explorer-1000-v2-portable.png",
     "linkStatus": "affiliate-live",
     "tier": "hero",
     "priority": 100,
@@ -116,7 +119,10 @@
       "tradeoffs": "23.8 lb with a foldable handle. MSRP $799 but frequently deep-discounted, so buy on sale. No wireless charging pad.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you only top off phones and a laptop on day trips or you backpack — 1070Wh in a 23.8 lb two-hand lift is overkill, and a 250W power bank does that job at a fraction of the weight.",
+    "mainTradeoff": "You pay flagship-brand pricing and carry nearly 24 lb to get a true 1kWh capacity and a real 1500W inverter that runs most car-camp gear.",
+    "whatCouldChange": "The Bluetti AC180 packs more capacity (1152Wh) and a stouter 1800W inverter, often for less — if it's discounted and you don't care about Jackery's resale/searchability, it wins. Buy the Jackery on sale, not at its $799 MSRP."
   },
   {
     "id": "noco-boost-gb40-1000a-ultrasafe",
@@ -149,7 +155,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-noco-boost-gb40-1000a-ultrasafe.png",
+    "image": "/products/scene/noco-boost-gb40-1000a-ultrasafe.png",
     "linkStatus": "affiliate-live",
     "tier": "hero",
     "priority": 98,
@@ -175,7 +181,10 @@
       "tradeoffs": "Rated up to 6.0L gas / 3.0L diesel — fine for most cars but underpowered for big trucks/diesels (step up to the GB70).",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Owners of large trucks, big SUVs, or diesels over 3.0L — the GB40 is rated only up to 6.0L gas / 3.0L diesel and can come up short of cranking amps on a big engine; step up to the GB70.",
+    "mainTradeoff": "You accept the lowest cranking headroom in this lineup (1000A) in exchange for the smallest, genuinely pocketable body.",
+    "whatCouldChange": "If your vehicle is a truck, van, or diesel, the NOCO GB70 is the honest pick; and since the GB40 is frequently discounted, verify its current price against the GOOLOO GP2000, which packs more rated amps into a similar budget."
   },
   {
     "id": "lifeline-4388aaa-excursion-road-76",
@@ -205,7 +214,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-lifeline-4388aaa-excursion-road-76.png",
+    "image": "/products/scene/lifeline-4388aaa-excursion-road-76.png",
     "linkStatus": "affiliate-live",
     "tier": "hero",
     "priority": 98,
@@ -231,7 +240,10 @@
       "tradeoffs": "The included cables and compressor are entry-grade (10ft 8-gauge cables, a small top-off inflator) — a great foundation heavier users can upgrade with the standalone cables and inflator in this guide.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "The gearhead or heavy user who already owns quality standalone jumper cables and a good inflator — for them the kit's entry-grade 10ft 8-gauge cables and small top-off compressor are redundant and weaker than what's already in their trunk.",
+    "mainTradeoff": "You trade component quality for one-box coverage: it checks every roadside category at once, but each individual piece is entry-grade rather than best-in-class.",
+    "whatCouldChange": "If you'd rather build from stronger standalone parts (the Energizer 1-gauge cables and a Fanttik/AstroAI inflator in this same guide), buy those instead — and confirm the current piece count and that the 12V compressor is still included, since bundle contents shift over time."
   },
   {
     "id": "viofo-a229-plus",
@@ -262,7 +274,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-viofo-a229-plus.png",
+    "image": "/products/scene/viofo-a229-plus.png",
     "linkStatus": "affiliate-live",
     "tier": "hero",
     "priority": 96,
@@ -288,7 +300,10 @@
       "tradeoffs": "Rear is 1440p (sharp, not 4K). No SD card included — add a 256GB high-endurance card. Running the rear line takes ~30-45 min or a shop.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you only need forward coverage or want true 4K detail up front — the front-only A119 Mini 2 saves money and the A139 Pro gives real 4K; it's also a poor fit if you won't run a rear cable (30-45 min or a shop visit).",
+    "mainTradeoff": "You give up 4K resolution (both channels cap at 1440p) and an easy install for the best-balanced day/night two-way crash coverage in the lineup.",
+    "whatCouldChange": "If you never need rear footage, the cheaper A119 Mini 2 uses the same STARVIS 2 sensor front-only; if you want true 4K forward detail, step up to the A139 Pro. Budget for a 256GB high-endurance card and factor the rear-cable run."
   },
   {
     "id": "resqme-the-original-car-escape",
@@ -319,7 +334,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-resqme-the-original-car-escape.png",
+    "image": "/products/scene/resqme-the-original-car-escape.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 95,
@@ -345,7 +360,10 @@
       "tradeoffs": "A rescue/escape tool, not a weapon or general hammer. Clip it where you can reach it while belted. Works on tempered side glass, not a laminated windshield.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone counting on it to break a windshield — it's built for tempered side glass, and modern laminated windshields (and some laminated side windows) won't shatter from its spring-loaded punch.",
+    "mainTradeoff": "You give up the reassurance of a heavier multi-tool or hammer for something keychain-small — its whole virtue is that it stays within reach while belted, not that it does anything else.",
+    "whatCouldChange": "Laminated side windows are increasingly common on newer cars; verify your vehicle's glass before relying on it, and consider a punch validated for laminated glass if needed. Otherwise its sub-$15 price and Made-in-USA pedigree make it hard to skip."
   },
   {
     "id": "noco-genius5-smart-battery-charger",
@@ -377,7 +395,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-noco-genius5-smart-battery-charger.png",
+    "image": "/products/scene/noco-genius5-smart-battery-charger.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 95,
@@ -403,7 +421,10 @@
       "tradeoffs": "5A suits cars and motorcycles; for large truck/RV/marine banks step up to the GENIUS10; for only maintaining a small powersports battery the cheaper GENIUS1 is enough.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you only need to trickle-maintain a single motorcycle or powersports battery over winter (the cheaper GENIUS1 does that), or if you're charging a large truck, RV, or marine bank, where 5A refills too slowly and the GENIUS10 is the right size.",
+    "mainTradeoff": "You accept a modest 5A charge rate that's safe to leave connected indefinitely but slow to refill a deeply drained large battery, in exchange for the auto-detecting, do-everything smarts and safety.",
+    "whatCouldChange": "Step up to the GENIUS10 for large truck/RV/marine banks or down to the GENIUS1 for pure seasonal maintenance, and confirm your battery chemistry (lead-acid or lithium) is one it auto-detects."
   },
   {
     "id": "bluetti-ac180-portable-power-station",
@@ -438,7 +459,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-bluetti-ac180-portable-power-station.png",
+    "image": "/products/scene/bluetti-ac180-portable-power-station.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 94,
@@ -464,7 +485,10 @@
       "tradeoffs": "~35 lb — a haul-it-to-the-campsite unit, not a carry-around. Solar panel sold separately. Cooling fan is audible under heavy load.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you need to carry power any real distance — at ~35 lb this is a haul-to-the-campsite/stationary unit; for one-hand portability get the 17 lb EcoFlow RIVER 2 Pro or a lighter Jackery.",
+    "mainTradeoff": "You accept roughly 11 lb more weight than a 1kWh Jackery in exchange for more capacity, a stronger 1800W inverter, a wireless pad, and 20ms UPS switchover.",
+    "whatCouldChange": "The solar panel is sold separately, so budget for it if you want off-grid recharge; and if brand searchability/resale matters more to you than raw specs, the Jackery is the safer name."
   },
   {
     "id": "energizer-1-gauge-800a-heavy",
@@ -495,7 +519,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-energizer-1-gauge-800a-heavy.png",
+    "image": "/products/scene/energizer-1-gauge-800a-heavy.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 94,
@@ -521,7 +545,10 @@
       "tradeoffs": "1-gauge is heavier and stiffer than the 8-10 gauge in most all-in-one kits — that's the point. Still needs a second running vehicle; pair with a portable jump starter if you often park alone.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "The driver who usually parks alone or in empty lots — cables always need a second running vehicle, so a self-contained lithium jump starter like the NOCO GB40 serves that person far better.",
+    "mainTradeoff": "You accept a heavy, stiff 1-gauge cable that's harder to coil in exchange for the current-carrying capacity that actually cranks a truck or SUV in the cold.",
+    "whatCouldChange": "If you rarely have a second car on hand, a portable jump starter removes the need for cables entirely; and if you only drive a compact, lighter 4-gauge cables handle the same everyday jump with less bulk."
   },
   {
     "id": "viofo-a119-mini-2",
@@ -553,7 +580,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-viofo-a119-mini-2.png",
+    "image": "/products/scene/viofo-a119-mini-2.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 93,
@@ -579,7 +606,10 @@
       "tradeoffs": "Front-only out of the box. No screen (uses the phone app), no SD card included. Supercapacitor (not battery) is the right call for hot climates.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you need rear or cabin coverage out of the box, or want an on-device screen — it's front-only, screenless, and configured entirely through the phone app.",
+    "mainTradeoff": "You give up rear coverage and a review screen for a tiny, hideable front cam whose STARVIS 2 night footage punches far above its price.",
+    "whatCouldChange": "If you want two-way protection, the A229 Plus adds a matching 1440p rear channel; if raw daytime 4K matters more than low light, the ROVE R2-4K is cheaper but weaker after dark. No SD card is included."
   },
   {
     "id": "baseus-160w-usb-c-car",
@@ -609,7 +639,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-baseus-160w-usb-c-car.png",
+    "image": "/products/scene/baseus-160w-usb-c-car.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 93,
@@ -635,7 +665,10 @@
       "tradeoffs": "A minority of reviews report early failures, and to pull 100W+ you need a high-wattage USB-C cable, which isn't always included.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you only ever charge a phone in the car, where a $20 single-port 30W charger does the same job and the 160W headroom is wasted.",
+    "mainTradeoff": "You pay premium-charger money and must supply your own 100W-rated USB-C cable to actually hit top speed, in exchange for genuinely fast-charging a laptop and phone at once from the 12V socket.",
+    "whatCouldChange": "A minority of reviews report early failures so weigh the warranty, and factor in the cost of a high-wattage cable if you don't already own one; for phone-only use a cheaper single-port unit is the honest pick."
   },
   {
     "id": "noco-boost-hd-gb70-2000a",
@@ -668,7 +701,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-noco-boost-hd-gb70-2000a.png",
+    "image": "/products/scene/noco-boost-hd-gb70-2000a.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 92,
@@ -694,7 +727,10 @@
       "tradeoffs": "Bigger, heavier and pricier than the GB40, and overkill for a compact car. Rated up to 8.0L gas / 6.0L diesel.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "A compact-car or sedan commuter who never tows or drives diesel — the GB70's size, weight, and $150-180 price are overkill when the smaller GB40 already covers the job.",
+    "mainTradeoff": "You pay roughly double the GB40 and carry a bigger, heavier pack to buy the extra cranking headroom for large gas and diesel engines.",
+    "whatCouldChange": "If you only want raw amps per dollar, GOOLOO's higher-rated units cost less; the GB70 earns its premium mainly if you value NOCO's conservative, honest amp ratings and safety pedigree over headline numbers."
   },
   {
     "id": "ecoflow-river-2-pro-portable",
@@ -728,7 +764,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-ecoflow-river-2-pro-portable.png",
+    "image": "/products/scene/ecoflow-river-2-pro-portable.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 91,
@@ -754,7 +790,10 @@
       "tradeoffs": "Native AC is 800W; the 1600W X-Boost figure is for resistive loads only and won't run a 1500W microwave. LiFePO4 with 3000+ cycles.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you plan to run a 1500W microwave, hair dryer, or space heater — native AC output is 800W and the 1600W X-Boost only helps resistive loads; step up to a 1500-1800W Jackery or Bluetti.",
+    "mainTradeoff": "You give up capacity and inverter headroom (768Wh / 800W) to keep it a genuinely portable 17 lb one-hand carry that recharges in ~70 minutes.",
+    "whatCouldChange": "If you'll regularly run higher-wattage AC gear, the Jackery 1000 v2 or Bluetti AC180 is the right call — verify the 800W ceiling actually covers your devices before buying."
   },
   {
     "id": "drive-car-trunk-organizer",
@@ -784,7 +823,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-drive-car-trunk-organizer.png",
+    "image": "/products/scene/drive-car-trunk-organizer.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 91,
@@ -810,7 +849,10 @@
       "tradeoffs": "Reinforced fabric, not a hard-shell crate; for very heavy tool loads a rigid TrunkCratePro-style box is sturdier.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you haul heavy tools or sharp, oily gear that needs a rigid crate, because this is reinforced fabric and a hard-shell TrunkCratePro-style box holds up better under that load.",
+    "mainTradeoff": "You give up the ruggedness of a hard-shell crate for the ability to fold it flat and reclaim the trunk when you don't need it.",
+    "whatCouldChange": "If your loads are heavy or rigid, a hard-shell box is the better buy; verify the collapsed dimensions and compartment layout fit your trunk and typical cargo before ordering."
   },
   {
     "id": "viofo-a139-pro",
@@ -843,7 +885,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-viofo-a139-pro.png",
+    "image": "/products/scene/viofo-a139-pro.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 90,
@@ -869,7 +911,10 @@
       "tradeoffs": "Three cameras/cables make this the most involved install here (plan a shop or a patient afternoon). No SD card; wants 256GB+ high-endurance. Interior cam shines at night via IR.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you're a solo commuter with no cabin to document — the third camera and three-cable install are wasted, and the 2-channel A229 Plus covers the road for roughly $100 less.",
+    "mainTradeoff": "You accept the most involved 3-cable install and the highest price here to get total front, cabin, and rear coverage with true 4K forward detail.",
+    "whatCouldChange": "If you don't drive rideshare or fleet and don't need the IR interior channel, drop to the 2CH A229 Plus and save money. The cabin camera leans on IR at night, and it wants a 256GB+ high-endurance card that isn't included."
   },
   {
     "id": "astroai-cordless-tire-inflator-160",
@@ -901,7 +946,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-astroai-cordless-tire-inflator-160.png",
+    "image": "/products/scene/astroai-cordless-tire-inflator-160.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 90,
@@ -927,7 +972,10 @@
       "tradeoffs": "~20 min continuous-run limit; bulkier and heavier than pocket-size units.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you want something that disappears into a glovebox or fills many tires back-to-back — it's bulkier than pocket units and needs a cool-down after roughly 20 minutes of continuous run.",
+    "mainTradeoff": "You accept extra size and weight in exchange for real 160 PSI power, a dual battery-plus-12V power setup, and no lock-in to any tool ecosystem.",
+    "whatCouldChange": "If you already own M12 or 20V MAX batteries, a bare-tool Milwaukee or DeWalt can match the power for less; and if you truly need only glovebox top-offs, the cheaper AstroAI L7 is the better fit."
   },
   {
     "id": "hulkman-alpha85-2000a-smart-jump",
@@ -963,7 +1011,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-hulkman-alpha85-2000a-smart-jump.png",
+    "image": "/products/scene/hulkman-alpha85-2000a-smart-jump.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 90,
@@ -989,7 +1037,10 @@
       "tradeoffs": "The display adds cost over a bare booster. Rated up to 8.5L gas / 6.0L diesel; sold in several colors/bundles under different ASINs.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Buyers who just want a bare booster to jump a car — the 3.3-inch color LCD adds cost you won't use, and a plain GOOLOO or the NOCO GB40 does the core job for less.",
+    "mainTradeoff": "You pay extra for the color display and 74Wh power bank rather than putting that money toward more raw cranking amps.",
+    "whatCouldChange": "It's sold in several colors and bundles under different ASINs, so verify you're buying the 2000A Alpha85 and not a lower-amp variant; if the screen doesn't matter to you, the Fanttik T8 or a bare GOOLOO undercuts it."
   },
   {
     "id": "wagan-fred-flashing-roadside-emergency",
@@ -1020,7 +1071,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-wagan-fred-flashing-roadside-emergency.png",
+    "image": "/products/scene/wagan-fred-flashing-roadside-emergency.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 90,
@@ -1046,7 +1097,10 @@
       "tradeoffs": "Runs on AAA batteries (included) — check them seasonally. Magnetic base sticks to the body; the hook lets you hang one. Use alongside, not instead of, reflective triangles.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone who wants a set-and-forget warning device — these run on AAA batteries you must check seasonally, so a driver who won't maintain them is better served by no-battery reflective triangles.",
+    "mainTradeoff": "You trade the zero-maintenance simplicity of reflective triangles for active flashing visibility that depends on live batteries staying charged.",
+    "whatCouldChange": "If you'd rather never think about batteries, DOT reflective triangles (also in this guide) do the be-seen job passively; the honest move is to run both, so treat these as a complement — and confirm the pack still ships with the AAA batteries."
   },
   {
     "id": "rove-r2-4k",
@@ -1077,7 +1131,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/shot-rove-r2-4k.png",
+    "image": "/products/scene/rove-r2-4k.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 89,
@@ -1103,7 +1157,10 @@
       "tradeoffs": "Front-only, single channel. Parking mode needs the separate hardwire kit. Great daytime detail; a step behind STARVIS 2 cams in the darkest scenes.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if your priority is dark-scene plate-reading or you need rear coverage — it's single-channel, and STARVIS 2 cams like the A119 Mini 2 hold detail better in the darkest scenes.",
+    "mainTradeoff": "You trade low-light performance (a step behind STARVIS 2) for sharp 4K daytime detail at a genuine budget price.",
+    "whatCouldChange": "If most of your driving is after dark, the similarly priced VIOFO A119 Mini 2 is the stronger night pick despite being 1440p. Parking mode also requires buying the separate hardwire kit."
   },
   {
     "id": "first-alert-auto5-car-fire",
@@ -1134,7 +1191,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/first-alert-auto5-car-fire.png",
+    "image": "/products/scene/first-alert-auto5-car-fire.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 89,
@@ -1160,7 +1217,10 @@
       "tradeoffs": "Rated for the liquid and electrical fires common in vehicles. Mount it within reach, not loose in the trunk, and check the gauge periodically. A first response, not a substitute for getting clear of a serious fire.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone expecting to fight a fully involved engine fire — the compact UL 5-B:C unit is a first-response tool, and a serious fire means get clear and call for help, not stand and fight.",
+    "mainTradeoff": "You give up the larger capacity and longer discharge of a home extinguisher for something small enough to actually mount within reach in a car.",
+    "whatCouldChange": "If you haul fuel, run a project/off-road vehicle, or want more discharge time, step up to a larger UL-rated automotive unit; either way, plan to check the pressure gauge periodically, since a car extinguisher that's lost pressure is useless when it counts."
   },
   {
     "id": "chemical-guys-car-wash-kit",
@@ -1190,7 +1250,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/chemical-guys-car-wash-kit.png",
+    "image": "/products/scene/chemical-guys-car-wash-kit.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 89,
@@ -1216,7 +1276,10 @@
       "tradeoffs": "A wash/exterior kit (foam gun + soaps), not primarily an interior microfiber set, and the foam blaster runs off a standard garden hose, not a pressure washer.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if your car mainly needs interior detailing, since this is an exterior wash-and-protect arsenal (foam gun plus soaps), not a cabin or microfiber-focused set, and skip it if you expected a pressure-washer foam cannon rather than one that runs off a garden hose.",
+    "mainTradeoff": "You commit to one brand's exterior lineup and need a garden hose, in exchange for a complete reputable wash kit that costs well under buying the pieces separately.",
+    "whatCouldChange": "If you want pressure-washer foam or a primarily interior kit, this isn't it; confirm the current piece count and included chemicals, since Chemical Guys bundle contents shift between listings."
   },
   {
     "id": "nextbase-iq-4k-smart-dash",
@@ -1247,7 +1310,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/nextbase-iq-4k-smart-dash.png",
+    "image": "/products/scene/nextbase-iq-4k-smart-dash.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 88,
@@ -1273,7 +1336,10 @@
       "tradeoffs": "Flagship pricing above the typical band, and the best features (LTE live streaming, extended cloud) need a paid subscription. Overkill for basic recording.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you just want crash footage saved to a card — the LTE live-streaming and SOS features (and their paid subscription) are wasted money, and a VIOFO A229 Plus records locally for roughly half the price.",
+    "mainTradeoff": "You pay flagship money plus an ongoing subscription to unlock the connected streaming and Emergency SOS features that are the whole reason to buy it.",
+    "whatCouldChange": "If you won't pay the subscription, most of its advantage over a local-recording cam disappears and the A229 Plus makes more sense. Verify the current subscription tiers and pricing before you commit."
   },
   {
     "id": "milwaukee-m12-compact-inflator-2475",
@@ -1305,7 +1371,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/milwaukee-m12-compact-inflator-2475.png",
+    "image": "/products/scene/milwaukee-m12-compact-inflator-2475.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 88,
@@ -1331,7 +1397,10 @@
       "tradeoffs": "Bare tool — no battery/charger; only makes sense inside the M12 system. 120 PSI ceiling.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you don't already own M12 batteries — it ships bare with no battery or charger, so a first-time buyer pays far more than the $99 sticker to actually use it.",
+    "mainTradeoff": "You give up all-in-one convenience and a higher PSI ceiling (120 PSI) for jobsite durability and Milwaukee's fast-fill reputation — but only pays off inside the M12 system.",
+    "whatCouldChange": "The math flips entirely on whether you own M12 batteries; if you don't, a self-contained AstroAI 160 PSI unit is cheaper out the door, and the DeWalt DCC020IB adds a corded fallback for the same $99 bare price."
   },
   {
     "id": "anker-solix-c300-portable-power",
@@ -1365,7 +1434,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/anker-solix-c300-portable-power.png",
+    "image": "/products/scene/anker-solix-c300-portable-power.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 88,
@@ -1391,7 +1460,10 @@
       "tradeoffs": "Two versions exist. Get this AC model for wall-outlet devices; the cheaper C300 DC model is USB-only. Some listings sell the wall charger separately.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you need to run a mini-fridge or CPAP through a full night or power larger AC gear — 288Wh / 300W is a grab-and-go top-up unit, not an overnight or whole-outage backup.",
+    "mainTradeoff": "You trade real capacity and inverter power for a genuinely compact, low-cost, grab-and-go size with strong port selection.",
+    "whatCouldChange": "Buy the AC model (not the USB-only DC version) and confirm whether the wall charger is included; if you need overnight runtime, step up to the RIVER 2 Pro."
   },
   {
     "id": "boulder-tools-heavy-duty-tire",
@@ -1423,7 +1495,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/boulder-tools-heavy-duty-tire.png",
+    "image": "/products/scene/boulder-tools-heavy-duty-tire.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 88,
@@ -1449,7 +1521,10 @@
       "tradeoffs": "Pair it with an air source (the inflator guide) — a plug does nothing without reinflation. Tread punctures only, not sidewall; a plug is a get-to-the-shop repair.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone without an air source in the car — a plug does nothing until you can reinflate, so buying this without already owning an inflator leaves the job half-done.",
+    "mainTradeoff": "You take on a hands-on roadside repair (and a temporary get-to-the-shop fix) instead of simply waiting for a tow, and it only works on tread punctures, never a blown sidewall.",
+    "whatCouldChange": "If you'd never plug a tire yourself, a roadside-assistance membership or tow is the honest alternative; pair this with an inflator from the tire-inflator guide, and remember a sidewall puncture still means a spare or a tow."
   },
   {
     "id": "iottie-velox-magnetic-wireless-charging",
@@ -1480,7 +1555,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/iottie-velox-magnetic-wireless-charging.png",
+    "image": "/products/scene/iottie-velox-magnetic-wireless-charging.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 88,
@@ -1506,7 +1581,10 @@
       "tradeoffs": "Air-vent fit varies by vehicle, wireless charging is 7.5W (slower than a wired 20W+ port), and Android phones need a stick-on magnetic ring.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you drive an Android phone without a stick-on magnetic ring, or if your car has round or flush vents a clip can't grip, since the mount needs a vent blade and the magnet needs MagSafe.",
+    "mainTradeoff": "You accept 7.5W wireless charging, slower than a wired 20W+ port, for the convenience of snapping the phone on with no cable to plug in.",
+    "whatCouldChange": "Verify your car's vent style fits an air-vent clip; if you want faster charging or run an Android phone, a wired mount or a magnetic-ring setup changes the math."
   },
   {
     "id": "fanttik-t8-apex-2000a-jump",
@@ -1541,7 +1619,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/fanttik-t8-apex-2000a-jump.png",
+    "image": "/products/scene/fanttik-t8-apex-2000a-jump.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 87,
@@ -1567,7 +1645,10 @@
       "tradeoffs": "You pay a premium for the design/display vs a bare GOOLOO/AVAPOW of similar amps; performance is solidly good rather than record-setting.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Value hunters — you pay a premium for the industrial design and LED display when a bare GOOLOO or AVAPOW of similar amps costs less and cranks the same engines.",
+    "mainTradeoff": "You're paying for premium looks and a smart readout, not record-setting performance — the unit is solidly good rather than class-leading.",
+    "whatCouldChange": "If a display and premium finish are what you're after, the Hulkman Alpha85 offers a larger LCD in the same price band; if not, a plain GOOLOO delivers the same 2000A crank for less."
   },
   {
     "id": "drop-stop-car-seat-gap",
@@ -1598,7 +1679,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/drop-stop-car-seat-gap.png",
+    "image": "/products/scene/drop-stop-car-seat-gap.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 87,
@@ -1624,7 +1705,10 @@
       "tradeoffs": "It blocks the gap rather than adding cup-holder storage; on seats with tall hard side bolsters it can shift when the seat slides far.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you're hoping to add cupholders or storage, because it only seals the seat gap and holds nothing, and it can shift on seats with tall hard side bolsters when the seat slides far.",
+    "mainTradeoff": "You pay the premium patented price over a flood of $6 knockoffs for the proven fit and the driver-plus-passenger set of two, rather than gambling on a cheap copy.",
+    "whatCouldChange": "If your seats have prominent hard bolsters, check the fit first; if budget outranks brand, cheaper generics exist, though they're exactly what this Shark Tank original competes against on quality."
   },
   {
     "id": "dewalt-20v-max-corded-cordless",
@@ -1659,7 +1743,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/dewalt-20v-max-corded-cordless.png",
+    "image": "/products/scene/dewalt-20v-max-corded-cordless.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 86,
@@ -1685,7 +1769,10 @@
       "tradeoffs": "Tool only — battery, charger and AC adapter separate. Bulkier than pocket units; ~77 dBA.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you're outside the DeWalt 20V ecosystem or want a compact carry — it's a bare tool needing battery, charger, and AC adapter bought separately, and it's bulkier and audible (~77 dBA) under load.",
+    "mainTradeoff": "You accept a bigger, louder unit and add-on battery costs in exchange for genuine three-way power (20V, 12V, and 110V AC) that means it never leaves you stranded.",
+    "whatCouldChange": "If you don't already own DeWalt batteries the true cost climbs well past $99; a self-contained cordless like the AstroAI 160 PSI or the versatile-but-simpler EPAuto corded pick can be cheaper overall depending on your existing tools."
   },
   {
     "id": "ancel-ba101-12v-car-battery",
@@ -1717,7 +1804,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/ancel-ba101-12v-car-battery.png",
+    "image": "/products/scene/ancel-ba101-12v-car-battery.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 86,
@@ -1743,7 +1830,10 @@
       "tradeoffs": "12V systems only (not 6V/24V), and you enter the rated CCA for best accuracy; a diagnostic tester, not a carbon-pile load bank.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if your vehicle runs a 6V or 24V system (it's 12V-only), or if you're a pro who needs a true carbon-pile load-bank verdict rather than a handheld diagnostic reader.",
+    "mainTradeoff": "You get quick DIY battery and alternator diagnosis in a cheap handheld, but you have to enter the battery's rated CCA yourself for the reading to be accurate.",
+    "whatCouldChange": "Confirm your vehicle is 12V and that you know its rated CCA; if you need shop-grade load testing or 24V support, step up to a different class of tester."
   },
   {
     "id": "nebo-slyde-king-2k-flashlight",
@@ -1773,7 +1863,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/nebo-slyde-king-2k-flashlight.png",
+    "image": "/products/scene/nebo-slyde-king-2k-flashlight.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 85,
@@ -1799,7 +1889,10 @@
       "tradeoffs": "At 2,000-lumen turbo the runtime is short (a couple hours) on a built-in Li-ion cell, so keep it charged for true emergency readiness.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you need a light that runs for hours at full brightness, since turbo 2,000 lumens drains the built-in cell in a couple of hours and it isn't a long-duration lantern.",
+    "mainTradeoff": "You accept short high-output runtime and the discipline of keeping it charged, in exchange for a genuine two-in-one: a long-throw spotlight plus a hands-free magnetic COB work light.",
+    "whatCouldChange": "If you want days of standby or swappable AA/AAA cells for emergency readiness, a different light fits better; the built-in Li-ion means charge habits matter."
   },
   {
     "id": "astroai-l7-compact-cordless-tire",
@@ -1832,7 +1925,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/astroai-l7-compact-cordless-tire.png",
+    "image": "/products/scene/astroai-l7-compact-cordless-tire.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 84,
@@ -1858,7 +1951,10 @@
       "tradeoffs": "Small motor means slower fills on larger tires; ideal for cars, bikes, motorcycles and balls, not trucks.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you inflate truck tires or want fast full inflations — the small motor is slower on larger tires and is built for cars, bikes, motorcycles, and sports balls, not heavy-duty jobs.",
+    "mainTradeoff": "You trade fill speed and top-end power for genuine glovebox portability (under 1 lb, one-handed) and a price low enough to keep one in every vehicle.",
+    "whatCouldChange": "If you want noticeably faster fills or a higher PSI ceiling, stepping up to the Fanttik X8 APEX or AstroAI 160 PSI is worth the extra spend; confirm the $35-45 price still holds before buying."
   },
   {
     "id": "gooloo-gp4000-4000a-peak-lithium",
@@ -1890,7 +1986,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gooloo-gp4000-4000a-peak-lithium.png",
+    "image": "/products/scene/gooloo-gp4000-4000a-peak-lithium.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 84,
@@ -1916,7 +2012,10 @@
       "tradeoffs": "GOOLOO's amp ratings run higher/less conservative than NOCO's, so don't compare 4000A one-to-one. Reputable and well-reviewed, less premium finish.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone comparing amp ratings head-to-head with NOCO or wanting a premium fit and finish — GOOLOO rates its 4000A more optimistically, so don't read it as double a NOCO 2000A.",
+    "mainTradeoff": "You get the most rated cranking amps per dollar in exchange for a less premium build and less conservative amp ratings than a name brand.",
+    "whatCouldChange": "If you value honest, conservative amp ratings over headline numbers, the NOCO GB70 is the safer spec even at a higher price; verify current pricing, since GOOLOO and NOCO heavy-duty units overlap on sale."
   },
   {
     "id": "anker-prime-power-bank",
@@ -1951,7 +2050,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/anker-prime-power-bank.png",
+    "image": "/products/scene/anker-prime-power-bank.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 84,
@@ -1977,7 +2076,10 @@
       "tradeoffs": "99.54Wh keeps it airline carry-on legal. Hitting 250W needs multiple ports in use; a single port tops out around 140W. The charging dock/base is sold separately.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you need to power a 110V wall device — this is a USB-only bank with no AC outlet; for a real socket you need a power station or an inverter.",
+    "mainTradeoff": "You give up AC output and station-class capacity in exchange for a pocketable, airline-carry-on-legal (99.54Wh) bank that still pushes 250W across ports.",
+    "whatCouldChange": "The full 250W needs multiple ports in use (a single port caps around 140W) and the charging dock is sold separately — factor both in; if you only ever charge a phone, a cheaper, smaller bank is enough."
   },
   {
     "id": "nebo-big-larry-3-rechargeable",
@@ -2008,7 +2110,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/nebo-big-larry-3-rechargeable.png",
+    "image": "/products/scene/nebo-big-larry-3-rechargeable.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 84,
@@ -2034,7 +2136,10 @@
       "tradeoffs": "Rechargeable, so top it up a few times a year. The COB side panel floods the work area while the end LED throws a beam; most units include a red emergency mode.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "The driver who wants a light guaranteed ready after months untouched — this is USB-C rechargeable, so someone who won't top it up a few times a year is better off with a battery flashlight kept with fresh cells.",
+    "mainTradeoff": "You accept having to recharge it periodically in exchange for a bright, magnetic, hands-free 600-lumen flood that a disposable-battery light can't match for working on the car after dark.",
+    "whatCouldChange": "If self-discharge worries you, a AA/AAA flashlight with stored spare batteries stays ready longer; verify the current model still includes the magnetic base and red emergency mode, since NEBO revises the line."
   },
   {
     "id": "rhino-usa-recovery-tow-strap",
@@ -2047,7 +2152,7 @@
     "priceRange": "$35-45",
     "tested": false,
     "verified": true,
-    "problemSolved": "A 3-inch by 20-foot lab-tested polyester recovery strap with triple-reinforced looped ends and a carry bag.",
+    "problemSolved": "A 3-inch by 20-foot heavy-duty polyester recovery strap with triple-reinforced looped ends and a carry bag.",
     "failureMoment": "A friend's truck is buried to the axle in mud and a hardware-store strap would just snap.",
     "bestFor": "Truck, SUV and Jeep owners who want a real, rated recovery strap in the trunk for winter and trail season.",
     "keyFeatures": [
@@ -2065,7 +2170,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/rhino-usa-recovery-tow-strap.png",
+    "image": "/products/scene/rhino-usa-recovery-tow-strap.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 84,
@@ -2091,7 +2196,10 @@
       "tradeoffs": "A loop-end strap — pair with rated D-ring or soft shackles and never connect to a tow-ball hitch.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you drive a sedan and just want a light get-me-off-the-shoulder tow, since this is a heavy snatch-capable recovery strap built for trucks, SUVs, and Jeeps and needs rated shackles to use safely.",
+    "mainTradeoff": "You have to add rated D-ring or soft shackles and follow safe recovery practice (never a tow-ball) rather than clip it straight on, in exchange for a genuinely strong, stretch-rated strap.",
+    "whatCouldChange": "If you need on-road towing rather than off-road recovery, that's a different non-stretch tool; verify your vehicle has rated recovery points before relying on it."
   },
   {
     "id": "lamicall-car-headrest-tablet-holder",
@@ -2121,7 +2229,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/lamicall-car-headrest-tablet-holder.png",
+    "image": "/products/scene/lamicall-car-headrest-tablet-holder.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 84,
@@ -2147,7 +2255,10 @@
       "tradeoffs": "Needs exposed metal headrest posts; tops out near 11in, so a 12.9/13in iPad Pro is tight — size up to Lamicall's 13in model for those.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you're mounting a 12.9/13in iPad Pro (it tops out near 11 inches) or if your car has integrated or non-post headrests, since it clamps to exposed metal headrest posts.",
+    "mainTradeoff": "You get a flexible, tool-free backseat mount, but only within its size window and only if your headrests have the exposed posts it needs.",
+    "whatCouldChange": "For a 13in tablet, size up to Lamicall's 13in model; verify your headrest has removable, exposed metal posts before buying."
   },
   {
     "id": "redtiger-f7n",
@@ -2177,7 +2288,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/redtiger-f7n.png",
+    "image": "/products/scene/redtiger-f7n.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 82,
@@ -2203,7 +2314,10 @@
       "tradeoffs": "Rear is 1080p and the front looks cleaner in daylight than at night. Newer STARVIS 2 versions (F7NP / F7N Pro) exist for the latest sensor.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if night plate-reading is your priority — it leans on daylight strength with a 1080p rear, while STARVIS 2 pairs like the A229 Plus hold up better after dark.",
+    "mainTradeoff": "You give up the latest STARVIS 2 low-light sensor for a cheaper front+rear kit that includes a 64GB card and a bright, easy-to-read screen.",
+    "whatCouldChange": "If you want the newest sensor, the F7NP / F7N Pro variants add STARVIS 2; if night footage is the deciding factor, the pricier A229 Plus is the safer pick. Plan to swap the bundled card for a larger high-endurance one for heavy use."
   },
   {
     "id": "dewalt-dxaeps14-2000-peak-amp",
@@ -2236,7 +2350,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/dewalt-dxaeps14-2000-peak-amp.png",
+    "image": "/products/scene/dewalt-dxaeps14-2000-peak-amp.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 82,
@@ -2262,7 +2376,10 @@
       "tradeoffs": "A larger, heavier power-station form factor (not a pocket booster) at 2-3x a compact unit. Overkill if you only ever want to jump a car; highest price in the guide.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone who only ever wants to jump a car — this is a larger, heavier power-station 2-3x the size of a pocket booster at the highest price in the guide, so its tire-inflator and inverter tools go to waste.",
+    "mainTradeoff": "You give up pocket portability and pay the most in the lineup to get a true multi-tool that also inflates tires (120 PSI) and runs 500W AC gear.",
+    "whatCouldChange": "If you want the multi-tool angle for less, a compact jump starter plus a separate tire inflator can cost less combined; the DeWalt wins on brand trust and one-unit convenience."
   },
   {
     "id": "fanttik-slim-v8-apex-cordless",
@@ -2293,7 +2410,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/fanttik-slim-v8-apex-cordless.png",
+    "image": "/products/scene/fanttik-slim-v8-apex-cordless.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 82,
@@ -2319,7 +2436,10 @@
       "tradeoffs": "Runtime is limited (~13 min max, ~40 min eco) with a small dust cup — a touch-up tool, not a deep clean; a corded ThisWorx (~$40) or Shark UltraCyclone are proven alternatives.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you want to deep-clean a whole car in one pass, since runtime is about 13 minutes on max with a small dust cup, making it a touch-up tool; a corded ThisWorx or Shark UltraCyclone suits big jobs better.",
+    "mainTradeoff": "You trade sustained runtime and dust-cup capacity for true cordless reach between seats and vents with no cord and no 12V outlet.",
+    "whatCouldChange": "If you regularly do full interior deep-cleans, a corded or higher-capacity vacuum is the better buy; the cordless convenience only wins for frequent quick touch-ups."
   },
   {
     "id": "drive-auto-car-trash-can",
@@ -2349,7 +2469,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/drive-auto-car-trash-can.png",
+    "image": "/products/scene/drive-auto-car-trash-can.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 81,
@@ -2375,7 +2495,10 @@
       "tradeoffs": "Fabric-bodied — great for containment and folding flat, but not a rigid hard-shell can; it empties and wipes clean.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you want a rigid, wipe-out hard bin, because this is a fabric-bodied can that empties and wipes clean rather than housing a removable rigid liner.",
+    "mainTradeoff": "You give up the scrub-it-out rigidity of a hard-shell can for a leakproof, odor-sealing body that folds flat when not needed.",
+    "whatCouldChange": "If you'd rather a hard removable bin, a rigid can fits better; confirm the ~3.45-gallon size and mounting-strap placement work for your cabin."
   },
   {
     "id": "first-aid-only-298-piece",
@@ -2405,7 +2528,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/first-aid-only-298-piece.png",
+    "image": "/products/scene/first-aid-only-298-piece.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 80,
@@ -2431,7 +2554,10 @@
       "tradeoffs": "A first-aid kit for minor injuries — restock what you use and check contents periodically. A well-organized supply kit, nothing more.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone preparing for serious trauma — this is a minor-injury supply kit of bandages, gauze, and tape, not a trauma kit with a tourniquet or hemostatic gear for a highway-crash bleed.",
+    "mainTradeoff": "You get broad piece-count coverage of everyday scrapes and cuts at a low price, giving up the serious bleeding-control gear a dedicated trauma kit carries.",
+    "whatCouldChange": "If you want crash/trauma readiness, add or step up to a kit with a tourniquet and hemostatic dressing; either way, plan to restock consumables you use, since a picked-over kit is the real failure mode."
   },
   {
     "id": "avid-power-20v-cordless-impact",
@@ -2462,7 +2588,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/avid-power-20v-cordless-impact.png",
+    "image": "/products/scene/avid-power-20v-cordless-impact.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 80,
@@ -2488,7 +2614,10 @@
       "tradeoffs": "A value brand, not DeWALT/Milwaukee — a minority of reviews report battery degradation over time; the brushless 370 ft-lbs sibling is a modest step up.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you're a pro or heavy daily user who needs name-brand durability, since this is a value brand rather than DeWALT or Milwaukee and a minority of reviews report battery degradation over time.",
+    "mainTradeoff": "You accept value-tier brand reliability and battery-longevity questions in exchange for a complete ready-to-go kit (battery, charger, and sockets) that still delivers 330 ft-lbs for roadside lug nuts.",
+    "whatCouldChange": "If you're already in the DeWALT or Milwaukee battery ecosystem or want longer-term durability, a bare tool from those brands may serve better; the brushless 370 ft-lb sibling is a modest step up."
   },
   {
     "id": "garmin-dash-cam-mini-2",
@@ -2519,7 +2648,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/garmin-dash-cam-mini-2.png",
+    "image": "/products/scene/garmin-dash-cam-mini-2.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 79,
@@ -2545,7 +2674,10 @@
       "tradeoffs": "1080p only (not 2K/4K) and no on-device screen — you review clips in the app. Parking features want the optional Constant Power / hardwire cable.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you want 2K/4K detail or any rear coverage — it's 1080p front-only, and for similar money the ROVE R2-4K or VIOFO A119 Mini 2 deliver noticeably sharper footage.",
+    "mainTradeoff": "You accept 1080p resolution and no on-device screen in exchange for Garmin's brand trust, a smaller-than-a-car-key footprint, and dead-simple setup.",
+    "whatCouldChange": "If resolution matters more than size or brand, the similarly priced A119 Mini 2 (1440p STARVIS 2) out-resolves it. Parking features also require the optional Constant Power / hardwire cable."
   },
   {
     "id": "cartman-reflective-warning-triangle-kit",
@@ -2576,7 +2708,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/cartman-reflective-warning-triangle-kit.png",
+    "image": "/products/scene/cartman-reflective-warning-triangle-kit.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 78,
@@ -2602,7 +2734,10 @@
       "tradeoffs": "Deploy several car-lengths behind the vehicle, farther on highways and hills. They complement LED flares — use both. The weighted base resists wind from passing traffic.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "The driver who breaks down mostly at night on dark shoulders and wants maximum conspicuity — passive reflectors need oncoming headlights to light them up, so active LED flares grab attention better in the dark.",
+    "mainTradeoff": "You give up the eye-catching motion of a flashing LED flare for a no-battery device that works day or night and never dies.",
+    "whatCouldChange": "For the strongest warning, run these alongside LED flares (the Wagan set in this guide) rather than choosing one; if you only ever break down in daylight, the triangles alone suffice. Confirm the set is still DOT FMVSS 571.125 compliant if your state requires it."
   },
   {
     "id": "jackery-solarsaga-100w-portable-solar",
@@ -2638,7 +2773,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/jackery-solarsaga-100w-portable-solar.png",
+    "image": "/products/scene/jackery-solarsaga-100w-portable-solar.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 77,
@@ -2664,7 +2799,10 @@
       "tradeoffs": "A companion, not a standalone; it needs a compatible Jackery Explorer. Real-world output depends on sun angle and will fall below the rated 100W in imperfect conditions. Confirm the connector matches your station.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you don't already own (or plan to buy) a compatible Jackery Explorer — it's a companion panel, not a standalone charger, and the connector has to match your station.",
+    "mainTradeoff": "You accept panel-only utility with no storage of its own, and real-world output that falls below the rated 100W, in exchange for foldable, plug-and-play off-grid top-ups.",
+    "whatCouldChange": "If your station is a Bluetti, EcoFlow, or Anker, buy that brand's matching panel instead; confirm the connector/compatibility before ordering, and expect sub-100W output in imperfect sun."
   },
   {
     "id": "hoto-portable-tire-inflator-pro",
@@ -2697,7 +2835,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/hoto-portable-tire-inflator-pro.png",
+    "image": "/products/scene/hoto-portable-tire-inflator-pro.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 76,
@@ -2723,7 +2861,10 @@
       "tradeoffs": "120 PSI ceiling (fine for cars); moderate airflow, so favors top-offs over fast full inflations. Premium price.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you need fast full inflations or high-PSI jobs — its 120 PSI ceiling and moderate airflow favor top-offs over quick full fills, so it's a cabin gadget for cars, not a shop workhorse.",
+    "mainTradeoff": "You pay a premium for design and a large 7500mAh battery (many refills per road trip) rather than for raw airflow or the highest PSI in the class.",
+    "whatCouldChange": "If fill speed or power matters more than looks and battery capacity, the Fanttik X8 APEX fills faster and the AstroAI 160 PSI hits higher pressure for similar money — reconsider if design isn't your priority."
   },
   {
     "id": "anker-nano-car-charger",
@@ -2756,7 +2897,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/anker-nano-car-charger.png",
+    "image": "/products/scene/anker-nano-car-charger.png",
     "linkStatus": "affiliate-live",
     "tier": "top",
     "priority": 75,
@@ -2782,7 +2923,10 @@
       "tradeoffs": "167.5W is shared across ports; a single USB-C hits 100W. Needs a healthy 12V socket. No retractable cable, so bring your own USB-C cables.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you only charge a phone in the car — a basic single-port 12V charger costs a fraction of this; the Nano earns its price only if you're fast-charging a USB-C laptop off the 12V socket.",
+    "mainTradeoff": "You pay a premium over a basic car charger for GaN 100W laptop-class output from one port plus two more for phones and tablets.",
+    "whatCouldChange": "No cable is in the box, so budget for USB-C cables, and full output needs a healthy 12V socket; if you don't run a USB-C laptop, a cheaper charger covers you."
   },
   {
     "id": "gooloo-gp2000-2000a-compact-lithium",
@@ -2815,7 +2959,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gooloo-gp2000-2000a-compact-lithium.png",
+    "image": "/products/scene/gooloo-gp2000-2000a-compact-lithium.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 74,
@@ -2841,7 +2985,10 @@
       "tradeoffs": "GOOLOO's 2000A is rated more optimistically than NOCO's; for a compact car it's plenty. Rated up to 8.0L gas / 6.0L diesel.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Big-diesel and heavy-truck owners who want conservatively-rated headroom — GOOLOO rates its 2000A optimistically and it caps around 6.0L diesel, so a NOCO GB70 or the GP4000 is the safer call.",
+    "mainTradeoff": "You accept GOOLOO's optimistic amp rating and an entry-level finish in exchange for the lowest price and a genuinely light ~1.2 lb glovebox size.",
+    "whatCouldChange": "If you'd rather trust conservative amp numbers and premium safety, the NOCO GB40 is the benchmark at a modest step up; verify the sale price, since GOOLOO's compact and higher-output units sometimes overlap."
   },
   {
     "id": "swiss-safe-emergency-mylar-thermal",
@@ -2871,7 +3018,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/swiss-safe-emergency-mylar-thermal.png",
+    "image": "/products/scene/swiss-safe-emergency-mylar-thermal.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 74,
@@ -2897,7 +3044,10 @@
       "tradeoffs": "Thin Mylar that retains body heat but tears more easily than fabric — keep spares. They also double as ground cover or a signal reflector.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone who wants a durable, reusable cold-weather blanket — thin Mylar tears easily and is closer to single-use, so a driver who wants something to keep and reuse should carry a proper fleece or wool emergency blanket.",
+    "mainTradeoff": "You trade durability and comfort for near-zero weight and cost: it packs flat in a glovebox but won't survive much handling.",
+    "whatCouldChange": "In a serious snow-country vehicle, a heavier wool or insulated emergency blanket is worth the space; keep spares of these since they tear, and treat them as one layer of a winter kit rather than the whole answer."
   },
   {
     "id": "maxsa-escaper-buddy-traction-mats",
@@ -2927,7 +3077,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/maxsa-escaper-buddy-traction-mats.png",
+    "image": "/products/scene/maxsa-escaper-buddy-traction-mats.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 70,
@@ -2953,7 +3103,10 @@
       "tradeoffs": "Winter-focused and bulky — each mat is ~48in and the pair ~17 lb, so they take trunk space. Clear snow from the tire, place under the drive wheels, and ease onto the throttle.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Warm-climate or street-parking drivers with little trunk room — the pair runs ~17 lb and each mat is ~48in, dead weight for someone who never faces snow, mud, or sand.",
+    "mainTradeoff": "You give up a chunk of trunk space and ~17 lb of permanent weight for the ability to self-recover from snow or mud with no second vehicle needed.",
+    "whatCouldChange": "If you rarely get stuck, a bag of sand or kitty litter (or a tow membership) is a lighter, cheaper fallback; verify the ~48in mat length fits your trunk, and note that technique — clearing snow, easing onto the throttle — matters as much as the mats."
   },
   {
     "id": "autowit-supercap-2-batteryless-supercapacitor",
@@ -2986,7 +3139,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/autowit-supercap-2-batteryless-supercapacitor.png",
+    "image": "/products/scene/autowit-supercap-2-batteryless-supercapacitor.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 68,
@@ -3012,7 +3165,10 @@
       "tradeoffs": "Must draw from a power source for a few minutes before it can jump, so it's not instant-from-empty like a charged lithium unit, and it can't double as a phone power bank.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Anyone whose battery can go fully dead with no other power source — the SuperCap must draw a few minutes of charge from the weak battery, alternator, USB, or another source before it can jump, so it's not instant-from-empty, and it can't double as a phone power bank.",
+    "mainTradeoff": "You give up instant-from-empty jumping and power-bank duty to gain a unit that never dies in the glovebox, shrugs off heat and cold, and lasts about 10 years.",
+    "whatCouldChange": "If you'll actually keep a lithium pack charged, a NOCO GB40 or a GOOLOO jumps instantly and adds USB power; the SuperCap wins specifically for the neglectful owner or an extreme-climate trunk where a lithium pack would age out or die."
   },
   {
     "id": "epauto-12v-dc-portable-air",
@@ -3045,7 +3201,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/epauto-12v-dc-portable-air.png",
+    "image": "/products/scene/epauto-12v-dc-portable-air.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 66,
@@ -3071,7 +3227,10 @@
       "tradeoffs": "Corded (~10 ft), tethered to the 12V socket; ~100 PSI ceiling and slower than premium cordless. Car tires, not high-PSI.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you want cordless freedom or fast fills — it's tethered by a ~10 ft cord to the 12V socket, tops out near 100 PSI, and is slower than premium cordless units.",
+    "mainTradeoff": "You give up cordless convenience and speed for the lowest price and the peace of mind of a pump that runs off the car battery and never needs charging.",
+    "whatCouldChange": "If you'd rather not be tied to the 12V socket, a compact cordless like the AstroAI L7 costs only a little more; verify the $30-40 price and that ~100 PSI covers your vehicle's recommended pressure."
   },
   {
     "id": "bestek-300w-car-power-inverter",
@@ -3104,7 +3263,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/bestek-300w-car-power-inverter.png",
+    "image": "/products/scene/bestek-300w-car-power-inverter.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 66,
@@ -3130,7 +3289,10 @@
       "tradeoffs": "A 12V cigarette socket safely delivers ~120-150W continuous; drawing the full 300W means hardwiring to the battery. Sized for laptops, CPAP, and small electronics, not high-wattage appliances.",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if you expect the full 300W from the cigarette socket or want to run high-wattage appliances — a 12V socket only safely delivers ~120-150W, and this is sized for laptops, CPAP, and small electronics only.",
+    "mainTradeoff": "You get a real wall outlet in any car for under $40, but you're capped near 120-150W off the socket unless you hardwire it to the battery.",
+    "whatCouldChange": "If you need higher wattage or want stored power (not just engine-on output), a portable power station is the better buy; verify your device's draw fits the socket limit first."
   },
   {
     "id": "cerakote-ceramic-headlight-restoration-kit",
@@ -3165,7 +3327,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/gen/cerakote-ceramic-headlight-restoration-kit.png",
+    "image": "/products/scene/cerakote-ceramic-headlight-restoration-kit.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 60,
@@ -3191,7 +3353,10 @@
       "tradeoffs": "",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if your lenses are deeply yellowed, heavily oxidized, pitted, or cracked, because those may need a light sanding first or outright replacement and the wipe-on coat alone won't rescue them.",
+    "mainTradeoff": "You get a no-sanding, no-drill restore that's only as good as your prep, so rushing the cleaning step means the clarity won't hold or last.",
+    "whatCouldChange": "For severe oxidation, a sanding-based kit or new lenses is the honest fix; results and longevity also depend on applying in shade at moderate temperature, since the wipes flash off fast in direct sun."
   },
   {
     "id": "rightline-gear-moki-car-door",
@@ -3226,7 +3391,7 @@
     "caption": "",
     "status": "live",
     "disclosureRequired": true,
-    "image": "/products/rightline-gear-moki-car-door.png",
+    "image": "/products/scene/rightline-gear-moki-car-door.png",
     "linkStatus": "affiliate-live",
     "tier": "support",
     "priority": 60,
@@ -3252,6 +3417,9 @@
       "tradeoffs": "",
       "leeReviewNeeded": false,
       "alt": ""
-    }
+    },
+    "whoShouldAvoid": "Skip it if your doors don't expose a U-shaped latch striker to hook onto (it won't mount), or if you need a full ladder rather than a single boost step to the roofline.",
+    "mainTradeoff": "Your weight goes through the door hinges rather than a ground-standing ladder, so you accept steadying yourself on the roof rack in exchange for a step that folds into the glovebox.",
+    "whatCouldChange": "Verify your door has an accessible latch striker and confirm the current model and price on the listing; if you need frequent full-height access, a proper folding ladder is safer."
   }
 ]

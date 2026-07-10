@@ -37,6 +37,7 @@ export const DASH_CAMS_PRODUCTS: ProductFor<"dash_cams">[] = [
     sourceUrls: [
       "https://www.viofo.com/products/viofo-a229-plus-2ch-front-and-rear-2k2k-hdr-5ghz-wi-fi-gps-voice-control-dual-dash-camera-with-sony-starvis-2-sensor",
       "https://www.amazon.com/VIOFO-A229-Plus-STARVIS-Ultra-Precise/dp/B0CKX14L34",
+      "https://www.automoblog.com/viofo-a229-plus-review/",
     ],
     rating: null,
     reviewCount: null,
@@ -320,6 +321,11 @@ export const DASH_CAMS_PRODUCTS: ProductFor<"dash_cams">[] = [
  */
 export const DASH_CAMS_META: CategoryMeta = {
   label: "Dash Cams",
+  // What a buyer decides on is resolution + coverage + how wide it sees — NOT field-of-view and
+  // card size, which is what "first numeric columns" wrongly surfaced. Resolution/coverage are enums.
+  heroKeys: ["resolution", "channels", "fieldOfViewDeg"],
+  // No honest numeric decides a dash cam (the sensor + coverage are enums); don't crown FOV with a bar.
+  barKey: null,
   columns: SPEC_COLUMNS.dash_cams,
   fields: {
     resolution: {
@@ -442,4 +448,161 @@ export const DASH_CAMS_GUIDE: ComparisonGuide = {
     { id: "price", label: "Best price", crown: "Lowest price", key: "price", dir: "asc" },
   ] satisfies SortOption[],
   relatedGuides: [],
+  decisionPicks: {
+    overall: "viofo-a229-plus",
+    value: "rove-r2-4k",
+    premium: "nextbase-iq-4k-smart-dash",
+  },
+  specsThatMatter: {
+    decisive: [
+      "Night legibility — the sensor (Sony STARVIS 2) matters more than the megapixels. A readable plate after dark is the frame that actually settles a claim.",
+      "Coverage: front-only, +rear, or +cabin. Front + rear catches the rear-endings and brake-checks that are otherwise your word against theirs.",
+      "A high-endurance microSD sized near the cam's max — dash cams loop-record 24/7 and burn through ordinary cards.",
+    ],
+    noise: [
+      "The “4K” label — a good STARVIS 2 sensor at 1440p reads plates at night better than many cheaper “4K” cams that look sharp only by day.",
+      "Huge field-of-view numbers (170°+) — wider catches more lanes but adds edge distortion, and it isn't what decides a dispute.",
+      "“Parking mode” as a checkbox — it's real, but it needs constant power (a hardwire kit) that's almost always sold separately.",
+    ],
+  },
+  faq: [
+    {
+      q: "Is a 4K dash cam better than 1440p?",
+      a: "Not automatically. The sensor matters more than the resolution: a 1440p Sony STARVIS 2 cam keeps license plates legible at night better than many cheaper “4K” cams, which look razor-sharp by day and soften after dark. Night legibility is what wins an insurance dispute, so weigh the sensor over the headline megapixels.",
+    },
+    {
+      q: "Do I need a front-and-rear dash cam?",
+      a: "Front-only covers the crashes you drive into, which is most of them. A rear camera adds the rear-endings and brake-checks that are otherwise your word against theirs, and rideshare or delivery drivers want a third interior channel for the cabin. Match the number of channels to the risk you're actually covering — more channels means a longer install and a bigger card.",
+    },
+    {
+      q: "Why do dash cams need a special SD card?",
+      a: "They loop-record around the clock, which wears out an ordinary microSD card fast — and it can fail silently, leaving you with no footage when it matters. Buy a “high-endurance” card sized near the cam's maximum (256–512GB on most models here). Most cams ship without a card, so budget for one.",
+    },
+    {
+      q: "Does dash cam parking mode drain my battery?",
+      a: "Parking mode needs constant power the accessory socket can't provide once the engine's off, so it runs off a hardwire kit (usually sold separately) that taps the car battery. Good kits include a voltage cut-off that stops before your battery gets too low to start. Without the kit, the cam simply sleeps when you park.",
+    },
+    {
+      q: "Do dash cams record sound, and do they need a subscription?",
+      a: "Most record cabin audio, which you can usually toggle off. A subscription is only required for connected features — the Nextbase iQ's live LTE streaming and extended cloud storage need a paid plan — but standard loop recording on every cam here works with no subscription at all.",
+    },
+  ],
+  // Qualitative verified-buyer review synthesis for this exact lineup — patterns that recur across
+  // owner reviews (STARVIS 2 VIOFOs, ROVE, REDTIGER, Nextbase iQ, Garmin Mini 2). NO numbers, ever.
+  ownerInsights: [
+    {
+      pattern: "Night plates you can actually read",
+      detail:
+        "Across the Sony STARVIS 2 picks — the A229 Plus, A119 Mini 2, and A139 Pro — owners consistently single out the low-light footage, saying license plates stay legible after dark where their older cameras used to haze over. It's the review theme that keeps these cams on top.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "The small cams truly disappear",
+      detail:
+        "Owners of the Garmin Mini 2 and the VIOFO A119 Mini 2 repeatedly praise how the key-fob-sized bodies vanish behind the mirror and become set-and-forget — discreet enough that passengers never notice them.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "VIOFO stands behind its cameras",
+      detail:
+        "Long-time owners describe VIOFO units running for years without trouble, and reviewers repeatedly note that when an early unit does fail, the company is quick to offer a refund or replacement.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "The phone apps are the weak link",
+      detail:
+        "A complaint that recurs across nearly every brand here — REDTIGER's UCAM, the VIOFO app, Nextbase, and Garmin alike — is finicky Wi-Fi pairing and clunky companion software, with owners reporting dropped connections and the occasional black-screen live view.",
+      sentiment: "watch",
+    },
+    {
+      pattern: "The SD card is on you, and it's picky",
+      detail:
+        "Owners frequently run into “memory card too slow” or “card full” warnings and learn the hard way that these cams demand a genuine high-endurance U3 card, not the cheap one from the drawer. Most units here also ship without a card at all.",
+      sentiment: "watch",
+    },
+    {
+      pattern: "Hot cars still test them",
+      detail:
+        "Heat is the most-cited long-term worry: Garmin's Mini line carries a documented overheating history, and some VIOFO owners report thermal beeps or recording stops in sun-baked cars — one more reason a supercapacitor cam paired with a heat-rated card is worth it.",
+      sentiment: "watch",
+    },
+  ],
+  // Real models we considered and left off the list, each with the one honest reason it lost.
+  competition: [
+    {
+      name: "BlackVue DR900X Plus (2CH)",
+      reason:
+        "Around $480 — roughly double the A229 Plus — yet its rear channel is only 1080p, and its best cloud and live-view features push you toward an ongoing subscription.",
+    },
+    {
+      name: "Thinkware U1000",
+      reason:
+        "Sharp 4K front and 2K rear, but reviewers consistently rate the Thinkware app slower and clunkier than rivals, the 4K files fill cards fast, and it sits at a premium price.",
+    },
+    {
+      name: "Vantrue N4",
+      reason:
+        "A popular 3-channel cam, but it predates Sony STARVIS 2 (weaker night footage than the A139 Pro here) and has documented overheating reports in hot climates.",
+    },
+    {
+      name: "Nexar Beam2",
+      reason:
+        "Records only 1080p and leans heavily on its app and cloud, which reviewers flag for glitches and a slow start-to-record, plus ongoing LTE costs after the first year.",
+    },
+    {
+      name: "Garmin Dash Cam 67W",
+      reason:
+        "A crisp 1440p with a 180° view, but it's front-only with no dual-channel option, and the ultra-wide lens adds noticeable edge distortion at the frame's edges.",
+    },
+    {
+      name: "WOLFBOX G840S",
+      reason:
+        "A 4K mirror-style cam, but the big reflective display is prone to daytime glare and reviewers report only mixed night vision — more of a rear-view screen upgrade than better evidence.",
+    },
+  ],
+  // Genuine flaws of the #1 pick (VIOFO A229 Plus) that are real but not dealbreakers.
+  winnerFlaws: [
+    "Voice control is hit-or-miss — commands often need repeating, and early units needed the V1.3 firmware to fix Bluetooth-remote pairing and voice bugs.",
+    "The rear channel is 1440p, not 4K — sharp, but a step behind true-4K-rear rivals for reading distant plates behind you.",
+    "The adhesive mount is hard to reposition once it's stuck, and no microSD card is in the box — budget ~$40–50 for a high-endurance 256GB+ card.",
+  ],
+  skipThisIf: [
+    "You only need to document the crashes you drive into — a single front cam like the A119 Mini 2 captures the same STARVIS 2 front footage for about half the price.",
+    "You won't run a rear-camera cable or pay a shop — a two-channel install is a real 30–45 minute job, and a front-only cam is genuinely simpler.",
+    "You want remote live-view or crash alerts while you're away from the parked car — the A229 Plus has no built-in LTE; that's the Nextbase iQ's role.",
+    "You specifically need the sharpest possible rear-plate capture — its rear is 1440p, so a true-4K-rear setup will out-read it on the channel behind you.",
+  ],
+  changelog: [
+    {
+      date: "2026-07-09",
+      note: "Published. Verified current prices, availability, resolution, and coverage specs against manufacturer spec pages and independent reviews.",
+    },
+  ],
+  // Guide-level clickable citations backing the key claims (sensor, specs, prices).
+  sources: [
+    {
+      label: "VIOFO A229 Plus — official specifications",
+      url: "https://www.viofo.com/products/viofo-a229-plus-2ch-front-and-rear-2k2k-hdr-5ghz-wi-fi-gps-voice-control-dual-dash-camera-with-sony-starvis-2-sensor",
+    },
+    {
+      label: "Sony Semiconductor — STARVIS 2 image-sensor technology",
+      url: "https://www.sony-semicon.com/en/technology/security/index.html",
+    },
+    {
+      label: "Automoblog — VIOFO A229 Plus review",
+      url: "https://www.automoblog.com/viofo-a229-plus-review/",
+    },
+    {
+      label: "PCWorld — VIOFO A119 Mini 2 review",
+      url: "https://www.pcworld.com/article/1981452/viofo-a119-mini-2-dash-cam-review.html",
+    },
+    {
+      label: "Nextbase — iQ Smart Dash Cam specifications",
+      url: "https://nextbase.com/smart-dash-cams/iq-smart-dash-cam/",
+    },
+    {
+      label: "Garmin — Dash Cam 67W specifications",
+      url: "https://www.garmin.com/en-US/p/731429/",
+    },
+  ],
 };

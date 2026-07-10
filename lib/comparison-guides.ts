@@ -24,6 +24,30 @@ export interface CheckItem {
   detail: string;
 }
 
+/** The signal-vs-noise block: the specs that actually decide the buy vs the marketing figures. */
+export interface SpecsThatMatter {
+  /** The DECISIVE specs — what actually separates a good buy from a bad one, in plain language. */
+  decisive: string[];
+  /** The marketing figures that SOUND decisive but aren't — the box numbers to discount. */
+  noise: string[];
+}
+
+/** One honest buyer question + answer. Rendered as an accordion + emitted as FAQPage JSON-LD. */
+export interface FaqItem {
+  q: string;
+  a: string;
+}
+
+/**
+ * The three quick-jump decision picks for the sticky decision summary. Product IDs into
+ * `products`. These are honest editorial slots — each id must be a real product in the guide.
+ */
+export interface DecisionPicks {
+  overall: string;
+  value: string;
+  premium: string;
+}
+
 export interface ComparisonGuide {
   slug: string;
   title: string;
@@ -46,6 +70,52 @@ export interface ComparisonGuide {
   /** Curated sort knobs — few, obvious, delightful (baby-simple front). */
   sorts: SortOption[];
   relatedGuides: string[];
+  /** Independent outlets this guide genuinely cross-references (Research Trail). Optional/honest. */
+  authorities?: string[];
+  /** Signal vs noise: the specs that decide the buy vs the marketing figures. */
+  specsThatMatter?: SpecsThatMatter;
+  /** 3–5 honest buyer questions → accordion + FAQPage JSON-LD. */
+  faq?: FaqItem[];
+  /** Best overall · value · premium quick-jump picks for the sticky decision summary. */
+  decisionPicks?: DecisionPicks;
+
+  // ── Trust layer (all optional + additive; never fabricate an entry) ──────────
+  /**
+   * Verified-buyer review synthesis — the honest research moat. Each entry is a QUALITATIVE
+   * pattern drawn from actually reading real owner reviews ("owners consistently praise…",
+   * "a recurring long-term complaint is…"), paired with a sentiment.
+   * HONESTY LAW: NO numbers — never a percentage, a star average, or a review count. If you
+   * can't ground a pattern in real reviews, omit it. Fabricated sentiment is worse than none.
+   */
+  ownerInsights?: { pattern: string; detail: string; sentiment: "loved" | "watch" }[];
+  /**
+   * Real, existing models we considered and rejected, each with the one honest reason it lost.
+   * HONESTY LAW: every `name` must be a real product that actually exists in this category, and
+   * every `reason` a real, known limitation — not an invented flaw. Omit if unsure.
+   */
+  competition?: { name: string; reason: string }[];
+  /**
+   * The genuine flaws of the #1 pick that are NOT dealbreakers — the "here's the catch, and why
+   * we still chose it" honesty. Real known issues only.
+   */
+  winnerFlaws?: string[];
+  /**
+   * Honest de-selection: concrete situations where a buyer should skip our pick — or skip this
+   * whole category — because it's the wrong tool for them. Steers people away, not just toward.
+   */
+  skipThisIf?: string[];
+  /**
+   * Revision trail: ISO-8601 date (YYYY-MM-DD) + what changed or was last verified. Powers a
+   * visible "last verified" line and honest change history. Dates must be real ISO dates.
+   */
+  changelog?: { date: string; note: string }[];
+  /**
+   * Guide-level clickable citations backing the specs/verdicts. Distinct from `authorities`
+   * (plain outlet names): these are real, reachable URLs — manufacturer spec pages, RTINGS,
+   * Consumer Reports, Wirecutter, reputable outlets, or the product's own Amazon page.
+   * HONESTY LAW: a fabricated citation is worse than none — omit any URL you cannot verify.
+   */
+  sources?: { label: string; url: string }[];
 }
 
 const PORTABLE_AC: ComparisonGuide = {
@@ -103,7 +173,46 @@ const PORTABLE_AC: ComparisonGuide = {
     { id: "quiet", label: "Quietest", crown: "Quietest", key: "noiseDb", dir: "asc" },
     { id: "price", label: "Best price", crown: "Lowest price", key: "price", dir: "asc" },
   ],
-  relatedGuides: [],
+  relatedGuides: ["best-tower-fans-compared"],
+  decisionPicks: {
+    overall: "midea-duo-14-000-btu-smart",
+    value: "whynter-arc-14s-14000-btu-dual-hose",
+    premium: "whynter-nex-arc-1230wn-14-000",
+  },
+  specsThatMatter: {
+    decisive: [
+      "SACC (Seasonally Adjusted Cooling Capacity) — the DOE's tested cooling number. It's the honest capacity, and it decides whether the unit keeps up in a real heatwave.",
+      "Single- vs dual-hose. Dual-hose cools a full room faster and more efficiently; single-hose quietly caps how cold a big room can get.",
+      "Real coverage in sq ft (about 20 SACC BTU per sq ft) — size to your actual room and its sun, not the box.",
+    ],
+    noise: [
+      "The giant ASHRAE “BTU” on the box — an old rating, often 30–50% higher than the SACC the unit actually delivers.",
+      "“Cools up to 700 sq ft” marketing, which assumes a shaded, sea-level, perfectly sealed room.",
+      "The word “portable” — most real units are 70–85 lb, so weight matters more than the label implies.",
+    ],
+  },
+  faq: [
+    {
+      q: "What's the difference between SACC and BTU?",
+      a: "The big “BTU” on the box is the older ASHRAE rating, measured under generous lab conditions. SACC (Seasonally Adjusted Cooling Capacity) is the DOE's newer, real-world test, and it's usually 30–50% lower. A “14,000 BTU” unit is often around 8,000 SACC. Always compare units by SACC — it's the number that predicts whether the room actually gets cold.",
+    },
+    {
+      q: "How many BTU do I need for my room?",
+      a: "A rough rule is about 20 SACC BTU per square foot, then add margin for direct sun, top floors, and kitchens. A genuinely 400 sq ft room wants roughly 8,000 SACC, not the “12,000 BTU” a box promises. It's better to be slightly oversized than to run a too-small unit flat-out in a heatwave.",
+    },
+    {
+      q: "Is a dual-hose portable AC worth it?",
+      a: "For a big or sunny room, yes. Single-hose units create negative pressure — they blow conditioned air outside and pull warm, unconditioned air back in, which caps how cold they get. Dual-hose units pull separate outside air to cool the compressor, so they cool faster and more efficiently. For a small room, single-hose is fine and cheaper.",
+    },
+    {
+      q: "Do portable ACs need a window?",
+      a: "Almost all of them do — they vent hot air through a hose and a window kit. The one exception here is the battery-capable EcoFlow WAVE 3, a ductless spot-cooler for tents and vans. If you have no window, that's the only option; everything else needs somewhere to send the heat.",
+    },
+    {
+      q: "Why is my portable AC so loud?",
+      a: "The compressor and fan sit in the room with you, so every portable AC gets loud on high. The dB figures we list are the quietest published (low/sleep) setting. Inverter models (Midea, LG, Whynter NEX) modulate instead of slamming on and off, which is why they're the ones to pick for a bedroom.",
+    },
+  ],
 };
 
 export const COMPARISON_GUIDES: ComparisonGuide[] = [

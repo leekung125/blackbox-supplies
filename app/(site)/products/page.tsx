@@ -2,21 +2,25 @@ import type { Metadata } from "next";
 import { ProductBrowser } from "@/components/product-browser";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
-import { getAllProducts } from "@/lib/products";
+import { getAllProducts, isMainProduct } from "@/lib/products";
 
 // The sitewide "shop all" page — the full cross-vertical catalog (cooling + useful +
 // car & roadside) in one faceted browser. /gear, /heat, and /useful are the per-vertical
 // pages; this is the everything view with vertical + category + price facets.
 export const metadata: Metadata = {
-  title: "Shop All Gear",
+  title: "Shop All Gear — Cooling, Car & Utility",
   description:
-    "The full BlackBox catalog — cooling, everyday useful gear, and car & roadside kit in one place. Filter by vertical and category, sort by price, and jump straight to Amazon. Every pick is researched from manufacturer specs and public sources, with honest tradeoffs.",
+    "Browse the full catalog of genuinely useful gear — cooling, everyday utility, and car & roadside kit in one place. Filter by category, sort by price, buy on Amazon. Researched from real specs, with honest tradeoffs.",
   alternates: { canonical: "/products" },
 };
 
 export default function ProductsIndex() {
-  // Featured order = editorial priority (highest first); the browser's sort can override.
-  const products = [...getAllProducts()].sort((a, b) => b.priority - a.priority);
+  // Main grid = on-brand, ≥$25 picks (isMainProduct), ordered by editorial priority (highest
+  // first) so sub-$25 items don't top the catalog; the browser's sort can override. Sub-$25 stays
+  // reachable via /finds, kits, and category detail pages.
+  const products = getAllProducts()
+    .filter(isMainProduct)
+    .sort((a, b) => b.priority - a.priority);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">

@@ -30,12 +30,18 @@
   --color-line-soft: #241d13;
   --color-line-strong: #40341f;
 
-  /* ink on dark */
-  --color-ink: #ebe3d1;          /* warm off-white body */
-  --color-ink-strong: #faf5ea;   /* headlines */
-  --color-ink-dim: #b2a78e;      /* secondary text */
-  --color-ink-2: #b2a78e;
-  --color-ink-faint: #897e66;    /* meta / eyebrows */
+  /* ink on dark — verified-contrast ladder (design brief): headline 15:1 → muted 5:1 */
+  --color-ink: #ebe3d1;          /* primary UI text / subheads (~13:1) */
+  --color-ink-strong: #faf5ea;   /* headlines (~15:1) */
+  --color-ink-dim: #c9bfa8;      /* body paragraphs (~8.9:1, was #b2a78e — too dim) */
+  --color-ink-2: #c9bfa8;
+  --color-ink-faint: #9a8f78;    /* labels / specs / eyebrows ONLY (~5:1) */
+
+  /* raised surface ladder — never place two same-token surfaces adjacent */
+  --color-well: #100c07;         /* recessed / behind the hero product */
+  --color-raised: #271f14;       /* hover / lifted card */
+  --color-popover: #2e2417;      /* dropdown / modal */
+  --color-amber-deep: #a86f2c;   /* amber for borders/shadows only, never text */
 
   /* deeper anchor (header / footer) */
   --color-dark: #100c07;
@@ -65,7 +71,8 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background-color: #0a0705; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background-color: #070504; overflow-x: clip; }
+  body { overflow-x: clip; max-width: 100%; }
 
   body {
     background-color: transparent;
@@ -100,6 +107,9 @@
   .display { font-family: var(--font-display); letter-spacing: -0.022em; }
   .font-display { font-family: var(--font-display); }
   .font-mono { font-family: var(--font-mono); }
+  /* The precision voice: labels, specs, prices, eyebrows. Used ~80× across cards + the
+     comparison board; without this the whole monospace system silently fell back to Inter. */
+  .mono { font-family: var(--font-mono); }
 
   .lede { font-size: 1.2rem; line-height: 1.6; color: var(--color-ink-dim); }
   @media (min-width: 640px) { .lede { font-size: 1.3rem; } }
@@ -195,8 +205,8 @@
   .marquee { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
   .marquee-track { display: flex; width: max-content; animation: marquee 42s linear infinite; }
   .marquee:hover .marquee-track { animation-play-state: paused; }
-  .marquee-item { display: inline-flex; align-items: center; gap: 0.6rem; padding: 0 1.9rem; font-family: var(--font-display); font-size: 1.45rem; font-weight: 600; letter-spacing: -0.01em; color: var(--color-ink-faint); white-space: nowrap; }
-  .marquee-item::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); opacity: 0.6; }
+  .marquee-item { display: inline-flex; align-items: center; gap: 0.7rem; padding: 0 1.6rem; font-family: var(--font-mono); font-size: 0.8rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--color-ink-dim); white-space: nowrap; }
+  .marquee-item::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--color-accent); opacity: 0.7; }
   @keyframes marquee { to { transform: translateX(-50%); } }
   @media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
 
@@ -216,8 +226,94 @@
   @keyframes hero-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
   @media (prefers-reduced-motion: reduce) { .hero-float { animation: none; } }
 
+  /* ═══════════════════════════════════════════════════════════════════════════
+     DESIGN v7 — "A GEAR MAGAZINE, PHOTOGRAPHED AT NIGHT, LIT BY ONE AMBER LAMP"
+     Depth from LIGHT, not boxes. Amber is the only light source in the building.
+     Every value here is from the research art-direction brief (BLACKBOX_DESIGN_BRIEF.md).
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* the ground is NEVER flat #15110b — it is a warm top-lit radial room */
+  .ground-field { background: radial-gradient(120% 90% at 50% 8%, #241a10 0%, #1a130c 42%, #15110b 70%, #0d0906 100%); }
+  .well-field { background: radial-gradient(90% 80% at 50% 20%, #17110a 0%, #100c07 60%, #0a0704 100%); }
+
+  /* global film grain — kills banding + adds night-paper texture (soft-light, subtle) */
+  .grain-fixed { position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: 0.05; mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  /* fixed corner vignette — the room darkens at the edges */
+  .vignette-fixed { position: fixed; inset: 0; z-index: 99; pointer-events: none;
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(13,9,6,0.7)); }
+
+  /* lit card — an object in lit space: catchlight + ring + contact + mid + ambient */
+  .lit-card { position: relative; border-radius: 1rem; background: var(--color-card);
+    box-shadow: inset 0 1px 0 rgba(235,227,209,0.07), 0 0 0 1px rgba(0,0,0,0.6), 0 2px 4px -1px rgba(0,0,0,0.5),
+      0 14px 28px -10px rgba(0,0,0,0.6), 0 44px 64px -28px rgba(0,0,0,0.5); }
+  /* metallic top-lit gradient border (double background-clip) */
+  .grad-border { border: 1px solid transparent;
+    background: linear-gradient(var(--color-card), var(--color-card)) padding-box,
+      linear-gradient(180deg, rgba(235,227,209,0.20), rgba(235,227,209,0.03)) border-box; }
+  .grad-border-amber { border: 1px solid transparent;
+    background: linear-gradient(var(--color-card), var(--color-card)) padding-box,
+      linear-gradient(135deg, rgba(237,186,102,0.65), rgba(217,154,69,0.06)) border-box; }
+  .lift { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s cubic-bezier(0.22,1,0.36,1), border-color 0.3s ease; }
+  .lift:hover { transform: translateY(-4px);
+    box-shadow: inset 0 1px 0 rgba(235,227,209,0.12), 0 0 0 1px rgba(217,154,69,0.22), 0 2px 4px -1px rgba(0,0,0,0.5),
+      0 18px 34px -10px rgba(0,0,0,0.62), 0 54px 74px -30px rgba(0,0,0,0.55); }
+
+  /* focal amber glow — the lamp behind the ONE lit object per section */
+  .focal-glow { box-shadow: 0 0 0 1px rgba(217,154,69,0.30), 0 0 28px -6px rgba(217,154,69,0.45), 0 0 100px -20px rgba(217,154,69,0.28); }
+  .glow-amber { position:absolute; border-radius:9999px; pointer-events:none; filter: blur(44px); mix-blend-mode: screen;
+    background: radial-gradient(closest-side, rgba(237,186,102,0.55), rgba(217,154,69,0.18) 45%, transparent 72%); }
+  .glow-amber-soft { position:absolute; border-radius:9999px; pointer-events:none; filter: blur(80px);
+    background: radial-gradient(circle, rgba(217,154,69,0.18), transparent 66%); }
+  .product-drop-glow { filter: drop-shadow(0 0 60px rgba(217,154,69,0.42)) drop-shadow(0 12px 34px rgba(0,0,0,0.5)); }
+
+  /* huge editorial type — extreme jumps only, nothing medium between */
+  .hero-display { font-family: var(--font-display); font-weight: 600; letter-spacing: -0.02em; line-height: 0.96;
+    font-size: clamp(2.75rem, 6vw + 1rem, 7rem); }
+  .section-title { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.015em; line-height: 1.04;
+    font-size: clamp(2rem, 4vw, 3rem); color: var(--color-ink-strong); }
+  .monument { font-family: var(--font-display); font-weight: 500; letter-spacing: -0.01em; line-height: 1;
+    font-size: clamp(3rem, 7vw, 6rem); color: var(--color-ink-strong); }
+  .headline-glow { text-shadow: 0 1px 44px rgba(217,154,69,0.16); }
+  .amber-word { color: var(--color-accent-bright); }
+
+  /* amber CTA — a lit object, not a flat button */
+  .cta-amber { display:inline-flex; align-items:center; gap:0.55rem; border-radius:10px; padding:14px 28px;
+    font-family: var(--font-sans); font-weight:600; color:#15110b; background: linear-gradient(135deg, #edba66, #d99a45);
+    box-shadow: 0 0 32px rgba(217,154,69,0.35), 0 0 80px rgba(217,154,69,0.15);
+    transition: transform 0.22s cubic-bezier(0.22,1,0.36,1), box-shadow 0.22s cubic-bezier(0.22,1,0.36,1), filter 0.22s ease; }
+  .cta-amber:hover { transform: translateY(-2px); filter: brightness(1.06);
+    box-shadow: 0 0 44px rgba(217,154,69,0.5), 0 0 110px rgba(217,154,69,0.2); }
+
+  /* the ONE inverted light screen — warm paper manifesto */
+  .paper-panel { background: var(--color-readsurface); color: var(--color-readink); }
+  .paper-panel h1,.paper-panel h2,.paper-panel h3 { color: var(--color-readink); }
+  .paper-panel .eyebrow { color:#8a7350; }
+
+  /* section rules + gradient seam bleeds */
+  .rule-fade { height:1px; background: linear-gradient(90deg, rgba(217,154,69,0.5), rgba(217,154,69,0.08) 30%, transparent); }
+  .seam-to-well { height:8rem; background: linear-gradient(to bottom, transparent, var(--color-well)); }
+  .seam-to-card { height:8rem; background: linear-gradient(to bottom, transparent, var(--color-card)); }
+
+  /* real data-viz spec bar — gradient fill, glow at the leader tip */
+  .spec-track { position: relative; height: 7px; border-radius: 9999px; background: rgba(235,227,209,0.07); overflow: hidden; }
+  .spec-fill { position:absolute; inset:0 auto 0 0; border-radius:9999px;
+    background: linear-gradient(90deg, rgba(168,111,44,0.75), var(--color-accent) 55%, var(--color-accent-bright));
+    box-shadow: 0 0 12px -1px rgba(224,163,82,0.75); transform-origin: left; }
+
+  /* premium amber pill / chip */
+  .pill-amber { display:inline-flex; align-items:center; gap:0.4rem; border-radius:9999px; padding:0.25rem 0.7rem;
+    background: linear-gradient(180deg, rgba(224,163,82,0.16), rgba(217,154,69,0.06));
+    border: 1px solid rgba(224,163,82,0.34); color: var(--color-accent-bright);
+    font-family: var(--font-mono); font-size:0.62rem; text-transform: uppercase; letter-spacing: 0.14em; }
+
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* full-bleed helper — break a section out of the container to edge-to-edge */
+  .full-bleed { position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; width: 100vw; }
+
   /* ── calm interactive background (Atmosphere) ────────────────────────────── */
-  .atmo-blooms { background: radial-gradient(38% 30% at 16% 10%, rgba(150, 88, 40, 0.10), transparent 60%), radial-gradient(44% 34% at 84% 92%, rgba(120, 68, 34, 0.09), transparent 62%); }
+  .atmo-blooms { background: radial-gradient(38% 30% at 16% 10%, rgba(150, 88, 40, 0.06), transparent 58%), radial-gradient(44% 34% at 84% 92%, rgba(120, 68, 34, 0.05), transparent 60%); }
   /* warm aurora glow behind hero/newsletter bands (was referenced but undefined) */
   .bbx-aurora { background: radial-gradient(42% 40% at 22% 20%, rgba(217, 154, 69, 0.14), transparent 62%), radial-gradient(46% 42% at 82% 86%, rgba(150, 88, 40, 0.11), transparent 64%); pointer-events: none; }
   /* small mono label; pairs with a text-* color utility (alias of .eyebrow, no fixed color) */

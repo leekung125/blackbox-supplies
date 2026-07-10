@@ -20,7 +20,7 @@ export function GuideCard({ guide, featured = false }: { guide: Guide; featured?
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={img}
-            alt=""
+            alt={lead ? `${lead.name} — ${guide.title}` : guide.title}
             loading="lazy"
             className="cutout-shadow absolute inset-0 h-full w-full object-contain p-6 transition-transform duration-[600ms] ease-out group-hover:scale-[1.05]"
           />

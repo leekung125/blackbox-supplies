@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ProductBrowser } from "@/components/product-browser";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
-import { getAllProducts } from "@/lib/products";
+import { getAllProducts, isMainProduct } from "@/lib/products";
 
 // The car & roadside vertical = these six categories. /gear is the Car vertical page,
 // parallel to /heat (Cooling) and /useful (Useful) — not a mixed "all catalog" dump.
@@ -23,7 +23,11 @@ export const metadata: Metadata = {
 };
 
 export default function GearPage() {
-  const products = getAllProducts().filter((p) => CAR_CATS.has(p.category as string));
+  // Main grid = on-brand, ≥$25 picks (isMainProduct), so sub-$25 items (e.g. a $10 escape tool)
+  // don't rank above the revenue drivers. They stay reachable via /finds, kits, and detail pages.
+  const products = getAllProducts().filter(
+    (p) => CAR_CATS.has(p.category as string) && isMainProduct(p),
+  );
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">

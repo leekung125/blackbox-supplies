@@ -5,9 +5,10 @@ import { Reveal } from "@/components/motion/reveal";
 import { getAllGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
-  title: "Newsletter",
+  title: "Newsletter — Gear Notes & Buying Guides",
   description:
-    "Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, a few times a month. No spam, no fake reviews.",
+    "Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, a few times a month. No spam, no fake reviews, unsubscribe in one click.",
+  alternates: { canonical: "/newsletter" },
 };
 
 const GET = [

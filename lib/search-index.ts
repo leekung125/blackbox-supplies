@@ -5,7 +5,7 @@
  *
  * Built once from local JSON (products) + guides + articles + categories. No backend.
  */
-import { getAllProducts } from "@/lib/products";
+import { getCoreProducts } from "@/lib/products";
 import { CATEGORIES } from "@/lib/categories";
 import { getAllGuides } from "@/lib/guides";
 import { getAllArticles } from "@/lib/articles";
@@ -61,7 +61,7 @@ export function getSearchIndex(): SearchItem[] {
     });
   }
   // Every product
-  for (const p of getAllProducts()) {
+  for (const p of getCoreProducts()) {
     push({
       kind: "product", title: p.name, subtitle: String(p.category),
       href: `/products/${p.id}`, image: p.image,

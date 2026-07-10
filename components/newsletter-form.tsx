@@ -78,7 +78,7 @@ export function NewsletterForm({ tone = "light" }: { tone?: "light" | "dark" }) 
           type="submit"
           disabled={state === "loading"}
           className={`shrink-0 rounded-full px-6 py-3 text-sm font-semibold transition-colors disabled:opacity-60 ${
-            dark ? "bg-white text-graphite hover:bg-white/90" : "bg-accent text-on-accent hover:bg-accent-bright"
+            dark ? "bg-accent text-on-accent hover:bg-accent-bright" : "bg-accent text-on-accent hover:bg-accent-bright"
           }`}
         >
           {state === "loading" ? "Joining…" : "Join free"}
@@ -88,7 +88,7 @@ export function NewsletterForm({ tone = "light" }: { tone?: "light" | "dark" }) 
         <p className={`mt-2 text-xs ${dark ? "text-red-300" : "text-red-600"}`}>{msg}</p>
       ) : (
         <p className={`mt-2 text-xs ${dark ? "text-white/45" : "text-ink-faint"}`}>
-          Useful gear notes, a few times a month. No spam, unsubscribe anytime.
+          Useful gear notes, about once a week. No spam, unsubscribe anytime.
         </p>
       )}
     </form>

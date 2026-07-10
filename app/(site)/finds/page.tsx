@@ -3,12 +3,12 @@ import Link from "next/link";
 import { ProductCard } from "@/components/product-card";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
-import { getAllProducts } from "@/lib/products";
+import { getCoreProducts } from "@/lib/products";
 
 export const metadata: Metadata = {
-  title: "Budget Finds — the best genuinely useful gear under $50",
+  title: "Value Picks — genuinely useful gear under $50 worth owning",
   description:
-    "The affordable end of the catalog: genuinely useful cooling, car, desk, kitchen, and travel gear under $50 — the clever, cheap upgrades worth owning.",
+    "The affordable end of the catalog, curated for value — cooling, car, roadside, power, and work-desk gear from $25 to $50 that's genuinely useful and still worth owning. Not deal-hunting; value that lasts.",
   alternates: { canonical: "/finds" },
 };
 
@@ -20,24 +20,24 @@ function lowPrice(pr: string) {
 export default function FindsPage() {
   // The cross-vertical budget feed. These sub-$50 picks are hidden from /heat & /useful
   // (which show premium ≥$50 only), so this is their home — and the "cheap X" entry point.
-  const finds = getAllProducts()
+  const finds = getCoreProducts()
     .filter((p) => {
       const lp = lowPrice(p.priceRange);
-      return lp >= 15 && lp < 50;
+      return lp >= 25 && lp < 50;
     })
     .sort((a, b) => lowPrice(a.priceRange) - lowPrice(b.priceRange));
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
       <Reveal blur={false}>
-        <span className="eyebrow eyebrow-accent">Budget finds</span>
+        <span className="eyebrow eyebrow-accent">Value picks</span>
         <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
-          The best useful gear under $50.
+          Genuinely useful gear under $50 that&apos;s still worth owning.
         </h1>
         <p className="lede mt-4 max-w-2xl">
-          Not every fix needs a big-ticket buy. These are the clever, affordable upgrades worth owning —
-          across cooling, car, desk, kitchen, and travel — {finds.length} picks, cheapest first, each linking
-          straight to Amazon.
+          Not every fix needs a big-ticket buy. This is the affordable end of the catalog, curated for
+          value — the clever, well-made upgrades that earn their spot across cooling, car, roadside, power,
+          and the work desk. {finds.length} picks from $25 to $50, each linking straight to Amazon.
         </p>
       </Reveal>
 

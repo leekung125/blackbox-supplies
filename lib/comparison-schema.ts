@@ -282,6 +282,22 @@ export interface CategoryMeta {
   columns: string[];
   /** Per-field metadata (fully authored per category during its P1 data phase). */
   fields: Partial<Record<string, SpecFieldMeta>>;
+  /**
+   * The 2–3 SIGNATURE specs shown as big figures in the board (spotlight + cards) and used to
+   * pick the data-viz bar. These are the figures a buyer actually decides on — NOT just "the
+   * first 3 numeric columns", which surfaces the wrong headline for some categories (e.g. a dash
+   * cam's field-of-view over its resolution). May include enum/bool keys, not only numbers.
+   * Falls back to the first numeric columns when omitted.
+   */
+  heroKeys?: string[];
+  /**
+   * The numeric spec to draw as the data-viz bar per product. Set this when the honest bar isn't
+   * the first signature figure — e.g. jump starters lead with "peak amps" but that number is
+   * inflated marketing, so the bar keys off the engine rating instead. `null` opts out entirely
+   * (no honest numeric decides the category — e.g. dash cams turn on the enum sensor/coverage).
+   * `undefined` falls back to the first higher-is-better numeric heroKey with enough published data.
+   */
+  barKey?: string | null;
 }
 
 /**
@@ -311,6 +327,8 @@ export const SPEC_COLUMNS: Record<ComparisonCategory, string[]> = {
 export const PORTABLE_AC_META: CategoryMeta = {
   label: "Portable Air Conditioners",
   columns: SPEC_COLUMNS.portable_ac,
+  // Real cooling (SACC) + real coverage + noise are what a buyer decides on — not the box BTU.
+  heroKeys: ["saccBtu", "coverageSqFt", "noiseDb"],
   fields: {
     saccBtu: {
       label: "Real cooling (SACC)",

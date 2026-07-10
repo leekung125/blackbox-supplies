@@ -119,7 +119,7 @@ export function ProductBrowser({ products }: { products: Product[] }) {
   return (
     <div>
       {/* ── control bar ─────────────────────────────────────────────────── */}
-      <div className="flex flex-col gap-5 rounded-2xl border border-line bg-surface/60 p-4 backdrop-blur-sm sm:p-5">
+      <div className="flex flex-col gap-5 rounded-2xl border border-line bg-surface/95 p-4 sm:p-5">
         {/* vertical + sort row */}
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>

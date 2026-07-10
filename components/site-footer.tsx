@@ -15,11 +15,23 @@ const COLS: { title: string; links: { href: string; label: string; external?: bo
   {
     title: "Browse",
     links: [
+      { href: "/gear", label: "Car & Roadside" },
       { href: "/heat", label: "Cooling" },
-      { href: "/useful", label: "Useful gear" },
-      { href: "/gear", label: "Car & roadside" },
+      { href: "/useful", label: "Work & EDC" },
       { href: "/kits", label: "Gear kits" },
-      { href: "/newsletter", label: "Newsletter" },
+      { href: "/products", label: "Shop all gear" },
+      { href: "/finds", label: "Value picks under $50" },
+    ],
+  },
+  {
+    title: "Categories",
+    links: [
+      { href: "/category/jump-starters", label: "Jump starters" },
+      { href: "/category/tire-inflators", label: "Tire inflators" },
+      { href: "/category/dash-cams", label: "Dash cams" },
+      { href: "/category/power", label: "Power & charging" },
+      { href: "/category/roadside", label: "Roadside safety" },
+      { href: "/category/car-utility", label: "Car utility" },
     ],
   },
   {
@@ -28,8 +40,10 @@ const COLS: { title: string; links: { href: string; label: string; external?: bo
       { href: "/about", label: "About BlackBox" },
       { href: "/methodology", label: "How we pick" },
       { href: "/disclosure", label: "How we make money" },
+      { href: "/contact", label: "Contact" },
+      { href: "/privacy", label: "Privacy" },
+      { href: "/terms", label: "Terms" },
       { href: `https://instagram.com/${BRAND.instagram}`, label: "Instagram", external: true },
-      { href: `mailto:${BRAND.email}`, label: "Contact", external: true },
     ],
   },
 ];
@@ -39,7 +53,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-24 bg-graphite text-on-dark-dim">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-[1.5fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
             <Wordmark light markClassName="h-7 w-7" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-on-dark-dim">
@@ -84,9 +98,14 @@ export function SiteFooter() {
             <span>
               © {year} {BRAND.name}
             </span>
-            <Link href="/disclosure" className="transition-colors hover:text-accent-bright">
-              How we make money →
-            </Link>
+            <span className="flex items-center gap-4">
+              <Link href="/privacy" className="transition-colors hover:text-accent-bright">
+                Privacy
+              </Link>
+              <Link href="/disclosure" className="transition-colors hover:text-accent-bright">
+                How we make money →
+              </Link>
+            </span>
           </div>
         </div>
       </div>

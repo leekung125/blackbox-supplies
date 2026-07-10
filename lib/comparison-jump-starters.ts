@@ -347,6 +347,11 @@ export const JUMP_STARTER_PRODUCTS: ProductFor<"jump_starters">[] = [
 /** Fully-authored table metadata for jump starters — mirrors PORTABLE_AC_META's shape. */
 export const JUMP_STARTER_META: CategoryMeta = {
   label: "Portable Jump Starters",
+  // Peak amps is the headline everyone quotes, but the engine rating + diesel capability are what
+  // actually decide whether it starts your car — surface those three, not the mAh.
+  heroKeys: ["peakAmps", "engineMaxLitersGas", "dieselCapable"],
+  // Bar the honest capability (engine size), NOT the inflated peak-amp headline the guide debunks.
+  barKey: "engineMaxLitersGas",
   columns: [
     "peakAmps",
     "engineMaxLitersGas",
@@ -466,4 +471,138 @@ export const JUMP_STARTER_GUIDE: ComparisonGuide = {
     { id: "price", label: "Best price", crown: "Lowest price", key: "price", dir: "asc" },
   ] as SortOption[],
   relatedGuides: [],
+  decisionPicks: {
+    overall: "noco-boost-gb40-1000a-ultrasafe",
+    value: "gooloo-gp2000-2000a-compact-lithium",
+    premium: "hulkman-alpha85-2000a-smart-jump",
+  },
+  specsThatMatter: {
+    decisive: [
+      "The engine-size rating (e.g. “6.0L gas / 3.0L diesel”). Match it to your vehicle and it will start — this, not the amps, is the honest capability check.",
+      "A dedicated diesel rating if you drive a diesel. Diesels need far more cranking current than a gas engine of the same size.",
+      "Battery type and upkeep: lithium self-discharges (keep it charged), supercapacitor is always ready, lead-acid adds a compressor but must be recharged.",
+    ],
+    noise: [
+      "“Peak amps” (2000A, 4000A…) — a momentary surge figure budget brands inflate freely; a “4000A” unit isn't necessarily stronger than an honest “2000A” one.",
+      "A big mAh capacity as the headline — nice for charging a phone, but it says nothing about whether it starts your car.",
+      "A color LCD and 65W USB-C — genuinely handy, but tiebreakers, not the reason a unit will crank your engine.",
+    ],
+  },
+  faq: [
+    {
+      q: "How many amps do I need to jump-start my car?",
+      a: "Amps are the wrong number to shop on — “peak amps” is a momentary surge figure that brands measure differently and inflate freely. Buy on the engine rating instead: a unit rated for 6.0L gas starts virtually any car or small SUV, while a big truck or diesel needs 8.0L+ or a dedicated diesel rating. Find your engine's displacement and buy comfortably above it.",
+    },
+    {
+      q: "Can any jump starter start a diesel?",
+      a: "No. Diesel engines have much higher compression and need far more cranking current than a gas engine of the same size. Never assume a gas rating covers your diesel — look for an explicit diesel figure like “6.0L diesel,” and give yourself extra margin for cold mornings, when everything cranks harder.",
+    },
+    {
+      q: "Do jump starters lose charge sitting in the trunk?",
+      a: "Lithium ones do — they slowly self-discharge and can be dead at 0% the one morning you finally need them. Top them up every few months; most have a display that shows the level. If you can't commit to that, a batteryless supercapacitor unit like the Autowit charges on the spot from your weak battery and is always ready.",
+    },
+    {
+      q: "Lithium, supercapacitor, or lead-acid — which should I buy?",
+      a: "Most people want lithium: compact, doubles as a power bank, but must be kept charged and dislikes extreme heat. Supercapacitor units never age out and shrug off deep cold, but store no charge and can't act as a power bank. Lead-acid power stations like the DeWalt are heavy and self-discharge, but add a real air compressor and AC outlets — a whole roadside kit in one box.",
+    },
+    {
+      q: "Are the expensive smart jump starters worth it?",
+      a: "Only if you'll use the extras. A color LCD, 65W USB-C, and a big power bank are genuinely nice, but a plain $70 booster will start the same engine. Pay for the display and fast charging if you want a do-it-all glovebox tool; skip it if you just want reliable starts.",
+    },
+  ],
+  ownerInsights: [
+    {
+      pattern: "The proven ones just crank — repeatedly",
+      detail:
+        "Across the NOCO and GOOLOO units, owners consistently report starting weak, sulfated, or long-sitting batteries on the first try, and getting many jumps from a single charge. Long-term reviewers who've owned a GB40 or GP4000 for years say it still fires up and holds most of its capacity — this reliability is why these are the trusted defaults.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "The smart display earns its keep",
+      detail:
+        "On the Hulkman Alpha85 and Fanttik T8 Apex, buyers repeatedly praise seeing an exact charge percentage and battery voltage instead of guessing at LED dots, and they consistently call out the genuinely fast 65W USB-C that charges the unit (and their phones) both ways.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "A supercapacitor unit is always ready",
+      detail:
+        "Autowit SuperCap 2 owners love that it charges its caps in minutes rather than hours and cranks in deep cold that would leave a lithium pack flat. The always-ready, nothing-to-age-out pitch holds up in real long-term use.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "Included clamps and cables often run short",
+      detail:
+        "A recurring gripe across brands is that the attached jumper leads are on the short side and the clamps can be fiddly — owners with trucks or deep, awkwardly-placed batteries sometimes struggle to reach the terminals. Check your battery's location before assuming the built-in cables will comfortably reach.",
+      sentiment: "watch",
+    },
+    {
+      pattern: "Keep a lithium unit charged, or it fails you",
+      detail:
+        "The single most common long-term complaint is a lithium jump starter found dead in the trunk the one morning it was needed — they self-discharge on the shelf. Owners of the batteryless Autowit note the opposite trap: its caps fully drain within a couple of months, so pre-charging it is pointless; it's meant to be charged on the spot.",
+      sentiment: "watch",
+    },
+    {
+      pattern: "Budget and all-in-one units are a quality-control lottery",
+      detail:
+        "On the cheaper GOOLOO boosters, a scattered but recurring theme is out-of-box defects like thin or cracked jumper-cable insulation. DeWalt DXAEPS14 owners separately report a finicky air compressor that can overheat or read pressure incorrectly, plus reliance on a proprietary charging cord that's costly to replace if lost.",
+      sentiment: "watch",
+    },
+  ],
+  competition: [
+    {
+      name: "NOCO Boost Sport GB20 (500A)",
+      reason:
+        "The GB40's little brother is rated only to 4.0L gas and isn't recommended for diesel at all — it steps below the coverage most cars actually need, so the GB40 is the smaller unit worth buying.",
+    },
+    {
+      name: "NOCO Boost X GBX155 (4250A)",
+      reason:
+        "Genuinely capable — 10.0L gas / 8.0L diesel — but it lists around $370, more than double the GB70, so you pay a steep premium for cranking headroom the vast majority of drivers will never use.",
+    },
+    {
+      name: "AVAPOW 6000A",
+      reason:
+        "The poster child for inflated peak-amp marketing: the 6000A headline dwarfs everything here, but reviewers flag clamp and build quality below NOCO's and real-world failures on badly degraded, very-low-CCA batteries — the big number doesn't guarantee the start.",
+    },
+    {
+      name: "Clore Automotive Jump-N-Carry JNC660 (1700A peak / 425 cranking)",
+      reason:
+        "A proven pro-shop lead-acid booster, but it weighs ~18 lb, has no USB or power-bank function, and must be kept on its charger — a bench tool for a garage, not a glovebox unit for a driver.",
+    },
+    {
+      name: "HALO Bolt 58830",
+      reason:
+        "Marketed as an all-in-one with an AC outlet, but it's only a ~500A booster and the pack heats up if you crank more than about three times — closer to an emergency power bank than a serious jump starter.",
+    },
+    {
+      name: "Weego 44s",
+      reason:
+        "Well-built and honest about its numbers (2100A peak / 440 cranking), but it's rated to just 7.0L gas / 3.5L diesel while typically costing more than the GOOLOO GP2000 — you pay extra for less engine headroom.",
+    },
+  ],
+  winnerFlaws: [
+    "Rated only to 6.0L gas / 3.0L diesel — there's no headroom for a big V8 truck or a large diesel, which is exactly why the GB70 exists.",
+    "The 2150mAh / 24Wh internal pack is a phone top-up, not a real power bank — don't buy it expecting to run a laptop.",
+    "The lone 5V/2.1A USB-A port is slow and dated next to the 65W USB-C and color displays on the Alpha85 and Fanttik T8 Apex.",
+  ],
+  skipThisIf: [
+    "You drive a large truck, big V8, or a diesel over ~3.0L — size up to the NOCO GB70 (8.0L gas / 6.0L diesel) or the GBX155.",
+    "You want a do-everything roadside box with a built-in tire inflator and AC outlets — get the DeWalt DXAEPS14 instead.",
+    "You won't reliably recharge a lithium unit every few months — a batteryless Autowit SuperCap 2 charges on the spot and is always ready.",
+    "You only ever park near other cars or a garage outlet and are content carrying jumper cables — you may not need a self-contained booster at all.",
+  ],
+  changelog: [
+    {
+      date: "2026-07-09",
+      note: "Published. Verified current prices, engine ratings, and specs against manufacturer spec pages and each product's Amazon listing; added real rejected-competition models and honest flaws for the top pick.",
+    },
+  ],
+  sources: [
+    { label: "NOCO GB40 UltraSafe — official specs (1000A, 6.0L gas / 3.0L diesel, 24Wh)", url: "https://no.co/gb40/specs" },
+    { label: "NOCO Boost HD GB70 — official product page (2000A, 8.0L gas / 6.0L diesel)", url: "https://no.co/gb70" },
+    { label: "NOCO Boost X GBX155 — official page (4250A, 10.0L gas / 8.0L diesel)", url: "https://no.co/gbx155" },
+    { label: "Clore Automotive Jump-N-Carry JNC660 — spec sheet (1700A peak / 425 cranking, 18 lb)", url: "https://cloreautomotive.com/product/jnc660-1700-peak-amp-12-volt-jump-starter/" },
+    { label: "XenonPro — Peak Amps vs Cranking Amps vs Cold Cranking Amps explained", url: "https://www.xenonpro.com/blogs/home/peak-amps-vs-cranking-amps-vs-cold-cranking-amps-jump-starters" },
+    { label: "TechGearLab — The Best Jump Starters (independent lab testing)", url: "https://www.techgearlab.com/topics/tools/best-jump-starter" },
+  ],
 };

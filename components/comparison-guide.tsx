@@ -1,8 +1,23 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ComparisonBoard } from "@/components/comparison-board";
+import { ComparisonExperience } from "@/components/guide/comparison-experience";
+import { SpecsThatMatterBlock } from "@/components/guide/specs-that-matter";
+import { GuideFaq } from "@/components/guide/guide-faq";
 import { NewsletterCta } from "@/components/newsletter-cta";
-import type { ComparisonGuide } from "@/lib/comparison-guides";
+import { MethodologyPanel } from "@/components/methodology-panel";
+import { StickyCta } from "@/components/sticky-cta";
+import { JsonLd } from "@/components/json-ld";
+import { CompetitionSection } from "@/components/guide/competition";
+import { OwnerInsights } from "@/components/guide/owner-insights";
+import { PickCaveats } from "@/components/guide/pick-caveats";
+import { SourcesBlock } from "@/components/guide/sources-block";
+import { ChangelogLine } from "@/components/guide/changelog-line";
+import { AffiliateDisclosure } from "@/components/guide/affiliate-disclosure";
+import { faqSchema } from "@/lib/schema";
+import { COMPARISON_GUIDES, type ComparisonGuide } from "@/lib/comparison-guides";
+import { guideRefForSlug } from "@/lib/guides";
+import { getProductById } from "@/lib/products";
+import { EDITOR } from "@/lib/content";
 
 /**
  * The full interactive comparison guide page. A real magazine buying guide whose centre is a
@@ -12,6 +27,24 @@ import type { ComparisonGuide } from "@/lib/comparison-guides";
  */
 export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
   const count = guide.products.length;
+  // Category-correct sort hint — read from THIS guide's own sorts; never hardcode "cooling".
+  const sortLabels = guide.sorts.map((s) => s.label.toLowerCase()).slice(0, 3);
+  const sortPhrase =
+    sortLabels.length >= 2
+      ? `${sortLabels.slice(0, -1).join(", ")}, or ${sortLabels[sortLabels.length - 1]}`
+      : "the spec that matters most";
+  // The editorial #1 = first product; map to the catalog for the mobile sticky buy bar.
+  const topPick = getProductById(guide.products[0]?.id);
+  // Related guides via the unified resolver; fall back to the other comparison guides so every
+  // money page cross-links to another money page.
+  const related = (guide.relatedGuides ?? [])
+    .map((s) => guideRefForSlug(s))
+    .filter((r): r is NonNullable<typeof r> => Boolean(r));
+  const relatedFallback = related.length
+    ? related
+    : COMPARISON_GUIDES.filter((g) => g.slug !== guide.slug)
+        .slice(0, 3)
+        .map((g) => ({ slug: g.slug, title: g.title, categoryLabel: g.categoryLabel, kind: "comparison" as const }));
 
   return (
     <div className="px-4 py-10 sm:px-6">
@@ -37,6 +70,8 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
             {guide.title}
           </h1>
           <p className="lede mt-4">{guide.dek}</p>
+          {/* dated "what changed / last verified" trust line */}
+          {guide.changelog?.length ? <ChangelogLine changelog={guide.changelog} /> : null}
         </header>
 
         {guide.heroImage ? (
@@ -71,14 +106,42 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
             Tell us what matters — we&rsquo;ll surface the pick
           </h2>
           <p className="mt-2 text-[0.98rem] leading-relaxed text-ink-2">
-            Cooling, quiet, or price — tap one and the winner rises to the top. Every number is real,
-            and each pick links straight to its exact Amazon page.
+            Sort by {sortPhrase} — the winner rises to the top. Every number is real, and each pick
+            links straight to its exact Amazon page.
           </p>
         </div>
 
-        <div className="mt-7">
-          <ComparisonBoard products={guide.products} meta={guide.meta} sorts={guide.sorts} />
+        {/* FTC disclosure ON the click-out surface (buttons are affiliate links), not just the footer */}
+        <div className="mx-auto mt-5 max-w-2xl">
+          <AffiliateDisclosure />
         </div>
+
+        <div className="mt-5">
+          <ComparisonExperience
+            products={guide.products}
+            meta={guide.meta}
+            sorts={guide.sorts}
+            decisionPicks={guide.decisionPicks}
+          />
+        </div>
+        {/* Sentinel: once the board scrolls past, the mobile sticky buy bar (top pick) slides up. */}
+        <div id="sticky-cta-anchor" aria-hidden className="h-px w-full" />
+
+        {/* the honest catch on the #1 pick + when to skip us entirely */}
+        <PickCaveats
+          topPickName={guide.products[0]?.name}
+          winnerFlaws={guide.winnerFlaws}
+          skipThisIf={guide.skipThisIf}
+        />
+
+        {/* what actually decides the buy vs the box marketing — breaks out to the board's width */}
+        {guide.specsThatMatter ? <SpecsThatMatterBlock data={guide.specsThatMatter} /> : null}
+
+        {/* the real models we set aside, and the one honest reason each lost */}
+        {guide.competition?.length ? <CompetitionSection competition={guide.competition} /> : null}
+
+        {/* qualitative synthesis of verified-buyer review patterns (NOT our lab testing, no stats) */}
+        {guide.ownerInsights?.length ? <OwnerInsights insights={guide.ownerInsights} /> : null}
       </section>
 
       {/* ── the rest of the editorial ──────────────────────────────────────── */}
@@ -131,11 +194,51 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
           <p className="article mt-3 text-[0.98rem]">{guide.tradeoffs}</p>
         </section>
 
-        <p className="mt-10 rounded-xl border border-line bg-surface-2 p-4 text-xs leading-relaxed text-ink-dim">
-          How we choose: picks are ranked from manufacturer specs, DOE/SACC data, and independent
-          lab reviews — no paid placement, ever. Numbers are real or marked unverified; we never
-          invent a spec, rating, or price. Outbound links are Amazon affiliate links: as an Amazon
-          Associate, BlackBox Supply earns from qualifying purchases, at no extra cost to you.{" "}
+        {/* buyer FAQ — accordion + FAQPage JSON-LD for AI-Overview / People-Also-Ask citations */}
+        {guide.faq?.length ? (
+          <>
+            <GuideFaq faq={guide.faq} />
+            <JsonLd data={faqSchema(guide.faq)} />
+          </>
+        ) : null}
+
+        {/* the research trail — the trust backbone — + clickable sources/receipts beneath it */}
+        <div className="mt-12">
+          <MethodologyPanel
+            updated={guide.updated}
+            authorities={guide.authorities}
+            editor={EDITOR}
+          />
+          <SourcesBlock sources={guide.sources} products={guide.products} />
+        </div>
+
+        {/* keep reading — cross-link to other money pages */}
+        {relatedFallback.length ? (
+          <section className="mt-12">
+            <h2 className="font-display text-2xl font-semibold text-ink-strong">Keep reading</h2>
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {relatedFallback.map((r) => (
+                <Link
+                  key={r.slug}
+                  href={`/guides/${r.slug}`}
+                  className="group rounded-2xl border border-line bg-surface p-4 transition-colors hover:border-accent/40"
+                >
+                  <span className="eyebrow eyebrow-accent">
+                    {r.kind === "comparison" ? "Comparison guide" : "Buying guide"}
+                  </span>
+                  <h3 className="mt-1.5 font-display text-lg font-semibold text-ink group-hover:text-accent-strong">
+                    {r.title}
+                  </h3>
+                  <span className="mt-1 inline-block text-sm text-ink-dim">{r.categoryLabel}</span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <p className="mt-10 text-xs leading-relaxed text-ink-dim">
+          Outbound links are Amazon affiliate links: as an Amazon Associate, BlackBox Supplies earns from
+          qualifying purchases, at no extra cost to you.{" "}
           <Link href="/disclosure" className="ulink font-semibold">Full disclosure</Link>.
         </p>
 
@@ -143,6 +246,9 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
           <NewsletterCta />
         </div>
       </div>
+
+      {/* mobile: persistent buy action for the top pick on the highest-intent page */}
+      {topPick ? <StickyCta product={topPick} /> : null}
     </div>
   );
 }

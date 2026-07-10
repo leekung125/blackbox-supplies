@@ -82,16 +82,106 @@ const CAR_CATEGORIES: CategoryMeta[] = [
   },
 ];
 
+// ── Cooling vertical (the "Beat the Heat" catalog) ───────────────────────────
+// Names match the `category` field on the CORE (non-offBrand) heat products so
+// each landing page actually populates via getProductsByCategory(meta.name).
+const COOLING_CATEGORIES: CategoryMeta[] = [
+  {
+    slug: "portable-ac",
+    name: "Portable AC",
+    lettermark: "BTU",
+    kitName: "",
+    tagline: "Real cooling for the room without one.",
+    blurb:
+      "Portable and window-free air conditioners that actually pull heat out of a bedroom, office, or garage — sized by BTU to the room, honest about hose setup and noise.",
+    heroProductId: "midea-duo-14-000-btu-smart",
+  },
+  {
+    slug: "cooling-fans",
+    name: "Cooling Fans",
+    lettermark: "FAN",
+    kitName: "",
+    tagline: "Move real air, quietly.",
+    blurb:
+      "Tower, bladeless, and misting fans that move enough air to matter without the jet-engine drone — the cheapest way to make a hot room livable before you commit to AC.",
+    heroProductId: "shark-turboblade-bladeless-tower-fan-tf202s",
+  },
+  {
+    slug: "personal-cooling",
+    name: "Personal Cooling",
+    lettermark: "CHL",
+    kitName: "",
+    tagline: "Cool the person, not the whole room.",
+    blurb:
+      "Neck fans, handheld misters, and wearable coolers that keep you comfortable on a commute, a walk, or a hot commute — when cooling one body beats cooling four walls.",
+    heroProductId: "torras-coolify-2s-neck-air-conditioner",
+  },
+  {
+    slug: "dorm-cooling",
+    name: "Dorm Cooling",
+    lettermark: "DRM",
+    kitName: "",
+    tagline: "Beat the heat in a small, shared space.",
+    blurb:
+      "Mini fridges, compact fans, and cooling gear scaled for a dorm, studio, or single room — small footprint, quiet enough to sleep next to, priced for a tight budget.",
+    heroProductId: "midea-whs-121lb1-mini-fridge-3",
+  },
+];
+
+// ── Useful vertical (the broad practical-gear catalog) ───────────────────────
+const USEFUL_CATEGORIES: CategoryMeta[] = [
+  {
+    slug: "desk-tech",
+    name: "Desk & Tech",
+    lettermark: "DSK",
+    kitName: "",
+    tagline: "The upgrades that fix a workspace.",
+    blurb:
+      "Monitor lights, laptop stands, charging hubs, and cable gear that quietly fix the desk you sit at all day — practical upgrades chosen on merit, not spec-sheet hype.",
+    heroProductId: "benq-screenbar-monitor-light-bar",
+  },
+  {
+    slug: "travel-edc",
+    name: "Travel & EDC",
+    lettermark: "EDC",
+    kitName: "",
+    tagline: "What earns a spot in your pocket or bag.",
+    blurb:
+      "Trackers, power banks, multitools, and safety gear that earn their weight in a pocket, bag, or carry-on — the everyday-carry that pays for itself the first time you need it.",
+    heroProductId: "apple-airtag-4-pack",
+  },
+  {
+    slug: "problem-solvers",
+    name: "Problem Solvers",
+    lettermark: "FIX",
+    kitName: "",
+    tagline: "One gadget for one nagging problem.",
+    blurb:
+      "Single-job gear that quietly kills a specific everyday annoyance — the small, honest fixes worth owning once you've lived with the problem long enough.",
+    heroProductId: "pebblebee-clip-5-rechargeable-bluetooth-tracker",
+  },
+];
+
 function slugify(s: string): string {
   return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
 }
 
-// Register the cooling/useful catalog categories so each gets a real /category page + slug.
+// Register any remaining cooling/useful catalog categories so each still gets a real
+// /category page + slug. Only CORE (on-brand) products count — off-brand drift categories
+// (kitchen, sleep, home-org, cooling-sleep) are excluded so they never appear in
+// nav/footer/sitemap/hubs. Names already hand-defined above are skipped (no duplicates).
+const DEFINED_NAMES = new Set(
+  [...CAR_CATEGORIES, ...COOLING_CATEGORIES, ...USEFUL_CATEGORIES].map((c) => c.name)
+);
+
 const _extraNames = Array.from(
   new Set(
-    [...(heatData as { category: string }[]), ...(usefulData as { category: string }[])].map((p) => p.category)
+    [...(heatData as { category: string; offBrand?: boolean }[]),
+     ...(usefulData as { category: string; offBrand?: boolean }[])]
+      .filter((p) => !p.offBrand)
+      .map((p) => p.category)
   )
-).filter((n) => n && !CAR_CATEGORIES.some((c) => c.name === n));
+).filter((n) => n && !DEFINED_NAMES.has(n));
 
 const EXTRA_CATEGORIES: CategoryMeta[] = _extraNames.map((name) => ({
   slug: slugify(name),
@@ -103,7 +193,12 @@ const EXTRA_CATEGORIES: CategoryMeta[] = _extraNames.map((name) => ({
   heroProductId: "",
 }));
 
-export const CATEGORIES: CategoryMeta[] = [...CAR_CATEGORIES, ...EXTRA_CATEGORIES];
+export const CATEGORIES: CategoryMeta[] = [
+  ...CAR_CATEGORIES,
+  ...COOLING_CATEGORIES,
+  ...USEFUL_CATEGORIES,
+  ...EXTRA_CATEGORIES,
+];
 
 const BY_SLUG = new Map(CATEGORIES.map((c) => [c.slug, c]));
 const BY_NAME = new Map(CATEGORIES.map((c) => [c.name, c]));

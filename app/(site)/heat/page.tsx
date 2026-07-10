@@ -13,7 +13,8 @@ const AC_COMPARE = getComparisonGuideBySlug("best-portable-air-conditioners");
 
 const GUIDES = EXTRA_ARTICLES.filter((a) => a.category === "Cooling");
 
-const ALL = heatData as AffiliateProduct[];
+// On-brand cooling appliances only — cooling-sleep bedding (mattress/sleep drift) is excluded.
+const ALL = (heatData as (AffiliateProduct & { offBrand?: boolean })[]).filter((p) => !p.offBrand);
 
 function lowPrice(pr: string) {
   const m = pr.match(/([0-9][0-9,]*)/);

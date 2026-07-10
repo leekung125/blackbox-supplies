@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { track } from "@vercel/analytics";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
 
@@ -77,7 +78,8 @@ export function StickyCta({ product }: { product: Product }) {
             }}
           />
 
-          <div className="relative mx-auto flex max-w-3xl items-center gap-3 px-4">
+          <div className="relative mx-auto max-w-3xl px-4">
+           <div className="flex items-center gap-3">
             {/* thumbnail */}
             <span className="relative flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-line-strong bg-gradient-to-b from-[#221a11] to-[#100c07]">
               {product.image ? (
@@ -117,6 +119,7 @@ export function StickyCta({ product }: { product: Product }) {
               href={href}
               target="_blank"
               rel={outboundRel(isAffiliate)}
+              onClick={() => track("sticky_outbound", { product: product.id, category: String(product.category), affiliate: isAffiliate })}
               className="group inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent px-4 py-2.5 text-[0.82rem] font-semibold text-on-accent shadow-[0_10px_30px_-12px_rgba(217,154,69,0.8)] transition-colors hover:bg-accent-strong"
             >
               <span className="sm:hidden">Check price</span>
@@ -134,6 +137,11 @@ export function StickyCta({ product }: { product: Product }) {
                 <path d="M7 17 L17 7 M9 7 h8 v8" />
               </svg>
             </a>
+            </div>
+            {/* FTC: clear disclosure on the click-out surface itself, not only the footer. */}
+            <p className="mt-1 text-center text-[0.58rem] leading-tight tracking-wide text-ink-faint">
+              #ad · Amazon affiliate link — we may earn a commission, at no extra cost to you.
+            </p>
           </div>
         </motion.div>
       ) : null}

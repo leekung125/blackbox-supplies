@@ -23,6 +23,25 @@ const nextConfig: NextConfig = {
       { source: "/guides/best-cordless-tire-inflators", destination: "/guides/best-tire-inflators-compared", permanent: true },
       { source: "/guides/best-dash-cams", destination: "/guides/best-dash-cams-compared", permanent: true },
       { source: "/guides/best-portable-power-for-road-trips", destination: "/guides/best-power-stations-compared", permanent: true },
+
+      // Vanity destination slugs used by the social funnel (slideshow captions, deck CTA slides,
+      // "Full list → blackboxsupplies.com/<vertical>"). They are branded short-links, NOT real
+      // routes — without these they 404 every top-of-funnel click. Map each to the best-matching
+      // real page by intent. permanent:false — these are aliases and their target may change.
+      { source: "/car", destination: "/category/car-utility", permanent: false },
+      { source: "/cooling", destination: "/heat", permanent: false },
+      { source: "/desk", destination: "/category/desk-tech", permanent: false },
+      { source: "/kitchen", destination: "/category/kitchen", permanent: false },
+      { source: "/coffee", destination: "/category/kitchen", permanent: false },
+      { source: "/travel", destination: "/category/travel-edc", permanent: false },
+      { source: "/sleep", destination: "/category/sleep-comfort", permanent: false },
+      { source: "/power", destination: "/kits/backup-power-kit", permanent: false },
+      { source: "/roadside", destination: "/kits/roadside-kit", permanent: false },
+      { source: "/apartment", destination: "/useful", permanent: false },
+
+      // Legacy category slug emitted by an older carousel build ("Power & Charging" → the real
+      // category slug is "power", not "power-charging"). Keep any already-published links alive.
+      { source: "/category/power-charging", destination: "/category/power", permanent: false },
     ];
   },
 };

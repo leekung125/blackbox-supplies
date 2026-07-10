@@ -40,6 +40,7 @@ export const POWER_STATION_PRODUCTS: ProductFor<"power_stations">[] = [
     sourceUrls: [
       "https://www.bluettipower.com/products/ac180",
       "https://www.amazon.com/BLUETTI-Portable-AC180-Generator-Off-grid/dp/B0C1SMJTDT",
+      "https://www.pcworld.com/article/1966571/bluetti-ac180-power-station-review.html",
     ],
     rating: null,
     reviewCount: null,
@@ -243,6 +244,9 @@ export const POWER_STATION_PRODUCTS: ProductFor<"power_stations">[] = [
  */
 export const POWER_STATION_META: CategoryMeta = {
   label: "Portable Power Stations",
+  // The two numbers people confuse decide everything (capacity Wh + continuous AC watts), and
+  // chemistry (LiFePO4 vs NMC) sets whether it lasts a decade — those are the signature figures.
+  heroKeys: ["capacityWh", "acOutputWatts", "batteryChemistry"],
   columns: SPEC_COLUMNS.power_stations,
   fields: {
     capacityWh: {
@@ -369,4 +373,133 @@ export const POWER_STATION_GUIDE: ComparisonGuide = {
     { id: "price", label: "Best price", crown: "Lowest price", key: "price", dir: "asc" },
   ] satisfies SortOption[],
   relatedGuides: [],
+  ownerInsights: [
+    {
+      pattern: "The LiFePO4 chemistry earns real long-term trust",
+      detail:
+        "Across the full stations here, owners consistently frame the LiFePO4 cells as the reason to buy — the recurring sentiment is confidence that a unit will still hold up years of weekend and outage use later, rather than fading like older lithium packs.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "Fast emergency recharge actually delivers",
+      detail:
+        "For the Jackery and Bluetti especially, owners repeatedly single out the roughly one-hour recharge as the feature that justified the price — being able to top off fast before a storm or right after an outage comes up again and again as a genuine relief, not a spec-sheet number.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "The near-silent compact picks live up to it",
+      detail:
+        "Owners of the smaller Anker unit consistently describe forgetting it is even running, and CPAP users in particular praise the quiet overnight operation — a real contrast to the fan complaints that dog the bigger stations.",
+      sentiment: "loved",
+    },
+    {
+      pattern: "Fans cycle up under light loads, not just heavy ones",
+      detail:
+        "The most common long-term gripe on the Bluetti AC180 and EcoFlow RIVER 2 Pro is the same: the cooling fan spins up and pulses even when powering something small like a laptop or mini-fridge, and reviewers repeatedly call it distracting at a desk or next to a bed. It is quiet-by-spec, not silent-in-practice.",
+      sentiment: "watch",
+    },
+    {
+      pattern: "Real-world runtime undershoots the headline watt-hours",
+      detail:
+        "A recurring owner complaint on the ~1kWh units is that high-draw appliances drain them far faster than the capacity number suggests — a small space heater or kettle can empty a 1,000Wh station in roughly an hour. Owners consistently learn to size for the load, not the sticker capacity.",
+      sentiment: "watch",
+    },
+    {
+      pattern: "Solar means the brand's panel, bought separately",
+      detail:
+        "Owners are repeatedly caught out that the panel is never included, and Jackery buyers in particular flag being locked to Jackery panels and an unusual solar connector — plus a rated solar input owners say is hard to actually reach with the recommended kit. Budget for the panel, and expect ecosystem lock-in.",
+      sentiment: "watch",
+    },
+  ],
+  competition: [
+    {
+      name: "EcoFlow DELTA 2",
+      reason:
+        "A strong 1,024Wh/1,800W LiFePO4 rival to the AC180, but its cooling fans spin up above ~120W and cycle on and off even at light loads — reviewers flag it as poor for a quiet bedroom or overnight CPAP — and it usually lists above the AC180 for the same output.",
+    },
+    {
+      name: "Jackery Explorer 1000 Pro",
+      reason:
+        "Uses older NMC lithium rated for roughly 1,000 charge cycles rather than LiFePO4's 3,000–4,000, so its usable life is far shorter — Jackery has since discontinued it in favor of LFP models like the 1000 v2 that made this guide.",
+    },
+    {
+      name: "Bluetti EB3A",
+      reason:
+        "The sub-$300 LFP alternative to the Anker C300, but owners and reviewers widely report its fan cycles on loudly even at low loads and in 'silent' mode — undercutting the near-silent tent-and-CPAP use the C300 is chosen for.",
+    },
+    {
+      name: "Goal Zero Yeti 500X",
+      reason:
+        "Goal Zero charges a steep brand premium — around a full 1kWh LFP rival's price for only ~500Wh — and its AC and solar recharge are slower than the Jackery and Bluetti here, so you pay more for less capacity and a slower refill.",
+    },
+    {
+      name: "Anker SOLIX C1000",
+      reason:
+        "A genuinely excellent 1,056Wh/1,800W LiFePO4 unit — it loses to the AC180 only on price-per-watt-hour and a slightly smaller battery, not on quality; a close call worth a look if it's discounted below the AC180.",
+    },
+  ],
+  winnerFlaws: [
+    "The cooling fans spin up under fairly light loads (owners report them tripping around 200W) and some units develop an audible whine — quiet by spec (rated 40–45 dBA) but not silent, so it isn't ideal sitting right next to a bed.",
+    "DC/12V output efficiency is mediocre — real-world testing consistently puts its car/DC-socket output well below the best 1kWh units, so running 12V gear directly off it wastes more battery than average.",
+    "At ~35 lb with no wheels and a flat-brick shape, it's the heaviest unit in this guide and a genuine two-hand carry, not a grab-and-go.",
+  ],
+  skipThisIf: [
+    "You only need to keep phones, a laptop, and a CPAP alive off-grid — a 288Wh unit like the Anker SOLIX C300 is about a third of the price and light enough to backpack.",
+    "You need whole-home backup — a furnace, well pump, central AC, or an electric range — which requires a permanently installed system with a transfer switch, not any portable station here.",
+    "Weight is your hard limit: at ~35 lb with no wheels the AC180 is a two-hand lift, so the 17 lb EcoFlow RIVER 2 Pro or 24 lb Jackery 1000 v2 will actually get carried.",
+    "You run a lot of 12V/DC gear directly off the unit — the AC180's below-average DC efficiency wastes more battery there, so a station with stronger DC output suits DC-heavy setups better.",
+  ],
+  changelog: [
+    {
+      date: "2026-07-09",
+      note: "Published. Specs, battery chemistry, and cycle-life figures verified against manufacturer spec pages and independent reviews (Consumer Reports, PCWorld, StorageReview); competitor flaws cross-checked against published reviews and owner reports. Prices shown are current street ranges, not per-day live quotes.",
+    },
+  ],
+  sources: [
+    { label: "BLUETTI AC180 — official spec sheet", url: "https://www.bluettipower.com/products/ac180" },
+    { label: "Jackery Explorer 1000 v2 — official spec sheet", url: "https://www.jackery.com/products/jackery-explorer-1000-v2" },
+    { label: "EcoFlow RIVER 2 Pro — official spec sheet", url: "https://us.ecoflow.com/products/river-2-pro-portable-power-station" },
+    { label: "Anker SOLIX C300 — official spec sheet", url: "https://www.ankersolix.com/products/c300" },
+    { label: "Consumer Reports — Best Portable Power Stations (testing method & ratings)", url: "https://www.consumerreports.org/home-garden/generators/best-portable-power-stations-a4748703075/" },
+    { label: "Consumer Reports — 5 Things to Know About Portable Power Stations (battery & inverter basics)", url: "https://www.consumerreports.org/portable-power-stations/portable-power-stations-things-to-know-battery-inverter-generators/" },
+  ],
+  decisionPicks: {
+    overall: "bluetti-ac180-portable-power-station",
+    value: "anker-solix-c300-portable-power",
+    premium: "jackery-explorer-1000-v2-portable",
+  },
+  specsThatMatter: {
+    decisive: [
+      "Two numbers, not one: watt-hours (how long it runs) AND continuous watts (what it can run at once). A big battery with a small inverter still can't start a microwave.",
+      "The surge/peak rating — anything with a motor (fridge, pump, power tool) briefly pulls 2–3× its running watts, and too low a surge trips the station.",
+      "LiFePO4 (LFP) chemistry — ~3,000+ cycles vs ~500–800 for NMC: the difference between a unit that lasts a decade and one you replace.",
+    ],
+    noise: [
+      "The headline “watts” alone — a huge inverter on a tiny battery runs your gear for only minutes.",
+      "mAh on a power bank dressed up as a “power station” — with no AC outlets it can't run a single appliance.",
+      "“Solar-ready” badges — the panel is almost always sold separately, so an off-grid setup costs more than the sticker.",
+    ],
+  },
+  faq: [
+    {
+      q: "What's the difference between watt-hours and watts?",
+      a: "Watt-hours (Wh) is the size of the tank — how long the station runs. Watts (W) is the size of the pipe — how much it can power at once. People constantly confuse them: a big battery with a small inverter still can't start a microwave, and a big inverter on a small battery runs it for only minutes. Match both to your job.",
+    },
+    {
+      q: "What size power station do I need to run a fridge?",
+      a: "Check two things. First, the fridge's running watts must be under the station's continuous AC output — and its surge rating must clear the 2–3× spike when the compressor kicks on. Second, size watt-hours to how long you need it: a ~1,000Wh LiFePO4 station keeps a typical fridge going for most of a day. Add up your loads before you buy.",
+    },
+    {
+      q: "Is LiFePO4 worth it over regular lithium?",
+      a: "For anything you'll keep for years, yes. LiFePO4 (LFP) cells last roughly 3,000+ charge cycles versus ~500–800 for older NMC lithium, run cooler, and are safer. Every full station here is LFP. A standard-lithium power bank is fine as a pocket backup you'll replace sooner, but it isn't what you want in a station you keep for a decade.",
+    },
+    {
+      q: "Can a power station run my whole house?",
+      a: "No — these keep essentials alive (fridge, wifi, phones, a CPAP, some lights) through an outage or off-grid, not a whole house. Whole-home backup needs a permanently installed system with a transfer switch. Size a portable station to the specific loads you can't live without for a few hours to a day or two.",
+    },
+    {
+      q: "Is the solar panel included?",
+      a: "Almost never. “Solar-ready” and a high solar-input rating only mean the station accepts a panel — you buy the panel separately. Factor that into the price if you plan to recharge off-grid, or you've effectively got a wall-only unit.",
+    },
+  ],
 };

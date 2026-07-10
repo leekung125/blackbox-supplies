@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Newsreader, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
@@ -35,7 +36,9 @@ export const metadata: Metadata = {
   description: BRAND.positioning,
   applicationName: BRAND.name,
   authors: [{ name: BRAND.name }],
-  alternates: { canonical: "/" },
+  // No global canonical — it was inherited by EVERY page, so guides/products/kits all
+  // declared the homepage as their canonical (a self-canonicalization SEO leak). Each page
+  // now sets its own canonical; the home page's lives in app/(site)/page.tsx.
   openGraph: {
     type: "website",
     siteName: BRAND.name,
@@ -61,11 +64,29 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Amazon OneLink scaffold — localizes affiliate clicks for non-US visitors so an
+  // international shopper lands on their own Amazon storefront (with the matching
+  // regional Associates tag) instead of amazon.com + the US-only blackboxsuppl-20 tag.
+  // INACTIVE until the operator pastes their OneLink ID here: create OneLink in Amazon
+  // Associates Central (Tools → OneLink), link all regional accounts, then copy the ID
+  // from the generated snippet's script URL (…/onelink/<THIS_ID>/ or ?pubId=<THIS_ID>)
+  // into NEXT_PUBLIC_AMAZON_ONELINK_ID in the environment. If unset, nothing renders —
+  // US behavior is unchanged and no broken/erroring script is emitted.
+  const oneLinkId = process.env.NEXT_PUBLIC_AMAZON_ONELINK_ID;
+
   return (
     <html lang="en" className={`${newsreader.variable} ${inter.variable} ${mono.variable}`}>
       <body className="min-h-screen antialiased">
+        {oneLinkId ? (
+          <Script
+            id="amzn-onelink"
+            strategy="afterInteractive"
+            src={`https://z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=${oneLinkId}`}
+          />
+        ) : null}
         <JsonLd data={[organizationSchema(), webSiteSchema()]} />
         <Atmosphere />
+        <div className="grain-fixed" aria-hidden />
         <SmoothScroll>{children}</SmoothScroll>
         <Analytics />
       </body>

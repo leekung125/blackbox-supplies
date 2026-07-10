@@ -7,12 +7,17 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Wordmark } from "@/components/wordmark";
 import { SiteSearch } from "@/components/site-search";
 
+// Nav is revenue-weighted: the highest-intent decision surfaces (guides, kits) lead, then the
+// full catalog ("All Gear") and the value-entry surface ("Value Picks") sit last — reachable up
+// top as well as in the footer. Car vertical uses one consistent label ("Car & Roadside") sitewide.
 const NAV = [
+  { href: "/gear", label: "Car & Roadside" },
   { href: "/heat", label: "Cooling" },
-  { href: "/useful", label: "Useful" },
-  { href: "/gear", label: "Car" },
+  { href: "/useful", label: "Work & EDC" },
   { href: "/guides", label: "Guides" },
-  { href: "/finds", label: "Deals" },
+  { href: "/kits", label: "Kits" },
+  { href: "/products", label: "All Gear" },
+  { href: "/finds", label: "Value Picks" },
 ];
 
 /** Dark-accent header — brand frame + always-visible search (the #1 findability path). */
@@ -25,7 +30,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-dark text-on-dark">
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:gap-4 sm:px-6">
-        <Link href="/" aria-label="BlackBox Supply — home" className="shrink-0">
+        <Link href="/" aria-label="BlackBox Supplies — home" className="shrink-0">
           <Wordmark light markClassName="h-6 w-6 sm:h-7 sm:w-7" size="text-[0.95rem] sm:text-[1.05rem]" showMark />
         </Link>
 

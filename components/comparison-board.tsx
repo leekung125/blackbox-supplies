@@ -4,7 +4,17 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { track } from "@vercel/analytics";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import type { CategoryMeta, ComparableProduct, SpecFieldMeta } from "@/lib/comparison-schema";
+import type { CategoryMeta, ComparableProduct } from "@/lib/comparison-schema";
+import {
+  valOf,
+  fmtSpec,
+  heroStat,
+  resolveHeroKeys,
+  resolveHero,
+  isDeadSort,
+  maxForKey,
+  barKeyFor,
+} from "@/components/guide/board-utils";
 
 export interface SortOption {
   id: string;
@@ -16,40 +26,17 @@ export interface SortOption {
   dir?: "asc" | "desc";
 }
 
-type SpecRec = Record<string, number | string | boolean | null | undefined>;
-
-function valOf(p: ComparableProduct, key: string): number | string | boolean | null {
-  if (key === "price") return p.price;
-  const v = (p.specs as unknown as SpecRec)[key];
-  return v === undefined ? null : v;
-}
-
-/** number + unit, "Yes/No", or enum label. */
-function fmt(v: number | string | boolean | null, f?: SpecFieldMeta): string {
-  if (v === null) return "—";
-  if (typeof v === "boolean") return v ? "Yes" : "No";
-  if (typeof v === "number") {
-    const n = v >= 1000 ? v.toLocaleString() : `${v}`;
-    return f?.unit ? `${n} ${f.unit}` : n;
-  }
-  return f?.enumLabels?.[v] ?? v;
-}
-
-/** split a numeric value into { num, unit } for the big stat treatment. */
-function bigStat(v: number | null, f?: SpecFieldMeta) {
-  if (v === null) return { num: "—", unit: "" };
-  return { num: v >= 1000 ? v.toLocaleString() : `${v}`, unit: f?.unit ?? "" };
-}
-
 const REL = "sponsored nofollow noopener noreferrer";
 
 /* ─────────────────────────────────────────────────── outbound CTA (one, big) */
 function BuyButton({
   p,
   size = "md",
+  where = "gallery",
 }: {
   p: ComparableProduct;
   size?: "md" | "lg";
+  where?: "spotlight" | "gallery";
 }) {
   const pad = size === "lg" ? "px-6 py-3 text-[0.95rem]" : "px-5 py-2.5 text-sm";
   if (!p.affiliateUrl) {
@@ -67,7 +54,7 @@ function BuyButton({
       href={p.affiliateUrl}
       target="_blank"
       rel={REL}
-      onClick={() => track("product_outbound", { product: p.id, category: p.category, affiliate: true })}
+      onClick={() => track("product_outbound", { product: p.id, category: p.category, where, affiliate: true })}
       className={`group inline-flex items-center gap-2 rounded-full bg-accent ${pad} font-semibold text-on-accent shadow-[0_10px_30px_-12px_rgba(217,154,69,0.7)] transition-colors hover:bg-accent-strong`}
     >
       Check price on Amazon
@@ -109,10 +96,89 @@ function Media({
   return (
     <div className={`cutout-tile relative flex flex-col items-center justify-center gap-1 px-4 text-center ${className}`}>
       <span className="mono text-[0.66rem] uppercase tracking-[0.16em] text-accent-bright">{p.brand}</span>
-      {headline ? (
+      {headline && headline !== "—" ? (
         <span className="nums font-display text-2xl font-semibold leading-none text-ink-strong">{headline}</span>
       ) : null}
       <span className="mono mt-1 text-[0.54rem] uppercase tracking-[0.12em] text-ink-faint">photo coming</span>
+    </div>
+  );
+}
+
+/* ───────────────────────── one big signature figure (number / enum / bool aware) */
+function BigStat({
+  p,
+  keyName,
+  meta,
+  size,
+}: {
+  p: ComparableProduct;
+  keyName: string;
+  meta: CategoryMeta;
+  size: "spotlight" | "card";
+}) {
+  const f = meta.fields[keyName];
+  const raw = valOf(p, keyName);
+  const { value, unit } = heroStat(p, keyName, meta);
+  if (value === "—") return null;
+  const isNum = typeof raw === "number";
+  if (size === "spotlight") {
+    return (
+      <div>
+        <div
+          className={`nums font-display font-semibold leading-none text-accent-bright ${isNum ? "text-3xl" : "text-2xl"}`}
+        >
+          {value}
+          {unit ? <span className="ml-1 text-base font-medium text-ink-dim">{unit}</span> : null}
+        </div>
+        <div className="mono mt-1.5 text-[0.6rem] uppercase tracking-[0.1em] text-ink-faint">{f?.label ?? keyName}</div>
+      </div>
+    );
+  }
+  return (
+    <div className="flex items-baseline gap-1.5">
+      <span className={`nums font-display font-semibold text-accent-bright ${isNum ? "text-lg" : "text-base"}`}>
+        {value}
+      </span>
+      {unit ? <span className="text-[0.7rem] text-ink-dim">{unit}</span> : null}
+      <span className="mono text-[0.56rem] uppercase tracking-[0.08em] text-ink-faint">{f?.label ?? keyName}</span>
+    </div>
+  );
+}
+
+/* ─────────────────────── real data-viz bar for the single decisive numeric spec */
+function SpecBar({
+  p,
+  barKey,
+  max,
+  meta,
+}: {
+  p: ComparableProduct;
+  barKey: string;
+  max: number;
+  meta: CategoryMeta;
+}) {
+  const f = meta.fields[barKey];
+  const raw = valOf(p, barKey);
+  if (typeof raw !== "number" || max <= 0) return null;
+  const pct = Math.max(6, Math.round((raw / max) * 100));
+  const leads = raw >= max;
+  const un = p.unverified?.includes(barKey);
+  return (
+    <div className="mt-3">
+      <div className="mb-1.5 flex items-baseline justify-between gap-2">
+        <span className="mono text-[0.56rem] uppercase tracking-[0.1em] text-ink-faint">{f?.label ?? barKey}</span>
+        <span className="nums text-[0.72rem] font-semibold text-ink-2">
+          {fmtSpec(raw, f)}
+          {un ? <span className="ml-0.5 text-ink-faint" title="Estimated / not officially published">~</span> : null}
+          {leads ? <span className="pill-amber ml-2 !py-0 !px-1.5 !text-[0.5rem]">Leads</span> : null}
+        </span>
+      </div>
+      <div className="spec-track">
+        <div
+          className="spec-fill"
+          style={{ width: `${pct}%`, opacity: leads ? 1 : 0.62, boxShadow: leads ? undefined : "none" }}
+        />
+      </div>
     </div>
   );
 }
@@ -141,7 +207,7 @@ function Detail({
                 {f.label}
               </span>
               <span className="nums text-[0.82rem] font-semibold text-ink">
-                {fmt(v, f)}
+                {fmtSpec(v, f)}
                 {un && v !== null ? <span className="ml-0.5 text-ink-faint" title="Estimated / not officially published">~</span> : null}
               </span>
             </div>
@@ -181,38 +247,34 @@ export function ComparisonBoard({
   products,
   meta,
   sorts,
+  sortId: sortIdProp,
+  onSortChange,
 }: {
   products: ComparableProduct[];
   meta: CategoryMeta;
   sorts: SortOption[];
+  /** Controlled active sort id (kept in sync with the sticky decision summary). Optional. */
+  sortId?: string;
+  onSortChange?: (id: string) => void;
 }) {
   const reduce = useReducedMotion();
-  const [sortId, setSortId] = useState(sorts[0]?.id ?? "rank");
+  const [sortIdInternal, setSortIdInternal] = useState(sorts[0]?.id ?? "rank");
+  const sortId = sortIdProp ?? sortIdInternal;
+  const setSort = (id: string) => {
+    onSortChange?.(id);
+    if (sortIdProp === undefined) setSortIdInternal(id);
+  };
   const [openId, setOpenId] = useState<string | null>(null);
 
-  const numericCols = useMemo(
-    () => meta.columns.filter((k) => meta.fields[k]?.type === "number"),
-    [meta],
+  const heroKeys = useMemo(() => resolveHeroKeys(meta), [meta]);
+  const deadIds = useMemo(
+    () => new Set(sorts.filter((s) => isDeadSort(products, s)).map((s) => s.id)),
+    [products, sorts],
   );
-  const heroKeys = numericCols.slice(0, 3); // the up-to-3 signature figures
+  const barKey = useMemo(() => barKeyFor(meta, products), [meta, products]);
+  const barMax = useMemo(() => (barKey ? maxForKey(products, barKey) : null), [barKey, products]);
 
-  const activeSort = sorts.find((s) => s.id === sortId);
-  const sorted = useMemo(() => {
-    if (!activeSort?.key) return products;
-    const { key, dir = "desc" } = activeSort;
-    return [...products].sort((a, b) => {
-      const av = valOf(a, key);
-      const bv = valOf(b, key);
-      const an = typeof av === "number" ? av : null;
-      const bn = typeof bv === "number" ? bv : null;
-      if (an === null && bn === null) return 0;
-      if (an === null) return 1;
-      if (bn === null) return -1;
-      return dir === "asc" ? an - bn : bn - an;
-    });
-  }, [products, activeSort]);
-
-  const [hero, ...rest] = sorted;
+  const { activeSort, hero, rest } = useMemo(() => resolveHero(products, sorts, sortId), [products, sorts, sortId]);
   const crown = activeSort?.crown ?? "Editor's choice";
 
   return (
@@ -222,11 +284,27 @@ export function ComparisonBoard({
         <span className="mono mr-1 text-[0.62rem] uppercase tracking-[0.12em] text-ink-faint">Show me the</span>
         {sorts.map((s) => {
           const active = s.id === sortId;
+          const dead = deadIds.has(s.id);
+          if (dead) {
+            return (
+              <span
+                key={s.id}
+                aria-disabled
+                title="Not enough published data to rank honestly — most units don't list this figure."
+                className="cursor-not-allowed rounded-full border border-line px-4 py-1.5 text-[0.82rem] font-semibold text-ink-faint/60 line-through decoration-ink-faint/40"
+              >
+                {s.label}
+              </span>
+            );
+          }
           return (
             <button
               key={s.id}
               type="button"
-              onClick={() => setSortId(s.id)}
+              onClick={() => {
+                setSort(s.id);
+                track("compare_sort", { category: meta.label, sort: s.id });
+              }}
               aria-pressed={active}
               className={`rounded-full px-4 py-1.5 text-[0.82rem] font-semibold transition-colors ${
                 active
@@ -248,16 +326,17 @@ export function ComparisonBoard({
           initial={reduce ? false : { opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: reduce ? 0 : 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mt-6 overflow-hidden rounded-3xl border border-accent/30 bg-surface"
+          id={`pick-${hero.id}`}
+          className="lit-card grad-border-amber focal-glow relative mt-6 scroll-mt-28 overflow-hidden"
         >
           <div className="bbx-aurora absolute inset-0" aria-hidden />
           <div className="relative grid gap-6 p-6 sm:p-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] lg:gap-10">
             {/* image stage */}
             <div className="relative flex items-center justify-center">
-              <div className="glow-blob absolute h-56 w-56 opacity-70" aria-hidden />
+              <div className="glow-amber absolute h-56 w-56 opacity-80" aria-hidden />
               <Media
                 p={hero}
-                headline={bigStat(typeof valOf(hero, heroKeys[0]) === "number" ? (valOf(hero, heroKeys[0]) as number) : null, meta.fields[heroKeys[0]]).num}
+                headline={heroStat(hero, heroKeys[0], meta).value}
                 sizes="(min-width: 1024px) 30rem, 90vw"
                 className={`relative aspect-square w-full max-w-sm rounded-2xl border border-line ${reduce ? "" : "hero-float"}`}
               />
@@ -280,32 +359,21 @@ export function ComparisonBoard({
               </h3>
               <p className="mt-2 text-[0.98rem] leading-relaxed text-ink-2">{hero.bestFor}</p>
 
-              {/* big stats */}
+              {/* big signature stats */}
               <div className="mt-5 flex flex-wrap gap-x-8 gap-y-4">
-                {heroKeys.map((key) => {
-                  const f = meta.fields[key];
-                  const raw = valOf(hero, key);
-                  if (f === undefined || typeof raw !== "number") return null;
-                  const { num, unit } = bigStat(raw, f);
-                  return (
-                    <div key={key}>
-                      <div className="nums font-display text-3xl font-semibold leading-none text-accent-bright">
-                        {num}
-                        {unit ? <span className="ml-1 text-base font-medium text-ink-dim">{unit}</span> : null}
-                      </div>
-                      <div className="mono mt-1.5 text-[0.6rem] uppercase tracking-[0.1em] text-ink-faint">
-                        {f.label}
-                      </div>
-                    </div>
-                  );
-                })}
+                {heroKeys.map((key) => (
+                  <BigStat key={key} p={hero} keyName={key} meta={meta} size="spotlight" />
+                ))}
               </div>
+
+              {/* the decisive spec, drawn as a real bar against the field */}
+              {barKey && barMax ? <SpecBar p={hero} barKey={barKey} max={barMax} meta={meta} /> : null}
 
               <div className="mt-6 flex flex-wrap items-center gap-4">
                 <span className="nums font-display text-xl font-semibold text-ink-strong">
                   {hero.priceRange ?? `$${hero.price}`}
                 </span>
-                <BuyButton p={hero} size="lg" />
+                <BuyButton p={hero} size="lg" where="spotlight" />
               </div>
             </div>
           </div>
@@ -325,11 +393,12 @@ export function ComparisonBoard({
                 animate={{ opacity: 1, y: 0 }}
                 exit={reduce ? undefined : { opacity: 0 }}
                 transition={{ duration: reduce ? 0 : 0.4, ease: [0.16, 1, 0.3, 1] }}
-                className="bbx-card card-lift flex flex-col overflow-hidden"
+                id={`pick-${p.id}`}
+                className="bbx-card card-lift flex scroll-mt-28 flex-col overflow-hidden"
               >
                 <Media
                   p={p}
-                  headline={bigStat(typeof valOf(p, heroKeys[0]) === "number" ? (valOf(p, heroKeys[0]) as number) : null, meta.fields[heroKeys[0]]).num}
+                  headline={heroStat(p, heroKeys[0], meta).value}
                   sizes="(min-width: 640px) 24rem, 100vw"
                   className="aspect-[16/10] w-full border-b border-line"
                 />
@@ -346,26 +415,19 @@ export function ComparisonBoard({
 
                   {/* two signature figures — compact, not a data wall */}
                   <div className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5">
-                    {heroKeys.slice(0, 2).map((key) => {
-                      const f = meta.fields[key];
-                      const raw = valOf(p, key);
-                      if (f === undefined || typeof raw !== "number") return null;
-                      const { num, unit } = bigStat(raw, f);
-                      return (
-                        <div key={key} className="flex items-baseline gap-1.5">
-                          <span className="nums font-display text-lg font-semibold text-accent-bright">{num}</span>
-                          <span className="text-[0.7rem] text-ink-dim">{unit}</span>
-                          <span className="mono text-[0.56rem] uppercase tracking-[0.08em] text-ink-faint">{f.label}</span>
-                        </div>
-                      );
-                    })}
+                    {heroKeys.slice(0, 2).map((key) => (
+                      <BigStat key={key} p={p} keyName={key} meta={meta} size="card" />
+                    ))}
                   </div>
+
+                  {/* decisive spec bar — the visual at-a-glance ranking */}
+                  {barKey && barMax ? <SpecBar p={p} barKey={barKey} max={barMax} meta={meta} /> : null}
 
                   <div className="mt-auto flex flex-wrap items-center gap-3 pt-4">
                     <span className="nums font-display text-lg font-semibold text-ink-strong">
                       {p.priceRange ?? `$${p.price}`}
                     </span>
-                    <BuyButton p={p} />
+                    <BuyButton p={p} where="gallery" />
                   </div>
 
                   <button
@@ -411,7 +473,8 @@ export function ComparisonBoard({
       </div>
 
       <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-dim">
-        Ranked from manufacturer specs, DOE/SACC data, and independent lab reviews. A “~” marks an
+        Ranked from manufacturer specs, standardized test ratings where they exist, and independent
+        reviews. A “~” marks an
         estimated or unpublished figure — we never invent one. As an Amazon Associate, BlackBox earns
         from qualifying purchases, at no extra cost to you.
       </p>

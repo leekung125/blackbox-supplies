@@ -1,10 +1,12 @@
+import Image from "next/image";
 import { CategoryGlyph } from "@/components/category-glyph";
 import type { Product } from "@/lib/products";
 
 /**
  * The universal product visual, in priority order:
- *  1. A Higgsfield cinematic studio shot (path contains "/shot-") — the whole scene, full-bleed.
- *  2. A background-removed cutout — floats on a dark warm-glow tile with a contact shadow.
+ *  1. A cinematic in-context scene (path contains "/products/scene/" or "/shot-") — the product
+ *     living in a real environment, shown full-bleed. This is the current standard.
+ *  2. A background-removed cutout — floats on a dark warm-glow tile with a contact shadow (legacy).
  *  3. No image — a premium spec-tile with the category glyph, brand, key spec, and price.
  * Never a bland white box.
  */
@@ -19,16 +21,16 @@ export function ProductThumb({
 }) {
   const img = product.image;
 
-  // 1. Cinematic staged shot — full-bleed.
-  if (img && img.includes("/shot-")) {
+  // 1. Cinematic in-context scene — full-bleed.
+  if (img && (img.includes("/products/scene/") || img.includes("/shot-"))) {
     return (
       <div className={`relative overflow-hidden bg-[#0c0906] ${className}`}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
+        <Image
           src={img}
           alt={product.name}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-[750ms] ease-out group-hover:scale-[1.06]"
+          fill
+          sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 92vw"
+          className="object-cover transition-transform duration-[750ms] ease-out group-hover:scale-[1.06]"
         />
         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.05]" />
       </div>

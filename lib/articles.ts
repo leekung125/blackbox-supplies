@@ -141,7 +141,7 @@ export const ARTICLES: Article[] = [
         a: "Every 3–6 months, and always before winter. Lithium packs hold charge for months, not forever, and cold accelerates the loss.",
       },
     ],
-    relatedGuides: ["best-portable-jump-starters", "roadside-emergency-kit"],
+    relatedGuides: ["best-jump-starters-compared", "roadside-emergency-kit"],
     sources: [
       { label: "NOCO GB40 official specifications", url: "https://no.co/gb40" },
       { label: "HULKMAN Alpha85 official specifications", url: "https://www.hulkman.com/products/hulkman-alpha-85-jump-starter" },
@@ -207,7 +207,7 @@ export const ARTICLES: Article[] = [
         a: "Yes — over USB, and that's a genuinely useful pairing on long trips: the station keeps the rescue pack topped up.",
       },
     ],
-    relatedGuides: ["best-portable-power-for-road-trips", "best-portable-jump-starters"],
+    relatedGuides: ["best-power-stations-compared", "best-jump-starters-compared"],
     sources: [
       { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.jackery.com/products/explorer-1000-v2-portable-power-station" },
       { label: "NOCO GB40 official specifications", url: "https://no.co/gb40" },
@@ -292,7 +292,7 @@ ARTICLES.push(
         a: "Until the night the flat happens twenty minutes from the nearest working pump. An inflator in the trunk turns a slow leak from a crisis into an errand.",
       },
     ],
-    relatedGuides: ["best-cordless-tire-inflators", "roadside-emergency-kit"],
+    relatedGuides: ["best-tire-inflators-compared", "roadside-emergency-kit"],
     sources: [
       { label: "Fanttik X8 Apex official specifications", url: "https://fanttik.com/products/fanttik-x8-apex-tire-inflator" },
       { label: "DEWALT 20V MAX inflator (DCC020IB) official page", url: "https://www.dewalt.com/product/dcc020ib/20v-max-corded-cordless-air-inflator-tool-only" },

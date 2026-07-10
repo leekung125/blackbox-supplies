@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "How We Pick — Our Research Methodology",
   description:
-    "How BlackBox Supply picks: spec verification against manufacturer documentation, long-term owner-review analysis, professional-source scoring, and safety and recall checks. Every recommendation earned by evidence.",
+    "How BlackBox Supplies picks: spec verification against manufacturer documentation, long-term owner-review analysis, professional-source scoring, and safety and recall checks. Every recommendation earned by evidence.",
   alternates: { canonical: "/methodology" },
 };
 
@@ -137,7 +137,7 @@ export default function MethodologyPage() {
       <section className="mt-10">
         <h2 className="font-display text-2xl font-semibold text-ink">How we make money</h2>
         <p className="article mt-3 text-[0.98rem] leading-relaxed text-ink-2">
-          Outbound product links are affiliate links — mostly Amazon. As an Amazon Associate, BlackBox Supply
+          Outbound product links are affiliate links — mostly Amazon. As an Amazon Associate, BlackBox Supplies
           earns from qualifying purchases, at no extra cost to you. Commissions never decide a pick, and we say
           so on every page a link appears. The full version is on the{" "}
           <Link href="/disclosure" className="ulink">disclosure page</Link>.

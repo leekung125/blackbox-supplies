@@ -7,6 +7,7 @@ import { BRAND } from "@/lib/content";
 export const metadata: Metadata = {
   title: "How We Work & Disclosure",
   description: "How BlackBox Supplies chooses products, how we make money, and what we will and won't claim.",
+  alternates: { canonical: "/disclosure" },
 };
 
 const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
@@ -30,7 +31,9 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
         Amazon Associates program, so when you buy through one we may earn a small commission — at no extra cost
         to you. It never changes your price, and it never decides what we recommend: selection is based on how
         well something solves a real, everyday problem, not on who pays us. As an Amazon Associate, BlackBox
-        earns from qualifying purchases.
+        earns from qualifying purchases.{" "}
+        <strong className="text-ink">Amazon handles all orders, payment, shipping, returns, and customer
+        support — BlackBox Supplies is an independent publisher and does not sell or ship products.</strong>
       </>
     ),
   },
@@ -61,9 +64,11 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     title: "Product imagery",
     body: (
       <>
-        Product images are the manufacturer&rsquo;s own product photos, shown so you can recognize the
-        exact item. Where an image isn&rsquo;t available we show a clean spec tile instead. For the
-        definitive current photos, options, and price, follow the link to the product&rsquo;s Amazon page.
+        Most visuals on this site are original BlackBox editorial images — generated or designed from
+        manufacturer and category references to show the gear in real use. They are not the retailer&rsquo;s
+        own photos, and they are not a substitute for them. Where we have no usable reference we show a clean
+        spec tile instead. Always confirm the exact model, current options, appearance, and price on the
+        product&rsquo;s Amazon page before buying.
       </>
     ),
   },
@@ -92,6 +97,7 @@ export default function DisclosurePage() {
           BlackBox helps people find useful everyday gear before they need it. Here&rsquo;s exactly how the
           site is built, how we make money, and what we will and won&rsquo;t claim — in plain terms.
         </p>
+        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: July 9, 2026</p>
       </Reveal>
 
       <div className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">
