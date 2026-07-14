@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { WordmarkStacked } from "@/components/wordmark";
 import { ProductThumb } from "@/components/product-thumb";
+import { OutboundLink } from "@/components/outbound-link";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { BRAND } from "@/lib/content";
 import { getFeaturedProducts } from "@/lib/products";
@@ -36,20 +37,26 @@ export default function LinksPage() {
         </header>
 
         {featured ? (
-          <Link
-            href={`/products/${featured.id}`}
-            className="group mt-8 overflow-hidden rounded-2xl border border-line bg-surface transition-shadow hover:shadow-[0_18px_40px_-26px_rgba(0,0,0,0.6)]"
-          >
-            <div className="relative">
-              <ProductThumb product={featured} className="aspect-[16/9] w-full" pad="p-8" />
-              <span className="absolute left-3 top-3 rounded-full bg-paper/90 px-2.5 py-1 text-[0.7rem] font-semibold text-ink">Featured pick</span>
-              <span className="nums absolute right-3 top-3 rounded-full bg-dark/80 px-2.5 py-1 text-xs font-semibold text-on-dark ring-1 ring-white/10">{featured.priceRange}</span>
+          <div className="mt-8 overflow-hidden rounded-2xl border border-line bg-surface">
+            <Link href={`/products/${featured.id}`} className="group block transition-shadow hover:shadow-[0_18px_40px_-26px_rgba(0,0,0,0.6)]">
+              <div className="relative">
+                <ProductThumb product={featured} className="aspect-[16/9] w-full" pad="p-8" />
+                <span className="absolute left-3 top-3 rounded-full bg-paper/90 px-2.5 py-1 text-[0.7rem] font-semibold text-ink">Featured pick</span>
+                <span className="nums absolute right-3 top-3 rounded-full bg-dark/80 px-2.5 py-1 text-xs font-semibold text-on-dark ring-1 ring-white/10">{featured.priceRange}</span>
+              </div>
+              <div className="px-4 pt-4">
+                <h2 className="font-display text-lg font-semibold text-ink group-hover:text-accent">{featured.name}</h2>
+                <p className="mt-1 line-clamp-2 text-sm text-ink-2">{featured.verdict}</p>
+              </div>
+            </Link>
+            {/* the direct money path: social traffic lands here — one tap to the tagged Amazon listing */}
+            <div className="px-4 pb-4 pt-3">
+              <OutboundLink product={featured} disclosure="compact" className="[&>a]:w-full" />
+              <Link href={`/products/${featured.id}`} className="mt-2 block text-center text-xs text-ink-dim underline decoration-line underline-offset-2 hover:text-ink-2">
+                Why it&apos;s our pick →
+              </Link>
             </div>
-            <div className="p-4">
-              <h2 className="font-display text-lg font-semibold text-ink group-hover:text-accent">{featured.name}</h2>
-              <p className="mt-1 line-clamp-2 text-sm text-ink-2">{featured.verdict}</p>
-            </div>
-          </Link>
+          </div>
         ) : null}
 
         <div className="mt-3 space-y-2.5">
