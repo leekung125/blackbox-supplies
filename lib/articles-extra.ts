@@ -1,9 +1,75 @@
 import type { Article } from "./articles";
 
+// --- Deep SEO article batch (30 long-tail buyer-intent pages) ---
+import { TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK } from "./articles/12v-vs-cordless-tire-inflator-trunk";
+import { BATTERY_OR_ALTERNATOR_ARTICLE } from "./articles/battery-or-alternator-how-to-tell";
+import { BEST_BATTERY_MAINTAINER_WINTER_STORAGE } from "./articles/best-battery-maintainer-for-a-car-in-winter-storage";
+import { BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID } from "./articles/best-battery-powered-portable-ac-for-tent-camping-off-grid";
+import { BEST_BLUETOOTH_TRACKER_WALLET_ANDROID } from "./articles/best-bluetooth-tracker-for-wallet-android-phone";
+import { BEST_JUMP_STARTER_DIESEL_TRUCK_COLD_WINTER } from "./articles/best-jump-starter-diesel-truck-cold-winter";
+import { BEST_MAGNETIC_WORK_LIGHT_UNDER_HOOD } from "./articles/best-magnetic-rechargeable-work-light-under-the-hood";
+import { BEST_MONITOR_LIGHT_BAR_EYE_STRAIN_ARTICLE } from "./articles/best-monitor-light-bar-eye-strain-home-office";
+import { BEST_NECK_FAN_HOT_FLASHES_NIGHT_SWEATS } from "./articles/best-neck-fan-for-hot-flashes-and-night-sweats";
+import { BEST_PORTABLE_AC_GARAGE_NO_WINDOW } from "./articles/best-portable-ac-garage-no-window";
+import { BEST_POWER_STATION_APARTMENT_POWER_OUTAGE } from "./articles/best-power-station-apartment-power-outage";
+import { BEST_TSA_LEGAL_LAPTOP_POWER_BANK } from "./articles/best-tsa-legal-power-bank-that-charges-a-laptop";
+import { CHARGE_LAPTOP_PHONE_WATCH_ONE_OUTLET_DESK } from "./articles/charge-laptop-phone-watch-one-outlet-desk";
+import { CORDLESS_IMPACT_WRENCH_FOR_CHANGING_TIRES_AT_HOME } from "./articles/cordless-impact-wrench-for-changing-tires-at-home";
+import { CORDLESS_VS_12V_INFLATOR_TRUCK_SUV } from "./articles/cordless-vs-12v-tire-inflator-truck-suv-tires";
+import { DASH_CAM_VS_SECURITY_CAMERA } from "./articles/dash-cam-parking-mode-vs-security-camera";
+import { WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE } from "./articles/do-car-window-breakers-work-on-laminated-glass";
+import { DO_POWER_STATIONS_WORK_IN_COLD_WEATHER } from "./articles/do-power-stations-work-in-cold-weather";
+import { SWAMP_COOLER_HUMIDITY_ARTICLE } from "./articles/do-swamp-coolers-work-in-humid-climates";
+import { HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID } from "./articles/how-many-solar-panels-to-keep-a-power-station-charged-off-grid";
+import { HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS } from "./articles/how-much-torque-impact-wrench-lug-nuts";
+import { MILWAUKEE_M12_VS_DEWALT_20V_INFLATOR } from "./articles/milwaukee-m12-vs-dewalt-20v-inflator-bare-tool";
+import { POWER_STATION_VS_JUMP_STARTER_WHICH_DO_I_NEED } from "./articles/portable-power-station-vs-jump-starter-which-do-i-need";
+import { CPAP_POWER_STATION_ARTICLE } from "./articles/power-station-to-run-cpap-overnight-camping";
+import { QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM } from "./articles/quietest-mini-fridge-for-a-bedroom";
+import { QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM } from "./articles/quietest-tower-fan-for-sleeping-in-a-bedroom";
+import { SINGLE_VS_DUAL_HOSE_AC } from "./articles/single-hose-vs-dual-hose-portable-ac";
+import { TOW_STRAP_VS_KINETIC_ROPE_ARTICLE } from "./articles/tow-strap-vs-kinetic-recovery-rope-suv-unstuck";
+import { WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE } from "./articles/what-size-power-station-to-run-a-refrigerator-in-a-power-outage";
+import { WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER } from "./articles/winter-car-emergency-kit-new-driver";
+
+const DEEP_SEO_BATCH: Article[] = [
+  TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK,
+  BATTERY_OR_ALTERNATOR_ARTICLE,
+  BEST_BATTERY_MAINTAINER_WINTER_STORAGE,
+  BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID,
+  BEST_BLUETOOTH_TRACKER_WALLET_ANDROID,
+  BEST_JUMP_STARTER_DIESEL_TRUCK_COLD_WINTER,
+  BEST_MAGNETIC_WORK_LIGHT_UNDER_HOOD,
+  BEST_MONITOR_LIGHT_BAR_EYE_STRAIN_ARTICLE,
+  BEST_NECK_FAN_HOT_FLASHES_NIGHT_SWEATS,
+  BEST_PORTABLE_AC_GARAGE_NO_WINDOW,
+  BEST_POWER_STATION_APARTMENT_POWER_OUTAGE,
+  BEST_TSA_LEGAL_LAPTOP_POWER_BANK,
+  CHARGE_LAPTOP_PHONE_WATCH_ONE_OUTLET_DESK,
+  CORDLESS_IMPACT_WRENCH_FOR_CHANGING_TIRES_AT_HOME,
+  CORDLESS_VS_12V_INFLATOR_TRUCK_SUV,
+  DASH_CAM_VS_SECURITY_CAMERA,
+  WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE,
+  DO_POWER_STATIONS_WORK_IN_COLD_WEATHER,
+  SWAMP_COOLER_HUMIDITY_ARTICLE,
+  HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID,
+  HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS,
+  MILWAUKEE_M12_VS_DEWALT_20V_INFLATOR,
+  POWER_STATION_VS_JUMP_STARTER_WHICH_DO_I_NEED,
+  CPAP_POWER_STATION_ARTICLE,
+  QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM,
+  QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM,
+  SINGLE_VS_DUAL_HOSE_AC,
+  TOW_STRAP_VS_KINETIC_ROPE_ARTICLE,
+  WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE,
+  WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER,
+];
+
 /**
  * Cooling + useful-gear SEO guides. GEO/E-E-A-T shape + affiliate buy picks.
  */
 export const EXTRA_ARTICLES: Article[] = [
+  ...DEEP_SEO_BATCH,
   {
     "slug": "best-car-chargers-and-inverters",
     "title": "The Best Car Chargers & Power Inverters (2026)",
