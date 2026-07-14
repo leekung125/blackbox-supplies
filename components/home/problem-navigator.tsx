@@ -193,9 +193,9 @@ export function ProblemNavigator() {
                 aria-selected={on}
                 onClick={() => setActiveId(p.id)}
                 className={[
-                  "group flex min-h-[44px] shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-left transition-colors",
+                  "group flex min-h-[44px] shrink-0 items-center gap-2 rounded-full px-4 py-2.5 text-left transition-all duration-300",
                   on
-                    ? "grad-border-amber text-accent-bright"
+                    ? "grad-border-amber text-accent-bright shadow-[0_0_20px_-5px_rgba(217,154,69,0.65)]"
                     : "border border-line-strong bg-surface text-ink-dim hover:text-ink",
                 ].join(" ")}
               >
@@ -284,19 +284,34 @@ export function ProblemNavigator() {
 
         {/* THE REVEAL PANEL */}
         <div className="lit-card grad-border-amber focal-glow relative overflow-hidden">
-          {/* the lamp behind the product */}
-          <div aria-hidden className="glow-amber right-[-6%] top-[-10%] h-[70%] w-[62%] sm:right-[2%] sm:h-[78%] sm:w-[52%]" />
+          {/* the lamp behind the product — breathing, like a real filament */}
+          <div aria-hidden className="glow-amber scn-breathe right-[-6%] top-[-10%] h-[70%] w-[62%] sm:right-[2%] sm:h-[78%] sm:w-[52%]" />
           {/* faint technical grid, masked to the panel */}
           <div aria-hidden className="atmo-grid pointer-events-none absolute inset-0 opacity-60" />
 
           <div className="relative p-6 sm:p-8 lg:p-10">
             {/* cockpit readout header */}
-            <div className="mb-6 flex items-center justify-between">
-              <span className="eyebrow text-ink-faint">Matched recommendation</span>
+            <div className="mb-2 flex items-center justify-between">
+              <span className="eyebrow inline-flex items-center gap-2 text-ink-faint">
+                <span aria-hidden className="scn-dot-pulse h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(217,154,69,0.55)]" />
+                Matched recommendation
+              </span>
               <span className="mono text-[0.6rem] tabular text-ink-faint">
                 <span className="text-accent-bright">0{activeIndex + 1}</span>
                 <span className="px-1 opacity-40">/</span>0{PROBLEMS.length}
               </span>
+            </div>
+            {/* readout progress filament — tracks the selected problem across the six */}
+            <div aria-hidden className="mb-6 h-px w-full overflow-hidden rounded-full bg-line-soft">
+              <div
+                className="h-full rounded-full"
+                style={{
+                  width: `${((activeIndex + 1) / PROBLEMS.length) * 100}%`,
+                  background: "linear-gradient(90deg, rgba(168,111,44,0.7), #d99a45 60%, #edba66)",
+                  boxShadow: "0 0 10px rgba(217,154,69,0.7)",
+                  transition: reduce ? "none" : "width 0.5s cubic-bezier(0.22,1,0.36,1)",
+                }}
+              />
             </div>
 
             <AnimatePresence mode="wait">
@@ -333,14 +348,17 @@ export function ProblemNavigator() {
                   </p>
 
                   {/* honest price band */}
-                  <div className="mt-6 inline-flex items-center gap-3 rounded-lg border border-line-strong bg-surface-2 px-4 py-2.5">
+                  <div
+                    className="mt-6 inline-flex items-center gap-3 rounded-lg border border-line-strong bg-surface-2 px-4 py-2.5"
+                    style={{ boxShadow: "inset 0 1px 0 rgba(235,227,209,0.06), 0 0 18px -8px rgba(217,154,69,0.5)" }}
+                  >
                     <span className="mono text-[0.58rem] uppercase tracking-[0.14em] text-ink-faint">Typical range</span>
-                    <span className="mono text-[1rem] font-semibold tabular text-accent-bright">{active.priceBand}</span>
+                    <span className="mono text-[1rem] font-semibold tabular text-accent-bright" style={{ textShadow: "0 0 14px rgba(237,186,102,0.4)" }}>{active.priceBand}</span>
                   </div>
 
                   {/* the two doors */}
                   <div className="mt-7 flex flex-wrap items-center gap-3">
-                    <Link href={active.guide.href} aria-label={active.guide.label} className="cta-amber min-h-[44px]">
+                    <Link href={active.guide.href} aria-label={active.guide.label} className="cta-amber cta-sheen min-h-[44px]">
                       See the picks
                       <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -365,7 +383,7 @@ export function ProblemNavigator() {
                   aria-label={active.guide.label}
                   className="group relative block"
                 >
-                  <div className="lit-card grad-border-amber focal-glow relative aspect-square overflow-hidden">
+                  <div className="lit-card grad-border-amber focal-glow relative aspect-square overflow-hidden transition-shadow duration-500 group-hover:shadow-[0_0_0_1px_rgba(217,154,69,0.45),0_0_38px_-6px_rgba(217,154,69,0.6),0_0_120px_-18px_rgba(217,154,69,0.4)]">
                     <Image
                       src={active.img}
                       alt={`${active.category} — ${active.problem}`}
@@ -375,6 +393,26 @@ export function ProblemNavigator() {
                       className="h-full w-full select-none object-cover transition-transform duration-[700ms] ease-out group-hover:scale-[1.04]"
                     />
                     <div aria-hidden className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.06]" />
+                    {/* contact shadow: the scene settles into the card, product reads grounded */}
+                    <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-[#0d0906]/55 to-transparent" />
+                    {/* HUD corner brackets — the reticle locks onto the matched gear */}
+                    {[
+                      "left-2.5 top-2.5 border-l-2 border-t-2 rounded-tl-md",
+                      "right-2.5 top-2.5 border-r-2 border-t-2 rounded-tr-md",
+                      "left-2.5 bottom-2.5 border-l-2 border-b-2 rounded-bl-md",
+                      "right-2.5 bottom-2.5 border-r-2 border-b-2 rounded-br-md",
+                    ].map((pos) => (
+                      <span
+                        key={pos}
+                        aria-hidden
+                        className={`pointer-events-none absolute h-4 w-4 border-accent-bright/70 opacity-60 transition-all duration-500 group-hover:opacity-100 ${pos}`}
+                        style={{ filter: "drop-shadow(0 0 6px rgba(217,154,69,0.8))" }}
+                      />
+                    ))}
+                    {/* readout chip pinned to the scene */}
+                    <span className="pill-amber pointer-events-none absolute bottom-3 left-3 backdrop-blur-sm" style={{ background: "linear-gradient(180deg, rgba(20,14,7,0.78), rgba(20,14,7,0.66))" }}>
+                      {active.category}
+                    </span>
                   </div>
                 </Link>
               </motion.div>

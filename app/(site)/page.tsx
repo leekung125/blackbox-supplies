@@ -79,33 +79,75 @@ export default function HomePage() {
 
   return (
     <>
+      {/* Page-scoped cinema: entrance cascade, slow ken-burns settle, drifting embers.
+          Pure CSS, always ends visible, fully reduced-motion gated. */}
+      <style>{`
+        .bbxh-scene { position: absolute; inset: 0; animation: bbxh-drift 26s cubic-bezier(0.22,1,0.36,1) both; will-change: transform; }
+        @keyframes bbxh-drift { from { transform: scale(1.07) translateX(1.2%); } to { transform: scale(1) translateX(0); } }
+        .bbxh-in { opacity: 0; animation: bbxh-rise 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+        @keyframes bbxh-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        .bbxh-d1 { animation-delay: 0.08s; } .bbxh-d2 { animation-delay: 0.2s; } .bbxh-d3 { animation-delay: 0.34s; }
+        .bbxh-d4 { animation-delay: 0.48s; } .bbxh-d5 { animation-delay: 0.62s; }
+        .bbxh-tick { transform-origin: left; animation: bbxh-tick 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
+        @keyframes bbxh-tick { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        .bbxh-ember { position: absolute; bottom: 8%; width: 4px; height: 4px; border-radius: 9999px;
+          background: radial-gradient(circle, #ffd9a0, #d99a45 60%, transparent);
+          box-shadow: 0 0 8px 1px rgba(217,154,69,0.65); opacity: 0;
+          animation: bbxh-ember 11s linear infinite; }
+        @keyframes bbxh-ember {
+          0% { opacity: 0; transform: translate3d(0, 0, 0) scale(0.7); }
+          8% { opacity: 0.85; }
+          55% { opacity: 0.5; }
+          100% { opacity: 0; transform: translate3d(2.2rem, -78vh, 0) scale(0.25); } }
+        .bbxh-stat { position: relative; transition: transform 0.4s cubic-bezier(0.22,1,0.36,1); }
+        .bbxh-stat::before { content: ""; position: absolute; top: -1.55rem; left: 0; height: 2px; width: 1.6rem; border-radius: 2px;
+          background: linear-gradient(90deg, var(--color-accent), transparent); opacity: 0.85; }
+        .bbxh-stat:hover { transform: translateY(-2px); }
+        .fcx-fill { transform-origin: left; animation: fcx-fill 1.1s cubic-bezier(0.22,1,0.36,1) both; }
+        @keyframes fcx-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+        @media (prefers-reduced-motion: reduce) {
+          .bbxh-scene, .bbxh-in, .bbxh-tick, .fcx-fill { animation: none; opacity: 1; transform: none; }
+          .bbxh-ember { display: none; }
+          .bbxh-stat:hover { transform: none; }
+        }
+      `}</style>
+
       {/* HERO — the cinematic "Gear Decision Cockpit" scene; headline reads over a warm-to-clear scrim */}
       <section className="relative isolate overflow-hidden">
-        <div aria-hidden className="absolute inset-0 -z-10">
-          {/* the scene: landscape on desktop, portrait crop on mobile */}
-          <Image src="/brand/hero-command.png" alt="" fill priority sizes="100vw" className="hidden object-cover object-center sm:block" />
-          <Image src="/brand/hero-command-mobile.png" alt="" fill priority sizes="100vw" className="object-cover object-center sm:hidden" />
+        <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
+          {/* the scene: landscape on desktop, portrait crop on mobile — slow ken-burns settle */}
+          <div className="bbxh-scene">
+            <Image src="/brand/hero-command.png" alt="" fill priority sizes="100vw" className="hidden object-cover object-center sm:block" />
+            <Image src="/brand/hero-command-mobile.png" alt="" fill priority sizes="100vw" className="object-cover object-center sm:hidden" />
+          </div>
           {/* readability scrims: dark on the left (behind copy) fading to reveal the gear + glow on the right */}
           <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, #070504 0%, rgba(7,5,4,0.93) 24%, rgba(7,5,4,0.6) 50%, rgba(7,5,4,0.18) 76%, rgba(7,5,4,0.05) 100%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, #070504 2%, rgba(7,5,4,0.25) 26%, transparent 56%)" }} />
           <div className="absolute inset-0 sm:hidden" style={{ background: "linear-gradient(0deg, #070504 0%, rgba(7,5,4,0.4) 34%, rgba(7,5,4,0.55) 100%)" }} />
+          {/* the lamp: a breathing amber bloom over the gear side of the scene */}
+          <div className="glow-amber-soft scn-breathe right-[-8%] top-[6%] hidden h-[62%] w-[46%] sm:block" style={{ opacity: 0.7 }} />
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent" />
+          {/* drifting embers — sparks rising off the amber lamp */}
+          <div className="bbxh-ember left-[58%]" style={{ animationDelay: "0s" }} />
+          <div className="bbxh-ember left-[72%]" style={{ animationDelay: "3.4s", animationDuration: "13s" }} />
+          <div className="bbxh-ember left-[84%]" style={{ animationDelay: "6.8s", animationDuration: "10s" }} />
+          <div className="bbxh-ember left-[64%]" style={{ animationDelay: "8.6s", animationDuration: "14s" }} />
         </div>
         <div className="mx-auto flex min-h-[86vh] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6 lg:min-h-[90vh]">
           <div className="max-w-xl">
-            <div className="flex items-center gap-2.5">
-              <span className="h-px w-6 bg-accent" aria-hidden />
+            <div className="bbxh-in bbxh-d1 flex items-center gap-2.5">
+              <span className="bbxh-tick h-px w-6 bg-accent" aria-hidden />
               <span className="mono text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-accent-bright">The utility field guide</span>
             </div>
-            <h1 className="hero-display headline-glow mt-6 text-ink-strong">
-              The right gear,<br />before you <span className="amber-word">need</span> it.
+            <h1 className="bbxh-in bbxh-d2 hero-display headline-glow mt-6 text-ink-strong">
+              The right gear,<br />before you <span className="amber-word" style={{ textShadow: "0 0 34px rgba(237,186,102,0.45)" }}>need</span> it.
             </h1>
-            <p className="mt-6 max-w-md text-[1.15rem] leading-relaxed text-ink/90">
+            <p className="bbxh-in bbxh-d3 mt-6 max-w-md text-[1.15rem] leading-relaxed text-ink/90">
               Utility &amp; readiness gear for real problems — dead batteries, flat tires, outages, heat. We research,
               compare, and cite, so you decide in minutes: what to buy, why it wins, and the honest catch.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-4">
-              <Link href="#start-here" className="cta-amber">
+            <div className="bbxh-in bbxh-d4 mt-9 flex flex-wrap items-center gap-4">
+              <Link href="#start-here" className="cta-amber cta-sheen">
                 What&rsquo;s the problem?
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M12 5 V19 M6 13 L12 19 L18 13" /></svg>
               </Link>
@@ -114,11 +156,12 @@ export default function HomePage() {
                 <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12 H19 M13 6 L19 12 L13 18" /></svg>
               </Link>
             </div>
-            <div className="mt-12 flex gap-10 border-t border-line-soft pt-6">
+            <div className="bbxh-in bbxh-d5 relative mt-12 flex gap-10 pt-6">
+              <div aria-hidden className="rule-fade absolute inset-x-0 top-0" />
               {[{ n: totalPicks, s: "+", label: "researched picks" }, { n: articles.length, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
-                <div key={st.label}>
+                <div key={st.label} className="bbxh-stat">
                   <div className="tabular font-display text-[2.4rem] font-medium leading-none text-ink-strong">
-                    <CountUp to={st.n} /><span className="text-accent-bright">{st.s}</span>
+                    <CountUp to={st.n} /><span className="text-accent-bright" style={{ textShadow: "0 0 18px rgba(237,186,102,0.5)" }}>{st.s}</span>
                   </div>
                   <div className="mono mt-2 text-[0.6rem] uppercase tracking-[0.14em] text-ink-faint">{st.label}</div>
                 </div>
