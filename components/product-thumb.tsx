@@ -24,13 +24,13 @@ export function ProductThumb({
   // 1. Cinematic in-context scene — full-bleed.
   if (img && (img.includes("/products/scene/") || img.includes("/shot-"))) {
     return (
-      <div className={`relative overflow-hidden bg-[#0c0906] ${className}`}>
+      <div className={`img-shimmer relative overflow-hidden bg-[#0c0906] ${className}`}>
         <Image
           src={img}
           alt={product.name}
           fill
           sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 92vw"
-          className="object-cover transition-transform duration-[750ms] ease-out group-hover:scale-[1.06]"
+          className="relative z-[1] object-cover transition-transform duration-[750ms] ease-out group-hover:scale-[1.06]"
         />
         <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/[0.05]" />
       </div>

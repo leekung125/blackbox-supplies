@@ -6,6 +6,7 @@ import { ProblemNavigator } from "@/components/home/problem-navigator";
 import { FeaturedComparison } from "@/components/home/featured-comparison";
 import { Spotlight } from "@/components/fx/spotlight";
 import { Reveal } from "@/components/motion/reveal";
+import { CountUp } from "@/components/motion/count-up";
 import { getAllArticles } from "@/lib/articles";
 import { getAllProducts, getCoreProducts, getProductById, type Product } from "@/lib/products";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
@@ -114,9 +115,11 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="mt-12 flex gap-10 border-t border-line-soft pt-6">
-              {[{ n: `${totalPicks}`, s: "+", label: "researched picks" }, { n: `${articles.length}`, s: "", label: "buying guides" }, { n: "0", s: "", label: "paid placements" }].map((st) => (
+              {[{ n: totalPicks, s: "+", label: "researched picks" }, { n: articles.length, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
                 <div key={st.label}>
-                  <div className="tabular font-display text-[2.4rem] font-medium leading-none text-ink-strong">{st.n}<span className="text-accent-bright">{st.s}</span></div>
+                  <div className="tabular font-display text-[2.4rem] font-medium leading-none text-ink-strong">
+                    <CountUp to={st.n} /><span className="text-accent-bright">{st.s}</span>
+                  </div>
                   <div className="mono mt-2 text-[0.6rem] uppercase tracking-[0.14em] text-ink-faint">{st.label}</div>
                 </div>
               ))}

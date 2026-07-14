@@ -3,6 +3,8 @@ import Script from "next/script";
 import { Newsreader, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { OutboundTracker } from "@/components/outbound-tracker";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { Atmosphere } from "@/components/atmosphere";
 import { BRAND } from "@/lib/content";
@@ -88,7 +90,9 @@ export default function RootLayout({
         <Atmosphere />
         <div className="grain-fixed" aria-hidden />
         <SmoothScroll>{children}</SmoothScroll>
+        <OutboundTracker />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

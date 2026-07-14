@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
@@ -23,12 +23,24 @@ const NAV = [
 /** Dark-accent header — brand frame + always-visible search (the #1 findability path). */
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const reduce = useReducedMotion();
   const isActive = (href: string) => pathname === href || pathname?.startsWith(href + "/");
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 bg-dark text-on-dark">
+    <header
+      className={`sticky top-0 z-50 border-b bg-dark text-on-dark transition-[box-shadow,border-color] duration-300 ${
+        scrolled ? "border-dark-line shadow-[0_12px_34px_-18px_rgba(0,0,0,0.95)]" : "border-transparent"
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:gap-4 sm:px-6">
         <Link href="/" aria-label="BlackBox Supplies — home" className="shrink-0">
           <Wordmark light markClassName="h-6 w-6 sm:h-7 sm:w-7" size="text-[0.95rem] sm:text-[1.05rem]" showMark />

@@ -333,9 +333,155 @@
   @keyframes scrub-hint { 0%, 100% { left: 0; } 50% { left: calc(100% - 8px); } }
   @media (prefers-reduced-motion: reduce) { .scrub-dot { animation: none; } }
 
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SCENARIO SIGNATURE-COLOR SYSTEM — "WHEN ___ BREAKS"
+     Each scenario page sets --sc-hi / --sc-lo / --sc-2 (bright / deep / undertone)
+     on its root; every utility below threads THAT color through the page as glow
+     + accent on the warm-espresso ground. Color is light, never a fill behind
+     body text. All motion is transform/opacity only + reduced-motion guarded.
+     ═══════════════════════════════════════════════════════════════════════════ */
+
+  /* text accents in the scenario color */
+  .scn-text { color: var(--sc-hi); }
+  .scn-price { color: var(--sc-hi); text-shadow: 0 0 16px color-mix(in srgb, var(--sc-lo) 55%, transparent); }
+  .scn-hover-text { transition: color 0.3s ease; }
+  .scn-hover-text:hover { color: var(--sc-hi); }
+  .scn-group-text { transition: color 0.3s ease; }
+  .group:hover .scn-group-text { color: var(--sc-hi); }
+
+  /* display ink that catches the scenario light at the baseline (still ~AAA on card) */
+  .scn-ink {
+    background: linear-gradient(180deg, var(--color-ink-strong) 40%, color-mix(in srgb, var(--sc-hi) 52%, var(--color-ink-strong)) 115%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: var(--color-ink-strong);
+  }
+
+  /* LARGE layered ambient aura behind the hero — the scenario's light in the room */
+  .scn-hero-aura { position: absolute; inset: -16% -12%; pointer-events: none; z-index: -1;
+    background:
+      radial-gradient(44% 46% at 16% 12%, color-mix(in srgb, var(--sc-lo) 17%, transparent), transparent 70%),
+      radial-gradient(50% 54% at 86% 30%, color-mix(in srgb, var(--sc-hi) 12%, transparent), transparent 72%),
+      radial-gradient(38% 42% at 58% 94%, color-mix(in srgb, var(--sc-2, var(--sc-lo)) 10%, transparent), transparent 74%); }
+
+  /* colored glow blobs — the scenario's lamp light */
+  .scn-glow { position: absolute; border-radius: 9999px; pointer-events: none; filter: blur(46px); mix-blend-mode: screen;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--sc-hi) 44%, transparent), color-mix(in srgb, var(--sc-lo) 16%, transparent) 46%, transparent 74%); }
+  .scn-glow-soft { position: absolute; border-radius: 9999px; pointer-events: none; filter: blur(80px);
+    background: radial-gradient(circle, color-mix(in srgb, var(--sc-lo) 18%, transparent), transparent 66%); }
+
+  /* ambient cinema — slow drift + breathing lamp (composited transform/opacity only) */
+  .scn-drift { animation: scn-drift 16s ease-in-out infinite alternate; }
+  @keyframes scn-drift { from { transform: translate3d(-2.5%, -2%, 0) scale(1); } to { transform: translate3d(3%, 4%, 0) scale(1.1); } }
+  .scn-breathe { animation: scn-breathe 5.5s ease-in-out infinite; }
+  @keyframes scn-breathe { 0%, 100% { opacity: 0.72; transform: scale(1); } 50% { opacity: 1; transform: scale(1.12); } }
+  .scn-breathe-ring { position: relative; }
+  .scn-breathe-ring::after { content: ""; position: absolute; inset: 0; border-radius: 1rem; pointer-events: none;
+    box-shadow: 0 0 40px -8px color-mix(in srgb, var(--sc-lo) 62%, transparent), 0 0 120px -18px color-mix(in srgb, var(--sc-lo) 45%, transparent);
+    animation: scn-ring 5.5s ease-in-out infinite; }
+  @keyframes scn-ring { 0%, 100% { opacity: 0.4; } 50% { opacity: 1; } }
+
+  /* the focal ring + colored gradient border for THE pick card */
+  .scn-focal { box-shadow: 0 0 0 1px color-mix(in srgb, var(--sc-hi) 34%, transparent),
+    0 0 30px -6px color-mix(in srgb, var(--sc-lo) 52%, transparent),
+    0 0 110px -18px color-mix(in srgb, var(--sc-lo) 36%, transparent); }
+  .scn-grad-border { border: 1px solid transparent;
+    background: linear-gradient(var(--color-card), var(--color-card)) padding-box,
+      linear-gradient(135deg, color-mix(in srgb, var(--sc-hi) 62%, transparent), color-mix(in srgb, var(--sc-lo) 8%, transparent)) border-box; }
+
+  /* card depth in the scenario color — a lit top edge, then edge-glow + lift on hover */
+  .scn-card { position: relative; }
+  .scn-card::before { content: ""; position: absolute; inset: 0 0 auto 0; height: 2px; z-index: 2; pointer-events: none;
+    border-radius: 1rem 1rem 0 0;
+    background: linear-gradient(90deg, transparent 2%, color-mix(in srgb, var(--sc-hi) 52%, transparent) 26%, color-mix(in srgb, var(--sc-hi) 52%, transparent) 74%, transparent 98%);
+    box-shadow: 0 0 14px 0 color-mix(in srgb, var(--sc-lo) 36%, transparent); }
+  .scn-lift { transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s cubic-bezier(0.22,1,0.36,1); }
+  .scn-lift:hover { transform: translateY(-4px);
+    box-shadow: inset 0 1px 0 rgba(235,227,209,0.12),
+      0 0 0 1px color-mix(in srgb, var(--sc-hi) 44%, transparent),
+      0 0 26px -6px color-mix(in srgb, var(--sc-lo) 55%, transparent),
+      0 18px 34px -10px rgba(0,0,0,0.62), 0 54px 74px -30px rgba(0,0,0,0.55); }
+
+  /* the tier spine — a lit filament — and the 01/02/03 gauge nodes */
+  .scn-spine { width: 2px; background: linear-gradient(to bottom,
+      color-mix(in srgb, var(--sc-hi) 75%, transparent),
+      color-mix(in srgb, var(--sc-lo) 30%, transparent) 55%, transparent);
+    box-shadow: 0 0 12px 0 color-mix(in srgb, var(--sc-lo) 40%, transparent); }
+  .scn-node { display: flex; align-items: center; justify-content: center; border-radius: 9999px;
+    border: 1px solid color-mix(in srgb, var(--sc-hi) 62%, transparent);
+    background: radial-gradient(120% 120% at 50% 18%, color-mix(in srgb, var(--sc-lo) 30%, transparent), var(--color-surface-2) 78%);
+    box-shadow: 0 0 20px -4px var(--sc-lo), inset 0 0 12px -5px var(--sc-hi);
+    color: var(--sc-hi); font-family: var(--font-mono); font-variant-numeric: tabular-nums;
+    text-shadow: 0 0 10px color-mix(in srgb, var(--sc-lo) 70%, transparent); }
+  .scn-tier-title { text-shadow: 0 0 28px color-mix(in srgb, var(--sc-lo) 50%, transparent); }
+
+  /* glowing section hairline in the scenario color (never a dead line) */
+  .rule-scn { height: 1px; border: 0;
+    background: linear-gradient(90deg, color-mix(in srgb, var(--sc-hi) 55%, transparent), color-mix(in srgb, var(--sc-lo) 16%, transparent) 42%, transparent);
+    box-shadow: 0 0 12px 0 color-mix(in srgb, var(--sc-lo) 32%, transparent); }
+
+  /* scenario pill — the colored urgency chip, with a slow composited ping */
+  .pill-scn { display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 9999px; padding: 0.25rem 0.7rem;
+    border: 1px solid color-mix(in srgb, var(--sc-hi) 55%, transparent);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--sc-lo) 22%, rgba(16,12,7,0.72)), color-mix(in srgb, var(--sc-lo) 8%, rgba(16,12,7,0.72)));
+    color: var(--sc-hi); font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em;
+    text-shadow: 0 0 12px color-mix(in srgb, var(--sc-lo) 65%, transparent);
+    box-shadow: 0 0 18px -6px var(--sc-lo); }
+  .scn-pulse { position: relative; }
+  .scn-pulse::after { content: ""; position: absolute; inset: -3px; border-radius: 9999px;
+    border: 1px solid var(--sc-hi); opacity: 0;
+    animation: scn-ping 3.2s cubic-bezier(0.2, 0.6, 0.35, 1) infinite; }
+  @keyframes scn-ping { 0% { opacity: 0.75; transform: scale(0.94); } 65%, 100% { opacity: 0; transform: scale(1.25); } }
+  .scn-dot-pulse { animation: scn-dot 2.4s ease-in-out infinite; }
+  @keyframes scn-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+
+  /* CTA sheen sweep — one pass of light across the primary CTA on hover */
+  .cta-sheen { position: relative; overflow: hidden; }
+  .cta-sheen::after { content: ""; position: absolute; top: -20%; bottom: -20%; left: 0; width: 34%;
+    background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: translateX(-140%) skewX(-16deg); transition: transform 0.85s cubic-bezier(0.22,1,0.36,1); pointer-events: none; }
+  .cta-sheen:hover::after { transform: translateX(420%) skewX(-16deg); }
+
+  /* the honest catch — its own ember character (warm/danger), apart from the brown */
+  .grad-border-ember { border: 1px solid transparent;
+    background: linear-gradient(var(--color-card), var(--color-card)) padding-box,
+      linear-gradient(135deg, rgba(242,99,80,0.58), rgba(217,154,69,0.10)) border-box; }
+  .glow-ember { position: absolute; border-radius: 9999px; pointer-events: none; filter: blur(70px);
+    background: radial-gradient(circle, rgba(242,99,80,0.17), rgba(224,120,60,0.08) 45%, transparent 68%); }
+  .pill-ember { display: inline-flex; align-items: center; gap: 0.4rem; border-radius: 9999px; padding: 0.25rem 0.7rem;
+    background: linear-gradient(180deg, rgba(242,99,80,0.16), rgba(224,120,60,0.06));
+    border: 1px solid rgba(242,99,80,0.42); color: #ffa08c;
+    font-family: var(--font-mono); font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.14em; }
+
+  /* /breaks hub — the multi-signal front-door aura (amber + cyan + beacon red) */
+  .hub-aura { position: absolute; inset: -22% -70% -50% -20%; pointer-events: none; z-index: -1;
+    background:
+      radial-gradient(42% 46% at 10% 16%, rgba(255,194,77,0.13), transparent 70%),
+      radial-gradient(36% 44% at 58% 4%, rgba(95,211,236,0.10), transparent 72%),
+      radial-gradient(34% 42% at 92% 22%, rgba(242,99,80,0.11), transparent 70%); }
+
+  /* image loading shimmer — behind product thumbs until the real image paints over it */
+  .img-shimmer::before { content: ""; position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(100deg, #0c0906 30%, #1c1610 50%, #0c0906 70%);
+    background-size: 200% 100%; animation: img-sheen 1.5s ease-in-out infinite; }
+  @keyframes img-sheen { to { background-position: -200% 0; } }
+
+  /* freshness pulse dot next to "Updated <date>" labels */
+  .fresh-dot { position: relative; display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 9999px;
+    background: #d99a45; box-shadow: 0 0 0 0 rgba(217,154,69,0.55); animation: fresh-pulse 2.6s ease-out infinite; }
+  @keyframes fresh-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(217,154,69,0.5); }
+    70% { box-shadow: 0 0 0 7px rgba(217,154,69,0); }
+    100% { box-shadow: 0 0 0 0 rgba(217,154,69,0); } }
+
   @media (prefers-reduced-motion: reduce) {
     .rise, .stagger-rise > * { animation: none; opacity: 1; transform: none; }
+    .img-shimmer::before, .fresh-dot { animation: none; }
     .card-lift:hover, .glow-hover:hover { transform: none; }
+    .scn-drift, .scn-breathe, .scn-dot-pulse { animation: none; }
+    .scn-breathe-ring::after { animation: none; opacity: 0.7; }
+    .scn-pulse::after { animation: none; opacity: 0; }
+    .scn-lift:hover { transform: none; }
+    .cta-sheen::after { display: none; }
     html { scroll-behavior: auto; }
   }
 }
