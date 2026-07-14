@@ -1,17 +1,51 @@
 import Link from "next/link";
-import type { Article } from "@/lib/articles";
-import { getGuideBySlug } from "@/lib/guides";
+import { getArticleBySlug, type Article } from "@/lib/articles";
+import { getAnyGuideBySlug, guideRefForSlug } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
-import { GuideCard } from "@/components/guide-card";
+import { EDITOR } from "@/lib/content";
 import { ProductCard } from "@/components/product-card";
 import { GuidePicks } from "@/components/guide-picks";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { resolvePicks, matchByText } from "@/lib/affiliate-picks";
 
+/** A related link normalized across ALL content types so the card render is shape-safe. */
+interface RelatedRef {
+  slug: string;
+  href: string;
+  title: string;
+  label: string;
+  dek: string;
+}
+
+/**
+ * Resolve a related slug against EVERY content model, not just the two legacy guides.
+ * getAnyGuideBySlug covers legacy guides AND the comparison guides (getComparisonGuideBySlug);
+ * getArticleBySlug covers the question/comparison articles. Before this, every article- and
+ * comparison-typed related link was silently dropped, making the deep-SEO batch dead-ends.
+ */
+function resolveRelated(slug: string): RelatedRef | null {
+  const g = getAnyGuideBySlug(slug);
+  if (g) {
+    const ref = guideRefForSlug(slug);
+    return { slug, href: `/guides/${slug}`, title: g.title, label: ref?.categoryLabel ?? "Guide", dek: g.dek };
+  }
+  const a = getArticleBySlug(slug);
+  if (a) return { slug, href: `/guides/${a.slug}`, title: a.title, label: String(a.category), dek: a.dek };
+  return null;
+}
+
+/** Mirror of schema.ts toISO: display date ("July 2026") → ISO yyyy-mm-dd for <time dateTime>. */
+function toISODate(s: string): string {
+  const d = new Date(s);
+  return Number.isNaN(d.getTime()) ? "2026-07-01" : d.toISOString().slice(0, 10);
+}
+
 /** Renders a question/comparison article in the site's editorial voice. */
 export function ArticleView({ article }: { article: Article }) {
-  const related = article.relatedGuides.map(getGuideBySlug).filter(Boolean);
+  const related = article.relatedGuides
+    .map(resolveRelated)
+    .filter((r): r is RelatedRef => r !== null);
   const picks = resolvePicks(article.picks);
 
   return (
@@ -27,12 +61,17 @@ export function ArticleView({ article }: { article: Article }) {
           <span className="eyebrow eyebrow-accent">{article.category}</span>
           <span className="text-ink-faint">·</span>
           <span className="text-ink-faint">{article.readMinutes} min read</span>
-          <span className="text-ink-faint">·</span>
-          <span className="text-ink-faint">Updated {article.updated}</span>
         </div>
         <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-[2.9rem]">
           {article.title}
         </h1>
+        <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.85rem] text-ink-dim">
+          <Link href="/methodology" className="ulink font-medium">By {EDITOR.name}</Link>
+          <span aria-hidden className="text-ink-faint">·</span>
+          <span>
+            Updated <time dateTime={toISODate(article.updated)}>{article.updated}</time>
+          </span>
+        </div>
         <p className="lede mt-4">{article.dek}</p>
       </header>
 
@@ -142,7 +181,25 @@ export function ArticleView({ article }: { article: Article }) {
         <section className="mt-12">
           <h2 className="font-display text-2xl font-semibold text-ink">Keep reading</h2>
           <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {related.map((g) => (g ? <GuideCard key={g.slug} guide={g} /> : null))}
+            {related.map((r) => (
+              <Link
+                key={r.slug}
+                href={r.href}
+                className="bbx-card card-lift group flex h-full flex-col p-5"
+              >
+                <span className="eyebrow eyebrow-accent">{r.label}</span>
+                <h3 className="mt-2.5 font-display text-xl font-semibold leading-[1.15] text-ink-strong transition-colors group-hover:text-accent">
+                  {r.title}
+                </h3>
+                <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-ink-dim">{r.dek}</p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">
+                  Read more
+                  <svg className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                    <path d="M5 12 H19 M13 6 L19 12 L13 18" />
+                  </svg>
+                </span>
+              </Link>
+            ))}
           </div>
         </section>
       ) : null}

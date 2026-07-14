@@ -131,7 +131,11 @@ export const BEST_BLUETOOTH_TRACKER_WALLET_ANDROID: Article = {
       a: "An iPhone user is usually better off with the AirTag. On iOS it taps the largest crowd-find network and adds ultra-wideband Precision Finding that walks you to the exact spot indoors, and the 4-pack is cost-effective. The Clip 5's advantage is its Android support, which an iPhone owner doesn't need.",
     },
   ],
-  relatedGuides: [],
+  relatedGuides: [
+    "charge-laptop-phone-watch-one-outlet-desk",
+    "best-monitor-light-bar-for-eye-strain-small-home-office",
+    "best-tsa-legal-power-bank-that-charges-a-laptop",
+  ],
   sources: [
     { label: "Apple AirTag official product page", url: "https://www.apple.com/airtag/" },
     { label: "Pebblebee Clip (rechargeable tracker) official page", url: "https://pebblebee.com/products/clip" },

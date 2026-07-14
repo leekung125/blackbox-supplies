@@ -124,7 +124,11 @@ export const QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM: Article = {
       a: "It can. The Frigidaire EFR840 retro two-door adds a real separate freezer behind its own door, but its own spec notes say it runs louder than premium compact fridges. If quiet is your top priority, the single-door Midea WHS-121LB1 (~42 dB) is the quieter unit; choose the two-door mainly for its styling and separate freezer.",
     },
   ],
-  relatedGuides: [],
+  relatedGuides: [
+    "quietest-tower-fan-for-sleeping-in-a-bedroom",
+    "best-neck-fan-for-hot-flashes-and-night-sweats",
+    "best-tower-fans-compared",
+  ],
   sources: [
     { label: "USDA — Refrigeration and Food Safety (the 40°F safe-storage ceiling)", url: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/refrigeration-and-food-safety" },
     { label: "ENERGY STAR — Refrigerators (efficiency ratings)", url: "https://www.energystar.gov/products/refrigerators" },

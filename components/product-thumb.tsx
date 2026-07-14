@@ -14,10 +14,16 @@ export function ProductThumb({
   product,
   className = "",
   pad = "p-6 sm:p-8",
+  priority = false,
 }: {
   product: Pick<Product, "image" | "name" | "brand" | "category" | "keySpec" | "subcategory" | "priceRange">;
   className?: string;
   pad?: string;
+  /**
+   * LCP lever: set true ONLY for the above-the-fold detail-page hero so next/image eager-loads +
+   * preloads it. Grid, related, and category thumbs leave this false so they stay lazy.
+   */
+  priority?: boolean;
 }) {
   const img = product.image;
 
@@ -29,6 +35,7 @@ export function ProductThumb({
           src={img}
           alt={product.name}
           fill
+          priority={priority}
           sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 92vw"
           className="relative z-[1] object-cover transition-transform duration-[750ms] ease-out group-hover:scale-[1.06]"
         />
@@ -37,18 +44,25 @@ export function ProductThumb({
     );
   }
 
-  // 2. Cutout on a dark warm-glow tile.
+  // 2. Cutout on a dark warm-glow tile — routed through next/image (AVIF/WebP + intrinsic sizing)
+  //    so the multi-MB source PNG is optimized and never causes CLS. `fill` needs a positioned
+  //    box; the padded wrapper insets the image exactly like the old `pad` on the <img> did.
   if (img) {
     return (
       <div className={`cutout-tile relative overflow-hidden ${className}`}>
         <div className="pointer-events-none absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-white/[0.04] to-transparent" />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={img}
-          alt={product.name}
-          loading="lazy"
-          className={`cutout-shadow relative h-full w-full object-contain ${pad} transition-transform duration-[650ms] ease-out group-hover:scale-[1.06]`}
-        />
+        <div className={`absolute inset-0 ${pad}`}>
+          <div className="relative h-full w-full">
+            <Image
+              src={img}
+              alt={product.name}
+              fill
+              priority={priority}
+              sizes="(min-width: 1024px) 40vw, (min-width: 640px) 45vw, 92vw"
+              className="cutout-shadow object-contain transition-transform duration-[650ms] ease-out group-hover:scale-[1.06]"
+            />
+          </div>
+        </div>
       </div>
     );
   }

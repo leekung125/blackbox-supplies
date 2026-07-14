@@ -237,7 +237,11 @@
   .well-field { background: radial-gradient(90% 80% at 50% 20%, #17110a 0%, #100c07 60%, #0a0704 100%); }
 
   /* global film grain — kills banding + adds night-paper texture (soft-light, subtle) */
+  /* isolation:isolate gives the soft-light grain its own stacking context so the browser can keep
+     it as an isolated composited group instead of re-blending the ENTIRE viewport every time
+     anything underneath repaints. Same look (soft-light @0.05), far cheaper. */
   .grain-fixed { position: fixed; inset: 0; z-index: 100; pointer-events: none; opacity: 0.05; mix-blend-mode: soft-light;
+    isolation: isolate; transform: translateZ(0);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
   /* fixed corner vignette — the room darkens at the edges */
   .vignette-fixed { position: fixed; inset: 0; z-index: 99; pointer-events: none;
@@ -324,7 +328,15 @@
     -webkit-mask-image: radial-gradient(130% 100% at 50% -10%, #000 0%, transparent 78%);
     mask-image: radial-gradient(130% 100% at 50% -10%, #000 0%, transparent 78%);
   }
-  .atmo-cursor { background: radial-gradient(28rem 28rem at var(--mx, 50%) var(--my, 32%), rgba(224, 163, 82, 0.13), transparent 62%); }
+  /* The cursor glow is a STATIC gradient anchored at the layer's own origin, then slid to the
+     pointer with a GPU transform. --mx/--my are viewport-percent, and a full-viewport layer's
+     percentage translate resolves against the viewport — so this composites (no per-frame paint). */
+  .atmo-cursor { background: radial-gradient(28rem 28rem at 0% 0%, rgba(224, 163, 82, 0.13), transparent 62%);
+    transform: translate3d(var(--mx, 50%), var(--my, 32%), 0); will-change: transform; }
+
+  /* Spotlight (components/fx/spotlight.tsx) — the hover glow reads --sx/--sy/--sspot written
+     by an rAF-throttled handler, so the position updates without a React re-render per event. */
+  .spotlight-glow { background: radial-gradient(var(--sspot, 220px) circle at var(--sx, -400px) var(--sy, -400px), rgba(224, 163, 82, 0.16), transparent 68%); }
 
   .text-glow { text-shadow: 0 0 32px rgba(217, 154, 69, 0.28); }
 
@@ -459,11 +471,12 @@
       radial-gradient(36% 44% at 58% 4%, rgba(95,211,236,0.10), transparent 72%),
       radial-gradient(34% 42% at 92% 22%, rgba(242,99,80,0.11), transparent 70%); }
 
-  /* image loading shimmer — behind product thumbs until the real image paints over it */
+  /* Static loading placeholder behind product thumbs. The real <Image> paints over it at z-[1]
+     the moment it loads, so this only ever shows during load — it must NOT animate forever
+     (an infinite background-position animation repaints behind every thumbnail for the life of
+     the page, even fully occluded). A fixed diagonal sheen reads as a placeholder for $0 paint. */
   .img-shimmer::before { content: ""; position: absolute; inset: 0; z-index: 0;
-    background: linear-gradient(100deg, #0c0906 30%, #1c1610 50%, #0c0906 70%);
-    background-size: 200% 100%; animation: img-sheen 1.5s ease-in-out infinite; }
-  @keyframes img-sheen { to { background-position: -200% 0; } }
+    background: linear-gradient(100deg, #0c0906 30%, #1c1610 50%, #0c0906 70%); }
 
   /* freshness pulse dot next to "Updated <date>" labels */
   .fresh-dot { position: relative; display: inline-block; width: 0.5rem; height: 0.5rem; border-radius: 9999px;
@@ -475,7 +488,7 @@
 
   @media (prefers-reduced-motion: reduce) {
     .rise, .stagger-rise > * { animation: none; opacity: 1; transform: none; }
-    .img-shimmer::before, .fresh-dot { animation: none; }
+    .fresh-dot { animation: none; }
     .card-lift:hover, .glow-hover:hover { transform: none; }
     .scn-drift, .scn-breathe, .scn-dot-pulse { animation: none; }
     .scn-breathe-ring::after { animation: none; opacity: 0.7; }

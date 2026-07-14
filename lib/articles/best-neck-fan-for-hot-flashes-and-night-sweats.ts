@@ -135,7 +135,11 @@ export const BEST_NECK_FAN_HOT_FLASHES_NIGHT_SWEATS: Article = {
       a: "A wearable neck fan is the better tool for flashes because it's hands-free and always on your body, ready the second a flash hits. A handheld misting fan like the HandFan is a cheaper backup — the mist adds real evaporative cooling — but you have to hold it, the tank empties fast, and the mist can dampen a phone or glasses, so it's best as a grab-it-in-your-bag extra rather than your main relief.",
     },
   ],
-  relatedGuides: [],
+  relatedGuides: [
+    "best-tower-fans-compared",
+    "quietest-tower-fan-for-sleeping-in-a-bedroom",
+    "quietest-mini-fridge-for-a-bedroom",
+  ],
   sources: [
     { label: "TORRAS official brand site (COOLiFY line)", url: "https://www.torraslife.com" },
     { label: "JISULIFE official neck-fan collection", url: "https://www.jisulife.com/collections/neck-fan" },

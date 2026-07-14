@@ -159,9 +159,11 @@ export const BEST_PORTABLE_AC_GARAGE_NO_WINDOW: Article = {
       a: "It will make it livable, not necessarily frigid. Every portable is less efficient than a window unit or mini-split, and a bare metal door in afternoon sun radiates heat faster than a mid-size portable can remove it. Insulate the door and weatherstrip the perimeter and a dual-hose portable performs well above its rating; skip those and no portable will keep up on the worst days.",
     },
   ],
-  // Legacy-guide cross-links only render for getGuideBySlug; no cooling legacy
-  // guide exists, so we cross-link cooling content in prose/sources instead.
-  relatedGuides: [],
+  relatedGuides: [
+    "best-portable-air-conditioners",
+    "single-hose-vs-dual-hose-portable-ac",
+    "do-swamp-coolers-work-in-humid-climates",
+  ],
   sources: [
     {
       label: "ENERGY STAR — Portable Air Conditioners (explains SACC/DOE ratings)",

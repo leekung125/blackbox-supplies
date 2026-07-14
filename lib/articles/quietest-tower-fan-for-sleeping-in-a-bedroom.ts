@@ -142,7 +142,11 @@ export const QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM: Article = {
       a: "It's the most common long-term complaint on inexpensive AC-motor bladed towers. Over a season or two a plastic bushing wears or a blade collects dust and goes slightly out of balance, producing a periodic click, buzz, or rattle. A bladeless DC fan has fewer moving parts and no exposed blade to fall out of balance, which largely sidesteps this failure mode — part of what the higher price buys.",
     },
   ],
-  relatedGuides: [],
+  relatedGuides: [
+    "best-tower-fans-compared",
+    "quietest-mini-fridge-for-a-bedroom",
+    "best-neck-fan-for-hot-flashes-and-night-sweats",
+  ],
   sources: [
     { label: "Dreo Tower Fans — official product line and specifications", url: "https://www.dreo.com/collections/tower-fans" },
     { label: "Lasko Wind Curve 2551 — official product page", url: "https://www.lasko.com/products/2551-wind-curve-tower-fan-with-fresh-air-ionizer" },

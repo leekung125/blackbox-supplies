@@ -25,6 +25,11 @@ export function ImageZoom({
   const reduce = useReducedMotion();
   const zoomable = !!image;
 
+  // Serve an AVIF/WebP, viewport-scaled variant through the next/image optimizer instead of the
+  // raw multi-MB source PNG. Only fetched when the lightbox opens (the <img> mounts on demand), so
+  // it never competes with the LCP hero and stays non-priority. Local paths only (encoded once).
+  const zoomSrc = image ? `/_next/image?url=${encodeURIComponent(image)}&w=1920&q=80` : undefined;
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => {
@@ -76,8 +81,10 @@ export function ImageZoom({
             aria-label={`${name} — enlarged photo`}
           >
             <motion.img
-              src={image}
+              src={zoomSrc}
               alt={name}
+              loading="lazy"
+              decoding="async"
               initial={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.94 }}
               animate={reduce ? { opacity: 1 } : { opacity: 1, scale: 1 }}
               exit={reduce ? { opacity: 0 } : { opacity: 0, scale: 0.96 }}

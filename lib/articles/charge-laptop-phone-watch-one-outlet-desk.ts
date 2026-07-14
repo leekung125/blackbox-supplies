@@ -128,7 +128,11 @@ export const CHARGE_LAPTOP_PHONE_WATCH_ONE_OUTLET_DESK: Article = {
       a: "GaN (gallium nitride) is a semiconductor that switches faster and wastes less energy as heat than the older silicon used in bulky bricks. That lets a single slim unit hold laptop-class charging plus several extra ports without overheating, which is what makes a one-outlet, multi-device desk hub practical.",
     },
   ],
-  relatedGuides: [],
+  relatedGuides: [
+    "best-monitor-light-bar-for-eye-strain-small-home-office",
+    "best-tsa-legal-power-bank-that-charges-a-laptop",
+    "best-bluetooth-tracker-for-wallet-android-phone",
+  ],
   sources: [
     { label: "Apple — MacBook Pro (charging and adapter specs)", url: "https://www.apple.com/macbook-pro/" },
     { label: "USB-IF — USB Power Delivery", url: "https://www.usb.org/" },

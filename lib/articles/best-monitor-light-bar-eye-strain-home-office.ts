@@ -148,9 +148,11 @@ export const BEST_MONITOR_LIGHT_BAR_EYE_STRAIN_ARTICLE: Article = {
       a: "Skip it if you need to light a whole room, want a reading lamp for a chair or bed, or get no screen glare from your current setup — a $20–40 desk lamp does those jobs for far less. Also skip it, or check fit carefully, if you have a curved, ultra-thin, or all-in-one screen the clip won't grip.",
     },
   ],
-  // relatedGuides resolves ONLY against legacy guides (getGuideBySlug); no legacy guide covers
-  // desk/home-office topics, so this stays empty. Cross-links to related content live in prose + sources.
-  relatedGuides: [],
+  relatedGuides: [
+    "charge-laptop-phone-watch-one-outlet-desk",
+    "best-bluetooth-tracker-for-wallet-android-phone",
+    "best-tsa-legal-power-bank-that-charges-a-laptop",
+  ],
   sources: [
     { label: "BenQ ScreenBar monitor light — official product page", url: "https://www.benq.com/en-us/lighting/monitor-light/screenbar.html" },
     { label: "American Optometric Association — Computer vision syndrome (digital eye strain)", url: "https://www.aoa.org/healthy-eyes/eye-and-vision-conditions/computer-vision-syndrome" },

@@ -4,6 +4,8 @@ import { ProductCard } from "@/components/product-card";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { getCoreProducts } from "@/lib/products";
+import { JsonLd } from "@/components/json-ld";
+import { affiliateListSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Value Picks — genuinely useful gear under $50 worth owning",
@@ -29,6 +31,13 @@ export default function FindsPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+      <JsonLd data={[
+        breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Value picks", path: "/finds" }]),
+        affiliateListSchema(
+          "Value picks — genuinely useful gear under $50",
+          finds.map((p) => ({ id: p.id, name: p.name, brand: p.brand, image: p.image ?? "", blurb: p.verdict || p.problemSolved })),
+        ),
+      ]} />
       <Reveal blur={false}>
         <span className="eyebrow eyebrow-accent">Value picks</span>
         <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">

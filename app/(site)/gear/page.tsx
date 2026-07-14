@@ -3,6 +3,8 @@ import { ProductBrowser } from "@/components/product-browser";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { getAllProducts, isMainProduct } from "@/lib/products";
+import { JsonLd } from "@/components/json-ld";
+import { affiliateListSchema, breadcrumbSchema } from "@/lib/schema";
 
 // The car & roadside vertical = these six categories. /gear is the Car vertical page,
 // parallel to /heat (Cooling) and /useful (Useful) — not a mixed "all catalog" dump.
@@ -31,6 +33,13 @@ export default function GearPage() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+      <JsonLd data={[
+        breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Car & roadside", path: "/gear" }]),
+        affiliateListSchema(
+          "Car & roadside gear — researched picks",
+          products.map((p) => ({ id: p.id, name: p.name, brand: p.brand, image: p.image ?? "", blurb: p.verdict || p.problemSolved })),
+        ),
+      ]} />
       <Reveal blur={false}>
         <span className="eyebrow eyebrow-accent">Car &amp; roadside</span>
         <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">Car &amp; roadside gear</h1>

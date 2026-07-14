@@ -13,7 +13,7 @@ import { getKitById } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
 import { matchByText, productToPick, type ResolvedPick } from "@/lib/affiliate-picks";
 import { JsonLd } from "@/components/json-ld";
-import { articleSchema, breadcrumbSchema, comparisonGuideSchema, faqSchema, guideSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, comparisonGuideSchema, faqSchema, guideSchema, howToSchema } from "@/lib/schema";
 import { ARTICLE_SLUGS, getArticleBySlug } from "@/lib/articles";
 import { ArticleView } from "@/components/article-view";
 import { COMPARISON_GUIDE_SLUGS, getComparisonGuideBySlug } from "@/lib/comparison-guides";
@@ -25,12 +25,21 @@ export function generateStaticParams() {
   return [...GUIDE_SLUGS, ...COMPARISON_GUIDE_SLUGS, ...ARTICLE_SLUGS].map((slug) => ({ slug }));
 }
 
+/**
+ * Long titles get an `absolute` title so the global " · BlackBox Supplies" template suffix
+ * (~20 chars) doesn't push them past Google's ~60-char display limit and truncate. Short titles
+ * keep the brand suffix for recognition. Threshold chosen so title + suffix stays near ~60.
+ */
+function titleField(raw: string): string | { absolute: string } {
+  return raw.length >= 44 ? { absolute: raw } : raw;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (article) {
     return {
-      title: article.title,
+      title: titleField(article.title),
       description: article.dek,
       alternates: { canonical: `/guides/${article.slug}` },
       openGraph: { type: "article", title: article.title, description: article.dek, url: `/guides/${article.slug}`, ...(article.heroImage ? { images: [{ url: article.heroImage }] } : {}) },
@@ -39,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const cmp = getComparisonGuideBySlug(slug);
   if (cmp) {
     return {
-      title: cmp.title,
+      title: titleField(cmp.title),
       description: cmp.dek,
       alternates: { canonical: `/guides/${cmp.slug}` },
       openGraph: {
@@ -56,7 +65,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const lead = getProductById(guide.picks[0]?.productId ?? "");
   const ogImage = guide.heroImage ?? lead?.image;
   return {
-    title: guide.title,
+    title: titleField(guide.title),
     description: guide.dek,
     alternates: { canonical: `/guides/${guide.slug}` },
     openGraph: {
@@ -73,6 +82,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (article) {
+    // HowTo is emitted ONLY when the article data genuinely carries a `steps` array (real,
+    // user-visible procedural instructions). We never synthesize steps from prose or from the
+    // "mistakes / what to check" lists — those aren't procedures — so an article without authored
+    // steps emits no HowTo. When a data author adds a real `steps` field, the schema lights up.
+    const howToSteps = (article as { steps?: { name: string; text: string }[] }).steps;
     return (
       <>
         <JsonLd
@@ -84,6 +98,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               { name: article.title, path: `/guides/${article.slug}` },
             ]),
             ...(article.faq?.length ? [faqSchema(article.faq)] : []),
+            ...(howToSteps?.length ? [howToSchema(article.title, howToSteps)] : []),
           ]}
         />
         <ArticleView article={article} />

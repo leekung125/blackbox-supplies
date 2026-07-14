@@ -9,6 +9,8 @@ import { getKitById, KIT_SLUGS } from "@/lib/kits";
 import { guideRefForSlug } from "@/lib/guides";
 import { getProductById, type Product } from "@/lib/products";
 import { MethodologyPanel } from "@/components/methodology-panel";
+import { JsonLd } from "@/components/json-ld";
+import { kitSchema, breadcrumbSchema } from "@/lib/schema";
 
 export const dynamicParams = false;
 
@@ -50,8 +52,26 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
   };
   const heroImg = kitImage[kit.id];
 
+  // The kit's real, deduped, ordered product set (mirrors the buy-first → starter → better → premium
+  // flow) — the honest basis for the CollectionPage ItemList.
+  const resolvedProducts = Array.from(
+    new Set([kit.buyFirstId, ...kit.starterIds, ...kit.betterIds, ...kit.premiumIds]),
+  )
+    .map(getProductById)
+    .filter((p): p is Product => Boolean(p));
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
+      <JsonLd
+        data={[
+          kitSchema(kit, resolvedProducts),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Kits", path: "/kits" },
+            { name: kit.name, path: `/kits/${kit.id}` },
+          ]),
+        ]}
+      />
       <Breadcrumbs
         trail={[
           { label: "Home", href: "/" },

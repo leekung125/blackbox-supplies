@@ -178,7 +178,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
             />
             <div className="grad-border-amber focal-glow relative overflow-hidden rounded-2xl">
               <ImageZoom image={product.image} name={product.name} className="aspect-[4/3] sm:aspect-square">
-                <ProductThumb product={product} className="h-full w-full" pad="p-8 sm:p-10" />
+                <ProductThumb product={product} className="h-full w-full" pad="p-8 sm:p-10" priority />
               </ImageZoom>
             </div>
           </div>

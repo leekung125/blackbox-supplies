@@ -12,6 +12,8 @@ import { getAllProducts, getCoreProducts, getProductById, type Product } from "@
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { KITS } from "@/lib/kits";
 import { KitBundleCard } from "@/components/home/kit-bundle-card";
+import { JsonLd } from "@/components/json-ld";
+import { webPageSchema } from "@/lib/schema";
 import heatData from "@/data/heat-products.json";
 import usefulData from "@/data/useful-products.json";
 
@@ -77,8 +79,40 @@ export default function HomePage() {
   const flagship = COMPARISON_GUIDES.find((g) => g.slug === "best-jump-starters-compared") ?? COMPARISON_GUIDES[0];
   const otherGuides = COMPARISON_GUIDES.filter((g) => g.slug !== flagship.slug);
 
+  // Homepage identity node + an ItemList of the primary verticals (the "what we cover" map)
+  // so crawlers + AI Overviews get a clean, citable model of the site's top-level sections.
+  const HOME_BASE = "https://www.blackboxsupplies.com";
+  const homeVerticals = [
+    { name: "Cooling", path: "/heat" },
+    { name: "Car & roadside", path: "/gear" },
+    { name: "Useful gear", path: "/useful" },
+    { name: "Buying guides", path: "/guides" },
+  ];
+  const homeItemList = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "BlackBox Supplies — what we cover",
+    numberOfItems: homeVerticals.length,
+    itemListElement: homeVerticals.map((v, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: v.name,
+      url: `${HOME_BASE}${v.path}`,
+    })),
+  };
+
   return (
     <>
+      <JsonLd
+        data={[
+          webPageSchema(
+            "/",
+            "BlackBox Supplies — Utility & Readiness Gear, Researched",
+            "Utility and readiness gear for real problems — dead batteries, flat tires, outages, heat. Researched, compared, and cited buying guides plus honest picks across cooling, car & roadside, and everyday useful gear.",
+          ),
+          homeItemList,
+        ]}
+      />
       {/* Page-scoped cinema: entrance cascade, slow ken-burns settle, drifting embers.
           Pure CSS, always ends visible, fully reduced-motion gated. */}
       <style>{`
@@ -86,6 +120,9 @@ export default function HomePage() {
         @keyframes bbxh-drift { from { transform: scale(1.07) translateX(1.2%); } to { transform: scale(1) translateX(0); } }
         .bbxh-in { opacity: 0; animation: bbxh-rise 0.9s cubic-bezier(0.16,1,0.3,1) both; }
         @keyframes bbxh-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+        /* LCP headline: paints immediately (opacity stays 1) — only a subtle transform settles in. */
+        .bbxh-h1 { animation: bbxh-h1 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+        @keyframes bbxh-h1 { from { transform: translateY(10px); } to { transform: translateY(0); } }
         .bbxh-d1 { animation-delay: 0.08s; } .bbxh-d2 { animation-delay: 0.2s; } .bbxh-d3 { animation-delay: 0.34s; }
         .bbxh-d4 { animation-delay: 0.48s; } .bbxh-d5 { animation-delay: 0.62s; }
         .bbxh-tick { transform-origin: left; animation: bbxh-tick 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s both; }
@@ -106,7 +143,7 @@ export default function HomePage() {
         .fcx-fill { transform-origin: left; animation: fcx-fill 1.1s cubic-bezier(0.22,1,0.36,1) both; }
         @keyframes fcx-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
         @media (prefers-reduced-motion: reduce) {
-          .bbxh-scene, .bbxh-in, .bbxh-tick, .fcx-fill { animation: none; opacity: 1; transform: none; }
+          .bbxh-scene, .bbxh-in, .bbxh-h1, .bbxh-tick, .fcx-fill { animation: none; opacity: 1; transform: none; }
           .bbxh-ember { display: none; }
           .bbxh-stat:hover { transform: none; }
         }
@@ -117,7 +154,9 @@ export default function HomePage() {
         <div aria-hidden className="absolute inset-0 -z-10 overflow-hidden">
           {/* the scene: landscape on desktop, portrait crop on mobile — slow ken-burns settle */}
           <div className="bbxh-scene">
-            <Image src="/brand/hero-command.png" alt="" fill priority sizes="100vw" className="hidden object-cover object-center sm:block" />
+            {/* Field CWV is mobile-weighted, so only the mobile crop gets priority (preloaded).
+                The desktop crop is off-screen for phones — lazy so we don't ship ~2.7MB per visit. */}
+            <Image src="/brand/hero-command.png" alt="" fill sizes="100vw" className="hidden object-cover object-center sm:block" />
             <Image src="/brand/hero-command-mobile.png" alt="" fill priority sizes="100vw" className="object-cover object-center sm:hidden" />
           </div>
           {/* readability scrims: dark on the left (behind copy) fading to reveal the gear + glow on the right */}
@@ -139,7 +178,7 @@ export default function HomePage() {
               <span className="bbxh-tick h-px w-6 bg-accent" aria-hidden />
               <span className="mono text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-accent-bright">The utility field guide</span>
             </div>
-            <h1 className="bbxh-in bbxh-d2 hero-display headline-glow mt-6 text-ink-strong">
+            <h1 className="bbxh-h1 hero-display headline-glow mt-6 text-ink-strong">
               The right gear,<br />before you <span className="amber-word" style={{ textShadow: "0 0 34px rgba(237,186,102,0.45)" }}>need</span> it.
             </h1>
             <p className="bbxh-in bbxh-d3 mt-6 max-w-md text-[1.15rem] leading-relaxed text-ink/90">

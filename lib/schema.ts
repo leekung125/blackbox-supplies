@@ -1,5 +1,8 @@
-import { GUIDES, type Guide } from "@/lib/guides";
+import { getAllGuides, type Guide } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
+import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
+import { EXTRA_ARTICLES } from "@/lib/articles-extra";
+import { SPEC_META } from "@/lib/comparison-schema";
 
 /**
  * JSON-LD builders. Honesty constraints are structural:
@@ -54,7 +57,10 @@ export function organizationSchema() {
     name: "BlackBox Supplies",
     alternateName: "BlackBox",
     url: BASE,
-    logo: `${BASE}/logo.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${BASE}/logo.png`,
+    },
     slogan: "Genuinely useful gear that solves real problems.",
     description:
       "BlackBox Supplies researches and curates premium, genuinely useful gear — cooling (portable AC, fans, cooling sleep), everyday useful gear (desk & tech, kitchen, travel, home), and car & roadside essentials — and publishes honest, research-based buying guides. Picks are based on cross-checked verified-buyer reviews, manufacturer spec sheets, and price history.",
@@ -71,6 +77,14 @@ export function organizationSchema() {
     ],
     foundingDate: "2026",
     email: "info@blackboxsupplies.com",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "info@blackboxsupplies.com",
+      contactType: "customer support",
+    },
+    // sameAs: ONLY profiles that really resolve. Instagram @black_boxsupplies is the one
+    // verified account (see lib/content.ts BRAND.instagram + site footer). No real, resolving
+    // Pinterest/TikTok handle exists in the codebase, so none is invented here.
     sameAs: ["https://www.instagram.com/black_boxsupplies/"],
   };
 }
@@ -83,15 +97,16 @@ export function webSiteSchema() {
     url: BASE,
     name: "BlackBox Supplies",
     publisher: { "@id": `${BASE}/#organization` },
-    // NOTE: no `potentialAction` SearchAction. Site search is client-side only — there is no
-    // crawlable /search?q=… results URL to target, and pointing a Sitelinks Searchbox action at a
-    // non-existent (404) URL would be dishonest markup. When a real search-results route is added,
-    // wire it here as:
-    //   potentialAction: {
-    //     "@type": "SearchAction",
-    //     target: { "@type": "EntryPoint", urlTemplate: `${BASE}/search?q={search_term_string}` },
-    //     "query-input": "required name=search_term_string",
-    //   }
+    // A real crawlable /search?q=… results route now exists, so the Sitelinks Searchbox action
+    // targets a genuine (non-404) URL and is honest markup.
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${BASE}/search?q={search_term_string}`,
+      },
+      "query-input": "required name=search_term_string",
+    },
   };
 }
 
@@ -138,6 +153,8 @@ export function guideSchema(guide: Guide) {
       url: `${BASE}/guides/${guide.slug}`,
       datePublished: toISO(published),
       dateModified: toISO(guide.updated),
+      inLanguage: "en-US",
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/guides/${guide.slug}` },
       ...(guide.heroImage ? { image: guide.heroImage.startsWith("http") ? guide.heroImage : `${BASE}${guide.heroImage}` } : {}),
       author: { "@id": `${BASE}/#organization` },
       publisher: { "@id": `${BASE}/#organization` },
@@ -162,8 +179,9 @@ export function guideSchema(guide: Guide) {
  * FIX over the previous inline JSON-LD: that block set `dateModified` to the raw human string
  * (e.g. "July 2026" — not valid ISO-8601, which Google rejects) and had no `datePublished`,
  * `author`, `publisher`, or `@id`. Here the dates are normalized through toISO(), the author is
- * the accountable EDITOR (a Person), the publisher is the Organization, and both nodes carry an
- * `@id` so they join the site's linked-data graph.
+ * the Organization itself (our transparent editorial process — NOT a fabricated named person, per
+ * the EDITOR honesty note in lib/content.ts), the publisher is the Organization, and both nodes
+ * carry an `@id` so they join the site's linked-data graph.
  */
 export function comparisonGuideSchema(guide: {
   slug: string;
@@ -190,6 +208,8 @@ export function comparisonGuideSchema(guide: {
       url: `${BASE}/guides/${guide.slug}`,
       datePublished: toISO(published),
       dateModified: toISO(guide.updated),
+      inLanguage: "en-US",
+      mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/guides/${guide.slug}` },
       ...(guide.heroImage
         ? { image: guide.heroImage.startsWith("http") ? guide.heroImage : `${BASE}${guide.heroImage}` }
         : {}),
@@ -232,6 +252,8 @@ export function articleSchema(a: { slug: string; title: string; dek: string; upd
     url: `${BASE}/guides/${a.slug}`,
     datePublished: toISO(a.published ?? a.updated),
     dateModified: toISO(a.updated),
+    inLanguage: "en-US",
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/guides/${a.slug}` },
     ...(a.heroImage ? { image: a.heroImage.startsWith("http") ? a.heroImage : `${BASE}${a.heroImage}` } : {}),
     author: { "@id": `${BASE}/#organization` },
     publisher: { "@id": `${BASE}/#organization` },
@@ -255,14 +277,17 @@ function parsePriceRange(s?: string): { low: number; high: number } | null {
 }
 
 /** Build an Offer (single price) or AggregateOffer (a range) from an approximate price string.
- *  priceCurrency USD, availability InStock, url = the outbound buy link. Returns null when no
- *  parseable price — the caller then omits `offers` rather than inventing one. */
+ *  priceCurrency USD, url = the outbound buy link. Returns null when no parseable price — the
+ *  caller then omits `offers` rather than inventing one.
+ *
+ *  HONESTY: no `availability` is asserted. We don't hold or track stock — availability lives on
+ *  Amazon and changes constantly — so claiming InStock would be an unverifiable assertion. The
+ *  AggregateOffer price range (as-published, approximate) is the only claim we can stand behind. */
 function offerNode(priceRange?: string, url?: string) {
   const parsed = parsePriceRange(priceRange);
   if (!parsed) return null;
   const common = {
     priceCurrency: "USD",
-    availability: "https://schema.org/InStock",
     ...(url ? { url } : {}),
   };
   if (parsed.low === parsed.high) {
@@ -356,12 +381,16 @@ export function categorySchema(name: string, slug: string, productIds: { id: str
 }
 
 export function guidesHubSchema() {
+  // The hub used to list ONLY the legacy GUIDES, silently dropping the crown-jewel comparison
+  // guides and the extra articles that live under the same /guides/{slug} space. Union all three
+  // real collections so every crawlable guide/article page is enumerated as a citable ListItem.
+  const entries = [...COMPARISON_GUIDES, ...EXTRA_ARTICLES, ...getAllGuides()];
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "BlackBox Supplies Buying Guides",
-    numberOfItems: GUIDES.length,
-    itemListElement: GUIDES.map((g, i) => ({
+    numberOfItems: entries.length,
+    itemListElement: entries.map((g, i) => ({
       "@type": "ListItem",
       position: i + 1,
       name: g.title,
@@ -399,5 +428,126 @@ export function affiliateListSchema(
         ...(p.blurb ? { description: p.blurb } : {}),
       },
     })),
+  };
+}
+
+/**
+ * Generic WebPage node for a non-Article page (contact, disclosure, category index, etc.).
+ * Ties the page into the site graph: isPartOf the WebSite, about the Organization. Carries no
+ * unverifiable claims — just identity + description the page's own <head> already states.
+ */
+export function webPageSchema(path: string, name: string, description: string) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${BASE}${path}#webpage`,
+    url: `${BASE}${path}`,
+    name,
+    ...(description ? { description } : {}),
+    inLanguage: "en-US",
+    isPartOf: { "@id": `${BASE}/#website` },
+    about: { "@id": `${BASE}/#organization` },
+  };
+}
+
+/**
+ * Kit page schema — a curated shopping path (/kits/{id}) as a CollectionPage whose mainEntity is
+ * an ItemList of the kit's real, resolved products. Honest: name + on-site product URL only, no
+ * invented ratings or offers. `resolvedProducts` is the caller's already-deduped ordered list of
+ * the products the kit actually references.
+ */
+export function kitSchema(
+  kit: { id: string; name: string; dek?: string; tagline?: string },
+  resolvedProducts: { id: string; name: string }[],
+) {
+  const description = kit.dek?.trim() || kit.tagline?.trim();
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${BASE}/kits/${kit.id}#page`,
+    url: `${BASE}/kits/${kit.id}`,
+    name: kit.name,
+    ...(description ? { description } : {}),
+    inLanguage: "en-US",
+    isPartOf: { "@id": `${BASE}/#website` },
+    about: { "@id": `${BASE}/#organization` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: resolvedProducts.length,
+      itemListOrder: "https://schema.org/ItemListOrderAscending",
+      itemListElement: resolvedProducts.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: p.name,
+        url: `${BASE}/products/${p.id}`,
+      })),
+    },
+  };
+}
+
+/**
+ * HowTo node for a genuine step-by-step page (e.g. "how to jump-start a car"). Honest only when
+ * `steps` are the real, user-visible on-page instructions — never fabricate steps for a page that
+ * doesn't teach them. No `totalTime`/`supply`/`tool`/cost is asserted unless the caller has it.
+ */
+export function howToSchema(name: string, steps: { name: string; text: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    step: steps.map((s, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: s.name,
+      text: s.text,
+    })),
+  };
+}
+
+/**
+ * DefinedTermSet for the gear glossary — the honest jargon-translation layer. Terms are sourced
+ * from the real, user-visible spec labels + tooltips already authored in SPEC_META (lib/
+ * comparison-schema), so every definition is one a buyer actually sees on the comparison boards —
+ * nothing invented. Only fields carrying a tooltip (a real definition) become terms; duplicate
+ * labels are collapsed. Falls back to a small honest set of universal gear terms if SPEC_META is
+ * ever empty, so the set is never dishonestly padded.
+ */
+export function definedTermSetSchema() {
+  const seen = new Set<string>();
+  const terms: { "@type": "DefinedTerm"; name: string; description: string }[] = [];
+  for (const meta of Object.values(SPEC_META)) {
+    if (!meta) continue;
+    for (const field of Object.values(meta.fields)) {
+      if (!field || !field.tooltip) continue;
+      const key = field.label.toLowerCase();
+      if (seen.has(key)) continue;
+      seen.add(key);
+      terms.push({ "@type": "DefinedTerm", name: field.label, description: field.tooltip });
+    }
+  }
+
+  if (terms.length === 0) {
+    // Honest universal fallback — real, checkable gear terms, not padding.
+    const fallback: { name: string; description: string }[] = [
+      {
+        name: "SACC (Seasonally Adjusted Cooling Capacity)",
+        description:
+          "The US DOE's real-world tested cooling number for portable air conditioners — usually 30–50% lower than the older ASHRAE 'BTU' printed on the box.",
+      },
+      {
+        name: "Peak amps",
+        description:
+          "The momentary burst current a jump starter can deliver when the starter first engages — the headline number, always higher than the sustained cranking current.",
+      },
+    ];
+    for (const t of fallback) terms.push({ "@type": "DefinedTerm", name: t.name, description: t.description });
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTermSet",
+    "@id": `${BASE}/#glossary`,
+    name: "BlackBox Gear Glossary",
+    hasDefinedTerm: terms,
   };
 }

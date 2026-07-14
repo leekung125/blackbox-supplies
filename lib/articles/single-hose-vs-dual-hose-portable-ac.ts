@@ -130,7 +130,11 @@ export const SINGLE_VS_DUAL_HOSE_AC: Article = {
       a: "Yes — both vent hot air outside through a hose and window kit. A dual-hose unit simply needs more window width for its second hose. The only portable ACs that skip a permanent window vent are small battery-capable spot coolers built for tents and vans, not full rooms.",
     },
   ],
-  relatedGuides: [],
+  relatedGuides: [
+    "best-portable-air-conditioners",
+    "best-portable-ac-garage-no-window",
+    "do-swamp-coolers-work-in-humid-climates",
+  ],
   sources: [
     { label: "Whynter — official site (NEX ARC-1230WN dual-hose portable AC)", url: "https://www.whynter.com" },
     { label: "Midea — official site (Duo dual-hose portable AC line)", url: "https://www.midea.com" },

@@ -140,9 +140,11 @@ export const SWAMP_COOLER_HUMIDITY_ARTICLE: Article = {
       a: "Check your afternoon humidity. Consistently dry (under ~30% RH)? A swamp cooler is cheaper, vent-free, and effective. Humid (over ~50%)? Buy a portable AC — it cools and dehumidifies regardless of outdoor humidity. Between the two, a portable AC is the safer choice if you're unsure.",
     },
   ],
-  // relatedGuides resolves LEGACY guide slugs only; no cooling legacy guide exists,
-  // so cross-linking is handled via the picks (which route to our product pages) and sources.
-  relatedGuides: [],
+  relatedGuides: [
+    "best-portable-air-conditioners",
+    "single-hose-vs-dual-hose-portable-ac",
+    "best-portable-ac-garage-no-window",
+  ],
   sources: [
     {
       label: "U.S. Department of Energy — Evaporative Coolers (climate suitability & operation)",

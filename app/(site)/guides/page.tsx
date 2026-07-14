@@ -6,8 +6,10 @@ import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal, Stagger, StaggerItem } from "@/components/motion/reveal";
 import { getAllGuides } from "@/lib/guides";
 import { EXTRA_ARTICLES } from "@/lib/articles-extra";
-import type { Article } from "@/lib/articles";
+import { getAllArticles, type Article } from "@/lib/articles";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
+import { JsonLd } from "@/components/json-ld";
+import { guidesHubSchema, breadcrumbSchema, definedTermSetSchema } from "@/lib/schema";
 
 // Grid card image sizing: 3-up on desktop (max-w-6xl / 72rem), 2-up on tablet, full-width on mobile.
 const CARD_IMAGE_SIZES = "(min-width: 1024px) 22rem, (min-width: 640px) 45vw, 100vw";
@@ -39,7 +41,7 @@ function groupArticlesByCategory(articles: Article[]): Array<{ category: string;
 }
 
 export const metadata: Metadata = {
-  title: "Buying Guides — Cooling, Car Power & Gear",
+  title: "Buying Guides — Cooling, Power, Car & Everyday Gear",
   description:
     "Research-based buying guides to the gear that matters — portable AC and cooling, car and roadside power, and the everyday gear worth owning. Source-linked picks, honest tradeoffs, real specs, no fluff.",
   alternates: { canonical: "/guides" },
@@ -50,8 +52,26 @@ export default function GuidesPage() {
   const [lead, ...rest] = guides;
   const articleSections = groupArticlesByCategory(EXTRA_ARTICLES);
 
+  // De-orphan the base question/comparison articles: getAllArticles() also includes the
+  // small `ARTICLES` set (what-size-jump-starter, trunk-organizer, power-station-vs-jump-starter,
+  // cordless-vs-12v-inflator) that live under /guides/{slug} but were never linked from any index
+  // — an invisible-to-crawlers dead end. Surface exactly the ones not already rendered above so the
+  // link graph is complete without duplicating the category sections.
+  const shownSlugs = new Set(EXTRA_ARTICLES.map((a) => a.slug));
+  const orphanArticles = getAllArticles().filter((a) => !shownSlugs.has(a.slug));
+
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+      <JsonLd
+        data={[
+          guidesHubSchema(),
+          breadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Guides", path: "/guides" },
+          ]),
+          definedTermSetSchema(),
+        ]}
+      />
       <Reveal blur={false}>
         <span className="eyebrow eyebrow-accent">Buying guides</span>
         <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] text-ink sm:text-5xl">
@@ -138,6 +158,45 @@ export default function GuidesPage() {
           </Stagger>
         </section>
       ))}
+
+      {orphanArticles.length ? (
+        <section className="mt-14">
+          <Reveal blur={false}>
+            <div className="flex flex-wrap items-end justify-between gap-3 border-b border-line pb-4">
+              <h2 className="font-display text-2xl font-semibold text-ink-strong sm:text-3xl">Questions &amp; comparisons</h2>
+              <span className="mono text-[0.68rem] uppercase tracking-[0.14em] text-ink-faint">
+                {orphanArticles.length} {orphanArticles.length === 1 ? "answer" : "answers"}
+              </span>
+            </div>
+          </Reveal>
+          <Stagger className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {orphanArticles.map((a) => (
+              <StaggerItem key={a.slug}>
+                <Link href={`/guides/${a.slug}`} className="bbx-card card-lift group flex h-full flex-col overflow-hidden">
+                  {a.heroImage ? (
+                    <div className="relative aspect-[16/10] overflow-hidden bg-[#0c0906]">
+                      <Image
+                        src={a.heroImage}
+                        alt={`${a.title} — ${a.category} buying guide`}
+                        fill
+                        sizes={CARD_IMAGE_SIZES}
+                        className="object-cover transition-transform duration-[750ms] ease-out group-hover:scale-[1.06]"
+                      />
+                      <span className="absolute left-3 top-3 z-10 rounded-full bg-dark/80 px-2.5 py-1 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-on-dark-dim ring-1 ring-white/10">Answer</span>
+                    </div>
+                  ) : null}
+                  <div className="flex flex-1 flex-col p-5">
+                    <span className="mono text-[0.65rem] uppercase tracking-[0.14em] text-accent-strong">{a.category} · {a.readMinutes} min read</span>
+                    <h3 className="mt-2 font-display text-lg font-semibold leading-snug text-ink-strong transition-colors group-hover:text-accent">{a.title}</h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-ink-dim">{a.dek}</p>
+                    <span className="mt-3 text-sm font-semibold text-accent">Read the answer →</span>
+                  </div>
+                </Link>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        </section>
+      ) : null}
 
       <section className="mt-14">
         <Reveal blur={false}>
