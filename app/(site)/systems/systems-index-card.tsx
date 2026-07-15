@@ -1,16 +1,17 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
 import type { System } from "@/lib/systems";
-import { PREVIEW_H, PREVIEW_W, SYSTEM_PREVIEWS } from "@/components/systems/tool-card";
+import { PaperPreview } from "@/app/(site)/systems/paper-preview";
+import { SYSTEM_PREVIEWS } from "@/components/systems/tool-card";
 
 /**
  * The /systems index card — the System shown as a premium OBJECT, not a flat tile.
  *
- * Top: a recessed preview stage — the actual rendered pages fanned in a dark well under the
- * amber lamp (paper depth: ring + layered shadow + warm under-glow), gently spreading on hover.
+ * Top: the preview stage — the actual rendered pages fanned on a WARM ESPRESSO ground under
+ * the amber lamp (all paper goes through PaperPreview: warm parchment tone, amber hairline,
+ * layered soft light — never a hard white rectangle), gently spreading on hover.
  * The imagery is always OUR OWN rendered paper, never a product photo, so the trust separation
  * from affiliate picks holds visually as well as verbally (INFORMATION_ARCHITECTURE §5.3):
  * the "A BlackBox System" pill sits ON the stage, and the footer repeats "Made by us · sold by us".
@@ -21,9 +22,6 @@ export function SystemsIndexCard({ system, slot = "systems-index" }: { system: S
   const available = system.status === "available";
   const preview = SYSTEM_PREVIEWS[system.slug];
 
-  /** Paper depth shared by every fanned page. */
-  const pageShadow = "0 2px 6px rgba(0,0,0,0.5), 0 18px 34px -14px rgba(0,0,0,0.75)";
-
   return (
     <Link
       href={`/systems/${system.slug}`}
@@ -32,10 +30,18 @@ export function SystemsIndexCard({ system, slot = "systems-index" }: { system: S
       }
       className="lit-card grad-border-amber lift group relative flex h-full flex-col overflow-hidden rounded-2xl"
     >
-      {/* ── the preview stage — real pages in a lit well ─────────────────────── */}
+      {/* ── the preview stage — real pages on warm espresso ground ───────────── */}
       {preview ? (
         <div className="relative h-48 shrink-0 overflow-hidden sm:h-56">
-          <div aria-hidden className="absolute inset-0 well-field" />
+          {/* warm espresso stage — a lit room, never a near-black well */}
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(90% 85% at 50% 18%, #271c0f 0%, #1e150b 55%, #171008 100%)",
+            }}
+          />
           {/* the lamp behind the paper */}
           <span
             aria-hidden
@@ -45,42 +51,38 @@ export function SystemsIndexCard({ system, slot = "systems-index" }: { system: S
 
           {/* left page — fans out further on hover */}
           {preview.pages[0] && (
-            <Image
-              src={preview.pages[0]}
-              alt=""
-              aria-hidden
-              width={PREVIEW_W}
-              height={PREVIEW_H}
-              sizes="(min-width: 640px) 220px, 42vw"
-              className="absolute left-[3%] top-12 h-auto w-[40%] rotate-[-9deg] rounded-[6px] ring-1 ring-[#efe6d2]/10 brightness-[0.94] transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 group-hover:rotate-[-11deg]"
-              style={{ boxShadow: pageShadow }}
-            />
+            <div className="absolute left-[3%] top-12 w-[40%] rotate-[-9deg] transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-x-1.5 group-hover:-translate-y-1.5 group-hover:rotate-[-11deg]">
+              <PaperPreview
+                src={preview.pages[0]}
+                alt=""
+                sizes="(min-width: 640px) 220px, 42vw"
+                radius={8}
+              />
+            </div>
           )}
 
           {/* right page */}
           {preview.pages[1] && (
-            <Image
-              src={preview.pages[1]}
-              alt=""
-              aria-hidden
-              width={PREVIEW_W}
-              height={PREVIEW_H}
-              sizes="(min-width: 640px) 220px, 42vw"
-              className="absolute right-[3%] top-12 h-auto w-[40%] rotate-[9deg] rounded-[6px] ring-1 ring-[#efe6d2]/10 brightness-[0.94] transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:translate-x-1.5 group-hover:-translate-y-1.5 group-hover:rotate-[11deg]"
-              style={{ boxShadow: pageShadow }}
-            />
+            <div className="absolute right-[3%] top-12 w-[40%] rotate-[9deg] transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:translate-x-1.5 group-hover:-translate-y-1.5 group-hover:rotate-[11deg]">
+              <PaperPreview
+                src={preview.pages[1]}
+                alt=""
+                sizes="(min-width: 640px) 220px, 42vw"
+                radius={8}
+              />
+            </div>
           )}
 
-          {/* the cover — front and lit */}
-          <Image
-            src={preview.cover}
-            alt={`${system.title} — rendered cover page`}
-            width={PREVIEW_W}
-            height={PREVIEW_H}
-            sizes="(min-width: 640px) 240px, 46vw"
-            className="absolute left-1/2 top-5 h-auto w-[44%] -translate-x-1/2 rotate-[1deg] rounded-[6px] ring-1 ring-[#efe6d2]/20 transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-y-2"
-            style={{ boxShadow: "0 0 0 1px rgba(0,0,0,0.45), 0 3px 8px rgba(0,0,0,0.55), 0 26px 44px -16px rgba(0,0,0,0.8), 0 0 44px -10px rgba(217,154,69,0.35)" }}
-          />
+          {/* the cover — front, the lamp finds it */}
+          <div className="absolute left-1/2 top-5 w-[44%] -translate-x-1/2 rotate-[1deg] transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-y-2">
+            <PaperPreview
+              src={preview.cover}
+              alt={`${system.title} — rendered cover page`}
+              sizes="(min-width: 640px) 240px, 46vw"
+              focal
+              radius={8}
+            />
+          </div>
 
           {/* seam — the paper settles into the card body */}
           <div aria-hidden className="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-b from-transparent to-card" />

@@ -3,10 +3,15 @@
 /**
  * SystemsHeroShowcase — the cinematic product composition for a System landing page.
  *
- * Real rendered pages from the actual pack float as layered, angled paper spreads under the
- * amber lamp: paper depth (warm ring + layered contact/ambient shadow + a top-light sheen),
- * a slow CSS float, and a whisper of pointer parallax. All the SELLING copy stays
- * server-rendered in page.tsx — this island is pure presentation.
+ * Real rendered pages from the actual pack float as layered, angled paper spreads on a WARM
+ * ESPRESSO STAGE — a lit desk under the amber lamp, not a void. Every page goes through
+ * PaperPreview (cream-warmed, amber hairline, layered soft+amber shadow, edge melt) so no
+ * hard white rectangle ever touches the dark. A slow CSS float + a whisper of pointer
+ * parallax keep it alive; all the SELLING copy stays server-rendered in page.tsx.
+ *
+ * Mobile law: the whole composition is percent-based inside a capped-width stage with real
+ * padding, and every page offset is non-negative — at 375px it scales down gracefully and
+ * can never overflow the viewport.
  *
  * Motion/perf law (the site constitution): parallax attaches ONLY on fine pointers with no
  * reduced-motion preference, is rAF-throttled, and writes ONE pair of CSS vars on the root —
@@ -15,17 +20,13 @@
  * gates behind prefers-reduced-motion).
  */
 
-import Image from "next/image";
 import { useEffect, useRef } from "react";
+import PaperPreview from "@/app/(site)/systems/paper-preview";
 
 export interface HeroSpread {
   src: string;
   alt: string;
 }
-
-/** Intrinsic size of the preview renders (US-Letter portrait). */
-const PAGE_W = 1632;
-const PAGE_H = 2112;
 
 function Page({
   spread,
@@ -36,7 +37,7 @@ function Page({
 }: {
   spread: HeroSpread;
   rotate: number;
-  /** The focal page — gets the amber edge-light + priority loading (it is the hero LCP). */
+  /** The focal page — gets the amber lamp treatment + priority loading (it is the hero LCP). */
   front?: boolean;
   /** Optional float period, e.g. "6.5s". Omit for a static page. */
   float?: string;
@@ -48,33 +49,13 @@ function Page({
         className={float ? "hero-float" : undefined}
         style={float ? { animationDuration: float } : undefined}
       >
-        <div
-          className="relative overflow-hidden rounded-[10px] bg-[#f4efe4]"
-          style={{
-            boxShadow: front
-              ? "0 0 0 1px rgba(237,186,102,0.5), 0 0 44px -8px rgba(217,154,69,0.55), 0 2px 6px rgba(0,0,0,0.5), 0 28px 52px -18px rgba(0,0,0,0.72), 0 64px 96px -32px rgba(0,0,0,0.62)"
-              : "0 0 0 1px rgba(235,227,209,0.14), 0 2px 5px rgba(0,0,0,0.45), 0 22px 44px -16px rgba(0,0,0,0.68), 0 52px 80px -30px rgba(0,0,0,0.55)",
-          }}
-        >
-          <Image
-            src={spread.src}
-            alt={spread.alt}
-            width={PAGE_W}
-            height={PAGE_H}
-            sizes={sizes}
-            priority={front}
-            className="block h-auto w-full"
-          />
-          {/* paper sheen — a raking top-light + a settle of shadow at the foot of the page */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(115deg, rgba(255,255,255,0.16), transparent 36%), linear-gradient(180deg, transparent 70%, rgba(21,17,11,0.16))",
-            }}
-          />
-        </div>
+        <PaperPreview
+          src={spread.src}
+          alt={spread.alt}
+          sizes={sizes}
+          priority={front}
+          focal={front}
+        />
       </div>
     </div>
   );
@@ -160,52 +141,63 @@ export function SystemsHeroShowcase({
 
   return (
     <div ref={rootRef} className={`relative ${className}`.trim()}>
-      {/* the amber lamp behind the paper */}
+      {/* ── the warm stage — an espresso desk under the lamp, NOT near-black void ── */}
       <div
-        aria-hidden
-        className="glow-amber pointer-events-none absolute left-1/2 top-1/2 h-[20rem] w-[20rem] -translate-x-1/2 -translate-y-1/2 opacity-60"
-      />
-      <div
-        aria-hidden
-        className="glow-amber-soft pointer-events-none absolute -right-8 -top-10 h-52 w-72"
-      />
-
-      <div className="relative mx-auto aspect-[10/9.4] w-full max-w-[28rem]">
-        {left ? (
-          <Layer depth={7} className="left-[-2%] top-[11%] w-[46%]">
-            <Page
-              spread={left}
-              rotate={-10}
-              float="7.2s"
-              sizes="(min-width: 1024px) 200px, 42vw"
-            />
-          </Layer>
-        ) : null}
-        {right ? (
-          <Layer depth={11} className="right-[-2%] top-[1%] w-[46%]">
-            <Page
-              spread={right}
-              rotate={9}
-              float="6.1s"
-              sizes="(min-width: 1024px) 200px, 42vw"
-            />
-          </Layer>
-        ) : null}
-        <Layer depth={18} className="left-1/2 top-[13%] w-[58%] -translate-x-1/2">
-          <Page
-            spread={front}
-            rotate={-3}
-            front
-            float="5.4s"
-            sizes="(min-width: 1024px) 260px, 54vw"
-          />
-        </Layer>
-
-        {/* floor contact shadow — grounds the composition in the room */}
+        className="relative overflow-hidden rounded-[1.75rem] px-6 py-8 sm:px-8 sm:py-10"
+        style={{
+          background:
+            "radial-gradient(120% 95% at 50% 32%, #1f150c 0%, #150e08 58%, #0b0805 100%)",
+          boxShadow:
+            "inset 0 0 0 1px rgba(217,154,69,0.14), inset 0 1px 0 rgba(237,186,102,0.07), 0 24px 60px -30px rgba(0,0,0,0.6)",
+        }}
+      >
+        {/* the amber lamp behind the paper */}
         <div
           aria-hidden
-          className="absolute bottom-[-3%] left-1/2 h-10 w-[72%] -translate-x-1/2 rounded-full bg-black/55 blur-2xl"
+          className="glow-amber pointer-events-none absolute left-1/2 top-[44%] h-[18rem] w-[18rem] -translate-x-1/2 -translate-y-1/2 opacity-55"
         />
+        <div
+          aria-hidden
+          className="glow-amber-soft pointer-events-none right-[-3rem] top-[-4rem] h-44 w-64"
+        />
+
+        <div className="relative mx-auto aspect-[10/9.2] w-full max-w-[17.5rem] sm:max-w-[22rem] lg:max-w-[24rem]">
+          {left ? (
+            <Layer depth={6} className="left-[1%] top-[12%] w-[44%]">
+              <Page
+                spread={left}
+                rotate={-8}
+                float="7.2s"
+                sizes="(min-width: 1024px) 180px, 34vw"
+              />
+            </Layer>
+          ) : null}
+          {right ? (
+            <Layer depth={10} className="right-[1%] top-[2%] w-[44%]">
+              <Page
+                spread={right}
+                rotate={8}
+                float="6.1s"
+                sizes="(min-width: 1024px) 180px, 34vw"
+              />
+            </Layer>
+          ) : null}
+          <Layer depth={15} className="left-1/2 top-[12%] w-[56%] -translate-x-1/2">
+            <Page
+              spread={front}
+              rotate={-2.5}
+              front
+              float="5.4s"
+              sizes="(min-width: 1024px) 230px, 44vw"
+            />
+          </Layer>
+
+          {/* floor contact shadow — grounds the composition on the desk */}
+          <div
+            aria-hidden
+            className="absolute bottom-[-1%] left-1/2 h-9 w-[70%] -translate-x-1/2 rounded-full bg-black/45 blur-2xl"
+          />
+        </div>
       </div>
 
       {badge ? (

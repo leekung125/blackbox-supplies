@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
@@ -16,6 +15,7 @@ import { TrackSystemView } from "./track-view";
 import { SystemsDisclosure } from "../systems-disclosure";
 import { SystemsHeroShowcase, type HeroSpread } from "../systems-hero";
 import { PreviewGallery, type PreviewPage } from "../preview-gallery";
+import PaperPreview from "@/app/(site)/systems/paper-preview";
 
 export const dynamicParams = false;
 
@@ -209,15 +209,24 @@ export default async function SystemLandingPage({
       />
 
       <nav className="relative flex flex-wrap items-center gap-2 text-sm text-ink-dim">
-        <Link href="/" className="hover:text-accent-strong">Home</Link>
+        <Link href="/" className="inline-flex items-center py-2 hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>
-        <Link href="/systems" className="hover:text-accent-strong">Systems</Link>
+        <Link href="/systems" className="inline-flex items-center py-2 hover:text-accent-strong">Systems</Link>
         <span aria-hidden>/</span>
         <span className="text-ink">{system.title}</span>
       </nav>
 
       {/* ══ CINEMATIC HERO — the product, lit; the verdict, first ══════════════════════ */}
       <header className="relative isolate mt-8 sm:mt-10">
+        {/* warm espresso ground — the hero lives in a lamplit room, never on raw black */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -inset-x-6 -bottom-10 -top-14 -z-20 rounded-[3rem] sm:-inset-x-10"
+          style={{
+            background:
+              "radial-gradient(115% 85% at 60% 32%, #1c140b 0%, #140e08 52%, rgba(11,8,5,0) 100%)",
+          }}
+        />
         {/* the room: warm aura + a technical grid that fades out under the copy */}
         <div
           aria-hidden
@@ -225,7 +234,7 @@ export default async function SystemLandingPage({
         />
         <div aria-hidden className="atmo-grid pointer-events-none absolute inset-x-0 -top-8 -z-10 h-[26rem]" />
 
-        <div className="grid items-center gap-12 lg:grid-cols-[1.04fr_0.96fr] lg:gap-8">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.04fr_0.96fr] lg:gap-8">
           <Reveal className="relative">
             <span className="pill-amber">{system.kicker}</span>
             <TitleWithGlow system={system} />
@@ -245,7 +254,7 @@ export default async function SystemLandingPage({
                 />
                 <Link
                   href="/newsletter"
-                  className="text-sm font-medium text-ink-dim underline-offset-4 hover:text-accent-strong hover:underline"
+                  className="inline-flex items-center py-2 text-sm font-medium text-ink-dim underline-offset-4 hover:text-accent-strong hover:underline"
                 >
                   Not sure? Take {system.freeSampleName ?? "the free sample"} first
                 </Link>
@@ -260,21 +269,36 @@ export default async function SystemLandingPage({
 
           {previews ? (
             <Reveal delay={0.12} className="relative">
-              <SystemsHeroShowcase
-                spreads={previews.spreads}
-                badge={`Real pages · rendered from v${system.version.split(" ")[0]}`}
+              {/* the lamp pool the paper sits IN — a warm ground, not a black void */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute -inset-x-4 -inset-y-8 -z-10 rounded-[3rem]"
+                style={{
+                  background:
+                    "radial-gradient(74% 64% at 50% 46%, #221709 0%, #17100a 55%, rgba(11,8,5,0) 100%)",
+                }}
               />
+              {/* mobile-first sizing: the floating pages scale DOWN gracefully at 375px
+                  instead of overflowing the viewport; full presence returns at sm+ */}
+              <div className="mx-auto w-full max-w-[18rem] min-[420px]:max-w-[21rem] sm:max-w-[26rem]">
+                <SystemsHeroShowcase
+                  spreads={previews.spreads}
+                  badge={`Real pages · rendered from v${system.version.split(" ")[0]}`}
+                />
+              </div>
             </Reveal>
           ) : null}
         </div>
 
         {/* the spec strip — big mono numbers, one glance */}
         <Reveal delay={0.2}>
-          <dl className="lit-card grad-border relative mt-14 grid grid-cols-2 gap-y-6 rounded-2xl px-6 py-6 sm:grid-cols-4 sm:gap-y-0">
+          <dl className="lit-card grad-border relative mt-12 grid grid-cols-2 gap-y-6 rounded-2xl px-5 py-6 sm:mt-14 sm:grid-cols-4 sm:gap-y-0 sm:px-6">
             {stats.map((s, i) => (
               <div
                 key={s.l}
-                className={`text-center ${i > 0 ? "sm:border-l sm:border-line-soft" : ""}`}
+                className={`text-center ${i > 0 ? "sm:border-l sm:border-line-soft" : ""} ${
+                  i >= 2 ? "border-t border-line-soft pt-6 sm:border-t-0 sm:pt-0" : ""
+                }`}
               >
                 <dt className="sr-only">{s.l}</dt>
                 <dd>
@@ -305,7 +329,7 @@ export default async function SystemLandingPage({
       </section>
 
       {/* ══ THE THREE MOMENTS — who buys this, in their own situation ══════════════════ */}
-      <section className="relative mt-20">
+      <section className="relative mt-16 sm:mt-20">
         <span className="eyebrow eyebrow-accent">Who this is for</span>
         <h2 className="section-title mt-2">Three moments this is built for.</h2>
         <Stagger className="mt-8 grid gap-5 sm:grid-cols-3">
@@ -330,7 +354,16 @@ export default async function SystemLandingPage({
 
       {/* ══ FLIP THROUGH THE REAL PAGES — show, don't tell ═════════════════════════════ */}
       {previews ? (
-        <section className="relative mt-24">
+        <section className="relative mt-20 sm:mt-24">
+          {/* warm espresso ground under the filmstrip — paper never sits on raw black */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-x-6 -bottom-6 -top-10 -z-10 rounded-[3rem] sm:-inset-x-10"
+            style={{
+              background:
+                "radial-gradient(110% 90% at 50% 44%, #1b130b 0%, #130d08 55%, rgba(11,8,5,0) 100%)",
+            }}
+          />
           <div aria-hidden className="glow-amber-soft pointer-events-none right-[-6rem] top-[-3rem] h-64 w-[28rem] max-w-[90vw]" />
           <span className="eyebrow eyebrow-accent">Sample spreads</span>
           <h2 className="section-title mt-2">Flip through the real pages.</h2>
@@ -346,7 +379,16 @@ export default async function SystemLandingPage({
       ) : null}
 
       {/* ══ WHAT'S INSIDE — the full manifest (the contents ARE the pitch) ═════════════ */}
-      <section className="relative mt-24">
+      <section className="relative mt-20 sm:mt-24">
+        {/* gentle warm ground so the manifest cards sit in the same lamplit room */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -inset-x-6 -bottom-8 -top-10 -z-10 rounded-[3rem] sm:-inset-x-10"
+          style={{
+            background:
+              "radial-gradient(115% 92% at 50% 36%, #19120b 0%, #120d08 58%, rgba(11,8,5,0) 100%)",
+          }}
+        />
         <span className="eyebrow eyebrow-accent">The full manifest</span>
         <h2 className="section-title mt-2">
           Everything inside — {system.contents.length} systems, nothing hidden.
@@ -382,20 +424,24 @@ export default async function SystemLandingPage({
                     </p>
                   </div>
                   {thumb ? (
-                    <div className="relative hidden w-28 shrink-0 items-center justify-center overflow-hidden border-l border-line-soft bg-well sm:flex">
+                    <div
+                      className="relative hidden w-28 shrink-0 items-center justify-center overflow-hidden border-l border-line-soft sm:flex"
+                      style={{
+                        background:
+                          "radial-gradient(130% 120% at 50% 26%, #261b0e 0%, #170f08 100%)",
+                      }}
+                    >
                       <span
                         aria-hidden
                         className="glow-amber-soft"
                         style={{ top: "-1.5rem", right: "-2rem", width: "9rem", height: "6rem" }}
                       />
-                      <Image
+                      <PaperPreview
                         src={thumb}
                         alt={`${c.name} — page preview`}
-                        width={1632}
-                        height={2112}
                         sizes="88px"
-                        loading="lazy"
-                        className="relative w-[76%] rotate-3 rounded-[4px] shadow-[0_0_0_1px_rgba(235,227,209,0.16),0_8px_18px_-6px_rgba(0,0,0,0.7)]"
+                        radius={6}
+                        className="relative w-[76%] rotate-3"
                       />
                     </div>
                   ) : null}
@@ -410,7 +456,7 @@ export default async function SystemLandingPage({
       </section>
 
       {/* ══ FORMATS — one purchase, four formats ═══════════════════════════════════════ */}
-      <section className="relative mt-24">
+      <section className="relative mt-20 sm:mt-24">
         <span className="eyebrow eyebrow-accent">What you download</span>
         <h2 className="section-title mt-2">One purchase, {system.formats.length === 4 ? "four" : String(system.formats.length)} formats.</h2>
         <p className="mt-4 max-w-2xl text-[0.96rem] leading-relaxed text-ink-dim">
@@ -452,7 +498,26 @@ export default async function SystemLandingPage({
 
       {/* ══ THE BUY BOX — the focal, confident price moment ════════════════════════════ */}
       {available ? (
-        <section className="lit-card grad-border-amber focal-glow relative mt-24 overflow-hidden rounded-3xl p-6 sm:p-10">
+        <div className="relative mt-20 sm:mt-24">
+          {/* warm room behind the focal card — the price moment glows out of espresso, not black */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-x-6 -inset-y-10 -z-10 rounded-[3rem] sm:-inset-x-10"
+            style={{
+              background:
+                "radial-gradient(110% 95% at 50% 42%, #1d140c 0%, #140e08 55%, rgba(11,8,5,0) 100%)",
+            }}
+          />
+        <section className="lit-card grad-border-amber focal-glow relative overflow-hidden rounded-3xl p-6 sm:p-10">
+          {/* warm interior wash — the card reads lamplit espresso, never flat */}
+          <span
+            aria-hidden
+            className="absolute inset-0 rounded-3xl"
+            style={{
+              background:
+                "radial-gradient(120% 90% at 18% 0%, rgba(64,45,24,0.42), transparent 58%), radial-gradient(130% 110% at 88% 112%, rgba(48,34,18,0.5), transparent 60%)",
+            }}
+          />
           <span aria-hidden className="glow-amber" style={{ top: "-5rem", right: "-4rem", width: "20rem", height: "14rem", opacity: 0.5 }} />
           <span aria-hidden className="glow-amber-soft" style={{ bottom: "-5rem", left: "-4rem", width: "18rem", height: "11rem" }} />
 
@@ -489,7 +554,13 @@ export default async function SystemLandingPage({
             </div>
 
             <div>
-              <div className="flex items-center gap-5 rounded-2xl border border-[rgba(224,163,82,0.28)] bg-well/60 p-5">
+              <div
+                className="flex flex-col items-center gap-4 rounded-2xl border border-[rgba(224,163,82,0.28)] p-5 text-center sm:flex-row sm:gap-5 sm:text-left"
+                style={{
+                  background:
+                    "linear-gradient(160deg, rgba(48,34,18,0.55), rgba(30,22,13,0.6))",
+                }}
+              >
                 <GuaranteeSeal />
                 <div className="min-w-0">
                   <p className="font-display text-lg font-semibold leading-snug text-ink-strong">
@@ -513,17 +584,21 @@ export default async function SystemLandingPage({
                   </li>
                 ))}
               </ul>
-              <div className="mt-5 rounded-xl border border-line-soft bg-well/60 p-4">
+              <div
+                className="mt-5 rounded-xl border border-line-soft p-4"
+                style={{ background: "rgba(39,28,15,0.5)" }}
+              >
                 <p className="mono text-[0.58rem] uppercase tracking-[0.14em] text-accent-strong">Setup</p>
                 <p className="mt-1.5 text-[0.9rem] leading-relaxed text-ink-2">{system.setupTime}</p>
               </div>
             </div>
           </div>
         </section>
+        </div>
       ) : null}
 
       {/* ══ WHAT YOU'RE PAYING FOR / NOT ════════════════════════════════════════════════ */}
-      <section className="mt-20 grid gap-5 sm:grid-cols-2">
+      <section className="mt-16 grid gap-5 sm:mt-20 sm:grid-cols-2">
         <div className="rounded-2xl border border-accent/25 bg-accent-tint p-5 sm:p-6">
           <h2 className="mono text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-accent-strong">
             You&rsquo;re paying for
@@ -553,7 +628,7 @@ export default async function SystemLandingPage({
       </section>
 
       {/* ══ WHO SHOULD SKIP THIS — the DecisionReceipt pattern ═════════════════════════ */}
-      <section className="lit-card grad-border-amber relative mt-20 overflow-hidden rounded-2xl">
+      <section className="lit-card grad-border-amber relative mt-16 overflow-hidden rounded-2xl sm:mt-20">
         <span aria-hidden className="glow-amber-soft" style={{ top: "-3.5rem", left: "-2rem", width: "16rem", height: "9rem" }} />
         <div className="relative flex items-center gap-3 border-b border-line-soft px-5 py-4">
           <span
@@ -613,7 +688,7 @@ export default async function SystemLandingPage({
 
       {/* ══ FOOTER CROSS-LINKS — the free research this sits on ════════════════════════ */}
       {(system.relatedGuides.length || relatedKits.length) ? (
-        <section className="mt-20 border-t border-line pt-10">
+        <section className="mt-16 border-t border-line pt-10 sm:mt-20">
           <span className="mono text-[0.62rem] uppercase tracking-[0.12em] text-ink-faint">
             The research this system sits on (free, as always)
           </span>

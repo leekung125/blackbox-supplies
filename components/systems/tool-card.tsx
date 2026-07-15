@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
 import { getSystem } from "@/lib/systems";
+import { PaperPreview, PAPER_W, PAPER_H } from "@/app/(site)/systems/paper-preview";
 
 /**
  * ToolCard — the paired-System attach card (Wave 3 contextual wiring).
@@ -101,13 +101,15 @@ export const SYSTEM_PREVIEWS: Record<string, SystemPreviews> = {
   },
 };
 
-/** Preview PNGs are US-Letter renders (1632×2112) — one true aspect ratio everywhere. */
-export const PREVIEW_W = 1632;
-export const PREVIEW_H = 2112;
+/** Preview PNGs are US-Letter renders — one true aspect ratio everywhere (re-exported for
+ *  older consumers; the source of truth lives in paper-preview.tsx). */
+export const PREVIEW_W = PAPER_W;
+export const PREVIEW_H = PAPER_H;
 
 /**
- * PagePeek — a small tilted render of the System's cover page: paper depth (ring + layered
- * shadow + warm under-glow), a gentle lift/tilt on card hover. Decorative (aria-hidden) —
+ * PagePeek — a small tilted render of the System's cover page, through the shared
+ * PaperPreview treatment (warm parchment tone, amber hairline, layered soft light — never
+ * a hard white rectangle), with a gentle lift/tilt on card hover. Decorative (aria-hidden) —
  * the card copy carries the information. Stays a DOCUMENT, never a product photo.
  */
 function PagePeek({ src, quiet, className = "" }: { src: string; quiet?: boolean; className?: string }) {
@@ -122,15 +124,9 @@ function PagePeek({ src, quiet, className = "" }: { src: string; quiet?: boolean
           }}
         />
       )}
-      <Image
-        src={src}
-        alt=""
-        width={PREVIEW_W}
-        height={PREVIEW_H}
-        sizes="96px"
-        className="relative h-auto w-full rotate-2 rounded-[5px] ring-1 ring-[#efe6d2]/15 transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-y-1 group-hover:rotate-3"
-        style={{ boxShadow: "0 2px 5px rgba(0,0,0,0.5), 0 16px 28px -14px rgba(0,0,0,0.75)" }}
-      />
+      <span className="relative block rotate-2 transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-y-1 group-hover:rotate-3">
+        <PaperPreview src={src} alt="" sizes="96px" radius={6} />
+      </span>
     </span>
   );
 }

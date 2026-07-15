@@ -1,20 +1,17 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { getAllSystems, SYSTEMS_PROMISE } from "@/lib/systems";
+import { PaperPreview } from "./paper-preview";
 import { SystemsIndexCard } from "./systems-index-card";
 import { SystemsDisclosure } from "./systems-disclosure";
 
 const BASE = "https://www.blackboxsupplies.com";
 
-/** Preview renders are US-Letter pages (1632×2112). Hero fan uses the flagship's spreads.
- *  (Hardcoded here — this is a server component, so it can't import the client-side
- *  SYSTEM_PREVIEWS manifest from tool-card.tsx.) */
-const PREVIEW_W = 1632;
-const PREVIEW_H = 2112;
+/** Hero fan uses the flagship's rendered spreads. (Hardcoded here — this is a server
+ *  component, so it can't import the client-side SYSTEM_PREVIEWS manifest from tool-card.tsx.) */
 const HERO_FAN = {
   front: "/systems/previews/glovebox-cover.png",
   left: "/systems/previews/glovebox-vehicle-record.png",
@@ -34,12 +31,6 @@ export const metadata: Metadata = {
     url: "/systems",
   },
 };
-
-/** Paper depth for the hero pages — layered dark shadow + a warm rim from the lamp. */
-const HERO_PAGE_SHADOW =
-  "0 0 0 1px rgba(0,0,0,0.45), 0 4px 10px rgba(0,0,0,0.55), 0 30px 60px -18px rgba(0,0,0,0.8)";
-const HERO_FRONT_SHADOW =
-  "0 0 0 1px rgba(0,0,0,0.45), 0 4px 10px rgba(0,0,0,0.55), 0 34px 64px -18px rgba(0,0,0,0.82), 0 0 60px -12px rgba(217,154,69,0.4)";
 
 export default function SystemsIndexPage() {
   const systems = getAllSystems();
@@ -121,54 +112,59 @@ export default function SystemsIndexPage() {
 
           {/* the object itself — real rendered pages, fanned under the lamp */}
           <Reveal className="relative" delay={0.12}>
-            <div className="relative mx-auto mt-12 h-[255px] w-[280px] sm:h-[300px] sm:w-[340px] lg:mt-4 lg:h-[330px] lg:w-[380px]">
+            <div className="relative mx-auto mt-10 h-[225px] w-[min(270px,72vw)] sm:mt-12 sm:h-[300px] sm:w-[340px] lg:mt-4 lg:h-[330px] lg:w-[380px]">
+              {/* warm espresso pool — the paper sits on lit warm ground, never on near-black */}
+              <div
+                aria-hidden
+                className="absolute -inset-10 -z-10 rounded-full sm:-inset-16"
+                style={{
+                  background:
+                    "radial-gradient(closest-side, #241a10 0%, #1c140b 44%, rgba(11,8,5,0.5) 74%, transparent 100%)",
+                }}
+              />
               {/* the lamp behind the paper */}
               <span
                 aria-hidden
                 className="glow-amber"
-                style={{ left: "50%", top: "50%", width: "24rem", height: "17rem", transform: "translate(-50%, -50%)" }}
+                style={{ left: "50%", top: "50%", width: "min(24rem, 84vw)", height: "17rem", transform: "translate(-50%, -50%)" }}
               />
 
               <div className="hero-float absolute inset-0">
                 {/* back-left spread */}
-                <Image
-                  src={HERO_FAN.left}
-                  alt=""
-                  aria-hidden
-                  width={PREVIEW_W}
-                  height={PREVIEW_H}
-                  sizes="(min-width: 1024px) 213px, 190px"
-                  className="absolute left-0 top-10 h-auto w-[56%] rotate-[-10deg] rounded-[7px] ring-1 ring-[#efe6d2]/10 brightness-[0.9]"
-                  style={{ boxShadow: HERO_PAGE_SHADOW }}
-                />
+                <div className="absolute left-0 top-10 w-[56%] rotate-[-10deg]">
+                  <PaperPreview
+                    src={HERO_FAN.left}
+                    alt=""
+                    sizes="(min-width: 1024px) 213px, 160px"
+                    radius={10}
+                  />
+                </div>
                 {/* back-right spread */}
-                <Image
-                  src={HERO_FAN.right}
-                  alt=""
-                  aria-hidden
-                  width={PREVIEW_W}
-                  height={PREVIEW_H}
-                  sizes="(min-width: 1024px) 213px, 190px"
-                  className="absolute right-0 top-7 h-auto w-[56%] rotate-[9deg] rounded-[7px] ring-1 ring-[#efe6d2]/10 brightness-[0.9]"
-                  style={{ boxShadow: HERO_PAGE_SHADOW }}
-                />
-                {/* the cover, front and lit */}
-                <Image
-                  src={HERO_FAN.front}
-                  alt="The Digital Glovebox — rendered cover page"
-                  width={PREVIEW_W}
-                  height={PREVIEW_H}
-                  sizes="(min-width: 1024px) 236px, 210px"
-                  priority
-                  className="absolute left-1/2 top-0 h-auto w-[62%] -translate-x-1/2 rotate-[1.5deg] rounded-[7px] ring-1 ring-[#efe6d2]/20"
-                  style={{ boxShadow: HERO_FRONT_SHADOW }}
-                />
+                <div className="absolute right-0 top-7 w-[56%] rotate-[9deg]">
+                  <PaperPreview
+                    src={HERO_FAN.right}
+                    alt=""
+                    sizes="(min-width: 1024px) 213px, 160px"
+                    radius={10}
+                  />
+                </div>
+                {/* the cover, front — the lamp finds it */}
+                <div className="absolute left-1/2 top-0 w-[62%] -translate-x-1/2 rotate-[1.5deg]">
+                  <PaperPreview
+                    src={HERO_FAN.front}
+                    alt="The Digital Glovebox — rendered cover page"
+                    sizes="(min-width: 1024px) 236px, 180px"
+                    priority
+                    focal
+                    radius={10}
+                  />
+                </div>
               </div>
 
-              {/* contact shadow — the object sits on the ground, it doesn't hover in a void */}
+              {/* contact shadow — warm dark, so the object sits on the ground without a hard void */}
               <span
                 aria-hidden
-                className="absolute bottom-[-6%] left-1/2 h-10 w-[72%] -translate-x-1/2 rounded-[100%] bg-black/55 blur-2xl"
+                className="absolute bottom-[-6%] left-1/2 h-10 w-[72%] -translate-x-1/2 rounded-[100%] bg-[#0d0805]/60 blur-2xl"
               />
             </div>
           </Reveal>
