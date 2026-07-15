@@ -30,11 +30,9 @@ const nextConfig: NextConfig = {
       // real page by intent. permanent:false — these are aliases and their target may change.
       { source: "/car", destination: "/category/car-utility", permanent: false },
       { source: "/cooling", destination: "/heat", permanent: false },
-      { source: "/desk", destination: "/category/desk-tech", permanent: false },
-      { source: "/kitchen", destination: "/category/kitchen", permanent: false },
-      { source: "/coffee", destination: "/category/kitchen", permanent: false },
+      // Off-brand vanity redirects (/desk, /kitchen, /coffee, /sleep) removed: those verticals
+      // were cut from the niche (see INCONSISTENCY §7), so they no longer resolve to on-brand pages.
       { source: "/travel", destination: "/category/travel-edc", permanent: false },
-      { source: "/sleep", destination: "/category/sleep-comfort", permanent: false },
       { source: "/power", destination: "/kits/backup-power-kit", permanent: false },
       { source: "/roadside", destination: "/kits/roadside-kit", permanent: false },
       { source: "/apartment", destination: "/useful", permanent: false },

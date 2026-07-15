@@ -3,21 +3,21 @@ import { NewsletterForm } from "@/components/newsletter-form";
 import { GuideCard } from "@/components/guide-card";
 import { Reveal } from "@/components/motion/reveal";
 import { getAllGuides } from "@/lib/guides";
+import { NEWSLETTER_CADENCE } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Newsletter — Gear Notes & Buying Guides",
-  description:
-    "Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, a few times a month. No spam, no fake reviews, unsubscribe in one click.",
+  description: `Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, ${NEWSLETTER_CADENCE}. No spam, no fake reviews, unsubscribe in one click.`,
   alternates: { canonical: "/newsletter" },
 };
 
 const GET = [
   { t: "Useful finds", d: "A short list of the practical gear worth knowing about — with the honest tradeoffs, not just the hype." },
-  { t: "Buying guides", d: "When a new guide lands (power, car, travel, home), you hear about it first." },
+  { t: "Buying guides", d: "When a new guide lands (power, car & roadside, cooling, travel), you hear about it first." },
   { t: "Simple kit picks", d: "The few things actually worth having for power, the car, travel, and outages." },
 ];
 
-const WONT = ["No spam — a few sends a month, that's it", "No fake reviews or invented testing", "No selling your email", "Unsubscribe in one click, anytime"];
+const WONT = [`No spam — ${NEWSLETTER_CADENCE}, that's it`, "No fake reviews or invented testing", "No selling your email", "Unsubscribe in one click, anytime"];
 
 export default function NewsletterPage() {
   const taste = getAllGuides().slice(0, 3);
@@ -31,7 +31,7 @@ export default function NewsletterPage() {
             Get useful gear notes before you need them.
           </h1>
           <p className="lede mx-auto mt-4 max-w-xl">
-            Practical buying guides, Amazon finds, and simple kit picks — a few times a month, for the
+            Practical buying guides, Amazon finds, and simple kit picks — {NEWSLETTER_CADENCE}, for the
             everyday problems people usually prepare for too late.
           </p>
         </div>

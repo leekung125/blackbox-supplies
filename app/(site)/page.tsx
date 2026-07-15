@@ -8,7 +8,9 @@ import { Spotlight } from "@/components/fx/spotlight";
 import { Reveal } from "@/components/motion/reveal";
 import { CountUp } from "@/components/motion/count-up";
 import { getAllArticles } from "@/lib/articles";
-import { getAllProducts, getCoreProducts, getProductById, type Product } from "@/lib/products";
+import { getAllProducts, getProductById, type Product } from "@/lib/products";
+import { BRAND, VERTICALS as VERTICAL_LABELS } from "@/lib/content";
+import { RESEARCHED_PICKS, TOTAL_GUIDES } from "@/lib/counts";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { KITS } from "@/lib/kits";
 import { KitBundleCard } from "@/components/home/kit-bundle-card";
@@ -30,7 +32,7 @@ const CAR_COUNT = getAllProducts().filter((p) => CAR_CATS.has(p.category as stri
 const VERTICALS = [
   {
     href: "/gear",
-    name: "Car & roadside",
+    name: VERTICAL_LABELS.car,
     tag: "For when the road goes wrong",
     blurb: "Jump starters, tire inflators, dash cams, and emergency kits — the gear worth keeping in the trunk.",
     image: "/brand/hero-car.png",
@@ -38,7 +40,7 @@ const VERTICALS = [
   },
   {
     href: "/heat",
-    name: "Cooling",
+    name: VERTICAL_LABELS.cooling,
     tag: "Beat the heat",
     blurb: "Portable AC, fans, and evaporative coolers for apartments and dorms with no central air.",
     image: "/brand/hero-cooling.png",
@@ -46,9 +48,9 @@ const VERTICALS = [
   },
   {
     href: "/useful",
-    name: "Work & everyday utility",
+    name: VERTICAL_LABELS.useful,
     tag: "Gear worth owning",
-    blurb: "Practical work-desk and everyday-carry upgrades — charging, power, mounts, trackers, and multitools built to last.",
+    blurb: "Practical work and everyday-carry upgrades — charging, power, mounts, trackers, and multitools built to last.",
     image: "/brand/hero-desk.png",
     count: USEFUL_COUNT,
   },
@@ -76,7 +78,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const articles = getAllArticles();
   const featured = FEATURED_SLUGS.map((s) => articles.find((a) => a.slug === s)).filter(Boolean).slice(0, 3);
-  const totalPicks = getCoreProducts().length;
+  const totalPicks = RESEARCHED_PICKS;
   const flagship = COMPARISON_GUIDES.find((g) => g.slug === "best-jump-starters-compared") ?? COMPARISON_GUIDES[0];
   const otherGuides = COMPARISON_GUIDES.filter((g) => g.slug !== flagship.slug);
 
@@ -84,15 +86,15 @@ export default function HomePage() {
   // so crawlers + AI Overviews get a clean, citable model of the site's top-level sections.
   const HOME_BASE = "https://www.blackboxsupplies.com";
   const homeVerticals = [
-    { name: "Cooling", path: "/heat" },
-    { name: "Car & roadside", path: "/gear" },
-    { name: "Useful gear", path: "/useful" },
+    { name: VERTICAL_LABELS.cooling, path: "/heat" },
+    { name: VERTICAL_LABELS.car, path: "/gear" },
+    { name: VERTICAL_LABELS.useful, path: "/useful" },
     { name: "Buying guides", path: "/guides" },
   ];
   const homeItemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "BlackBox Supplies — what we cover",
+    name: `${BRAND.name} — what we cover`,
     numberOfItems: homeVerticals.length,
     itemListElement: homeVerticals.map((v, i) => ({
       "@type": "ListItem",
@@ -108,8 +110,8 @@ export default function HomePage() {
         data={[
           webPageSchema(
             "/",
-            "BlackBox Supplies — Utility & Readiness Gear, Researched",
-            "Utility and readiness gear for real problems — dead batteries, flat tires, outages, heat. Researched, compared, and cited buying guides plus honest picks across cooling, car & roadside, and everyday useful gear.",
+            `${BRAND.name} — Practical Everyday Readiness, Researched`,
+            BRAND.positioning,
           ),
           homeItemList,
         ]}
@@ -198,7 +200,7 @@ export default function HomePage() {
             </div>
             <div className="bbxh-in bbxh-d5 relative mt-12 flex gap-10 pt-6">
               <div aria-hidden className="rule-fade absolute inset-x-0 top-0" />
-              {[{ n: totalPicks, s: "+", label: "researched picks" }, { n: articles.length, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
+              {[{ n: totalPicks, s: "+", label: "researched picks" }, { n: TOTAL_GUIDES, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
                 <div key={st.label} className="bbxh-stat">
                   <div className="tabular font-display text-[2.4rem] font-medium leading-none text-ink-strong">
                     <CountUp to={st.n} /><span className="text-accent-bright" style={{ textShadow: "0 0 18px rgba(237,186,102,0.5)" }}>{st.s}</span>

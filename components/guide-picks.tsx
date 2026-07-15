@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { BRAND } from "@/lib/content";
 import type { ResolvedPick } from "@/lib/affiliate-picks";
 
 const BTN =
@@ -53,7 +54,7 @@ export function GuidePicks({ picks }: { picks: ResolvedPick[] }) {
       ) : null}
 
       <p className="mt-3 text-[0.7rem] leading-relaxed text-ink-dim">
-        As an Amazon Associate, BlackBox earns from qualifying purchases — at no extra cost to you.
+        As an Amazon Associate, {BRAND.name} earns from qualifying purchases — at no extra cost to you.
       </p>
     </aside>
   );
