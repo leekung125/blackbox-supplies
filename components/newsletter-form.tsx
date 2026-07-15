@@ -10,7 +10,18 @@ type State = "idle" | "loading" | "ok-captured" | "ok-pending" | "error";
  * ESP webhook wired (captured), it confirms the subscription; otherwise it thanks the user for early
  * interest without claiming a confirmed subscription.
  */
-export function NewsletterForm({ tone = "light" }: { tone?: "light" | "dark" }) {
+export function NewsletterForm({
+  tone = "light",
+  source,
+  onCaptured,
+}: {
+  tone?: "light" | "dark";
+  /** Surface attribution for `newsletter_signup {source}` (KPI §1). Optional — omit for the plain band. */
+  source?: string;
+  /** Fired once on a successful subscribe with the captured flag — lets a wrapper (e.g. InlineMagnet)
+   *  attribute a lead-magnet signup without duplicating the capture logic. */
+  onCaptured?: (captured: boolean) => void;
+}) {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<State>("idle");
   const [msg, setMsg] = useState("");
@@ -34,8 +45,10 @@ export function NewsletterForm({ tone = "light" }: { tone?: "light" | "dark" }) 
         setMsg(data?.error ?? "Something went wrong. Try again.");
         return;
       }
-      track("newsletter_signup", { captured: !!data.captured });
-      setState(data.captured ? "ok-captured" : "ok-pending");
+      const captured = !!data.captured;
+      track("newsletter_signup", source ? { captured, source } : { captured });
+      onCaptured?.(captured);
+      setState(captured ? "ok-captured" : "ok-pending");
     } catch {
       setState("error");
       setMsg("Network error. Try again in a moment.");

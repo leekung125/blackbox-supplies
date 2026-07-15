@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { KitBuilder } from "@/components/kits/kit-builder";
+import { ToolCard, type ToolCardTier } from "@/components/systems/tool-card";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { getKitById, KIT_SLUGS } from "@/lib/kits";
@@ -24,6 +25,25 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!kit) return { title: "Kit not found" };
   return { title: kit.name, description: kit.dek, alternates: { canonical: `/kits/${kit.id}` } };
 }
+
+/**
+ * Wave-3 paired-System attach (deterministic — CROSS_SELL_RULES §CS-4 / OFFER_PLACEMENT_MAP §2).
+ * ONE paid card per kit, secondary to the free gear answer: it renders AFTER the whole KitBuilder
+ * (which carries the picks → verdict → skip → common-mistakes), so it is never before the affiliate
+ * answer, never in the hero. It is the operational plan that completes the physical loadout, and it is
+ * visually/verbally distinct from the affiliate picks (its own blueprint glyph · "A BlackBox System").
+ * A kit with no entry here (backup-power = a power problem, not a vehicle-records one) shows no paid
+ * card at all — DG is the wrong problem there.
+ */
+const KIT_SYSTEM_ATTACH: Record<string, { slug: string; tier: ToolCardTier }> = {
+  // Gear goes in the trunk; DG is the action plan + contact sheet + equipment inventory for that trunk.
+  "roadside-kit": { slug: "digital-glovebox", tier: "essential" },
+  // Winter checklist + battery log answer this kit's two problems (dead battery, stuck car) directly.
+  "winter-car-kit": { slug: "digital-glovebox", tier: "essential" },
+  // Trip prep is checklist-shaped; DG carries the accident/dash-cam angle at the lighter "strong" weight.
+  "road-trip-kit": { slug: "digital-glovebox", tier: "strong" },
+  // backup-power-kit → OC/POP (power cluster) only; DG is the wrong problem, so no entry = no card.
+};
 
 export default async function KitPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -51,6 +71,9 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
     "garage-starter-kit": "/brand/kit-garage.png",
   };
   const heroImg = kitImage[kit.id];
+
+  // Deterministic paired-System attach for this kit (undefined = no paid card, e.g. backup-power).
+  const attach = KIT_SYSTEM_ATTACH[kit.id];
 
   // The kit's real, deduped, ordered product set (mirrors the buy-first → starter → better → premium
   // flow) — the honest basis for the CollectionPage ItemList.
@@ -109,6 +132,15 @@ export default async function KitPage({ params }: { params: Promise<{ slug: stri
       {buyFirst ? (
         <div className="mt-12">
           <KitBuilder buyFirst={buyFirst} starter={starters} better={betters} premium={premium} toSkip={kit.toSkip} commonMistakes={kit.commonMistakes} />
+        </div>
+      ) : null}
+
+      {/* Paired-System attach — the operational plan you can't buy on Amazon. One card, secondary to the
+          gear above, styled as a tool (its own glyph, "made by us") so it never reads as an affiliate pick.
+          Only vehicle-records kits qualify (see KIT_SYSTEM_ATTACH). */}
+      {buyFirst && attach ? (
+        <div className="mt-10">
+          <ToolCard slug={attach.slug} tier={attach.tier} slot="kit-after-builder" path={`/kits/${kit.id}`} />
         </div>
       ) : null}
 
