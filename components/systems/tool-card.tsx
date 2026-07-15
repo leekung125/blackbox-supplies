@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { track } from "@/lib/analytics";
 import { getSystem } from "@/lib/systems";
@@ -11,6 +12,7 @@ import { getSystem } from "@/lib/systems";
  * This is the ONE paid card a page may carry, and it exists to be visually + verbally DISTINCT
  * from affiliate product cards (trust-separation, IA §5.3 / BEHAVIORAL_UX §13 visual law):
  *   • its OWN glyph family — a layered-document blueprint mark, NEVER a product photo;
+ *   • its only imagery is our OWN rendered pages (PagePeek / SYSTEM_PREVIEWS) — paper, not gear;
  *   • it always reads "A BlackBox System · Made by us, sold by us" (the SYSTEMS_DISCLOSURE one-liner);
  *   • it is styled as a TOOL (amber-lamp lit-card), so it can never be mistaken for an Amazon pick,
  *     and must never be interleaved with affiliate picks (the consumer places it alone, post-verdict).
@@ -73,6 +75,64 @@ function useViewOnce(ref: React.RefObject<HTMLElement | null>, cb: () => void) {
     return () => io.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+}
+
+/**
+ * Rendered-page preview assets per System slug (from the Assets phase, /public/systems/previews).
+ * These are OUR OWN rendered pages — paper, never gear — so showing them keeps the trust
+ * separation intact while letting the buyer SEE the quality before the landing page.
+ * Systems without an entry (e.g. in-development SKUs) gracefully render glyph-only.
+ */
+export interface SystemPreviews {
+  /** The rendered cover page — the one small thumbnail attach-cards use. */
+  cover: string;
+  /** Supporting page renders, in display order — the index card fans these behind the cover. */
+  pages: string[];
+}
+
+export const SYSTEM_PREVIEWS: Record<string, SystemPreviews> = {
+  "digital-glovebox": {
+    cover: "/systems/previews/glovebox-cover.png",
+    pages: [
+      "/systems/previews/glovebox-vehicle-record.png",
+      "/systems/previews/glovebox-accident.png",
+      "/systems/previews/glovebox-worked-example.png",
+    ],
+  },
+};
+
+/** Preview PNGs are US-Letter renders (1632×2112) — one true aspect ratio everywhere. */
+export const PREVIEW_W = 1632;
+export const PREVIEW_H = 2112;
+
+/**
+ * PagePeek — a small tilted render of the System's cover page: paper depth (ring + layered
+ * shadow + warm under-glow), a gentle lift/tilt on card hover. Decorative (aria-hidden) —
+ * the card copy carries the information. Stays a DOCUMENT, never a product photo.
+ */
+function PagePeek({ src, quiet, className = "" }: { src: string; quiet?: boolean; className?: string }) {
+  return (
+    <span className={`relative block shrink-0 ${className}`} aria-hidden>
+      {!quiet && (
+        <span
+          className="absolute -inset-3 rounded-full opacity-80"
+          style={{
+            background: "radial-gradient(closest-side, rgba(217,154,69,0.30), transparent 72%)",
+            filter: "blur(10px)",
+          }}
+        />
+      )}
+      <Image
+        src={src}
+        alt=""
+        width={PREVIEW_W}
+        height={PREVIEW_H}
+        sizes="96px"
+        className="relative h-auto w-full rotate-2 rounded-[5px] ring-1 ring-[#efe6d2]/15 transition-transform duration-500 ease-out motion-reduce:transition-none group-hover:-translate-y-1 group-hover:rotate-3"
+        style={{ boxShadow: "0 2px 5px rgba(0,0,0,0.5), 0 16px 28px -14px rgba(0,0,0,0.75)" }}
+      />
+    </span>
+  );
 }
 
 /** The System glyph — layered blueprint/document stack. Deliberately NOT a product photo. */
@@ -140,6 +200,7 @@ export function ToolCard({
   const linkLabel = `See the ${shortName}`;
   const manifest = `${system.contents.length} systems · fillable PDF`;
   const available = system.status === "available";
+  const preview = SYSTEM_PREVIEWS[system.slug];
 
   const Arrow = (
     <svg
@@ -206,6 +267,7 @@ export function ToolCard({
             </h3>
             <p className="mt-1 text-sm leading-snug text-ink-dim">{system.tagline}</p>
           </div>
+          {preview && <PagePeek src={preview.cover} quiet={quiet} className="hidden w-12 md:block" />}
           <div className="hidden shrink-0 flex-col items-end gap-1 text-right sm:flex">
             {available && (
               <span className="mono nums text-lg font-semibold leading-none text-ink-strong">
@@ -255,12 +317,16 @@ export function ToolCard({
           </span>
         </div>
 
-        <div className="relative mt-5">
-          <h3 className="font-display text-2xl font-semibold text-ink-strong transition-colors group-hover:text-accent-bright">
-            {system.title}
-          </h3>
-          {/* the one-line problem it solves */}
-          <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-dim">{system.tagline}</p>
+        <div className="relative mt-5 flex items-start gap-5">
+          <div className="min-w-0 flex-1">
+            <h3 className="font-display text-2xl font-semibold text-ink-strong transition-colors group-hover:text-accent-bright">
+              {system.title}
+            </h3>
+            {/* the one-line problem it solves */}
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-dim">{system.tagline}</p>
+          </div>
+          {/* the rendered cover — the buyer SEES the paper before the landing page */}
+          {preview && <PagePeek src={preview.cover} quiet={quiet} className="-mt-1 w-16 sm:w-20" />}
         </div>
 
         <div className="relative mt-6 flex flex-wrap items-center justify-between gap-3">

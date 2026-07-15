@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/json-ld";
@@ -8,6 +9,17 @@ import { SystemsIndexCard } from "./systems-index-card";
 import { SystemsDisclosure } from "./systems-disclosure";
 
 const BASE = "https://www.blackboxsupplies.com";
+
+/** Preview renders are US-Letter pages (1632×2112). Hero fan uses the flagship's spreads.
+ *  (Hardcoded here — this is a server component, so it can't import the client-side
+ *  SYSTEM_PREVIEWS manifest from tool-card.tsx.) */
+const PREVIEW_W = 1632;
+const PREVIEW_H = 2112;
+const HERO_FAN = {
+  front: "/systems/previews/glovebox-cover.png",
+  left: "/systems/previews/glovebox-vehicle-record.png",
+  right: "/systems/previews/glovebox-accident.png",
+};
 
 export const metadata: Metadata = {
   title: "Systems — Printable & Fillable Readiness Plans, Made By Us",
@@ -22,6 +34,12 @@ export const metadata: Metadata = {
     url: "/systems",
   },
 };
+
+/** Paper depth for the hero pages — layered dark shadow + a warm rim from the lamp. */
+const HERO_PAGE_SHADOW =
+  "0 0 0 1px rgba(0,0,0,0.45), 0 4px 10px rgba(0,0,0,0.55), 0 30px 60px -18px rgba(0,0,0,0.8)";
+const HERO_FRONT_SHADOW =
+  "0 0 0 1px rgba(0,0,0,0.45), 0 4px 10px rgba(0,0,0,0.55), 0 34px 64px -18px rgba(0,0,0,0.82), 0 0 60px -12px rgba(217,154,69,0.4)";
 
 export default function SystemsIndexPage() {
   const systems = getAllSystems();
@@ -43,7 +61,7 @@ export default function SystemsIndexPage() {
   };
 
   return (
-    <div className="relative mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+    <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
       <JsonLd
         data={[
           webPageSchema("/systems", "BlackBox Systems", SYSTEMS_PROMISE),
@@ -55,75 +73,186 @@ export default function SystemsIndexPage() {
         ]}
       />
 
-      {/* ambient lamp behind the masthead */}
-      <div
-        aria-hidden
-        className="glow-amber-soft pointer-events-none left-1/2 top-[-5rem] h-72 w-[38rem] max-w-[92vw] -translate-x-1/2"
-      />
+      {/* ── HERO — the category, photographed at night ─────────────────────────── */}
+      <section className="relative isolate">
+        {/* ambient: the lamp + a faint technical grid that fades out (all static paint) */}
+        <div
+          aria-hidden
+          className="glow-amber-soft pointer-events-none left-1/2 top-[-6rem] -z-10 h-80 w-[42rem] max-w-[94vw] -translate-x-1/2"
+        />
+        <div aria-hidden className="atmo-grid pointer-events-none absolute inset-x-[-2rem] top-[-3rem] -z-10 h-[32rem]" />
 
-      <nav className="relative flex flex-wrap items-center gap-2 text-sm text-ink-dim">
-        <Link href="/" className="hover:text-accent-strong">Home</Link>
-        <span aria-hidden>/</span>
-        <span className="text-ink">Systems</span>
-      </nav>
+        <nav className="relative flex flex-wrap items-center gap-2 text-sm text-ink-dim">
+          <Link href="/" className="hover:text-accent-strong">Home</Link>
+          <span aria-hidden>/</span>
+          <span className="text-ink">Systems</span>
+        </nav>
 
-      <Reveal blur={false}>
-        <span className="eyebrow eyebrow-accent mt-6 inline-block">Systems · made by us</span>
-        <h1 className="mt-3 max-w-3xl text-balance font-display text-4xl font-semibold leading-[1.05] text-ink headline-glow sm:text-5xl">
-          The plans that keep you organized for the moment.
-        </h1>
-        <p className="lede mt-4 max-w-2xl">
-          {SYSTEMS_PROMISE} Our gear picks are the hardware; Systems are the plan around it —
-          printable, fillable, and in your car or on your phone before you need them. One flat
-          price, no subscription, 30-day refund.
-        </p>
-      </Reveal>
+        <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-center lg:gap-12">
+          {/* copy column */}
+          <Reveal>
+            <span className="eyebrow eyebrow-accent mt-8 inline-block">Systems · made by us, sold by us</span>
+            <h1 className="mt-4 max-w-2xl text-balance font-display text-[2.6rem] font-semibold leading-[1.02] text-ink-strong headline-glow sm:text-6xl">
+              The plans that keep you organized for <span className="amber-word">the moment</span>.
+            </h1>
+            <p className="lede mt-5 max-w-xl">
+              {SYSTEMS_PROMISE} Our gear picks are the hardware; Systems are the plan around it —
+              printable, fillable, and in your car or on your phone before you need them.
+            </p>
 
-      {/* the SKU shelf — premium tool cards, never interleaved with affiliate picks */}
-      <div className="relative mt-10 grid gap-6 sm:grid-cols-2">
-        {systems.map((s) => (
-          <Reveal key={s.slug} blur={false}>
-            <SystemsIndexCard system={s} />
+            {/* the deal, as quiet spec chips — no theater, just the terms */}
+            <ul className="mt-7 flex flex-wrap gap-2">
+              {[
+                "One flat price",
+                "30-day refund · keep the files",
+                "No subscription, no account",
+                "Fillable + printable",
+              ].map((t) => (
+                <li
+                  key={t}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-line bg-surface/60 px-3 py-1.5 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-ink-dim"
+                >
+                  <span aria-hidden className="h-1 w-1 rounded-full bg-accent" />
+                  {t}
+                </li>
+              ))}
+            </ul>
           </Reveal>
-        ))}
 
-        {/* honest "more coming" placeholder — no fake waitlist, no invented price */}
-        <div className="lit-card grad-border relative flex h-full flex-col justify-center overflow-hidden rounded-2xl border-dashed p-6">
-          <span className="mono text-[0.62rem] uppercase tracking-[0.16em] text-ink-faint">More systems</span>
-          <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-dim">
-            We build one, get it right, then add the next — an Outage Planner and a Winter Driving
-            System are in the works. No waitlist theater; they appear here when they&rsquo;re real.
-          </p>
+          {/* the object itself — real rendered pages, fanned under the lamp */}
+          <Reveal className="relative" delay={0.12}>
+            <div className="relative mx-auto mt-12 h-[255px] w-[280px] sm:h-[300px] sm:w-[340px] lg:mt-4 lg:h-[330px] lg:w-[380px]">
+              {/* the lamp behind the paper */}
+              <span
+                aria-hidden
+                className="glow-amber"
+                style={{ left: "50%", top: "50%", width: "24rem", height: "17rem", transform: "translate(-50%, -50%)" }}
+              />
+
+              <div className="hero-float absolute inset-0">
+                {/* back-left spread */}
+                <Image
+                  src={HERO_FAN.left}
+                  alt=""
+                  aria-hidden
+                  width={PREVIEW_W}
+                  height={PREVIEW_H}
+                  sizes="(min-width: 1024px) 213px, 190px"
+                  className="absolute left-0 top-10 h-auto w-[56%] rotate-[-10deg] rounded-[7px] ring-1 ring-[#efe6d2]/10 brightness-[0.9]"
+                  style={{ boxShadow: HERO_PAGE_SHADOW }}
+                />
+                {/* back-right spread */}
+                <Image
+                  src={HERO_FAN.right}
+                  alt=""
+                  aria-hidden
+                  width={PREVIEW_W}
+                  height={PREVIEW_H}
+                  sizes="(min-width: 1024px) 213px, 190px"
+                  className="absolute right-0 top-7 h-auto w-[56%] rotate-[9deg] rounded-[7px] ring-1 ring-[#efe6d2]/10 brightness-[0.9]"
+                  style={{ boxShadow: HERO_PAGE_SHADOW }}
+                />
+                {/* the cover, front and lit */}
+                <Image
+                  src={HERO_FAN.front}
+                  alt="The Digital Glovebox — rendered cover page"
+                  width={PREVIEW_W}
+                  height={PREVIEW_H}
+                  sizes="(min-width: 1024px) 236px, 210px"
+                  priority
+                  className="absolute left-1/2 top-0 h-auto w-[62%] -translate-x-1/2 rotate-[1.5deg] rounded-[7px] ring-1 ring-[#efe6d2]/20"
+                  style={{ boxShadow: HERO_FRONT_SHADOW }}
+                />
+              </div>
+
+              {/* contact shadow — the object sits on the ground, it doesn't hover in a void */}
+              <span
+                aria-hidden
+                className="absolute bottom-[-6%] left-1/2 h-10 w-[72%] -translate-x-1/2 rounded-[100%] bg-black/55 blur-2xl"
+              />
+            </div>
+          </Reveal>
         </div>
-      </div>
+      </section>
 
-      {/* the trust-separation block — this is what makes the layers legible */}
+      {/* ── THE SHELF — premium tool cards, never interleaved with affiliate picks ── */}
+      <section className="relative mt-16 sm:mt-20">
+        <div className="flex items-center gap-4">
+          <span className="rule-accent" aria-hidden />
+          <h2 className="eyebrow">
+            The shelf · {String(systems.length).padStart(2, "0")} {systems.length === 1 ? "system" : "systems"}
+          </h2>
+        </div>
+
+        <div className="mt-6 grid gap-6 sm:grid-cols-2">
+          {systems.map((s) => (
+            <Reveal key={s.slug}>
+              <SystemsIndexCard system={s} />
+            </Reveal>
+          ))}
+
+          {/* honest "more coming" placeholder — no fake waitlist, no invented price */}
+          <div className="lit-card grad-border relative flex h-full flex-col justify-center overflow-hidden rounded-2xl border-dashed p-6">
+            <span className="mono text-[0.62rem] uppercase tracking-[0.16em] text-ink-faint">More systems</span>
+            <p className="mt-2 text-[0.95rem] leading-relaxed text-ink-dim">
+              We build one, get it right, then add the next — an Outage Planner and a Winter Driving
+              System are in the works. No waitlist theater; they appear here when they&rsquo;re real.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── how Systems differ from the free answer (useful-first, never a gate) ── */}
+      <section className="relative mt-16 sm:mt-20">
+        <div className="lit-card grad-border relative overflow-hidden rounded-3xl p-6 sm:p-10">
+          <span
+            aria-hidden
+            className="glow-amber-soft"
+            style={{ top: "-7rem", right: "-5rem", width: "26rem", height: "15rem" }}
+          />
+
+          <Reveal>
+            <span className="eyebrow eyebrow-accent">The deal, plainly</span>
+            <h2 className="section-title mt-3 max-w-2xl text-balance">
+              Systems organize the answer. The answer itself stays free.
+            </h2>
+          </Reveal>
+
+          <div className="relative mt-8 grid gap-8 sm:mt-10 sm:grid-cols-3 sm:gap-10">
+            {[
+              {
+                n: "01",
+                t: "The answer stays free",
+                b: "Everything a System teaches — what to do in a breakdown, what to photograph at a scene — is in our guides and always will be. Systems organize it; they don't gate it.",
+              },
+              {
+                n: "02",
+                t: "One flat price",
+                b: "A number we set, shown plainly. No compare-at theater, no countdowns, no scarcity — and no ratings, because none exist yet and we won't invent them.",
+              },
+              {
+                n: "03",
+                t: "Yours forever",
+                b: "One-time purchase, free updates to the edition, no account, no app, nothing renews. And a 30-day refund, any reason — you keep the files.",
+              },
+            ].map((c) => (
+              <div key={c.n} className="relative">
+                <span className="mono nums text-sm font-semibold text-accent-bright" aria-hidden>
+                  {c.n}
+                </span>
+                <div className="rule-fade mt-3" aria-hidden />
+                <h3 className="mt-4 font-display text-xl font-semibold text-ink-strong">{c.t}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-ink-dim">{c.b}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── the trust-separation block — this is what makes the layers legible ── */}
       <div className="relative mt-12">
         <SystemsDisclosure />
       </div>
-
-      {/* how Systems differ from the free answer (useful-first, never a gate) */}
-      <section className="relative mt-14 grid gap-5 sm:grid-cols-3">
-        {[
-          {
-            t: "The answer stays free",
-            b: "Everything a System teaches — what to do in a breakdown, what to photograph at a scene — is in our guides and always will be. Systems organize it; they don't gate it.",
-          },
-          {
-            t: "One flat price",
-            b: "A number we set, shown plainly. No compare-at theater, no countdowns, no scarcity — and no ratings, because none exist yet and we won't invent them.",
-          },
-          {
-            t: "Yours forever",
-            b: "One-time purchase, free updates to the edition, no account, no app, nothing renews. And a 30-day refund, any reason — you keep the files.",
-          },
-        ].map((c) => (
-          <div key={c.t} className="lit-card rounded-2xl p-5">
-            <h3 className="font-display text-lg font-semibold text-ink-strong">{c.t}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-ink-dim">{c.b}</p>
-          </div>
-        ))}
-      </section>
     </div>
   );
 }
