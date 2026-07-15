@@ -3,18 +3,8 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
 import { BRAND } from "@/lib/content";
-import { getAllProducts } from "@/lib/products";
+import { getCoreProducts } from "@/lib/products";
 import { getAllArticles } from "@/lib/articles";
-import heatData from "@/data/heat-products.json";
-import usefulData from "@/data/useful-products.json";
-
-// Mirror the home page's researched-picks tally exactly, so the two never diverge.
-function lowPrice(pr: string) {
-  const m = pr.match(/([0-9][0-9,]*)/);
-  return m ? parseInt(m[1].replace(/,/g, ""), 10) : 0;
-}
-const HEAT_COUNT = (heatData as { priceRange: string }[]).filter((p) => lowPrice(p.priceRange) >= 50).length;
-const USEFUL_COUNT = (usefulData as { priceRange: string }[]).filter((p) => lowPrice(p.priceRange) >= 50).length;
 
 export const metadata: Metadata = {
   title: "About BlackBox Supplies — Genuinely Useful Gear, Honestly Researched",
@@ -49,7 +39,8 @@ const PRINCIPLES = [
 ];
 
 export default function AboutPage() {
-  const totalPicks = getAllProducts().length + HEAT_COUNT + USEFUL_COUNT;
+  // Single source of truth — the on-brand researched catalog (matches the homepage's "94+ picks").
+  const totalPicks = getCoreProducts().length;
   const guideCount = getAllArticles().length;
 
   return (

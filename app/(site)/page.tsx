@@ -54,10 +54,11 @@ const VERTICALS = [
   },
 ];
 
+// Real, on-brand readiness articles (the prior slugs didn't exist → the section rendered empty).
 const FEATURED_SLUGS = [
-  "best-portable-ac-no-central-air",
-  "best-everyday-carry-gear",
-  "what-size-portable-ac-do-i-need",
+  "best-jump-starter-diesel-truck-cold-winter",
+  "winter-car-emergency-kit-new-driver",
+  "best-power-station-apartment-power-outage",
 ];
 
 const WHY = [
