@@ -18,36 +18,8 @@ import { ARTICLE_SLUGS, getArticleBySlug } from "@/lib/articles";
 import { ArticleView } from "@/components/article-view";
 import { COMPARISON_GUIDE_SLUGS, getComparisonGuideBySlug } from "@/lib/comparison-guides";
 import { ComparisonGuideView } from "@/components/comparison-guide";
-import { ToolCard, type ToolCardTier } from "@/components/systems/tool-card";
 
 export const dynamicParams = false;
-
-/**
- * Wave-3 System attach (the Digital Glovebox) — deterministic per CROSS_SELL_RULES §CS-2/§CS-3.
- *
- * DG attaches ONLY to the vehicle/roadside cluster, where the record + action plan genuinely
- * completes the reader's job. Power intent maps to POP (Wave 2 — no System exists yet, and CS-2
- * hard-forbids substituting DG on power), and cooling maps to no paid product at all — both fall
- * through to `null`, so no paid card renders there. Keyed by the guide/article `category` /
- * comparison `categoryLabel` field (they share the same catalog vocabulary). Tiers follow the
- * priority ladder in OFFER_PLACEMENT_MAP §3–§6 / CROSS_SELL_RULES §1.
- *
- * The call sites enforce the trust invariants this map can't: ONE card per page, always AFTER the
- * affiliate picks/verdict (slot "guide-after-verdict"), never in a hero/sticky, never between a
- * verdict and its buy link, never interleaved with affiliate picks.
- */
-const DG_ATTACH_BY_CATEGORY: Record<string, ToolCardTier> = {
-  "Jump Starters": "essential",
-  "Dash Cams": "essential",
-  "Roadside Safety": "essential",
-  "Tire Inflators": "strong",
-  "Car Utility": "strong",
-};
-
-/** The DG attach tier for a cluster category, or `null` when no paid System belongs on the page. */
-function dgTierForCategory(category: string): ToolCardTier | null {
-  return DG_ATTACH_BY_CATEGORY[category] ?? null;
-}
 
 export function generateStaticParams() {
   return [...GUIDE_SLUGS, ...COMPARISON_GUIDE_SLUGS, ...ARTICLE_SLUGS].map((slug) => ({ slug }));
@@ -115,10 +87,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     // "mistakes / what to check" lists — those aren't procedures — so an article without authored
     // steps emits no HowTo. When a data author adds a real `steps` field, the schema lights up.
     const howToSteps = (article as { steps?: { name: string; text: string }[] }).steps;
-    // Vehicle/roadside articles carry the paired System card AFTER the rendered guide (post-verdict,
-    // post-FAQ — placed at page level because ArticleView is a shared renderer we don't edit). Power
-    // and cooling clusters resolve to null and show nothing paid (CROSS_SELL_RULES §CS-2).
-    const dgTier = dgTierForCategory(String(article.category));
     return (
       <>
         <JsonLd
@@ -134,19 +102,11 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           ]}
         />
         <ArticleView article={article} />
-        {dgTier ? (
-          <div className="mx-auto max-w-3xl px-4 pb-14 sm:px-6">
-            <ToolCard tier={dgTier} slot="guide-after-verdict" path={`/guides/${article.slug}`} />
-          </div>
-        ) : null}
       </>
     );
   }
   const cmp = getComparisonGuideBySlug(slug);
   if (cmp) {
-    // Same rule as articles: DG attaches on vehicle/roadside comparisons only. Power-station and
-    // cooling-fan/AC comparisons resolve to null (no DG substitution on power; no paid cooling SKU).
-    const dgTier = dgTierForCategory(cmp.categoryLabel);
     return (
       <>
         <JsonLd
@@ -160,11 +120,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           ]}
         />
         <ComparisonGuideView guide={cmp} />
-        {dgTier ? (
-          <div className="mx-auto max-w-3xl px-4 pb-14 sm:px-6">
-            <ToolCard tier={dgTier} slot="guide-after-verdict" path={`/guides/${cmp.slug}`} />
-          </div>
-        ) : null}
       </>
     );
   }
@@ -176,10 +131,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const heroImg = guide.heroImage ?? lead?.image;
   const related = guide.relatedGuides.map(getGuideBySlug).filter(Boolean).slice(0, 3);
   const kit = guide.relatedKit ? getKitById(guide.relatedKit) : undefined;
-  // The paired System card for legacy guides — vehicle/roadside only (roadside-emergency-kit,
-  // car-gear-worth-keeping-in-your-trunk). Rendered in its own S3 section below, after the full
-  // picks/comparison verdict region and before the supporting "what to check" detail.
-  const dgTier = dgTierForCategory(String(guide.category));
 
   // Resolve each guide pick (car catalog) to the buy-CTA shape used by GuidePicks / StickyBuyBar.
   const picks: ResolvedPick[] = guide.picks
@@ -308,13 +259,6 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
               </tbody>
             </table>
           </div>
-        </section>
-      ) : null}
-
-      {/* paired System — the record + action plan the gear can't be (S3, post-verdict, one card max) */}
-      {dgTier ? (
-        <section className="mt-12">
-          <ToolCard tier={dgTier} slot="guide-after-verdict" path={`/guides/${guide.slug}`} />
         </section>
       ) : null}
 

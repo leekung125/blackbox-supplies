@@ -365,56 +365,6 @@ export function productSchema(p: {
   };
 }
 
-/**
- * Digital-product (Systems / L3) schema — the ONE place a real Offer with availability is honestly
- * assertable, because BlackBox is the seller and holds the file (unlike Amazon affiliate items,
- * where offerNode() deliberately omits availability). Emits:
- *   - Product with a real `Offer` (exact `price`, `priceCurrency` USD, `availability: InStock`,
- *     canonical `url`, and `seller` = the Organization). Category "Systems".
- *   - FAQPage from the system's real, on-page buyer Q&A (same AI-Overview citation lever).
- *
- * HONESTY RULE (structural, identical to productSchema): NEVER `aggregateRating`, NEVER
- * Review/ratingValue — no ratings exist for these and none will be invented. Returns an array so
- * the caller passes it straight to <JsonLd data={...} /> alongside the breadcrumb.
- */
-export function digitalProductSchema(s: {
-  slug: string;
-  title: string;
-  price: number;
-  tagline?: string;
-  dek?: string;
-  image?: string;
-  version?: string;
-  faq?: { q: string; a: string }[];
-}) {
-  const url = `${BASE}/systems/${s.slug}`;
-  const description = (s.dek?.trim() || s.tagline?.trim() || "").slice(0, 5000);
-
-  const product = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "@id": `${url}#product`,
-    name: s.title,
-    ...(description ? { description } : {}),
-    brand: { "@type": "Brand", name: "BlackBox Supplies" },
-    ...(s.image ? { image: absUrl(s.image) } : {}),
-    category: "Systems",
-    isPartOf: { "@id": `${BASE}/#website` },
-    offers: {
-      "@type": "Offer",
-      price: s.price,
-      priceCurrency: "USD",
-      availability: "https://schema.org/InStock",
-      url,
-      seller: { "@id": `${BASE}/#organization` },
-    },
-  };
-
-  const nodes: object[] = [product];
-  if (s.faq?.length) nodes.push(faqSchema(s.faq));
-  return nodes;
-}
-
 export function categorySchema(name: string, slug: string, productIds: { id: string; name: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -1,16 +1,8 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
 import { BRAND, DISCLOSURE_SHORT } from "@/lib/content";
-import { getAvailableSystems } from "@/lib/systems";
 
 const COLS: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
-  {
-    title: "Systems",
-    links: [
-      ...getAvailableSystems().map((s) => ({ href: `/systems/${s.slug}`, label: s.title })),
-      { href: "/systems", label: "All systems" },
-    ],
-  },
   {
     title: "Guides",
     links: [
@@ -61,7 +53,7 @@ export function SiteFooter() {
   return (
     <footer className="mt-24 bg-graphite text-on-dark-dim">
       <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr_1fr]">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-[1.4fr_1fr_1fr_1fr_1fr]">
           <div>
             <Wordmark light markClassName="h-7 w-7" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-on-dark-dim">

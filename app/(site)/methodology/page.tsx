@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/methodology" },
 };
 
-const VERSION = "v1.1 — July 2026";
+const VERSION = "v1.0 — July 2026";
 
 const DO_STACK = [
   {
@@ -47,10 +47,6 @@ const NEVER_LIST = [
 ];
 
 const CHANGELOG = [
-  {
-    date: "July 2026",
-    entry: "v1.1 — added coverage of Systems we sell ourselves: the never-do list now explicitly governs our checkout; 30-day refund policy stated.",
-  },
   {
     date: "July 2026",
     entry: "v1.0 — methodology published: spec verification, time-weighted owner-review analysis, professional source scoring, safety/recall screening.",
@@ -144,15 +140,6 @@ export default function MethodologyPage() {
           Outbound product links are affiliate links — mostly Amazon. As an Amazon Associate, BlackBox Supplies
           earns from qualifying purchases, at no extra cost to you. Commissions never decide a pick, and we say
           so on every page a link appears. The full version is on the{" "}
-          <Link href="/disclosure" className="ulink">disclosure page</Link>.
-        </p>
-        <p className="article mt-3 text-[0.98rem] leading-relaxed text-ink-2">
-          We also sell a small number of things we make ourselves: printable, fillable readiness Systems, like{" "}
-          The Digital Glovebox ($19). Those are not affiliate picks and we keep the difference plain — gear is
-          chosen on merit and may earn us a commission; Systems are made by us, and we earn the full price.
-          Everything on this page binds those sales too: the &ldquo;never do&rdquo; list above is our checkout
-          policy — no fake discounts, no countdown timers, no manufactured urgency, no invented reviews — and
-          every System carries a 30-day refund. The full terms are on the{" "}
           <Link href="/disclosure" className="ulink">disclosure page</Link>.
         </p>
       </section>

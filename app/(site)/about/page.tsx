@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
-import { BRAND, VERTICALS } from "@/lib/content";
-import { RESEARCHED_PICKS, TOTAL_GUIDES } from "@/lib/counts";
+import { BRAND } from "@/lib/content";
+import { getCoreProducts } from "@/lib/products";
+import { getAllArticles } from "@/lib/articles";
 
 export const metadata: Metadata = {
-  title: "About BlackBox Supplies — Practical Everyday Readiness, Honestly Researched",
+  title: "About BlackBox Supplies — Genuinely Useful Gear, Honestly Researched",
   description:
-    "BlackBox Supplies helps normal households get ready for the moments that actually happen — roadside trouble, power outages, severe heat — with researched gear and honest, plain-language buying guides. Here's who we are and how we work.",
+    "BlackBox Supplies curates premium, genuinely useful gear — cooling, useful everyday upgrades, and car & roadside essentials — with honest, research-based buying guides. Here's who we are and how we work.",
   alternates: { canonical: "/about" },
   openGraph: {
     type: "website",
     title: "About BlackBox Supplies",
-    description: "Practical everyday readiness, honestly researched. Here's who we are and how we work.",
+    description: "Genuinely useful gear, honestly researched. Here's who we are and how we work.",
     url: "/about",
   },
 };
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   {
     title: "Genuinely useful, not just popular",
-    body: "We only cover gear that solves a real problem and is worth the money. Cooling that actually drops the temperature. Power that keeps phones and essentials alive through an outage. Car gear that earns its place in the trunk. If something's overhyped, we leave it off — or say so.",
+    body: "We only cover gear that solves a real problem and is worth the money. Cooling that actually drops the temperature. Desk, kitchen, and travel upgrades built to last. Car gear that earns its place in the trunk. If something's overhyped, we leave it off — or say so.",
   },
   {
     title: "Honest by default",
@@ -35,16 +36,12 @@ const PRINCIPLES = [
     title: "Transparent about how we earn",
     body: "Our links go to Amazon with an affiliate tag. If you buy through one, we may earn a commission — at no extra cost to you. That's it. It never changes which product we pick as best.",
   },
-  {
-    title: "Built by us, sold plainly",
-    body: "Some problems need a plan, not another product — so alongside the gear picks, we build our own readiness Systems: printable, fillable plans like The Digital Glovebox. They work differently from our picks, and we say so everywhere the two meet: gear is chosen on merit and may earn us a commission; Systems are made by us, and we earn the full price. Same research standard, same plain language, same rule book — the “never do” list on our methodology page governs our checkout too.",
-  },
 ];
 
 export default function AboutPage() {
-  // Single source of truth — lib/counts.ts (the same constants the homepage hero shows).
-  const totalPicks = RESEARCHED_PICKS;
-  const guideCount = TOTAL_GUIDES;
+  // Single source of truth — the on-brand researched catalog (matches the homepage's "94+ picks").
+  const totalPicks = getCoreProducts().length;
+  const guideCount = getAllArticles().length;
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
@@ -52,13 +49,12 @@ export default function AboutPage() {
 
       <span className="eyebrow eyebrow-accent">About BlackBox</span>
       <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-5xl">
-        Practical everyday readiness, honestly researched.
+        Genuinely useful gear, honestly researched.
       </h1>
       <p className="lede mt-5">
-        BlackBox Supplies exists to answer one question well: <em>what's actually worth buying?</em>{" "}We help normal
-        households get ready for the moments that actually happen — roadside trouble, power outages, severe heat —
-        across {VERTICALS.car.toLowerCase()}, {VERTICALS.cooling.toLowerCase()}, and work &amp; everyday-carry gear,
-        and back every pick with a plain-language buying guide that gives you the best option and the honest trade-off.
+        BlackBox Supplies exists to answer one question well: <em>what's actually worth buying?</em>{" "}We curate premium,
+        genuinely useful gear across cooling, everyday useful upgrades, and car &amp; roadside essentials — and back
+        every pick with a plain-language buying guide that gives you the best option and the honest trade-off.
       </p>
 
       <div className="mt-10 space-y-6">
@@ -106,9 +102,9 @@ export default function AboutPage() {
       </div>
 
       <p className="mt-8 text-sm text-ink-dim">
-        Start here: <Link href="/heat" className="ulink font-semibold">{VERTICALS.cooling}</Link> ·{" "}
-        <Link href="/useful" className="ulink font-semibold">{VERTICALS.useful}</Link> ·{" "}
-        <Link href="/gear" className="ulink font-semibold">{VERTICALS.car}</Link> ·{" "}
+        Start here: <Link href="/heat" className="ulink font-semibold">Cooling</Link> ·{" "}
+        <Link href="/useful" className="ulink font-semibold">Useful gear</Link> ·{" "}
+        <Link href="/gear" className="ulink font-semibold">Car &amp; roadside</Link> ·{" "}
         <Link href="/guides" className="ulink font-semibold">Buying guides</Link>
       </p>
     </div>

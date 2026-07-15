@@ -6,7 +6,6 @@ import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { KITS } from "@/lib/kits";
 import { CATEGORIES } from "@/lib/categories";
 import { getCoreProducts } from "@/lib/products";
-import { SYSTEMS } from "@/lib/systems";
 
 const BASE = "https://www.blackboxsupplies.com";
 
@@ -32,7 +31,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/gear",
     "/guides",
     "/kits",
-    "/systems",
     "/products",
     "/finds",
     "/about",
@@ -64,9 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const kits: MetadataRoute.Sitemap = KITS.map((k) => ({ url: `${BASE}/kits/${k.id}` }));
   const categories: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({ url: `${BASE}/category/${c.slug}` }));
   const products: MetadataRoute.Sitemap = getCoreProducts().map((p) => ({ url: `${BASE}/products/${p.id}` }));
-  // Owned digital products (Systems). The per-slug /thank-you receipt pages are noindex and are
-  // deliberately excluded.
-  const systems: MetadataRoute.Sitemap = SYSTEMS.map((s) => ({ url: `${BASE}/systems/${s.slug}` }));
 
-  return [...core, ...comparisonGuides, ...guides, ...articles, ...kits, ...systems, ...categories, ...products];
+  return [...core, ...comparisonGuides, ...guides, ...articles, ...kits, ...categories, ...products];
 }

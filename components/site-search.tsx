@@ -10,7 +10,6 @@ const POPULAR = ["Portable AC", "Dash cam", "Cooling sheets", "Jump starter", "P
 
 const GROUP_ORDER: { kind: SearchKind; label: string }[] = [
   { kind: "guide", label: "Guides & comparisons" },
-  { kind: "system", label: "Systems (made by us)" },
   { kind: "product", label: "Products" },
   { kind: "category", label: "Shop by category" },
 ];
@@ -22,8 +21,6 @@ function Thumb({ it }: { it: SearchItem }) {
         <Image src={it.image} alt="" fill sizes="40px" className="object-cover" />
       ) : it.kind === "category" ? (
         <svg className="h-4 w-4 text-accent/80" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.7} aria-hidden><path d="M4 6 h7 v7 h-7 z M13 6 h7 v7 h-7 z M4 15 h7 v3 h-7 z M13 15 h7 v3 h-7 z" /></svg>
-      ) : it.kind === "system" ? (
-        <svg className="h-4 w-4 text-accent-bright" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M7 3 H15 L19 7 V19 A2 2 0 0 1 17 21 H7 A2 2 0 0 1 5 19 V5 A2 2 0 0 1 7 3 Z M15 3 V7 H19 M8.5 12 H15.5 M8.5 15.5 H15.5" /></svg>
       ) : (
         <svg className="h-4 w-4 text-on-dark-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} aria-hidden><path d="M4 8 l8 -4 l8 4 v8 l-8 4 l-8 -4 z M4 8 l8 4 M20 8 l-8 4 M12 12 v8" /></svg>
       )}

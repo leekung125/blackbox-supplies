@@ -25,7 +25,7 @@ export default function LinksPage() {
     { href: "/gear", label: "Car & roadside gear", sub: "Jump starters, tire inflators, dash cams" },
     { href: "/guides", label: "Buying guides", sub: "Know what to buy before you buy" },
     { href: "/kits/roadside-kit", label: "The Roadside Kit", sub: "What to keep in your car" },
-    { href: "/finds", label: "Value Picks", sub: "Value picks under $50" },
+    { href: "/finds", label: "Latest finds", sub: "Fresh picks, updated often" },
   ];
 
   return (

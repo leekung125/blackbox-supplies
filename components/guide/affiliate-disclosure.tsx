@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { BRAND } from "@/lib/content";
 
 /**
  * FTC affiliate disclosure, placed ON the click-out surface (right by the comparison board where
@@ -22,9 +21,9 @@ export function AffiliateDisclosure({ compact = false }: { compact?: boolean }) 
     <div className="flex items-start gap-2 rounded-xl border border-line-soft bg-surface/60 px-3.5 py-2.5">
       <Tag />
       <p className="text-[0.78rem] leading-relaxed text-ink-dim">
-        The buttons below are Amazon affiliate links. As an Amazon Associate,{" "}
-        {BRAND.name} earns from qualifying purchases — at no extra cost to you, and it never changes
-        which product wins.{" "}
+        The buttons below are Amazon affiliate links. As an Amazon Associate, BlackBox Supplies earns
+        from qualifying purchases — at no extra cost to you, and it never changes which product
+        wins.{" "}
         <Link href="/disclosure" className="ulink font-medium text-ink-2">
           Full disclosure
         </Link>

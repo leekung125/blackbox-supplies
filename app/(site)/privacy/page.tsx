@@ -7,7 +7,7 @@ import { BRAND } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "What data BlackBox Supplies collects, how affiliate links and analytics work, how we handle your email and purchases, and how to reach us with a data request.",
+    "What data BlackBox Supplies collects, how affiliate links and analytics work, how we handle your email, and how to reach us with a data request.",
   alternates: { canonical: "/privacy" },
 };
 
@@ -18,8 +18,8 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     body: (
       <>
         BlackBox Supplies is a buying-guide publication. We don&rsquo;t sell your data, we don&rsquo;t run
-        intrusive ad networks, and we only collect what&rsquo;s needed to run the site, email you if you ask
-        for it, and deliver anything you buy from us. This page explains exactly what that means in plain terms.
+        intrusive ad networks, and we only collect what&rsquo;s needed to run the site and, if you ask for it,
+        email you. This page explains exactly what that means in plain terms.
       </>
     ),
   },
@@ -53,36 +53,15 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     title: "Email, if you opt in",
     body: (
       <>
-        If you enter your email to get new guides, we store that address with our email provider (Brevo) solely
-        to send you BlackBox updates. We never sell or rent it, and every email includes a one-click unsubscribe —
-        using it removes you for good. Don&rsquo;t want email? Simply don&rsquo;t submit the form; nothing else on
-        the site requires it.
+        If you enter your email to get new guides, we store that address with our email provider solely to send
+        you BlackBox updates. We never sell or rent it, and every email includes a one-click unsubscribe — using
+        it removes you for good. Don&rsquo;t want email? Simply don&rsquo;t submit the form; nothing else on the
+        site requires it.
       </>
     ),
   },
-  // === ATTORNEY REVIEW (pre-launch, section 05): selling internationally through a merchant of record brings
-  // GDPR/UK-GDPR/CCPA exposure. Confirm (a) controller/processor roles with Lemon Squeezy and Brevo,
-  // (b) that data-processing agreements are in place with both, and (c) whether a fuller statutory
-  // rights section (access/deletion/portability, legal bases) is required beyond the plain-language promise below.
   {
     n: "05",
-    title: "If you buy a System from us",
-    body: (
-      <>
-        When you buy one of our digital products (like The Digital Glovebox),{" "}
-        <strong className="text-ink">payment is handled by Lemon Squeezy</strong>, our merchant of record — your
-        card number goes to them, never to us, and how they handle it is governed by Lemon Squeezy&rsquo;s own
-        privacy policy. What we receive is only what&rsquo;s needed to deliver and support your purchase:{" "}
-        <strong className="text-ink">your email address, what you bought, and the order reference</strong>. We use
-        that to send your download, honor the 30-day refund promise, and answer support email. Your address is
-        stored with our email provider (Brevo) to deliver the files; anything beyond delivery — like seasonal
-        reminders — only happens if you opt in. We never sell or rent purchase data, and you can ask us to delete
-        what we hold at any time (below).
-      </>
-    ),
-  },
-  {
-    n: "06",
     title: "Cookies & your controls",
     body: (
       <>
@@ -93,7 +72,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
-    n: "07",
+    n: "06",
     title: "Contact & updates",
     body: (
       <>
@@ -116,9 +95,9 @@ export default function PrivacyPage() {
         </h1>
         <p className="lede mt-4 max-w-2xl">
           We collect as little as possible, never sell it, and tell you exactly how affiliate links, analytics,
-          email, and purchases work on this site.
+          and email work on this site.
         </p>
-        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: July 15, 2026</p>
+        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: July 9, 2026</p>
       </Reveal>
 
       <div className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">

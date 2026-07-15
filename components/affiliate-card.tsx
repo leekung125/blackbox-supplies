@@ -1,8 +1,5 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import { track } from "@vercel/analytics";
 
 /**
  * Premium affiliate product card for the /heat and /useful verticals.
@@ -73,7 +70,6 @@ export function AffiliateCard({ p }: { p: AffiliateProduct }) {
             href={p.affiliateUrl}
             target="_blank"
             rel="sponsored nofollow noopener noreferrer"
-            onClick={() => track("product_outbound", { product: p.id, category: p.category, affiliate: true })}
             className="group/btn inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent shadow-[0_0_0_rgba(0,0,0,0)] transition-all duration-300 hover:bg-accent-strong hover:shadow-[0_10px_26px_-10px_rgba(217,154,69,0.75)]"
           >
             Check price on Amazon

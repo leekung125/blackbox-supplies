@@ -1,7 +1,6 @@
 import { getAllGuides, type Guide } from "@/lib/guides";
 import { COMPARISON_GUIDES, type ComparisonGuide } from "@/lib/comparison-guides";
 import { getAllArticles, type Article } from "@/lib/articles";
-import { BRAND } from "@/lib/content";
 
 const BASE = "https://www.blackboxsupplies.com";
 
@@ -149,7 +148,7 @@ export function GET() {
   const parts: string[] = [
     "# BlackBox Supplies — Full Content Corpus",
     "",
-    `> Premium, honest buying guides and curated Amazon picks — cooling gear, genuinely useful everyday gear, and car & roadside essentials. Every product is a real, verified Amazon listing. Picks are based on verified-buyer reviews, manufacturer spec sheets, price history, and the independent outlets that lab-test; we do not fabricate hands-on testing. As an Amazon Associate, ${BRAND.name} earns from qualifying purchases.`,
+    "> Premium, honest buying guides and curated Amazon picks — cooling gear, genuinely useful everyday gear, and car & roadside essentials. Every product is a real, verified Amazon listing. Picks are based on verified-buyer reviews, manufacturer spec sheets, price history, and the independent outlets that lab-test; we do not fabricate hands-on testing. As an Amazon Associate, BlackBox earns from qualifying purchases.",
     "",
     `Homepage: ${BASE}`,
     "This file is the full text of every guide and article, for AI ingestion and citation. The link map is at /llms.txt.",

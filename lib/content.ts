@@ -1,40 +1,20 @@
 import type { Category } from "@/lib/products";
 
 /** Brand constants — single source of truth for name/tagline/positioning.
- *  Positioning = "Practical Everyday Readiness" (INFORMATION_ARCHITECTURE §1): BlackBox Supplies
- *  helps normal households get ready for the moments that actually happen — roadside trouble,
- *  power outages, severe heat and weather, travel. Researched gear worth buying, guides that
- *  decide in minutes, and systems that keep you organized. Calm and modern, NOT prepper /
- *  survivalist / tactical. Every visitor-facing surface derives its brand copy from here. */
+ *  BlackBox Supplies is a buying-guide + gear brand for genuinely useful gear: cooling, car,
+ *  desk, home, and travel. We research the right one, explain what matters, link straight to it,
+ *  and name the catch. Chosen on merit, never paid placement. */
 export const BRAND = {
   name: "BlackBox Supplies",
-  tagline: "Practical readiness for everyday life — researched, never sponsored.",
+  tagline: "Genuinely useful gear, researched — not sponsored.",
   positioning:
-    "BlackBox Supplies helps normal households get ready for the moments that actually happen — roadside trouble, power outages, severe heat and weather, travel. Researched gear worth buying, guides that decide in minutes, and systems that keep you organized. Chosen on merit, honest about the catch.",
+    "BlackBox Supplies researches genuinely useful gear — cooling, car, desk, home, and travel — and links you straight to the one worth buying. Chosen on merit, never paid placement, and honest about the catch.",
   shortPositioning:
-    "Practical everyday readiness — the gear, the guides, and the systems.",
+    "Genuinely useful gear, researched — with the guides to choose the right one.",
   instagram: "black_boxsupplies",
   email: "info@blackboxsupplies.com",
   domain: "blackboxsupplies.com",
 } as const;
-
-/** Newsletter send cadence — one canonical phrase (INCONSISTENCY_REPORT §4). Every newsletter
- *  surface references this constant; never inline "once a week" / "a few times a month" again. */
-export const NEWSLETTER_CADENCE = "about once a week" as const;
-
-/** Canonical display labels for the three readiness verticals (INCONSISTENCY_REPORT §10,
- *  INFORMATION_ARCHITECTURE §2.2). Nav, footer, homepage verticals, and breadcrumbs all pull
- *  these so the same destination is never labeled two different ways.
- *   - `car`    → `/gear`   (roadside & vehicle)
- *   - `cooling`→ `/heat`   (heat & weather)
- *   - `useful` → `/useful` (everyday carry & work) */
-export const VERTICALS = {
-  car: "Car & Roadside",
-  cooling: "Cooling",
-  useful: "Work & EDC",
-} as const;
-
-export type VerticalKey = keyof typeof VERTICALS;
 
 /**
  * The named, accountable editorial owner behind every guide's method and verdicts — the honest

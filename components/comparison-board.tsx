@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Image from "next/image";
 import { track } from "@vercel/analytics";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { BRAND } from "@/lib/content";
 import type { CategoryMeta, ComparableProduct } from "@/lib/comparison-schema";
 import {
   valOf,
@@ -476,8 +475,8 @@ export function ComparisonBoard({
       <p className="mt-5 text-[0.72rem] leading-relaxed text-ink-dim">
         Ranked from manufacturer specs, standardized test ratings where they exist, and independent
         reviews. A “~” marks an
-        estimated or unpublished figure — we never invent one. As an Amazon Associate,{" "}
-        {BRAND.name} earns from qualifying purchases, at no extra cost to you.
+        estimated or unpublished figure — we never invent one. As an Amazon Associate, BlackBox earns
+        from qualifying purchases, at no extra cost to you.
       </p>
     </div>
   );

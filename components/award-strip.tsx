@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { track } from "@vercel/analytics";
 import { motion, useReducedMotion } from "motion/react";
-import { BRAND } from "@/lib/content";
 import type { ResolvedPick } from "@/lib/affiliate-picks";
 
 const REL = "sponsored nofollow noopener noreferrer";
@@ -123,7 +122,7 @@ export function AwardStrip({ picks, anchor = "the-picks" }: { picks: ResolvedPic
       </div>
 
       <p className="mt-3 text-[0.68rem] leading-relaxed text-ink-dim">
-        As an Amazon Associate, {BRAND.name} earns from qualifying purchases — at no extra cost to you.
+        As an Amazon Associate, BlackBox earns from qualifying purchases — at no extra cost to you.
       </p>
     </section>
   );

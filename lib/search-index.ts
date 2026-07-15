@@ -10,9 +10,8 @@ import { CATEGORIES } from "@/lib/categories";
 import { getAllGuides } from "@/lib/guides";
 import { getAllArticles } from "@/lib/articles";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
-import { getAllSystems } from "@/lib/systems";
 
-export type SearchKind = "product" | "guide" | "category" | "system";
+export type SearchKind = "product" | "guide" | "category";
 
 export interface SearchItem {
   kind: SearchKind;
@@ -37,17 +36,6 @@ export function getSearchIndex(): SearchItem[] {
     seen.add(it.href);
     items.push(it);
   };
-
-  // Systems (owned digital products) — a distinct grouped result type, surfaced high because
-  // they're the money layer. Never mixed into "Products" (which are affiliate items).
-  for (const s of getAllSystems()) {
-    push({
-      kind: "system", title: s.title, subtitle: `System · $${s.price} · made by us`,
-      href: `/systems/${s.slug}`,
-      hay: `${s.title} ${s.tagline} ${s.dek} system printable fillable plan checklist made by us`.toLowerCase(),
-      weight: 5,
-    });
-  }
 
   // Comparison guides first (best money pages)
   for (const g of COMPARISON_GUIDES) {
