@@ -35,6 +35,10 @@ const PRINCIPLES = [
     title: "Transparent about how we earn",
     body: "Our links go to Amazon with an affiliate tag. If you buy through one, we may earn a commission — at no extra cost to you. That's it. It never changes which product we pick as best.",
   },
+  {
+    title: "Built by us, sold plainly",
+    body: "Some problems need a plan, not another product — so alongside the gear picks, we build our own readiness Systems: printable, fillable plans like The Digital Glovebox. They work differently from our picks, and we say so everywhere the two meet: gear is chosen on merit and may earn us a commission; Systems are made by us, and we earn the full price. Same research standard, same plain language, same rule book — the “never do” list on our methodology page governs our checkout too.",
+  },
 ];
 
 export default function AboutPage() {

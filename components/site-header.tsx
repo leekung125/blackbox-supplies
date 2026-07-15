@@ -7,17 +7,19 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { Wordmark } from "@/components/wordmark";
 import { SiteSearch } from "@/components/site-search";
 
-// Nav is revenue-weighted: the highest-intent decision surfaces (guides, kits) lead, then the
-// full catalog ("All Gear") and the value-entry surface ("Value Picks") sit last — reachable up
-// top as well as in the footer. Car vertical uses one consistent label ("Car & Roadside") sitewide.
+// Nav is revenue-weighted: the highest-intent decision surfaces (guides, kits) lead, then Systems
+// (our owned digital-product layer, deliberately adjacent to Kits — Kits = the gear for the
+// problem, Systems = the plan for it), then the full catalog ("All Gear"). Value Picks demotes to
+// the footer (IA §2.2) so the header stays at 7 without widening. Car vertical uses one consistent
+// label ("Car & Roadside") sitewide.
 const NAV = [
   { href: "/gear", label: "Car & Roadside" },
   { href: "/heat", label: "Cooling" },
   { href: "/useful", label: "Work & EDC" },
   { href: "/guides", label: "Guides" },
   { href: "/kits", label: "Kits" },
+  { href: "/systems", label: "Systems" },
   { href: "/products", label: "All Gear" },
-  { href: "/finds", label: "Value Picks" },
 ];
 
 /** Dark-accent header — brand frame + always-visible search (the #1 findability path). */

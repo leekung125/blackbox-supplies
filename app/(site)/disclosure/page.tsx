@@ -6,7 +6,8 @@ import { BRAND } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "How We Work & Disclosure",
-  description: "How BlackBox Supplies chooses products, how we make money, and what we will and won't claim.",
+  description:
+    "How BlackBox Supplies chooses products, how we make money — affiliate links and the digital Systems we sell ourselves — and what we will and won't claim.",
   alternates: { canonical: "/disclosure" },
 };
 
@@ -32,13 +33,32 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
         to you. It never changes your price, and it never decides what we recommend: selection is based on how
         well something solves a real, everyday problem, not on who pays us. As an Amazon Associate, BlackBox
         earns from qualifying purchases.{" "}
-        <strong className="text-ink">Amazon handles all orders, payment, shipping, returns, and customer
-        support — BlackBox Supplies is an independent publisher and does not sell or ship products.</strong>
+        <strong className="text-ink">For gear, Amazon handles all orders, payment, shipping, returns, and
+        customer support — BlackBox Supplies does not sell or ship physical products.</strong> The one thing we
+        do sell ourselves is digital: see the next section.
       </>
     ),
   },
   {
     n: "03",
+    title: "Products we sell ourselves",
+    body: (
+      <>
+        Some things on this site are made and sold by us. Our <strong className="text-ink">Systems</strong> —
+        starting with The Digital Glovebox — are digital planning tools: fillable PDFs, print and phone versions,
+        and Google Sheets, built by BlackBox Supplies and delivered as an <strong className="text-ink">instant
+        download</strong> after checkout. Nothing ships; there is no subscription. These are different from the
+        gear we recommend, and we keep the two distinct everywhere they appear:{" "}
+        <strong className="text-ink">gear is chosen on merit and we earn a commission; Systems are made by us and
+        we earn the full price.</strong> When you buy a System, you&rsquo;re buying from BlackBox Supplies — not
+        Amazon — with payment handled by Lemon Squeezy, our merchant of record. Every System carries a{" "}
+        <strong className="text-ink">30-day refund promise</strong>: email us within 30 days of purchase and
+        we&rsquo;ll refund you in full, no questions asked.
+      </>
+    ),
+  },
+  {
+    n: "04",
     title: "Specs & prices",
     body: (
       <>
@@ -49,7 +69,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
-    n: "04",
+    n: "05",
     title: "No fabricated reviews or ratings",
     body: (
       <>
@@ -60,7 +80,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
-    n: "05",
+    n: "06",
     title: "Product imagery",
     body: (
       <>
@@ -73,7 +93,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
-    n: "06",
+    n: "07",
     title: "Contact",
     body: (
       <>
@@ -97,7 +117,7 @@ export default function DisclosurePage() {
           BlackBox helps people find useful everyday gear before they need it. Here&rsquo;s exactly how the
           site is built, how we make money, and what we will and won&rsquo;t claim — in plain terms.
         </p>
-        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: July 9, 2026</p>
+        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: July 15, 2026</p>
       </Reveal>
 
       <div className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">

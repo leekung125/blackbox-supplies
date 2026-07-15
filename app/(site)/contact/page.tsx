@@ -5,9 +5,9 @@ import { Reveal } from "@/components/motion/reveal";
 import { BRAND, EDITOR } from "@/lib/content";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Corrections & Product Tips",
+  title: "Contact Us — Corrections, Purchase Support & Product Tips",
   description:
-    "Reach BlackBox Supplies with corrections, product suggestions, or partnership questions. One inbox, read by a real person, and corrections fixed fast. Placement is never for sale.",
+    "Reach BlackBox Supplies with corrections, purchase support (re-downloads and refunds), product suggestions, or partnership questions. One inbox, read by a real person. Placement is never for sale.",
   alternates: { canonical: "/contact" },
 };
 
@@ -19,6 +19,19 @@ const REASONS: { title: string; body: ReactNode }[] = [
         Spotted a spec that&rsquo;s off, a price that&rsquo;s long out of date, or a link that&rsquo;s broken?
         This is the most useful email you can send us. Include the page and what looks wrong — we fix corrections
         fast and quietly.
+      </>
+    ),
+  },
+  {
+    title: "Help with a purchase",
+    body: (
+      <>
+        Bought one of our Systems — like The Digital Glovebox — and need something? Email us from the address you
+        used at checkout. <strong className="text-ink">Lost the files?</strong> We&rsquo;ll resend your download
+        link (your Lemon Squeezy receipt email has one too). <strong className="text-ink">Want a refund?</strong>{" "}
+        Every System has a 30-day, no-questions refund — just ask within 30 days of purchase and we&rsquo;ll make
+        it right. <strong className="text-ink">Something not working?</strong> Tell us which file and what
+        happened, and a real person will sort it out.
       </>
     ),
   },
@@ -62,8 +75,8 @@ export default function ContactPage() {
           Contact BlackBox
         </h1>
         <p className="lede mt-4 max-w-2xl">
-          One inbox, read by a real person. Whether it&rsquo;s a correction, a product worth a look, or a partnership
-          question — here&rsquo;s how to reach us.
+          One inbox, read by a real person. Whether it&rsquo;s a correction, help with a purchase, a product worth
+          a look, or a partnership question — here&rsquo;s how to reach us.
         </p>
       </Reveal>
 

@@ -7,11 +7,11 @@ import { BRAND } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description:
-    "The plain-language terms for using BlackBox Supplies — an independent, research-based buying guide funded by affiliate links.",
+    "The plain-language terms for using BlackBox Supplies — an independent, research-based buying guide funded by affiliate links and by the digital Systems we make and sell ourselves.",
   alternates: { canonical: "/terms" },
 };
 
-const LAST_UPDATED = "July 9, 2026";
+const LAST_UPDATED = "July 15, 2026";
 
 const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
   {
@@ -53,8 +53,35 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
       </>
     ),
   },
+  // === ATTORNEY REVIEW (pre-launch, section 04): (a) confirm the personal-use license wording is sufficient;
+  // (b) confirm our 30-day refund promise is consistent with Lemon Squeezy's merchant-of-record refund
+  // mechanics (as MoR, LS is the seller of record and processes the refund); (c) confirm treatment of
+  // mandatory consumer-withdrawal/refund rights for digital content in the EU/UK and other jurisdictions,
+  // which cannot be waived and may exceed or differ from our stated policy. Written honestly, not vetted.
   {
     n: "04",
+    title: "Buying a System from us (digital goods)",
+    body: (
+      <>
+        Alongside the free guides, we sell digital products we make ourselves —{" "}
+        <strong className="text-ink">Systems</strong>, like The Digital Glovebox. A purchase gets you digital
+        files (fillable PDFs, print and phone versions, and Google Sheets where listed), delivered by{" "}
+        <strong className="text-ink">instant download and email</strong> right after checkout — nothing ships,
+        and there is no subscription. Your purchase is a <strong className="text-ink">personal-use license</strong>:
+        use the files on your own devices, print as many copies as your household needs, and fill them in freely —
+        but please don&rsquo;t resell them, redistribute the files, post them publicly, or repackage them into a
+        product of your own. Payment is processed by <strong className="text-ink">Lemon Squeezy, our merchant of
+        record</strong> — they handle the checkout, your card details, your receipt, and any applicable sales tax
+        or VAT under their own terms. Every System comes with a{" "}
+        <strong className="text-ink">30-day refund</strong>: email{" "}
+        <a href={`mailto:${BRAND.email}`} className="ulink font-semibold">{BRAND.email}</a> from the address you
+        used at checkout within 30 days of purchase and we&rsquo;ll refund you in full — you don&rsquo;t have to
+        explain why. If a download link ever fails, the same address gets you a fresh one.
+      </>
+    ),
+  },
+  {
+    n: "05",
     title: "Intellectual property",
     body: (
       <>
@@ -67,8 +94,11 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
       </>
     ),
   },
+  // === ATTORNEY REVIEW (pre-launch, sections 06-07): these disclaimers were written for a free content site.
+  // Now that we sell paid digital goods, confirm they extend properly — some consumer-protection statutes
+  // limit how far warranties and liability can be disclaimed on PAID products.
   {
-    n: "05",
+    n: "06",
     title: "No warranties",
     body: (
       <>
@@ -81,7 +111,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
-    n: "06",
+    n: "07",
     title: "Limitation of liability",
     body: (
       <>
@@ -93,7 +123,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
-    n: "07",
+    n: "08",
     title: "Changes to these terms",
     body: (
       <>
@@ -102,8 +132,11 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
       </>
     ),
   },
+  // === ATTORNEY REVIEW (pre-launch, section 09): "the state in which BlackBox Supplies operates" is
+  // deliberately unspecified. With real paid sales, an attorney should pin the actual governing state /
+  // jurisdiction (and venue) here rather than leaving it generic.
   {
-    n: "08",
+    n: "09",
     title: "Governing law",
     body: (
       <>
@@ -114,7 +147,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
     ),
   },
   {
-    n: "09",
+    n: "10",
     title: "Contact",
     body: (
       <>
@@ -135,8 +168,8 @@ export default function TermsPage() {
           Terms of Use
         </h1>
         <p className="lede mt-4 max-w-2xl">
-          BlackBox Supplies is an independent buying guide funded by affiliate links. Here are the terms for using it —
-          written to be read, not to hide anything.
+          BlackBox Supplies is an independent buying guide funded by affiliate links and by the digital Systems we
+          make and sell ourselves. Here are the terms for using it — written to be read, not to hide anything.
         </p>
         <p className="mt-3 font-mono text-xs uppercase tracking-[0.12em] text-ink-dim">
           Last updated: {LAST_UPDATED}
