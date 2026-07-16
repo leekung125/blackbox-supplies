@@ -328,11 +328,11 @@
     -webkit-mask-image: radial-gradient(130% 100% at 50% -10%, #000 0%, transparent 78%);
     mask-image: radial-gradient(130% 100% at 50% -10%, #000 0%, transparent 78%);
   }
-  /* The cursor glow is a STATIC gradient anchored at the layer's own origin, then slid to the
-     pointer with a GPU transform. --mx/--my are viewport-percent, and a full-viewport layer's
-     percentage translate resolves against the viewport — so this composites (no per-frame paint). */
-  .atmo-cursor { background: radial-gradient(28rem 28rem at 0% 0%, rgba(224, 163, 82, 0.13), transparent 62%);
-    transform: translate3d(var(--mx, 50%), var(--my, 32%), 0); will-change: transform; }
+  /* Soft warm haze centered ON the cursor: the gradient is positioned directly at --mx/--my
+     (viewport-percent, written by atmosphere.tsx), so it stays a round, centered glow that fades
+     out on all sides — never a hard-edged box. One low-alpha radial on a -z-10 layer, and the
+     paint is throttled by the rAF lerp, so the cost is negligible. */
+  .atmo-cursor { background: radial-gradient(28rem 28rem at var(--mx, 50%) var(--my, 32%), rgba(224, 163, 82, 0.13), transparent 62%); }
 
   /* Spotlight (components/fx/spotlight.tsx) — the hover glow reads --sx/--sy/--sspot written
      by an rAF-throttled handler, so the position updates without a React re-render per event. */
