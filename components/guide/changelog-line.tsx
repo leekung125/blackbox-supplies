@@ -64,3 +64,58 @@ export function ChangelogLine({
     </div>
   );
 }
+
+/**
+ * The public Failure Log — the "still the pick?" trust surface. A dated, honest corrections &
+ * revisions section that makes the guide's maintenance (and its mistakes) auditable. It reuses the
+ * SAME real `changelog` data as ChangelogLine — never a fabricated entry — and is empty-safe: with
+ * no history it states the standing promise plus the real last-reviewed date instead of inventing a
+ * correction. Every date is a real ISO-8601 string.
+ */
+export function FailureLog({
+  changelog,
+  updated,
+}: {
+  changelog?: NonNullable<ComparisonGuide["changelog"]>;
+  updated?: string;
+}) {
+  const entries = changelog?.length
+    ? [...changelog].sort((a, b) => b.date.localeCompare(a.date))
+    : [];
+
+  return (
+    <section className="mt-12 rounded-2xl border border-line bg-surface p-5 sm:p-6">
+      <span className="mono text-[0.72rem] font-medium uppercase tracking-[0.16em] text-accent-strong">
+        Still the pick?
+      </span>
+      <h2 className="mt-2 font-display text-xl font-semibold text-ink-strong">
+        Corrections &amp; revisions
+      </h2>
+      <p className="mt-2 text-sm leading-relaxed text-ink-2">
+        Picks change and we get things wrong. When we do, we date the change here — nothing gets
+        quietly rewritten, and a date never moves without a reason.
+      </p>
+
+      {entries.length ? (
+        <ul className="mt-4 space-y-2.5 border-l border-line-soft pl-4">
+          {entries.map((c) => (
+            <li
+              key={`${c.date}-${c.note}`}
+              className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5"
+            >
+              <time dateTime={c.date} className="mono text-[0.72rem] text-accent-strong">
+                {fmtDate(c.date)}
+              </time>
+              <span className="text-[0.9rem] leading-relaxed text-ink-2">{c.note}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="mt-4 rounded-xl border border-line-soft bg-surface-2 px-3.5 py-3 text-[0.85rem] leading-relaxed text-ink-dim">
+          No corrections logged yet.{updated ? ` Last reviewed ${updated}.` : ""} When a pick is
+          replaced — or we correct an error — it appears here with the date.
+        </p>
+      )}
+    </section>
+  );
+}

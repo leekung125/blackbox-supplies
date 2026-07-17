@@ -12,6 +12,7 @@ import { getAllProducts, getCoreProducts, getProductById, type Product } from "@
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { KITS } from "@/lib/kits";
 import { KitBundleCard } from "@/components/home/kit-bundle-card";
+import { QuickFixesRail } from "@/components/home/quick-fixes-rail";
 import { JsonLd } from "@/components/json-ld";
 import { webPageSchema } from "@/lib/schema";
 import heatData from "@/data/heat-products.json";
@@ -325,8 +326,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BUYING GUIDES — asymmetric editorial: one lead + a stacked list (not a card grid) */}
+      {/* QUICK FIXES — the sub-$25 readiness rail (kept out of the revenue grids, surfaced here) */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+        <Reveal blur={false}><QuickFixesRail /></Reveal>
+      </section>
+
+      {/* BUYING GUIDES — asymmetric editorial: one lead + a stacked list (not a card grid) */}
+      <section className="border-t border-line mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
         <Reveal blur={false}><SectionHead eyebrow="Read before you buy" title="The buying guides" href="/guides" linkLabel="All guides" /></Reveal>
         <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
           {featured[0] ? (

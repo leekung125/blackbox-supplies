@@ -3,6 +3,7 @@ import { getProductById } from "@/lib/products";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { EXTRA_ARTICLES } from "@/lib/articles-extra";
 import { SPEC_META } from "@/lib/comparison-schema";
+import { EDITOR } from "@/lib/content";
 
 /**
  * JSON-LD builders. Honesty constraints are structural:
@@ -17,6 +18,26 @@ const BASE = "https://www.blackboxsupplies.com";
 function toISO(s: string): string {
   const d = new Date(s);
   return Number.isNaN(d.getTime()) ? "2026-07-01" : d.toISOString().slice(0, 10);
+}
+
+/**
+ * The editorial-desk author node — a schema.org Organization (the named, accountable editorial owner
+ * shown in on-page bylines) that part of the Organization. Built verbatim from lib/content.ts
+ * EDITOR (name + bio → description): no invented credentials and no hands-on
+ * lab-testing claim (the bio itself states it is research-based, not lab testing). Its `url` points
+ * at /methodology, where the same editorial desk is named — so the byline, the schema author, and
+ * the About page all resolve to one honest identity. Fixes the human-vs-search mismatch where the
+ * page named an editor but the Article JSON-LD credited the bare Organization @id.
+ */
+function editorAuthorNode() {
+  return {
+    "@type": "Organization",
+    "@id": `${BASE}/#editorial`,
+    name: EDITOR.name,
+    description: EDITOR.bio,
+    url: `${BASE}/methodology`,
+    parentOrganization: { "@id": `${BASE}/#organization` },
+  };
 }
 
 /** FAQPage JSON-LD from a guide/article's FAQ — a high-ROI AI-Overview / People-Also-Ask citation lever. */
@@ -124,7 +145,7 @@ export function breadcrumbSchema(crumbs: { name: string; path: string }[]) {
 }
 
 /** A buying guide = Article + ItemList of its real picks (no ratings, no offers). */
-export function guideSchema(guide: Guide) {
+export function guideSchema(guide: Guide, dateModified?: string) {
   const picks = guide.picks
     .map((p, i) => {
       const product = getProductById(p.productId);
@@ -152,11 +173,11 @@ export function guideSchema(guide: Guide) {
       description: guide.dek,
       url: `${BASE}/guides/${guide.slug}`,
       datePublished: toISO(published),
-      dateModified: toISO(guide.updated),
+      dateModified: toISO(dateModified ?? guide.updated),
       inLanguage: "en-US",
       mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/guides/${guide.slug}` },
       ...(guide.heroImage ? { image: guide.heroImage.startsWith("http") ? guide.heroImage : `${BASE}${guide.heroImage}` } : {}),
-      author: { "@id": `${BASE}/#organization` },
+      author: editorAuthorNode(),
       publisher: { "@id": `${BASE}/#organization` },
       articleSection: guide.category,
     },
@@ -173,15 +194,16 @@ export function guideSchema(guide: Guide) {
 }
 
 /**
- * Interactive comparison-guide schema = Article (authored by the named editorial owner) +
+ * Interactive comparison-guide schema = Article (authored by the named editorial desk) +
  * ItemList of its real ranked picks. Mirrors guideSchema(): no ratings, no offers.
  *
  * FIX over the previous inline JSON-LD: that block set `dateModified` to the raw human string
  * (e.g. "July 2026" — not valid ISO-8601, which Google rejects) and had no `datePublished`,
  * `author`, `publisher`, or `@id`. Here the dates are normalized through toISO(), the author is
- * the Organization itself (our transparent editorial process — NOT a fabricated named person, per
- * the EDITOR honesty note in lib/content.ts), the publisher is the Organization, and both nodes
- * carry an `@id` so they join the site's linked-data graph.
+ * the editorial-desk Organization (editorAuthorNode(), built verbatim from lib/content.ts EDITOR and
+ * part of the Organization — honestly reflecting the on-page byline, no fabricated credentials),
+ * the publisher is the Organization, and both nodes carry an `@id` so they join the site's
+ * linked-data graph.
  */
 export function comparisonGuideSchema(guide: {
   slug: string;
@@ -192,7 +214,7 @@ export function comparisonGuideSchema(guide: {
   heroImage?: string;
   published?: string;
   products: { id: string; name: string }[];
-}) {
+}, dateModified?: string) {
   // Comparison guides are living documents recording a single `updated` date. Use a distinct
   // original `published` date when one is ever added; until then datePublished honestly
   // coincides with dateModified rather than inventing an earlier date.
@@ -207,13 +229,13 @@ export function comparisonGuideSchema(guide: {
       description: guide.dek,
       url: `${BASE}/guides/${guide.slug}`,
       datePublished: toISO(published),
-      dateModified: toISO(guide.updated),
+      dateModified: toISO(dateModified ?? guide.updated),
       inLanguage: "en-US",
       mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/guides/${guide.slug}` },
       ...(guide.heroImage
         ? { image: guide.heroImage.startsWith("http") ? guide.heroImage : `${BASE}${guide.heroImage}` }
         : {}),
-      author: { "@id": `${BASE}/#organization` },
+      author: editorAuthorNode(),
       publisher: { "@id": `${BASE}/#organization` },
       articleSection: guide.categoryLabel,
     },
@@ -239,7 +261,7 @@ export function comparisonGuideSchema(guide: {
 }
 
 /** Question/comparison article page schema. */
-export function articleSchema(a: { slug: string; title: string; dek: string; updated: string; category: string; heroImage?: string; published?: string }) {
+export function articleSchema(a: { slug: string; title: string; dek: string; updated: string; category: string; heroImage?: string; published?: string }, dateModified?: string) {
   // Prefer a distinct original publish date when the article records one; otherwise
   // fall back to `updated` (articles are continuously revised), so datePublished
   // honestly coincides with dateModified rather than inventing an earlier date.
@@ -251,11 +273,11 @@ export function articleSchema(a: { slug: string; title: string; dek: string; upd
     description: a.dek,
     url: `${BASE}/guides/${a.slug}`,
     datePublished: toISO(a.published ?? a.updated),
-    dateModified: toISO(a.updated),
+    dateModified: toISO(dateModified ?? a.updated),
     inLanguage: "en-US",
     mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/guides/${a.slug}` },
     ...(a.heroImage ? { image: a.heroImage.startsWith("http") ? a.heroImage : `${BASE}${a.heroImage}` } : {}),
-    author: { "@id": `${BASE}/#organization` },
+    author: editorAuthorNode(),
     publisher: { "@id": `${BASE}/#organization` },
     articleSection: a.category,
   };

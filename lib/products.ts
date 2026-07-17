@@ -223,6 +223,18 @@ export function getCoreProducts(): Product[] {
   return products.filter((p) => !p.offBrand);
 }
 
+/** Quick Fixes — genuinely useful CORE picks UNDER $25: the small stuff that quietly saves the
+ *  day (the "moment it breaks" job at pocket-money prices). A DISTINCT tier: surfaced on its own
+ *  homepage rail but deliberately kept out of the revenue-ordered main grids (isMainProduct ≥$25)
+ *  so it never out-ranks the $100+ drivers. Before this, sub-$25 items were reachable only via
+ *  category pages — invisible on every browse surface. Only items with a real image are shown. */
+export function getQuickFixProducts(n = 12): Product[] {
+  return products
+    .filter((p) => !p.offBrand && !!p.image && lowPrice(p.priceRange) > 0 && lowPrice(p.priceRange) < 25)
+    .sort((a, b) => b.priority - a.priority || lowPrice(b.priceRange) - lowPrice(a.priceRange))
+    .slice(0, n);
+}
+
 export function getProductById(id: string): Product | undefined {
   return products.find((p) => p.id === id);
 }

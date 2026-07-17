@@ -9,8 +9,10 @@ import { AwardStrip } from "@/components/award-strip";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { getAllGuides, getGuideBySlug, GUIDE_SLUGS, type GuidePick } from "@/lib/guides";
+import { getDateModified, displayUpdated, GUIDES_SOURCE, articleSourcePath, comparisonSourcePath } from "@/lib/freshness";
 import { getKitById } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
+import { EDITOR } from "@/lib/content";
 import { matchByText, productToPick, type ResolvedPick } from "@/lib/affiliate-picks";
 import { JsonLd } from "@/components/json-ld";
 import { articleSchema, breadcrumbSchema, comparisonGuideSchema, faqSchema, guideSchema, howToSchema } from "@/lib/schema";
@@ -91,7 +93,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <>
         <JsonLd
           data={[
-            articleSchema(article),
+            articleSchema(article, getDateModified(articleSourcePath(article.slug))),
             breadcrumbSchema([
               { name: "Home", path: "/" },
               { name: "Guides", path: "/guides" },
@@ -111,7 +113,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <>
         <JsonLd
           data={[
-            ...comparisonGuideSchema(cmp),
+            ...comparisonGuideSchema(cmp, getDateModified(comparisonSourcePath(cmp.slug))),
             breadcrumbSchema([
               { name: "Home", path: "/" },
               { name: "Guides", path: "/guides" },
@@ -144,7 +146,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <JsonLd
         data={[
-          ...guideSchema(guide),
+          ...guideSchema(guide, getDateModified(GUIDES_SOURCE)),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Guides", path: "/guides" },
@@ -165,11 +167,14 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           <span className="text-ink-faint">·</span>
           <span className="text-ink-dim">{guide.readMinutes} min read</span>
           <span className="text-ink-faint">·</span>
-          <span className="text-ink-dim">Updated {guide.updated}</span>
+          <span className="text-ink-dim">Updated {displayUpdated(getDateModified(GUIDES_SOURCE))}</span>
         </div>
         <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink sm:text-[2.9rem]">
           {guide.title}
         </h1>
+        <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.85rem] text-ink-dim">
+          <Link href="/methodology" className="ulink font-medium">By {EDITOR.name}</Link>
+        </div>
         <p className="lede mt-4">{guide.dek}</p>
       </header>
 

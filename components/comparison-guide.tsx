@@ -11,13 +11,14 @@ import { CompetitionSection } from "@/components/guide/competition";
 import { OwnerInsights } from "@/components/guide/owner-insights";
 import { PickCaveats } from "@/components/guide/pick-caveats";
 import { SourcesBlock } from "@/components/guide/sources-block";
-import { ChangelogLine } from "@/components/guide/changelog-line";
+import { ChangelogLine, FailureLog } from "@/components/guide/changelog-line";
 import { AffiliateDisclosure } from "@/components/guide/affiliate-disclosure";
 import { faqSchema } from "@/lib/schema";
 import { COMPARISON_GUIDES, type ComparisonGuide } from "@/lib/comparison-guides";
 import { guideRefForSlug } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
 import { EDITOR } from "@/lib/content";
+import { getDateModified, displayUpdated, comparisonSourcePath } from "@/lib/freshness";
 
 /**
  * The full interactive comparison guide page. A real magazine buying guide whose centre is a
@@ -27,6 +28,8 @@ import { EDITOR } from "@/lib/content";
  */
 export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
   const count = guide.products.length;
+  // REAL freshness: this guide's source-file git last-commit time, not the "July 2026" stamp.
+  const updatedDisplay = displayUpdated(getDateModified(comparisonSourcePath(guide.slug)));
   // Category-correct sort hint — read from THIS guide's own sorts; never hardcode "cooling".
   const sortLabels = guide.sorts.map((s) => s.label.toLowerCase()).slice(0, 3);
   const sortPhrase =
@@ -62,13 +65,16 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
             <span className="text-ink-faint">·</span>
             <span className="text-ink-faint">{guide.readMinutes} min read</span>
             <span className="text-ink-faint">·</span>
-            <span className="text-ink-faint">Updated {guide.updated}</span>
+            <span className="text-ink-faint">Updated {updatedDisplay}</span>
             <span className="text-ink-faint">·</span>
             <span className="mono text-[0.72rem] text-accent-strong">{count} compared</span>
           </div>
           <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.08] text-ink-strong sm:text-[2.9rem]">
             {guide.title}
           </h1>
+          <div className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.85rem] text-ink-dim">
+            <Link href="/methodology" className="ulink font-medium">By {EDITOR.name}</Link>
+          </div>
           <p className="lede mt-4">{guide.dek}</p>
           {/* dated "what changed / last verified" trust line */}
           {guide.changelog?.length ? <ChangelogLine changelog={guide.changelog} /> : null}
@@ -205,12 +211,15 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
         {/* the research trail — the trust backbone — + clickable sources/receipts beneath it */}
         <div className="mt-12">
           <MethodologyPanel
-            updated={guide.updated}
+            updated={updatedDisplay}
             authorities={guide.authorities}
             editor={EDITOR}
           />
           <SourcesBlock sources={guide.sources} products={guide.products} />
         </div>
+
+        {/* public, dated corrections & revisions — the "still the pick?" trust surface */}
+        <FailureLog changelog={guide.changelog} updated={guide.updated} />
 
         {/* keep reading — cross-link to other money pages */}
         {relatedFallback.length ? (

@@ -19,11 +19,15 @@ import { getAllProducts, getProductById, getRelatedProducts } from "@/lib/produc
 import { GuideFaq } from "@/components/guide/guide-faq";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema, productSchema, productFaqSchema } from "@/lib/schema";
+import { getDateModified, displayUpdated, PRODUCTS_SOURCE } from "@/lib/freshness";
 
 export const dynamicParams = false;
 
-/** Single honest "as of" date for approximate prices + the desk byline. No live-price fabrication. */
-const AS_OF = "July 2026";
+/**
+ * Single honest "as of" date for approximate prices + the desk byline -- the REAL git
+ * last-commit time of the product catalog, not a hand-typed stamp. No live-price fabrication.
+ */
+const AS_OF = displayUpdated(getDateModified(PRODUCTS_SOURCE));
 
 /** Clamp to a char budget on a word boundary (no mid-word cuts, no ellipsis). */
 function clampWords(s: string, max: number): string {

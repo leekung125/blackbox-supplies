@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EDITOR } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "How We Pick — Our Research Methodology",
@@ -73,6 +74,15 @@ export default function MethodologyPage() {
           who lab-test, and screen for safety and recalls. Here is exactly how it works — with receipts.
         </p>
       </header>
+
+      <div className="mt-6 rounded-2xl border border-line bg-surface p-5 sm:p-6">
+        <span className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-ink-dim">Editorial desk</span>
+        <p className="mt-1 text-[0.95rem] font-semibold text-ink">
+          {EDITOR.name}
+          <span className="ml-2 font-normal text-ink-dim">· {EDITOR.role}</span>
+        </p>
+        <p className="mt-1.5 text-[0.9rem] leading-relaxed text-ink-2">{EDITOR.bio}</p>
+      </div>
 
       <div className="mt-8 rounded-2xl border border-accent/25 bg-accent-tint p-5 sm:p-6">
         <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-accent-strong">The one-paragraph version</h2>

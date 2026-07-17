@@ -8,6 +8,7 @@ import { GuidePicks } from "@/components/guide-picks";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { resolvePicks, matchByText } from "@/lib/affiliate-picks";
+import { getDateModified, displayUpdated, articleSourcePath } from "@/lib/freshness";
 
 /** A related link normalized across ALL content types so the card render is shape-safe. */
 interface RelatedRef {
@@ -35,14 +36,10 @@ function resolveRelated(slug: string): RelatedRef | null {
   return null;
 }
 
-/** Mirror of schema.ts toISO: display date ("July 2026") → ISO yyyy-mm-dd for <time dateTime>. */
-function toISODate(s: string): string {
-  const d = new Date(s);
-  return Number.isNaN(d.getTime()) ? "2026-07-01" : d.toISOString().slice(0, 10);
-}
-
 /** Renders a question/comparison article in the site's editorial voice. */
 export function ArticleView({ article }: { article: Article }) {
+  // REAL freshness: the article's source-file git last-commit time, not a blanket stamp.
+  const modifiedIso = getDateModified(articleSourcePath(article.slug));
   const related = article.relatedGuides
     .map(resolveRelated)
     .filter((r): r is RelatedRef => r !== null);
@@ -69,7 +66,7 @@ export function ArticleView({ article }: { article: Article }) {
           <Link href="/methodology" className="ulink font-medium">By {EDITOR.name}</Link>
           <span aria-hidden className="text-ink-faint">·</span>
           <span>
-            Updated <time dateTime={toISODate(article.updated)}>{article.updated}</time>
+            Updated <time dateTime={modifiedIso}>{displayUpdated(modifiedIso)}</time>
           </span>
         </div>
         <p className="lede mt-4">{article.dek}</p>
