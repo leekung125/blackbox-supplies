@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
-import { BRAND } from "@/lib/content";
+import { BRAND, EDITOR } from "@/lib/content";
 import { getCoreProducts } from "@/lib/products";
 import { getAllArticles } from "@/lib/articles";
 
@@ -29,8 +29,8 @@ const PRINCIPLES = [
     body: "Every pick is researched hard: we read verified-buyer reviews, manufacturer spec sheets, and price history, and weigh them against the independent outlets that lab-test — then tell you the best one and its honest catch. Every number is traceable. No invented reviews, no paid placement.",
   },
   {
-    title: "Faceless on purpose",
-    body: "There's no influencer here selling you a lifestyle. We let the research speak. That keeps the focus where it belongs: on which product is right for you, not on who's recommending it.",
+    title: "A real person, not an influencer",
+    body: "BlackBox is run and written by one accountable person — no influencer act, no lifestyle to sell. Just the research, a real name behind every verdict, and a standard that owns its mistakes. The focus stays on which product is right for you, not on who's recommending it.",
   },
   {
     title: "Transparent about how we earn",
@@ -71,10 +71,11 @@ export default function AboutPage() {
         <span className="eyebrow eyebrow-accent">The masthead</span>
         <h2 className="mt-2 font-display text-xl font-semibold text-ink-strong">Who stands behind the picks</h2>
         <p className="mt-3 leading-relaxed text-ink-dim">
-          BlackBox Supplies is an independent editorial publication, operated under the BlackBox Supplies name and
-          publishing since 2026. We&rsquo;re faceless by design — no influencer, no personal brand — but not
-          anonymous about accountability: the BlackBox Supplies editorial desk owns the research standard on this site
-          and answers for every pick, every spec, and every correction.
+          BlackBox Supplies is founded, researched, and written by {EDITOR.name}, publishing since 2026. It&rsquo;s an
+          independent, one-person publication — no influencer act, no personal brand for sale — but not anonymous:
+          there&rsquo;s a real name accountable for every pick, every spec, and every correction. {EDITOR.name} sets the
+          research standard and answers for it, at{" "}
+          <a href={`mailto:${BRAND.email}`} className="ulink font-semibold">{BRAND.email}</a>.
         </p>
         <p className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 border-t border-line pt-4 text-sm text-ink-dim">
           <span><span className="nums font-semibold text-ink-strong">{totalPicks}</span> products researched</span>

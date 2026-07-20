@@ -17,17 +17,20 @@ export const BRAND = {
 } as const;
 
 /**
- * The named, accountable editorial owner behind every guide's method and verdicts — the honest
- * E-E-A-T substitute for a faceless brand: a real, named person who owns the standard, not a
- * fake lab or invented credentials. Deliberately explicit that the work is RESEARCH-based, not
- * hands-on lab testing, so no false "we crash-tested this" impression is created. Used as the
- * `author` in comparison-guide Article JSON-LD and can be surfaced in on-page bylines.
+ * The named, accountable human behind every guide's method and verdicts — a real, named founder
+ * who owns the standard. This is the strongest E-E-A-T signal available to us: Google's product-
+ * reviews system now weights demonstrable experience + a real accountable author heavily, and a
+ * named person beats a faceless "editorial desk." Deliberately explicit that the work is
+ * RESEARCH-based (including original analysis of hundreds of real owner reviews), not a paid lab
+ * or a fake hands-on test — so no false impression is created. Used as the `author` Person in
+ * Article JSON-LD and surfaced in on-page bylines. NOTE: add a real founder photo to `avatar`
+ * to further strengthen the author signal.
  */
-// Trust comes from a transparent PROCESS, not a fabricated person. No fake staff personas.
 export const EDITOR = {
-  name: "BlackBox Editorial",
-  role: "Research & standards",
-  bio: "Every BlackBox verdict is set by our editorial process — not a single named reviewer. We cross-check manufacturer spec sheets, published independent test data, and long-term verified-buyer reviews. It's research-based analysis, not hands-on lab testing, and we never claim otherwise.",
+  name: "Lee Kung",
+  role: "Founder & Editor",
+  bio: "BlackBox Supplies is founded, researched, and written by Lee Kung. The focus is deliberately narrow — the gear that matters the moment something goes wrong: a dead battery at 6am, a blackout, a heatwave with no AC, a breakdown on a dark shoulder. Every pick is cross-checked against manufacturer specs, published independent test data, and original analysis of hundreds of long-term verified-buyer reviews — an honest, research-based standard, not a paid lab, and never a hands-on test the site didn't do.",
+  avatar: "", // real founder photo strengthens E-E-A-T — add when available
 } as const;
 
 /**

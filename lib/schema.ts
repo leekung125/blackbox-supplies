@@ -21,22 +21,24 @@ function toISO(s: string): string {
 }
 
 /**
- * The editorial-desk author node — a schema.org Organization (the named, accountable editorial owner
- * shown in on-page bylines) that part of the Organization. Built verbatim from lib/content.ts
- * EDITOR (name + bio → description): no invented credentials and no hands-on
- * lab-testing claim (the bio itself states it is research-based, not lab testing). Its `url` points
- * at /methodology, where the same editorial desk is named — so the byline, the schema author, and
- * the About page all resolve to one honest identity. Fixes the human-vs-search mismatch where the
- * page named an editor but the Article JSON-LD credited the bare Organization @id.
+ * The author node — a schema.org Person (the real, named, accountable founder shown in on-page
+ * bylines), affiliated with the Organization. Built verbatim from lib/content.ts EDITOR (name +
+ * bio → description, role → jobTitle): no invented credentials and no hands-on lab-testing claim
+ * (the bio itself states it is research-based). Its `url` points at /methodology, where the same
+ * person is named — so the byline, the schema author, and the About page all resolve to one honest
+ * human identity. A named Person author is a materially stronger E-E-A-T signal than a bare
+ * Organization for product-review content.
  */
 function editorAuthorNode() {
   return {
-    "@type": "Organization",
-    "@id": `${BASE}/#editorial`,
+    "@type": "Person",
+    "@id": `${BASE}/#editor`,
     name: EDITOR.name,
     description: EDITOR.bio,
+    jobTitle: EDITOR.role,
     url: `${BASE}/methodology`,
-    parentOrganization: { "@id": `${BASE}/#organization` },
+    worksFor: { "@id": `${BASE}/#organization` },
+    ...(EDITOR.avatar ? { image: `${BASE}${EDITOR.avatar}` } : {}),
   };
 }
 

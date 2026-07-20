@@ -111,10 +111,10 @@ export default function ContactPage() {
       <section className="mt-10">
         <h2 className="font-display text-2xl font-semibold text-ink">Who you&rsquo;re reaching</h2>
         <p className="article mt-3 text-[0.98rem] leading-relaxed text-ink-2">
-          {EDITOR.name} — our {EDITOR.role.toLowerCase()} process — is accountable for how every pick is made.
-          We don&rsquo;t hide behind a fake byline: verdicts come from cross-checked research, not a single named
-          reviewer. If you&rsquo;re writing about how a pick was made or a standard we hold, that&rsquo;s the desk
-          your email lands on.
+          {EDITOR.name}, {EDITOR.role.toLowerCase()}, is personally accountable for how every pick is made.
+          There&rsquo;s a real name behind the byline — verdicts come from cross-checked research and original
+          analysis of hundreds of verified-buyer reviews, not anonymous copy. If you&rsquo;re writing about how
+          a pick was made or a standard we hold, that&rsquo;s who your email reaches.
         </p>
       </section>
 
