@@ -5,6 +5,7 @@ import Image from "next/image";
 import { track } from "@vercel/analytics";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import type { CategoryMeta, ComparableProduct } from "@/lib/comparison-schema";
+import { getOwnerEvidence } from "@/lib/owner-evidence";
 import {
   valOf,
   fmtSpec,
@@ -238,6 +239,34 @@ function Detail({
           </ul>
         </div>
       </div>
+      <OwnerReportStrip id={p.id} />
+    </div>
+  );
+}
+
+/* Condensed owner-evidence inside the expand — real cited owner data per product (renders only where we have it). */
+function OwnerReportStrip({ id }: { id: string }) {
+  const oe = getOwnerEvidence(id);
+  if (!oe) return null;
+  return (
+    <div className="mt-4 border-t border-line-soft pt-3.5">
+      <span className="mono text-[0.6rem] uppercase tracking-[0.12em] text-accent-strong">What owners actually report</span>
+      {oe.realWorldNumbers.length ? (
+        <div className="mt-2 flex flex-wrap gap-x-5 gap-y-1.5">
+          {oe.realWorldNumbers.slice(0, 3).map((n) => (
+            <span key={n.label} className="text-[0.8rem]">
+              <span className="nums font-semibold text-ink">{n.value}</span>
+              <span className="text-ink-faint"> · {n.label}</span>
+            </span>
+          ))}
+        </div>
+      ) : null}
+      {oe.failureModes[0] ? (
+        <p className="mt-2 text-[0.82rem] leading-snug text-ink-2">
+          <span className="font-semibold text-ink">Most-reported issue:</span> {oe.failureModes[0].mode} — {oe.failureModes[0].note}
+        </p>
+      ) : null}
+      <p className="mono mt-2 text-[0.55rem] uppercase tracking-[0.1em] text-ink-faint">Aggregated from owner reviews — not our own test</p>
     </div>
   );
 }
