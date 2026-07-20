@@ -18,6 +18,7 @@ import { COMPARISON_GUIDES, type ComparisonGuide } from "@/lib/comparison-guides
 import { guideRefForSlug } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
 import { EDITOR } from "@/lib/content";
+import { OwnerEvidence } from "@/components/owner-evidence";
 import { getDateModified, displayUpdated, comparisonSourcePath } from "@/lib/freshness";
 
 /**
@@ -206,6 +207,11 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
             <GuideFaq faq={guide.faq} />
             <JsonLd data={faqSchema(guide.faq)} />
           </>
+        ) : null}
+
+        {/* what owners actually report — the top pick's Owner Evidence (renders only where we have it) */}
+        {guide.products[0] ? (
+          <OwnerEvidence id={guide.products[0].id} updated={updatedDisplay} className="mt-12" />
         ) : null}
 
         {/* the research trail — the trust backbone — + clickable sources/receipts beneath it */}
