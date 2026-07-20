@@ -31,10 +31,13 @@ const nextConfig: NextConfig = {
       { source: "/car", destination: "/category/car-utility", permanent: false },
       { source: "/cooling", destination: "/heat", permanent: false },
       { source: "/desk", destination: "/category/desk-tech", permanent: false },
-      { source: "/kitchen", destination: "/category/kitchen", permanent: false },
-      { source: "/coffee", destination: "/category/kitchen", permanent: false },
+      // /kitchen, /coffee, /sleep previously pointed at UNREGISTERED off-niche category slugs
+      // (kitchen, sleep-comfort are excluded as off-brand) → they 404'd every top-of-funnel click.
+      // Repointed to the closest LIVE on-niche page by intent so old pins/decks resolve.
+      { source: "/kitchen", destination: "/useful", permanent: false },
+      { source: "/coffee", destination: "/useful", permanent: false },
       { source: "/travel", destination: "/category/travel-edc", permanent: false },
-      { source: "/sleep", destination: "/category/sleep-comfort", permanent: false },
+      { source: "/sleep", destination: "/heat", permanent: false },
       { source: "/power", destination: "/kits/backup-power-kit", permanent: false },
       { source: "/roadside", destination: "/kits/roadside-kit", permanent: false },
       { source: "/apartment", destination: "/useful", permanent: false },

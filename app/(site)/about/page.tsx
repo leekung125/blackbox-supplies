@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 const PRINCIPLES = [
   {
     title: "Genuinely useful, not just popular",
-    body: "We only cover gear that solves a real problem and is worth the money. Cooling that actually drops the temperature. Desk, kitchen, and travel upgrades built to last. Car gear that earns its place in the trunk. If something's overhyped, we leave it off — or say so.",
+    body: "We only cover gear that solves a real problem and is worth the money. Cooling that actually drops the temperature. Power and backup that holds when the grid doesn't. Practical everyday-carry and tools built to last. Car and roadside gear that earns its place in the trunk. If something's overhyped, we leave it off — or say so.",
   },
   {
     title: "Honest by default",
