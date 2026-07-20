@@ -17,20 +17,20 @@ export const BRAND = {
 } as const;
 
 /**
- * The named, accountable human behind every guide's method and verdicts — a real, named founder
- * who owns the standard. This is the strongest E-E-A-T signal available to us: Google's product-
- * reviews system now weights demonstrable experience + a real accountable author heavily, and a
- * named person beats a faceless "editorial desk." Deliberately explicit that the work is
- * RESEARCH-based (including original analysis of hundreds of real owner reviews), not a paid lab
- * or a fake hands-on test — so no false impression is created. Used as the `author` Person in
- * Article JSON-LD and surfaced in on-page bylines. NOTE: add a real founder photo to `avatar`
- * to further strengthen the author signal.
+ * The named, accountable human behind every guide's method and verdicts — a real founder who owns
+ * the standard, surfaced by FIRST NAME ONLY by deliberate choice. The founder wants to stay private:
+ * a real, accountable first-name byline still gives the E-E-A-T + honesty benefit (a real person
+ * stands behind the picks, not a faceless "editorial desk") without publishing a full legal identity
+ * or a photo. Deliberately explicit that the work is RESEARCH-based (including original analysis of
+ * hundreds of real owner reviews), not a paid lab or a fake hands-on test. Used as the `author`
+ * Person in Article JSON-LD and in on-page bylines.
+ * PRIVACY: do NOT add a full name or a photo to `avatar` — the founder has chosen to stay hidden.
  */
 export const EDITOR = {
-  name: "Lee Kung",
+  name: "Lee",
   role: "Founder & Editor",
-  bio: "BlackBox Supplies is founded, researched, and written by Lee Kung. The focus is deliberately narrow — the gear that matters the moment something goes wrong: a dead battery at 6am, a blackout, a heatwave with no AC, a breakdown on a dark shoulder. Every pick is cross-checked against manufacturer specs, published independent test data, and original analysis of hundreds of long-term verified-buyer reviews — an honest, research-based standard, not a paid lab, and never a hands-on test the site didn't do.",
-  avatar: "", // real founder photo strengthens E-E-A-T — add when available
+  bio: "BlackBox Supplies is founded, researched, and written by Lee, its founder. The focus is deliberately narrow — the gear that matters the moment something goes wrong: a dead battery at 6am, a blackout, a heatwave with no AC, a breakdown on a dark shoulder. Every pick is cross-checked against manufacturer specs, published independent test data, and original analysis of hundreds of long-term verified-buyer reviews — an honest, research-based standard, not a paid lab, and never a hands-on test the site didn't do.",
+  avatar: "", // intentionally empty — the founder stays private (no photo). Do not add one.
 } as const;
 
 /**
