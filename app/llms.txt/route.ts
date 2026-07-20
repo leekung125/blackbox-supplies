@@ -1,6 +1,7 @@
 import { getAllGuides } from "@/lib/guides";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { getAllArticles } from "@/lib/articles";
+import { SCENARIOS } from "@/lib/scenarios";
 
 const BASE = "https://www.blackboxsupplies.com";
 
@@ -21,8 +22,11 @@ export function GET() {
     "",
     "## Product categories",
     `- [Cooling gear](${BASE}/heat): portable AC, tower & bladeless fans, cooling sleep, mini fridges, personal cooling`,
-    `- [Genuinely useful upgrades](${BASE}/useful): desk & tech, kitchen, travel & EDC, home & comfort`,
+    `- [Genuinely useful upgrades](${BASE}/useful): desk & tech, travel & EDC, everyday carry, power & charging`,
     `- [Car & roadside](${BASE}/gear): jump starters, tire inflators, dash cams, portable power, roadside safety`,
+    "",
+    "## When it breaks — emergency scenario guides (what to do the moment something fails, free triage first, then the gear)",
+    ...SCENARIOS.map((s) => `- [${s.situation}](${BASE}/when/${s.slug}): ${s.metaDescription}`),
     "",
     "## Interactive comparison guides",
     ...COMPARISON_GUIDES.map((g) => `- [${g.title}](${BASE}/guides/${g.slug}): ${g.dek}`),

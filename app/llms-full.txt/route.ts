@@ -1,6 +1,7 @@
 import { getAllGuides, type Guide } from "@/lib/guides";
 import { COMPARISON_GUIDES, type ComparisonGuide } from "@/lib/comparison-guides";
 import { getAllArticles, type Article } from "@/lib/articles";
+import { SCENARIOS, type Scenario } from "@/lib/scenarios";
 
 const BASE = "https://www.blackboxsupplies.com";
 
@@ -141,6 +142,27 @@ function articleSection(a: Article): string {
   ]);
 }
 
+function scenarioSection(s: Scenario): string {
+  return block([
+    `## ${s.h1}`,
+    `URL: ${BASE}/when/${s.slug}`,
+    `Situation: ${s.situation}`,
+    `Updated: ${s.updated}`,
+    "",
+    s.intro,
+    "",
+    "What to do right now (free, in order):",
+    ...s.doNow.map((d, i) => `${i + 1}. ${d.step}: ${d.detail}`),
+    "",
+    `Fix it now: ${s.fixNow.blurb}`,
+    "",
+    `Prevent it next time: ${s.prevent.blurb}`,
+    ...faqLines(s.faq),
+    "",
+    SEP,
+  ]);
+}
+
 export function GET() {
   const guides = getAllGuides();
   const articles = getAllArticles();
@@ -152,6 +174,12 @@ export function GET() {
     "",
     `Homepage: ${BASE}`,
     "This file is the full text of every guide and article, for AI ingestion and citation. The link map is at /llms.txt.",
+    "",
+    RULE,
+    "WHEN IT BREAKS — EMERGENCY SCENARIO GUIDES (free triage first, then the gear)",
+    RULE,
+    "",
+    ...SCENARIOS.map(scenarioSection),
     "",
     RULE,
     "COMPARISON GUIDES",
