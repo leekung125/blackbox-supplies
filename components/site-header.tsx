@@ -42,15 +42,18 @@ export function SiteHeader() {
         scrolled ? "border-dark-line shadow-[0_12px_34px_-18px_rgba(0,0,0,0.95)]" : "border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:gap-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:gap-4 sm:px-6">
         <Link href="/" aria-label="BlackBox Supplies — home" className="shrink-0">
           <Wordmark light markClassName="h-6 w-6 sm:h-7 sm:w-7" size="text-[0.95rem] sm:text-[1.05rem]" showMark />
         </Link>
 
-        {/* always-visible search — mobile + desktop; the fastest intent → product path */}
-        <SiteSearch className="min-w-0 flex-1 sm:max-w-sm" placeholder="Search gear…" />
+        {/* always-visible search — mobile + desktop; the fastest intent → product path.
+           NOTE: width comes from a flex-basis floor (min-w), NOT flex-grow alone. A sibling with
+           `ml-auto` (the nav/buttons cluster) would otherwise absorb all free space before grow
+           runs, collapsing this to 0px — the bug that made desktop search unusable. */}
+        <SiteSearch className="min-w-[8rem] flex-1 lg:max-w-md" placeholder="Search gear…" />
 
-        <nav className="ml-auto hidden shrink-0 items-center gap-6 lg:flex">
+        <nav className="hidden shrink-0 items-center gap-6 xl:flex">
           {NAV.map((item) => (
             <Link
               key={item.href}
@@ -67,10 +70,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="ml-auto flex shrink-0 items-center gap-2 xl:ml-0">
           <Link
             href="/newsletter"
-            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-strong lg:inline-flex"
+            className="hidden rounded-full bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-strong xl:inline-flex"
           >
             Newsletter
           </Link>
@@ -81,7 +84,7 @@ export function SiteHeader() {
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
             aria-label="Menu"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-dark-line text-on-dark lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-dark-line text-on-dark xl:hidden"
           >
             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round">
               {open ? <path d="M6 6 L18 18 M18 6 L6 18" /> : <path d="M4 7 H20 M4 12 H20 M4 17 H20" />}
@@ -98,9 +101,9 @@ export function SiteHeader() {
             animate={{ height: "auto", opacity: 1 }}
             exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden bg-dark-2 lg:hidden"
+            className="overflow-hidden bg-dark-2 xl:hidden"
           >
-            <div className="mx-auto max-w-6xl px-4 py-3 sm:px-6">
+            <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6">
               {NAV.map((item) => (
                 <Link
                   key={item.href}
