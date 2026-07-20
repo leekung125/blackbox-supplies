@@ -152,7 +152,7 @@ export const PORTABLE_AC_PRODUCTS: ProductFor<"portable_ac">[] = [
     name: "Frigidaire Gallery GHPC132AB1 Cool Connect 13,000 BTU Portable AC",
     brand: "Frigidaire",
     category: "portable_ac",
-    image: "/products/ac/frigidaire-gallery-ghpc132ab1-13000-btu.png",
+    image: "/products/scene/frigidaire-gallery-ghpc132ab1-13000-btu.png",
     price: 569,
     priceRange: "$539–$599",
     affiliateUrl: "https://www.amazon.com/dp/B07ZDVBDFX?tag=blackboxsuppl-20",

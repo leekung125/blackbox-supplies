@@ -11,6 +11,7 @@ import { SiteSearch } from "@/components/site-search";
 // full catalog ("All Gear") and the value-entry surface ("Value Picks") sit last — reachable up
 // top as well as in the footer. Car vertical uses one consistent label ("Car & Roadside") sitewide.
 const NAV = [
+  { href: "/when", label: "When It Breaks" },
   { href: "/gear", label: "Car & Roadside" },
   { href: "/heat", label: "Cooling" },
   { href: "/useful", label: "Work & EDC" },

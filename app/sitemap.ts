@@ -5,6 +5,7 @@ import { GUIDES } from "@/lib/guides";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { KITS } from "@/lib/kits";
 import { CATEGORIES } from "@/lib/categories";
+import { SCENARIOS } from "@/lib/scenarios";
 import { getCoreProducts } from "@/lib/products";
 import {
   getDateModified,
@@ -33,6 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/kits",
     "/products",
     "/finds",
+    "/when",
     "/about",
     "/methodology",
     "/newsletter",
@@ -59,6 +61,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: getDateModified(articleSourcePath(a.slug)),
   }));
 
+  const scenarios: MetadataRoute.Sitemap = SCENARIOS.map((s) => ({ url: `${BASE}/when/${s.slug}` }));
   const kits: MetadataRoute.Sitemap = KITS.map((k) => ({ url: `${BASE}/kits/${k.id}` }));
   const categories: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({ url: `${BASE}/category/${c.slug}` }));
   const products: MetadataRoute.Sitemap = getCoreProducts().map((p) => ({
@@ -66,5 +69,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: getDateModified(PRODUCTS_SOURCE),
   }));
 
-  return [...core, ...comparisonGuides, ...guides, ...articles, ...kits, ...categories, ...products];
+  return [...core, ...scenarios, ...comparisonGuides, ...guides, ...articles, ...kits, ...categories, ...products];
 }

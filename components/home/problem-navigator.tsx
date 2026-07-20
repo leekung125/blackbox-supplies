@@ -24,6 +24,7 @@ type Problem = {
   problem: string;
   why: string;
   fixNow: string;
+  scenario?: string;
   guide: { label: string; href: string };
   kit: { label: string; href: string };
   category: string;
@@ -38,6 +39,7 @@ const PROBLEMS: Problem[] = [
     problem: "Dead in the driveway",
     why: "A dead battery is the #1 roadside failure. A lithium jump starter cranks it yourself in minutes — no second car, no waiting.",
     fixNow: "Turn off the headlights, heater, and radio, then try again — a weak battery sometimes has one crank left. Just clicking or dead silent? Re-seat the battery terminals. Still nothing → it needs a jump.",
+    scenario: "car-wont-start",
     guide: { label: "Jump starters, compared", href: "/guides/best-jump-starters-compared" },
     kit: { label: "The Roadside Kit", href: "/kits/roadside-kit" },
     category: "Jump starters",
@@ -62,6 +64,7 @@ const PROBLEMS: Problem[] = [
     problem: "The night the lights die",
     why: "A LiFePO4 power station keeps the fridge, CPAP, phones and lights running through an outage — sized by watt-hours, not headline watts.",
     fixNow: "Keep the fridge shut — it holds cold about 4 hours. Drop phones to battery-saver and unplug the phantom draws. For anything past a few hours, you need stored watt-hours.",
+    scenario: "power-outage",
     guide: { label: "Power stations, compared", href: "/guides/best-power-stations-compared" },
     kit: { label: "The Backup Power Kit", href: "/kits/backup-power-kit" },
     category: "Backup power",
@@ -363,6 +366,11 @@ export function ProblemNavigator() {
                       Right now, for free
                     </span>
                     <p className="mt-1.5 text-[0.92rem] leading-relaxed text-ink-2 text-pretty">{active.fixNow}</p>
+                    {active.scenario ? (
+                      <Link href={`/when/${active.scenario}`} className="ulink mt-2.5 inline-flex items-center gap-1 text-[0.8rem] font-semibold text-accent-bright">
+                        Full step-by-step walkthrough <ArrowRight className="h-3.5 w-3.5" />
+                      </Link>
+                    ) : null}
                   </div>
 
                   {/* honest price band */}
