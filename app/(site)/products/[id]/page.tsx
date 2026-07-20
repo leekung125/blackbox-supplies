@@ -7,6 +7,7 @@ import { ShareButton } from "@/components/ux/share-button";
 import { DecisionReceipt } from "@/components/decision-receipt";
 import { MethodologyPanel } from "@/components/methodology-panel";
 import { OwnerEvidence } from "@/components/owner-evidence";
+import { EDITOR } from "@/lib/content";
 import { ProductCard } from "@/components/product-card";
 import { ProductThumb } from "@/components/product-thumb";
 import { BuyCta } from "@/components/product/buy-cta";
@@ -156,8 +157,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           {product.name}
         </h1>
         <p className="mt-3.5 text-sm text-ink-dim">
-          By the{" "}
-          <Link href="/methodology" className="ulink font-medium">BlackBox gear desk</Link>
+          By{" "}
+          <Link href="/methodology" className="ulink font-medium">{EDITOR.name}</Link>
           {" "}· Researched &amp; cited, not personally tested · <span className="fresh-dot mr-1.5 inline-block align-middle" aria-hidden />Updated {AS_OF}
         </p>
         <div className="mt-3.5">
