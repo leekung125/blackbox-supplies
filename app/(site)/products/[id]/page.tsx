@@ -6,6 +6,7 @@ import { StickyCta } from "@/components/sticky-cta";
 import { ShareButton } from "@/components/ux/share-button";
 import { DecisionReceipt } from "@/components/decision-receipt";
 import { MethodologyPanel } from "@/components/methodology-panel";
+import { OwnerEvidence } from "@/components/owner-evidence";
 import { ProductCard } from "@/components/product-card";
 import { ProductThumb } from "@/components/product-thumb";
 import { BuyCta } from "@/components/product/buy-cta";
@@ -307,6 +308,9 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
 
           {/* the decision receipt — the honest backbone */}
           <DecisionReceipt product={product} />
+
+          {/* what owners actually report — the Owner Evidence Engine (renders only when we have evidence) */}
+          <OwnerEvidence id={product.id} updated={AS_OF} className="mt-6" />
 
           {/* the research trail */}
           <MethodologyPanel updated={AS_OF} className="mt-6" />

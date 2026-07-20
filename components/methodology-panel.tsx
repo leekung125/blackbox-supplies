@@ -111,7 +111,7 @@ export function MethodologyPanel({
           </span>
           <div className="min-w-0">
             <span className="mono text-[0.62rem] uppercase tracking-[0.14em] text-ink-dim">
-              Editorial desk
+              Written &amp; researched by
             </span>
             <p className="mt-0.5 text-[0.9rem] font-semibold text-ink">
               {editor.name}
