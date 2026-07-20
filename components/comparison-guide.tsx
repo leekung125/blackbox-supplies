@@ -19,6 +19,7 @@ import { guideRefForSlug } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
 import { EDITOR } from "@/lib/content";
 import { OwnerEvidence } from "@/components/owner-evidence";
+import { getScenarioForGuide } from "@/lib/scenarios";
 import { getDateModified, displayUpdated, comparisonSourcePath } from "@/lib/freshness";
 
 /**
@@ -103,6 +104,28 @@ export function ComparisonGuideView({ guide }: { guide: ComparisonGuide }) {
           </h2>
           <p className="mt-2 text-[1.02rem] leading-relaxed text-ink">{guide.quickAnswer}</p>
         </div>
+
+        {/* the "moment it breaks" cross-link — funnels the urgent panic-buyer into the triage page,
+            and builds the guide↔scenario topic cluster (both directions). */}
+        {(() => {
+          const sc = getScenarioForGuide(guide.slug);
+          if (!sc) return null;
+          return (
+            <Link
+              href={`/when/${sc.slug}`}
+              className="group mt-4 flex items-center gap-3.5 rounded-xl border border-line-strong bg-surface-2 px-5 py-3.5 transition-colors hover:border-accent/50"
+            >
+              <svg className="h-5 w-5 shrink-0 text-accent-bright" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                <path d="M13 2 L4 14h6l-1 8 L20 10h-6z" />
+              </svg>
+              <span className="min-w-0 flex-1">
+                <span className="mono block text-[0.58rem] uppercase tracking-[0.14em] text-accent-bright">Happening right now?</span>
+                <span className="block text-[0.95rem] font-semibold text-ink-strong transition-colors group-hover:text-accent-bright">{sc.situation} — what to do this minute</span>
+              </span>
+              <span aria-hidden className="shrink-0 text-ink-faint transition-transform group-hover:translate-x-0.5 group-hover:text-accent">→</span>
+            </Link>
+          );
+        })()}
       </div>
 
       {/* ── the interactive comparison — the centre of gravity, wider ───────── */}

@@ -708,3 +708,22 @@ export const SCENARIOS: Scenario[] = [
 export function getScenario(slug: string): Scenario | undefined {
   return SCENARIOS.find((s) => s.slug === slug);
 }
+
+/**
+ * Maps a comparison-guide slug to its matching "moment it breaks" scenario, so the calm
+ * evergreen guide (researcher intent) and the urgent scenario (panic-buyer intent) link both
+ * ways — a real topic cluster that compounds topical authority instead of scattered one-off pages.
+ */
+export const GUIDE_TO_SCENARIO: Record<string, string> = {
+  "best-jump-starters-compared": "car-wont-start",
+  "best-tire-inflators-compared": "flat-tire-on-the-shoulder",
+  "best-power-stations-compared": "power-outage",
+  "best-portable-air-conditioners": "ac-died-in-a-heatwave",
+  "best-tower-fans-compared": "room-wont-cool-no-central-air",
+  "best-dash-cams-compared": "fender-bender-no-proof",
+};
+
+export function getScenarioForGuide(guideSlug: string): Scenario | undefined {
+  const s = GUIDE_TO_SCENARIO[guideSlug];
+  return s ? getScenario(s) : undefined;
+}

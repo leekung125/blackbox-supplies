@@ -15,6 +15,7 @@ const COLS: { title: string; links: { href: string; label: string; external?: bo
   {
     title: "Browse",
     links: [
+      { href: "/when", label: "When it breaks" },
       { href: "/gear", label: "Car & Roadside" },
       { href: "/heat", label: "Cooling" },
       { href: "/useful", label: "Work & EDC" },
