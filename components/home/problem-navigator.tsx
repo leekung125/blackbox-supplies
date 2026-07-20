@@ -23,6 +23,7 @@ type Problem = {
   tag: string;
   problem: string;
   why: string;
+  fixNow: string;
   guide: { label: string; href: string };
   kit: { label: string; href: string };
   category: string;
@@ -36,6 +37,7 @@ const PROBLEMS: Problem[] = [
     tag: "12V",
     problem: "Dead in the driveway",
     why: "A dead battery is the #1 roadside failure. A lithium jump starter cranks it yourself in minutes — no second car, no waiting.",
+    fixNow: "Turn off the headlights, heater, and radio, then try again — a weak battery sometimes has one crank left. Just clicking or dead silent? Re-seat the battery terminals. Still nothing → it needs a jump.",
     guide: { label: "Jump starters, compared", href: "/guides/best-jump-starters-compared" },
     kit: { label: "The Roadside Kit", href: "/kits/roadside-kit" },
     category: "Jump starters",
@@ -47,6 +49,7 @@ const PROBLEMS: Problem[] = [
     tag: "PSI",
     problem: "Flat, miles from home",
     why: "A cordless inflator reinflates a low tire on the shoulder so you drive to a shop on your own schedule instead of waiting for a tow.",
+    fixNow: "Still round and holding some air? Reinflate and drive straight to a shop. A loud hiss, a sidewall gash, or the tire off the rim → don't drive on it, call a tow.",
     guide: { label: "Tire inflators, compared", href: "/guides/best-tire-inflators-compared" },
     kit: { label: "The Roadside Kit", href: "/kits/roadside-kit" },
     category: "Tire inflators",
@@ -58,6 +61,7 @@ const PROBLEMS: Problem[] = [
     tag: "kWh",
     problem: "The night the lights die",
     why: "A LiFePO4 power station keeps the fridge, CPAP, phones and lights running through an outage — sized by watt-hours, not headline watts.",
+    fixNow: "Keep the fridge shut — it holds cold about 4 hours. Drop phones to battery-saver and unplug the phantom draws. For anything past a few hours, you need stored watt-hours.",
     guide: { label: "Power stations, compared", href: "/guides/best-power-stations-compared" },
     kit: { label: "The Backup Power Kit", href: "/kits/backup-power-kit" },
     category: "Backup power",
@@ -69,17 +73,19 @@ const PROBLEMS: Problem[] = [
     tag: "°F",
     problem: "A room like an oven",
     why: "Cool the room that actually gets hot. Buy on SACC (the honest cooling number), not the inflated BTU on the box.",
+    fixNow: "Close the blinds on the sunny side, and put a box fan in a window blowing OUT to dump hot air — especially after dark. When the room still won't drop → size real cooling by SACC.",
     guide: { label: "Portable ACs, compared", href: "/guides/best-portable-air-conditioners" },
     kit: { label: "Cooling gear", href: "/heat" },
     category: "Cooling",
     priceBand: "$250–$500",
-    img: "/products/scene/dreo-12-inch-table-air-circulator.png",
+    img: "/products/scene/midea-duo-14-000-btu-smart.png",
   },
   {
     id: "dashcam",
     tag: "REC",
     problem: "Your word against theirs",
     why: "A dash cam is your word against theirs — proof in a hit-and-run, an insurance dispute, or a rideshare shift.",
+    fixNow: "In the moment: photograph both cars, the plates, and the whole scene, and note the time and any witnesses. A dash cam does all of that automatically, every drive — before you need it.",
     guide: { label: "Dash cams, compared", href: "/guides/best-dash-cams-compared" },
     kit: { label: "The Road Trip Kit", href: "/kits/road-trip-kit" },
     category: "Dash cams",
@@ -91,6 +97,7 @@ const PROBLEMS: Problem[] = [
     tag: "KIT",
     problem: "Ready before it happens",
     why: "Skip the guesswork — a curated loadout tells you what to buy first, what to add later, and what to skip.",
+    fixNow: "The cheapest readiness step is free: throw a charged jump pack, an inflator, and water in the trunk today. Then build out the rest deliberately, not in a panic.",
     guide: { label: "All buying guides", href: "/guides" },
     kit: { label: "Browse the kits", href: "/kits" },
     category: "Loadouts",
@@ -172,8 +179,8 @@ export function ProblemNavigator() {
         <span className="eyebrow eyebrow-accent">The moment it happens</span>
         <h2 className="section-title mt-3 text-balance">When it goes wrong.</h2>
         <p className="mt-4 text-[1.05rem] leading-relaxed text-ink-dim text-pretty">
-          Six moments most people meet unprepared. Tap one — we name the one thing worth owning before it,
-          the honest price, and the catch.
+          Six moments most people meet unprepared. Tap one — we tell you what to do right now, for free,
+          then the one thing worth owning so it never strands you again.
         </p>
       </div>
 
@@ -346,6 +353,17 @@ export function ProblemNavigator() {
                   <p className="mt-4 text-[1.02rem] leading-relaxed text-ink-dim text-pretty">
                     {active.why}
                   </p>
+
+                  {/* the free triage step — help first, sell second (the wedge: what to do the moment it breaks) */}
+                  <div className="mt-5 rounded-xl border border-line-strong bg-surface-2/50 p-4">
+                    <span className="mono flex items-center gap-1.5 text-[0.58rem] font-semibold uppercase tracking-[0.14em] text-ink-2">
+                      <svg className="h-3.5 w-3.5 text-accent-bright" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                        <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L4 16.8 7.2 20l5.3-5.3a4 4 0 0 0 5.2-5.4l-2.4 2.4-2.1-2.1z" />
+                      </svg>
+                      Right now, for free
+                    </span>
+                    <p className="mt-1.5 text-[0.92rem] leading-relaxed text-ink-2 text-pretty">{active.fixNow}</p>
+                  </div>
 
                   {/* honest price band */}
                   <div
