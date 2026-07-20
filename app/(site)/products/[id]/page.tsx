@@ -8,6 +8,7 @@ import { DecisionReceipt } from "@/components/decision-receipt";
 import { MethodologyPanel } from "@/components/methodology-panel";
 import { OwnerEvidence } from "@/components/owner-evidence";
 import { EDITOR } from "@/lib/content";
+import { getScenarioForCategory } from "@/lib/scenarios";
 import { ProductCard } from "@/components/product-card";
 import { ProductThumb } from "@/components/product-thumb";
 import { BuyCta } from "@/components/product/buy-cta";
@@ -161,8 +162,17 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <Link href="/methodology" className="ulink font-medium">{EDITOR.name}</Link>
           {" "}· Researched &amp; cited, not personally tested · <span className="fresh-dot mr-1.5 inline-block align-middle" aria-hidden />Updated {AS_OF}
         </p>
-        <div className="mt-3.5">
+        <div className="mt-3.5 flex flex-wrap items-center gap-x-4 gap-y-2">
           <ShareButton title={product.name} />
+          {(() => {
+            const sc = getScenarioForCategory(product.category as string);
+            return sc ? (
+              <Link href={`/when/${sc.slug}`} className="inline-flex items-center gap-1.5 text-[0.82rem] font-semibold text-accent-bright transition-colors hover:text-accent">
+                <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M13 2 L4 14h6l-1 8 L20 10h-6z" /></svg>
+                {sc.situation} right now? What to do →
+              </Link>
+            ) : null;
+          })()}
         </div>
 
         <DecisionStrip product={product} asOf={AS_OF} className="mt-7" />

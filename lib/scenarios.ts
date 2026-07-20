@@ -727,3 +727,21 @@ export function getScenarioForGuide(guideSlug: string): Scenario | undefined {
   const s = GUIDE_TO_SCENARIO[guideSlug];
   return s ? getScenario(s) : undefined;
 }
+
+/** Maps a product `category` to the scenario it answers — completes the products↔scenarios link. */
+const CATEGORY_TO_SCENARIO: Record<string, string> = {
+  "Jump Starters": "car-wont-start",
+  "Tire Inflators": "flat-tire-on-the-shoulder",
+  "Power & Charging": "power-outage",
+  "Portable AC": "ac-died-in-a-heatwave",
+  "Cooling Fans": "room-wont-cool-no-central-air",
+  "Dash Cams": "fender-bender-no-proof",
+  "Personal Cooling": "too-hot-to-sleep",
+  "Dorm Cooling": "too-hot-to-sleep",
+  "Roadside Safety": "stranded-on-a-dark-shoulder",
+};
+
+export function getScenarioForCategory(category: string): Scenario | undefined {
+  const s = CATEGORY_TO_SCENARIO[category];
+  return s ? getScenario(s) : undefined;
+}
