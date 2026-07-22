@@ -51,7 +51,7 @@ export default function LinksPage() {
             </Link>
             {/* the direct money path: social traffic lands here — one tap to the tagged Amazon listing */}
             <div className="px-4 pb-4 pt-3">
-              <OutboundLink product={featured} disclosure="compact" className="[&>a]:w-full" />
+              <OutboundLink product={featured} disclosure="full" className="[&>a]:w-full" />
               <Link href={`/products/${featured.id}`} className="mt-2 block text-center text-xs text-ink-dim underline decoration-line underline-offset-2 hover:text-ink-2">
                 Why it&apos;s our pick →
               </Link>
@@ -92,6 +92,19 @@ export default function LinksPage() {
           <span>
             <span className="block text-sm font-semibold text-ink">Instagram</span>
             <span className="block text-xs text-ink-dim">@{BRAND.instagram}</span>
+          </span>
+          <span className="text-ink-faint transition-colors group-hover:text-accent" aria-hidden>→</span>
+        </a>
+
+        <a
+          href={`https://facebook.com/${BRAND.facebook}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mt-2.5 flex items-center justify-between rounded-xl border border-line bg-surface px-4 py-3.5 transition-colors hover:border-accent/40"
+        >
+          <span>
+            <span className="block text-sm font-semibold text-ink">Facebook</span>
+            <span className="block text-xs text-ink-dim">{BRAND.facebook}</span>
           </span>
           <span className="text-ink-faint transition-colors group-hover:text-accent" aria-hidden>→</span>
         </a>

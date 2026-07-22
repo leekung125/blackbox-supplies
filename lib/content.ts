@@ -12,6 +12,7 @@ export const BRAND = {
   shortPositioning:
     "Genuinely useful gear, researched — with the guides to choose the right one.",
   instagram: "black_boxsupplies",
+  facebook: "Blackboxsupplies",
   email: "info@blackboxsupplies.com",
   domain: "blackboxsupplies.com",
 } as const;

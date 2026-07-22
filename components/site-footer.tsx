@@ -45,6 +45,7 @@ const COLS: { title: string; links: { href: string; label: string; external?: bo
       { href: "/privacy", label: "Privacy" },
       { href: "/terms", label: "Terms" },
       { href: `https://instagram.com/${BRAND.instagram}`, label: "Instagram", external: true },
+      { href: `https://facebook.com/${BRAND.facebook}`, label: "Facebook", external: true },
     ],
   },
 ];
