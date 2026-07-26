@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { webPageSchema } from "@/lib/schema";
 import { BRAND } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -88,6 +90,7 @@ const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
 export default function PrivacyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+      <JsonLd data={[webPageSchema("/privacy", "Privacy Policy", "What data BlackBox Supplies collects, how affiliate links and analytics work, how we handle your email, and how to reach us with a data request.")]} />
       <Reveal blur={false}>
         <span className="eyebrow eyebrow-accent">Privacy</span>
         <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.05] text-ink sm:text-5xl">

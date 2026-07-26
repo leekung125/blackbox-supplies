@@ -122,7 +122,7 @@ export function UseCasePaths({ cases }: { cases: ResolvedUseCase[] }) {
           />
           {/* glowing numeral chip — the lit-instrument look */}
           <span
-            className="mono relative inline-flex h-7 w-7 items-center justify-center rounded-lg border text-[0.66rem] font-semibold tabular"
+            className="mono relative inline-flex h-7 w-7 items-center justify-center rounded-lg border text-[0.66rem] font-semibold nums"
             style={{
               color: a.hi,
               borderColor: `${a.hi}88`,

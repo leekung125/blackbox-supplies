@@ -14,7 +14,7 @@ const GROUP_ORDER: { kind: SearchKind; label: string }[] = [
 ];
 
 export const metadata: Metadata = {
-  title: "Search — BlackBox Supplies",
+  title: "Search",
   description: "Search BlackBox Supplies for gear, buying guides, and category picks.",
   alternates: { canonical: "/search" },
   // Query-string result pages shouldn't be indexed (thin/duplicate), but must resolve for the

@@ -21,7 +21,7 @@ import { SPEC_COLUMNS } from "@/lib/comparison-schema";
  *    mode). True on all here; the STARVIS 2 VIOFO cams are meaningfully better than the boolean shows.
  *  - `fieldOfViewDeg` is the FRONT lens. Wider catches more lanes but adds edge distortion.
  *  - `maxStorageGb` is the largest microSD the unit officially supports (not the bundled card).
- *  - Images: set "" for every unit — a later pass renders them (BLACKBOX_V2 image pipeline).
+ *  - Images: every unit carries a real /products/scene/*.png plate (rendered scene images).
  */
 export const DASH_CAMS_PRODUCTS: ProductFor<"dash_cams">[] = [
   // ── Best overall (reference-grade front + rear, dual STARVIS 2) ─────────────

@@ -113,7 +113,7 @@ const COOLING_CATEGORIES: CategoryMeta[] = [
     kitName: "",
     tagline: "Cool the person, not the whole room.",
     blurb:
-      "Neck fans, handheld misters, and wearable coolers that keep you comfortable on a commute, a walk, or a hot commute — when cooling one body beats cooling four walls.",
+      "Neck fans, handheld misters, and wearable coolers that keep you comfortable on a commute, a walk, or a hot patio shift — when cooling one body beats cooling four walls.",
     heroProductId: "torras-coolify-2s-neck-air-conditioner",
   },
   {

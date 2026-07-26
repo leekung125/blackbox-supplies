@@ -3,8 +3,12 @@ import Link from "next/link";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { ProductThumb } from "@/components/product-thumb";
+import { JsonLd } from "@/components/json-ld";
+import { breadcrumbSchema } from "@/lib/schema";
 import { getAllKits } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
+
+const BASE = "https://www.blackboxsupplies.com";
 
 export const metadata: Metadata = {
   title: "Gear Kits — Roadside, Winter, Backup Power",
@@ -18,6 +22,21 @@ export default function KitsPage() {
 
   return (
     <div className="relative mx-auto max-w-5xl px-4 py-12 sm:px-6 sm:py-16">
+      <JsonLd data={[
+        breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Gear kits", path: "/kits" }]),
+        {
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "BlackBox Supplies — gear kits",
+          numberOfItems: kits.length,
+          itemListElement: kits.map((k, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            name: k.name,
+            url: `${BASE}/kits/${k.id}`,
+          })),
+        },
+      ]} />
       {/* ambient lamp behind the masthead */}
       <div
         aria-hidden
@@ -47,11 +66,12 @@ export default function KitsPage() {
                 className="lit-card grad-border lift group relative flex h-full flex-col overflow-hidden rounded-2xl"
               >
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  {lead ? <ProductThumb product={k.heroImage ? { ...lead, image: k.heroImage } : lead} className="h-full w-full" pad="p-8 sm:p-10" /> : null}
-                  {/* the card is lit from within — image melts into the panel, warms on hover */}
+                  {lead ? <ProductThumb product={k.heroImage ? { ...lead, image: k.heroImage } : lead} className="h-full w-full" pad="p-6 sm:p-8" /> : null}
+                  {/* just ground the bottom margin into the card body — kept short + soft so it
+                      grazes only the dark frame, never washing the real photo on the light plate */}
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-card via-card/35 to-transparent"
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-card/70 to-transparent"
                   />
                   <div
                     aria-hidden

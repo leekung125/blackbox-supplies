@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { JsonLd } from "@/components/json-ld";
+import { webPageSchema } from "@/lib/schema";
 import { EDITOR } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -57,6 +59,7 @@ const CHANGELOG = [
 export default function MethodologyPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
+      <JsonLd data={[webPageSchema("/methodology", "How We Pick — Our Research Methodology", "How BlackBox Supplies picks: spec verification against manufacturer documentation, long-term owner-review analysis, professional-source scoring, and safety and recall checks. Every recommendation earned by evidence.")]} />
       <nav className="flex flex-wrap items-center gap-2 text-sm text-ink-dim">
         <Link href="/" className="hover:text-accent-strong">Home</Link>
         <span aria-hidden>/</span>

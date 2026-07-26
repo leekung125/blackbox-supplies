@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ProductBrowser } from "@/components/product-browser";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { affiliateListSchema, breadcrumbSchema } from "@/lib/schema";
 import { getAllProducts, isMainProduct } from "@/lib/products";
 
 // The sitewide "shop all" page — the full cross-vertical catalog (cooling + useful +
@@ -24,6 +26,13 @@ export default function ProductsIndex() {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
+      <JsonLd data={[
+        breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Shop all gear", path: "/products" }]),
+        affiliateListSchema(
+          "BlackBox Supplies — full catalog",
+          products.map((p) => ({ id: p.id, name: p.name, brand: p.brand, image: p.image ?? "", blurb: p.verdict || p.problemSolved })),
+        ),
+      ]} />
       <Reveal blur={false}>
         <span className="eyebrow eyebrow-accent">The full catalog</span>
         <h1 className="mt-3 font-display text-4xl font-semibold text-ink-strong sm:text-5xl">

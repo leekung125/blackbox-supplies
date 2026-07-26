@@ -24,7 +24,7 @@ import { SPEC_COLUMNS } from "@/lib/comparison-schema";
  *    the "what it can run at once" number. Surge is the brief startup-spike ceiling.
  *  - The Anker Prime is a USB power bank: acOutputWatts/surgeWatts/solarInputWatts are N/A (null +
  *    flagged), acOutletCount is a true 0, and its cell chemistry is standard lithium, not LiFePO4.
- *  - Images: all "" (code-drawn fallback) until FLUX/Amazon images land in a later pass.
+ *  - Images: every unit carries a real /products/scene/*.png plate (rendered scene images).
  */
 export const POWER_STATION_PRODUCTS: ProductFor<"power_stations">[] = [
   // ── Best overall (most usable power + biggest battery per dollar) ───────────

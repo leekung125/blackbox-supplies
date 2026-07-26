@@ -39,6 +39,8 @@ export function OutboundLink({
   className?: string;
 }) {
   const { href, isAffiliate } = getOutboundLink(product);
+  // No usable outbound URL → render nothing rather than a dead anchor (matches buy-cta).
+  if (!href) return null;
   const text = label ?? "Check price on Amazon";
 
   return (

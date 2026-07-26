@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Reveal } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { webPageSchema } from "@/lib/schema";
 import { BRAND, EDITOR } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -56,6 +58,7 @@ const REASONS: { title: string; body: ReactNode }[] = [
 export default function ContactPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+      <JsonLd data={[webPageSchema("/contact", "Contact BlackBox", "Reach BlackBox Supplies with corrections, product suggestions, or partnership questions. One inbox, read by a real person, and corrections fixed fast. Placement is never for sale.")]} />
       <Reveal blur={false}>
         <span className="eyebrow eyebrow-accent">Get in touch</span>
         <h1 className="mt-3 text-balance font-display text-4xl font-semibold leading-[1.05] text-ink sm:text-5xl">

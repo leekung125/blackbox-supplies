@@ -20,7 +20,7 @@ import type { ComparisonGuide } from "@/lib/comparison-guides";
  *  - GOOLOO GP4000 is rated "all gas" (no liter ceiling published) → engineMaxLitersGas null+flagged.
  *  - The Autowit SuperCap 2 is a different class: batteryless (supercapacitor). It has no cells, no power
  *    bank, no USB, and no flashlight — it borrows a trickle of charge from any 12V source, then cranks.
- *  - Images: all set to "" (code-drawn fallback) until FLUX/Amazon images land in a later pass.
+ *  - Images: every unit carries a real /products/scene/*.png plate (rendered scene images).
  */
 export const JUMP_STARTER_PRODUCTS: ProductFor<"jump_starters">[] = [
   // ── Best overall (the category benchmark) ──────────────────────────────────

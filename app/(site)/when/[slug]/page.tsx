@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const s = getScenario(slug);
   if (!s) return {};
   return {
-    title: `${s.h1} | BlackBox Supplies`,
+    title: s.h1,
     description: s.metaDescription,
     alternates: { canonical: `/when/${s.slug}` },
     openGraph: { type: "article", title: s.h1, description: s.metaDescription, url: `/when/${s.slug}` },

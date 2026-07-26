@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { NewsletterForm } from "@/components/newsletter-form";
 import { GuideCard } from "@/components/guide-card";
 import { Reveal } from "@/components/motion/reveal";
+import { JsonLd } from "@/components/json-ld";
+import { webPageSchema } from "@/lib/schema";
 import { getAllGuides } from "@/lib/guides";
 
 export const metadata: Metadata = {
@@ -24,6 +26,7 @@ export default function NewsletterPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
+      <JsonLd data={[webPageSchema("/newsletter", "Newsletter", "Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, a few times a month. No spam, no fake reviews, unsubscribe in one click.")]} />
       <Reveal blur={false}>
         <div className="text-center">
           <span className="eyebrow eyebrow-accent">The newsletter</span>

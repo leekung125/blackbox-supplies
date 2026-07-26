@@ -2,7 +2,6 @@ import { getAllGuides, type Guide } from "@/lib/guides";
 import { getProductById } from "@/lib/products";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { EXTRA_ARTICLES } from "@/lib/articles-extra";
-import { SPEC_META } from "@/lib/comparison-schema";
 import { EDITOR } from "@/lib/content";
 
 /**
@@ -105,10 +104,10 @@ export function organizationSchema() {
       email: "info@blackboxsupplies.com",
       contactType: "customer support",
     },
-    // sameAs: ONLY profiles that really resolve. Instagram @black_boxsupplies is the one
-    // verified account (see lib/content.ts BRAND.instagram + site footer). No real, resolving
-    // Pinterest/TikTok handle exists in the codebase, so none is invented here.
-    sameAs: ["https://www.instagram.com/black_boxsupplies/"],
+    // sameAs: ONLY profiles that really resolve. Instagram @black_boxsupplies and the Facebook
+    // page (see lib/content.ts BRAND.instagram / BRAND.facebook + site footer) are the two verified
+    // accounts. No real, resolving Pinterest handle exists in the codebase, so none is invented here.
+    sameAs: ["https://www.instagram.com/black_boxsupplies/", "https://www.facebook.com/Blackboxsupplies/"],
   };
 }
 
@@ -202,10 +201,10 @@ export function guideSchema(guide: Guide, dateModified?: string) {
  * FIX over the previous inline JSON-LD: that block set `dateModified` to the raw human string
  * (e.g. "July 2026" — not valid ISO-8601, which Google rejects) and had no `datePublished`,
  * `author`, `publisher`, or `@id`. Here the dates are normalized through toISO(), the author is
- * the editorial-desk Organization (editorAuthorNode(), built verbatim from lib/content.ts EDITOR and
- * part of the Organization — honestly reflecting the on-page byline, no fabricated credentials),
- * the publisher is the Organization, and both nodes carry an `@id` so they join the site's
- * linked-data graph.
+ * the named editorial Person (editorAuthorNode(), built verbatim from lib/content.ts EDITOR and
+ * affiliated with the Organization via worksFor — honestly reflecting the on-page byline, no
+ * fabricated credentials), the publisher is the Organization, and both nodes carry an `@id` so
+ * they join the site's linked-data graph.
  */
 export function comparisonGuideSchema(guide: {
   slug: string;
@@ -447,7 +446,9 @@ export function affiliateListSchema(
         "@type": "Product",
         name: p.name,
         brand: { "@type": "Brand", name: p.brand },
-        image: p.image?.startsWith("http") ? p.image : `${BASE}${p.image}`,
+        // Only emit `image` when the product actually has one — otherwise `${BASE}${""}` would
+        // point the ImageObject at the homepage URL (an invalid image reference).
+        ...(p.image ? { image: p.image.startsWith("http") ? p.image : `${BASE}${p.image}` } : {}),
         url: `${BASE}/products/${p.id}`,
         ...(p.blurb ? { description: p.blurb } : {}),
       },
@@ -530,16 +531,18 @@ export function howToSchema(name: string, steps: { name: string; text: string }[
 
 /**
  * DefinedTermSet for the gear glossary — the honest jargon-translation layer. Terms are sourced
- * from the real, user-visible spec labels + tooltips already authored in SPEC_META (lib/
- * comparison-schema), so every definition is one a buyer actually sees on the comparison boards —
- * nothing invented. Only fields carrying a tooltip (a real definition) become terms; duplicate
- * labels are collapsed. Falls back to a small honest set of universal gear terms if SPEC_META is
- * ever empty, so the set is never dishonestly padded.
+ * from the real, user-visible spec labels + tooltips already authored on every comparison guide's
+ * `meta.fields`, so every definition is one a buyer actually sees on the comparison boards —
+ * nothing invented. Iterating the live COMPARISON_GUIDES (not a hand-maintained registry) means
+ * every category's jargon lands in the glossary automatically. Only fields carrying a tooltip (a
+ * real definition) become terms; duplicate labels are collapsed. Falls back to a small honest set
+ * of universal gear terms if none are found, so the set is never dishonestly padded.
  */
 export function definedTermSetSchema() {
   const seen = new Set<string>();
   const terms: { "@type": "DefinedTerm"; name: string; description: string }[] = [];
-  for (const meta of Object.values(SPEC_META)) {
+  for (const guide of COMPARISON_GUIDES) {
+    const meta = guide.meta;
     if (!meta) continue;
     for (const field of Object.values(meta.fields)) {
       if (!field || !field.tooltip) continue;

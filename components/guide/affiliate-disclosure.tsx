@@ -11,8 +11,8 @@ export function AffiliateDisclosure({ compact = false }: { compact?: boolean }) 
       <p className="flex items-center justify-center gap-1.5 text-[0.72rem] leading-relaxed text-ink-dim">
         <Tag />
         <span>
-          Affiliate links — as an Amazon Associate we earn from qualifying purchases, at no cost to
-          you.
+          Affiliate links — as an Amazon Associate we earn from qualifying purchases, at no extra
+          cost to you.
         </span>
       </p>
     );

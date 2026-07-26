@@ -282,7 +282,7 @@ export function ProblemNavigator() {
                         on ? "translate-x-0 text-accent opacity-100" : "-translate-x-1 text-ink-faint opacity-0 group-hover:translate-x-0 group-hover:opacity-100",
                       ].join(" ")}
                     />
-                    <span className="mono ml-1 hidden shrink-0 text-[0.56rem] tabular text-ink-faint xl:inline">
+                    <span className="mono ml-1 hidden shrink-0 text-[0.56rem] nums text-ink-faint xl:inline">
                       0{i + 1}
                     </span>
                   </button>
@@ -306,7 +306,7 @@ export function ProblemNavigator() {
                 <span aria-hidden className="scn-dot-pulse h-1.5 w-1.5 rounded-full bg-accent shadow-[0_0_10px_2px_rgba(217,154,69,0.55)]" />
                 Matched recommendation
               </span>
-              <span className="mono text-[0.6rem] tabular text-ink-faint">
+              <span className="mono text-[0.6rem] nums text-ink-faint">
                 <span className="text-accent-bright">0{activeIndex + 1}</span>
                 <span className="px-1 opacity-40">/</span>0{PROBLEMS.length}
               </span>
@@ -379,7 +379,7 @@ export function ProblemNavigator() {
                     style={{ boxShadow: "inset 0 1px 0 rgba(235,227,209,0.06), 0 0 18px -8px rgba(217,154,69,0.5)" }}
                   >
                     <span className="mono text-[0.58rem] uppercase tracking-[0.14em] text-ink-faint">Typical range</span>
-                    <span className="mono text-[1rem] font-semibold tabular text-accent-bright" style={{ textShadow: "0 0 14px rgba(237,186,102,0.4)" }}>{active.priceBand}</span>
+                    <span className="mono text-[1rem] font-semibold nums text-accent-bright" style={{ textShadow: "0 0 14px rgba(237,186,102,0.4)" }}>{active.priceBand}</span>
                   </div>
 
                   {/* the two doors */}

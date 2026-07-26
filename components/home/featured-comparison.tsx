@@ -66,7 +66,7 @@ export function FeaturedComparison({ guide }: { guide: ComparisonGuide }) {
               />
               {/* rank — the top pick wears a glowing amber medallion; runners-up stay quiet rings */}
               <span
-                className="mono flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold tabular"
+                className="mono flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-sm font-semibold nums"
                 style={
                   top
                     ? {
@@ -109,7 +109,7 @@ export function FeaturedComparison({ guide }: { guide: ComparisonGuide }) {
                 </div>
               </Link>
               <div className="flex shrink-0 flex-col items-end gap-1.5">
-                <div className="mono text-[0.82rem] font-semibold tabular text-accent-bright" style={top ? { textShadow: "0 0 14px rgba(237,186,102,0.45)" } : undefined}>{p.priceRange ?? `$${p.price}`}</div>
+                <div className="mono text-[0.82rem] font-semibold nums text-accent-bright" style={top ? { textShadow: "0 0 14px rgba(237,186,102,0.45)" } : undefined}>{p.priceRange ?? `$${p.price}`}</div>
                 {/* the direct money path from the homepage's most commercial element */}
                 {p.affiliateUrl ? (
                   <a

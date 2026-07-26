@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/json-ld";
 import { webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "When It Breaks — What to do the moment something fails | BlackBox Supplies",
+  title: "When It Breaks — What to do the moment something fails",
   description:
     "Your car won't start, the power's out, it's 95° and the AC died. Step-by-step: what to do right now for free, then the one thing worth owning so it never strands you again.",
   alternates: { canonical: "/when" },

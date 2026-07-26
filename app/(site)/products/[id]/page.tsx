@@ -119,8 +119,12 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
       ? { label: "Car & roadside", href: "/gear" }
       : { label: "Useful gear", href: "/useful" };
 
-  const hasReadMore =
-    !!product.whyItMatters?.trim() || !!product.buyingNotes?.trim();
+  // Suppress the "Why it matters" block when it just repeats the verdict verbatim (a
+  // data-fill artifact on most products) — the identical sentence must not render twice.
+  const showWhyItMatters =
+    !!product.whyItMatters?.trim() &&
+    product.whyItMatters.trim() !== (product.verdict ?? "").trim();
+  const hasReadMore = showWhyItMatters || !!product.buyingNotes?.trim();
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
@@ -284,7 +288,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           {/* the full picture — why it matters + what to check, as one prose cluster */}
           {hasReadMore ? (
             <section className="mt-9 space-y-6">
-              {product.whyItMatters ? (
+              {showWhyItMatters ? (
                 <div>
                   <span className="mono text-[0.62rem] uppercase tracking-[0.14em] text-accent-strong">Why it matters</span>
                   <p className="mt-2 text-[0.98rem] leading-relaxed text-ink-2">{product.whyItMatters}</p>

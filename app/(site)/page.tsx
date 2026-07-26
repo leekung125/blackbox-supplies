@@ -201,7 +201,7 @@ export default function HomePage() {
               <div aria-hidden className="rule-fade absolute inset-x-0 top-0" />
               {[{ n: totalPicks, s: "+", label: "researched picks" }, { n: articles.length, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
                 <div key={st.label} className="bbxh-stat">
-                  <div className="tabular font-display text-[2.4rem] font-medium leading-none text-ink-strong">
+                  <div className="nums font-display text-[2.4rem] font-medium leading-none text-ink-strong">
                     <CountUp to={st.n} /><span className="text-accent-bright" style={{ textShadow: "0 0 18px rgba(237,186,102,0.5)" }}>{st.s}</span>
                   </div>
                   <div className="mono mt-2 text-[0.6rem] uppercase tracking-[0.14em] text-ink-faint">{st.label}</div>
