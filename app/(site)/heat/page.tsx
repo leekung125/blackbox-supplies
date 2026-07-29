@@ -49,6 +49,17 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * The eyebrow used to hardcode "summer 2026", so it goes stale the moment the calendar turns.
+ * Derive it instead: the seasonal framing only appears during the months it's actually true
+ * (May–September), and outside that window the page drops the season rather than lying about it.
+ */
+function seasonEyebrow(now: Date) {
+  const month = now.getMonth();
+  const year = now.getFullYear();
+  return month >= 4 && month <= 8 ? `Beat the heat · summer ${year}` : `Cooling gear · ${year}`;
+}
+
 export default function HeatPage() {
   const cats = ORDER.filter((c) => HEAT.some((p) => p.category === c));
 
@@ -58,14 +69,14 @@ export default function HeatPage() {
         breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Cooling", path: "/heat" }]),
         affiliateListSchema("Beat the Heat — cooling picks", HEAT),
       ]} />
-      <span className="eyebrow eyebrow-accent">Beat the heat · summer 2026</span>
+      <span className="eyebrow eyebrow-accent">{seasonEyebrow(new Date())}</span>
       <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">
         When it won&apos;t cool down on its own
       </h1>
       <p className="lede mt-4 max-w-2xl">
-        The record heat is here. These are the {HEAT.length} things that actually drop the temperature of a
-        room, a bed, or your body — built for apartments and dorms with no central AC. Every pick is a real,
-        verified Amazon listing, researched from specs and reviews, linked straight to Amazon.
+        These are the {HEAT.length} things that actually drop the temperature of a room, a bed, or your
+        body — built for apartments and dorms with no central AC. Every pick is a real, verified Amazon
+        listing, researched from specs and reviews, linked straight to Amazon.
       </p>
       <AffiliateDisclosure className="mt-5 max-w-2xl" />
 
@@ -117,8 +128,6 @@ export default function HeatPage() {
           </div>
         </section>
       ))}
-
-      <AffiliateDisclosure className="mt-16 max-w-2xl" />
     </div>
   );
 }

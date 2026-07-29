@@ -85,8 +85,6 @@ export default function UsefulPage() {
           </div>
         </section>
       ))}
-
-      <AffiliateDisclosure className="mt-16 max-w-2xl" />
     </div>
   );
 }

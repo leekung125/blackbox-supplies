@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Wordmark } from "@/components/wordmark";
-import { BRAND, DISCLOSURE_SHORT } from "@/lib/content";
+import { BRAND, DISCLOSURE_LONG } from "@/lib/content";
 
 const COLS: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
   {
@@ -36,13 +36,13 @@ const COLS: { title: string; links: { href: string; label: string; external?: bo
     ],
   },
   {
+    // No /disclosure or /privacy here — the bottom bar below already links both, and listing
+    // them twice in one footer reads as padding.
     title: "About",
     links: [
       { href: "/about", label: "About BlackBox" },
       { href: "/methodology", label: "How we pick" },
-      { href: "/disclosure", label: "How we make money" },
       { href: "/contact", label: "Contact" },
-      { href: "/privacy", label: "Privacy" },
       { href: "/terms", label: "Terms" },
       { href: `https://instagram.com/${BRAND.instagram}`, label: "Instagram", external: true },
       { href: `https://facebook.com/${BRAND.facebook}`, label: "Facebook", external: true },
@@ -95,7 +95,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-dark-line pt-6">
-          <p className="max-w-3xl text-xs leading-relaxed text-on-dark-dim">{DISCLOSURE_SHORT}</p>
+          <p className="max-w-3xl text-xs leading-relaxed text-on-dark-dim">{DISCLOSURE_LONG}</p>
           <div className="mt-4 flex flex-col gap-1 text-xs text-on-dark-dim sm:flex-row sm:items-center sm:justify-between">
             <span>
               © {year} {BRAND.name}

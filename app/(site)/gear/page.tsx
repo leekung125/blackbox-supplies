@@ -3,19 +3,13 @@ import { ProductBrowser } from "@/components/product-browser";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { Reveal } from "@/components/motion/reveal";
 import { getAllProducts, isMainProduct } from "@/lib/products";
+import { CAR_CATEGORIES } from "@/lib/site-stats";
 import { JsonLd } from "@/components/json-ld";
 import { affiliateListSchema, breadcrumbSchema } from "@/lib/schema";
 
-// The car & roadside vertical = these six categories. /gear is the Car vertical page,
-// parallel to /heat (Cooling) and /useful (Useful) — not a mixed "all catalog" dump.
-const CAR_CATS = new Set([
-  "Jump Starters",
-  "Tire Inflators",
-  "Dash Cams",
-  "Power & Charging",
-  "Roadside Safety",
-  "Car Utility",
-]);
+// The car & roadside vertical. /gear is the Car vertical page, parallel to /heat
+// (Cooling) and /useful (Useful) — not a mixed "all catalog" dump. The category set
+// lives in lib/site-stats so the homepage card and this page cannot drift apart.
 
 export const metadata: Metadata = {
   title: "Car & Roadside Gear",
@@ -28,7 +22,7 @@ export default function GearPage() {
   // Main grid = on-brand, ≥$25 picks (isMainProduct), so sub-$25 items (e.g. a $10 escape tool)
   // don't rank above the revenue drivers. They stay reachable via /finds, kits, and detail pages.
   const products = getAllProducts().filter(
-    (p) => CAR_CATS.has(p.category as string) && isMainProduct(p),
+    (p) => CAR_CATEGORIES.has(p.category as string) && isMainProduct(p),
   );
 
   return (
@@ -43,10 +37,14 @@ export default function GearPage() {
       <Reveal blur={false}>
         <span className="eyebrow eyebrow-accent">Car &amp; roadside</span>
         <h1 className="mt-3 font-display text-4xl font-semibold text-ink sm:text-5xl">Car &amp; roadside gear</h1>
+        {/* products.length is the literal length of the grid rendered below, so this number can never
+            drift from the page. It is a SUBSET of the sitewide total (car & roadside only, ≥$25) —
+            hence the qualifier: a bare number here reads as a contradiction of the homepage's total.
+            The homepage's "Car & roadside" card mirrors this exact filter. */}
         <p className="lede mt-4 max-w-2xl">
-          {products.length} picks across six categories — jump starters, tire inflators, dash cams,
-          power &amp; charging, roadside safety, and car utility. Every entry is researched from
-          manufacturer specs and public sources, and links straight to Amazon.
+          {products.length}{" "}car &amp; roadside picks over $25, across six categories — jump starters,
+          tire inflators, dash cams, power &amp; charging, roadside safety, and car utility. Every entry
+          is researched from manufacturer specs and public sources, and links straight to Amazon.
         </p>
       </Reveal>
 

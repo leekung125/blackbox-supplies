@@ -148,9 +148,13 @@ const FAQ_BY_CATEGORY: Record<string, Faq[]> = {
     { q: "What earns a spot in a daily carry?", a: "The things you reach for without thinking: a tracker for keys and bags, a compact multitool, and a right-sized power bank. Buy the quality version once — EDC gear lives a hard life." },
     { q: "How big a travel power bank should I get?", a: "20,000mAh is the airline-friendly sweet spot: several phone charges or one laptop top-up, and still under the 100Wh carry-on limit. Look for a built-in cable and enough watts to charge a laptop." },
   ],
+  // Real buying questions, not "what is this category?" — the last two are scoped to what this
+  // shelf actually publishes today (trackers). Revisit them as the category grows.
   "Problem Solvers": [
-    { q: "What is this category?", a: "A small shelf of gear that fixes one specific, nagging problem cleanly — the kind of thing you didn't know existed until it solved something annoying. Each pick is here because it does one job unusually well." },
-    { q: "How do these earn a spot?", a: "The same bar as everything else: chosen on merit, honest about the catch, and only when it genuinely beats the obvious alternative for a real problem." },
+    { q: "Is a single-job gadget actually worth owning?", a: "Only when it's a problem you hit over and over. The honest test: have you already improvised a workaround more than once this year? If yes, the specialised tool beats the multi-tool that does the job badly. If no, it becomes drawer clutter — skip it." },
+    { q: "How do I avoid the gimmick version?", a: "One-job gear is where cheap knockoffs cluster, because the listing photo does all the selling. Look for a named brand, a real spec sheet, and a warranty. If the page is all lifestyle shots and no numbers, it's a gamble, not a fix." },
+    { q: "Which tracker network do I need — Apple or Google?", a: "Buy for the phone you actually carry: Apple's Find My network only helps iPhone owners, Google's Find Hub covers Android. A few trackers can join either one, but you pick the network when you set the tag up — so check that before you buy a multi-pack for a mixed-phone household." },
+    { q: "Rechargeable tracker or a coin cell?", a: "A coin cell (usually CR2032) runs about a year and then needs a swap you'll forget to make; a rechargeable tag wants a USB-C top-up every few months but never needs a battery bought. Neither is wrong — pick the maintenance habit you'll actually keep." },
   ],
 };
 

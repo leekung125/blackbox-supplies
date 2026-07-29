@@ -5,11 +5,15 @@ import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/json-ld";
 import { webPageSchema } from "@/lib/schema";
 import { getAllGuides } from "@/lib/guides";
+import { NEWSLETTER_CADENCE } from "@/lib/content";
+
+// One cadence promise, stated once — metadata, lede, and the "what you won't get" list all read
+// from NEWSLETTER_CADENCE so this page can never contradict itself again.
+const DESCRIPTION = `Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, ${NEWSLETTER_CADENCE}. No spam, no fake reviews, unsubscribe in one click.`;
 
 export const metadata: Metadata = {
   title: "Newsletter — Gear Notes & Buying Guides",
-  description:
-    "Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, a few times a month. No spam, no fake reviews, unsubscribe in one click.",
+  description: DESCRIPTION,
   alternates: { canonical: "/newsletter" },
 };
 
@@ -19,14 +23,14 @@ const GET = [
   { t: "Simple kit picks", d: "The few things actually worth having for power, the car, travel, and outages." },
 ];
 
-const WONT = ["No spam — a few sends a month, that's it", "No fake reviews or invented testing", "No selling your email", "Unsubscribe in one click, anytime"];
+const WONT = [`No spam — ${NEWSLETTER_CADENCE}, that's it`, "No fake reviews or invented testing", "No selling your email", "Unsubscribe in one click, anytime"];
 
 export default function NewsletterPage() {
   const taste = getAllGuides().slice(0, 3);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
-      <JsonLd data={[webPageSchema("/newsletter", "Newsletter", "Get useful gear notes before you need them — practical buying guides, Amazon finds, and simple kit picks, a few times a month. No spam, no fake reviews, unsubscribe in one click.")]} />
+      <JsonLd data={[webPageSchema("/newsletter", "Newsletter", DESCRIPTION)]} />
       <Reveal blur={false}>
         <div className="text-center">
           <span className="eyebrow eyebrow-accent">The newsletter</span>
@@ -34,7 +38,7 @@ export default function NewsletterPage() {
             Get useful gear notes before you need them.
           </h1>
           <p className="lede mx-auto mt-4 max-w-xl">
-            Practical buying guides, Amazon finds, and simple kit picks — a few times a month, for the
+            Practical buying guides, Amazon finds, and simple kit picks — {NEWSLETTER_CADENCE}, for the
             everyday problems people usually prepare for too late.
           </p>
         </div>

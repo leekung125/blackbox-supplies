@@ -8,7 +8,8 @@ import { Spotlight } from "@/components/fx/spotlight";
 import { Reveal } from "@/components/motion/reveal";
 import { CountUp } from "@/components/motion/count-up";
 import { getAllArticles } from "@/lib/articles";
-import { getAllProducts, getCoreProducts, getProductById, type Product } from "@/lib/products";
+import { getAllProducts, getProductById, isMainProduct, type Product } from "@/lib/products";
+import { TOTAL_PICKS, BROWSABLE_PICKS, TOTAL_GUIDES, CAR_PICKS, approx } from "@/lib/site-stats";
 import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { KITS } from "@/lib/kits";
 import { KitBundleCard } from "@/components/home/kit-bundle-card";
@@ -25,8 +26,9 @@ function lowPrice(pr: string) {
 // Premium + on-brand only — BlackBox carries utility gear worth owning (off-brand drift excluded).
 const HEAT_COUNT = (heatData as { priceRange: string; offBrand?: boolean }[]).filter((p) => !p.offBrand && lowPrice(p.priceRange) >= 50).length;
 const USEFUL_COUNT = (usefulData as { priceRange: string; offBrand?: boolean }[]).filter((p) => !p.offBrand && lowPrice(p.priceRange) >= 50).length;
-const CAR_CATS = new Set(["Jump Starters", "Tire Inflators", "Dash Cams", "Power & Charging", "Roadside Safety", "Car Utility"]);
-const CAR_COUNT = getAllProducts().filter((p) => CAR_CATS.has(p.category as string)).length;
+// Car & roadside count comes from lib/site-stats so this card can never again
+// disagree with the /gear page it links to.
+const CAR_COUNT = CAR_PICKS;
 
 const VERTICALS = [
   {
@@ -77,7 +79,6 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const articles = getAllArticles();
   const featured = FEATURED_SLUGS.map((s) => articles.find((a) => a.slug === s)).filter(Boolean).slice(0, 3);
-  const totalPicks = getCoreProducts().length;
   const flagship = COMPARISON_GUIDES.find((g) => g.slug === "best-jump-starters-compared") ?? COMPARISON_GUIDES[0];
   const otherGuides = COMPARISON_GUIDES.filter((g) => g.slug !== flagship.slug);
 
@@ -199,7 +200,9 @@ export default function HomePage() {
             </div>
             <div className="bbxh-in bbxh-d5 relative mt-12 flex gap-10 pt-6">
               <div aria-hidden className="rule-fade absolute inset-x-0 top-0" />
-              {[{ n: totalPicks, s: "+", label: "researched picks" }, { n: articles.length, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
+              {/* "N+" is rounded DOWN via approx() so the claim stays true as the catalog moves; the
+                  exact totals live on /about. Guides = every published guide page, not just articles. */}
+              {[{ n: approx(TOTAL_PICKS), s: "+", label: "researched picks" }, { n: TOTAL_GUIDES, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
                 <div key={st.label} className="bbxh-stat">
                   <div className="nums font-display text-[2.4rem] font-medium leading-none text-ink-strong">
                     <CountUp to={st.n} /><span className="text-accent-bright" style={{ textShadow: "0 0 18px rgba(237,186,102,0.5)" }}>{st.s}</span>
@@ -218,7 +221,7 @@ export default function HomePage() {
           <div className="marquee-track">
             {[0, 1].map((k) => (
               <div className="flex" key={k} aria-hidden={k === 1}>
-                {["Zero paid placements", "Cited specs", `${totalPicks}+ researched picks`, "Updated regularly", "Honest tradeoffs", "No fake testing"].map((t) => (
+                {["Zero paid placements", "Cited specs", `${approx(TOTAL_PICKS)}+ researched picks`, "Updated regularly", "Honest tradeoffs", "No fake testing"].map((t) => (
                   <span key={t} className="marquee-item">{t}</span>
                 ))}
               </div>
@@ -237,7 +240,17 @@ export default function HomePage() {
       {/* VERTICALS */}
       <section className="border-y border-line glass-2">
         <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
-          <Reveal blur={false}><SectionHead eyebrow="What we cover" title="Three things worth owning" /></Reveal>
+          <Reveal blur={false}><SectionHead eyebrow="What we cover" title="Three things worth owning" href="/products" linkLabel="Shop all" /></Reveal>
+          {/* Each vertical count is a main-grid subset, so it's deliberately smaller than the headline
+              total — say so, rather than let three numbers quietly fail to add up to it. */}
+          <Reveal blur={false}>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-dim">
+              Each number below is that vertical&rsquo;s main grid — cooling and useful gear over $50, car
+              &amp; roadside over $25. All {BROWSABLE_PICKS} picks over $25 sit together in{" "}
+              <Link href="/products" className="ulink font-semibold">shop all</Link>; the cheaper quick fixes
+              are further down this page.
+            </p>
+          </Reveal>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {VERTICALS.map((v, i) => (
               <Reveal key={v.href} delay={i * 0.05}>

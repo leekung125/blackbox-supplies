@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/json-ld";
 import { webPageSchema } from "@/lib/schema";
 import { BRAND } from "@/lib/content";
+import { displayUpdated, getDateModified } from "@/lib/freshness";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
@@ -13,7 +14,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/terms" },
 };
 
-const LAST_UPDATED = "July 9, 2026";
+// §07 promises we revise this date whenever the terms change — so it is the REAL git commit
+// time of this page's own source, never a hand-typed stamp that can silently go stale.
+const LAST_UPDATED = displayUpdated(getDateModified("app/(site)/terms/page.tsx"));
 
 const SECTIONS: { n: string; title: string; body: ReactNode }[] = [
   {

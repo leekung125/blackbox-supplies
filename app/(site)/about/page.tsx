@@ -3,8 +3,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/json-ld";
 import { breadcrumbSchema } from "@/lib/schema";
 import { BRAND, EDITOR } from "@/lib/content";
-import { getCoreProducts } from "@/lib/products";
-import { getAllArticles } from "@/lib/articles";
+import { TOTAL_PICKS, TOTAL_GUIDES } from "@/lib/site-stats";
 
 export const metadata: Metadata = {
   title: "About BlackBox Supplies — Genuinely Useful Gear, Honestly Researched",
@@ -39,10 +38,8 @@ const PRINCIPLES = [
 ];
 
 export default function AboutPage() {
-  // Single source of truth — the on-brand researched catalog (matches the homepage's "94+ picks").
-  const totalPicks = getCoreProducts().length;
-  const guideCount = getAllArticles().length;
-
+  // Both numbers come from lib/site-stats so they can't drift from the rest of the site. This is the
+  // page that shows the EXACT totals the homepage rounds down for its "N+" phrasing.
   return (
     <div className="mx-auto max-w-3xl px-4 py-12 sm:px-6 sm:py-16">
       <JsonLd data={[breadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])]} />
@@ -78,9 +75,11 @@ export default function AboutPage() {
           <a href={`mailto:${BRAND.email}`} className="ulink font-semibold">{BRAND.email}</a>.
         </p>
         <p className="mt-3 flex flex-wrap items-center gap-x-2.5 gap-y-1 border-t border-line pt-4 text-sm text-ink-dim">
-          <span><span className="nums font-semibold text-ink-strong">{totalPicks}</span> products researched</span>
+          <span><span className="nums font-semibold text-ink-strong">{TOTAL_PICKS}</span> products researched</span>
           <span aria-hidden className="text-ink-faint">·</span>
-          <span><span className="nums font-semibold text-ink-strong">{guideCount}</span> guides</span>
+          {/* Every published guide page — long-form articles PLUS the interactive comparison guides and
+              the legacy roundups. This used to count articles only and under-reported by eight. */}
+          <span><span className="nums font-semibold text-ink-strong">{TOTAL_GUIDES}</span> guides published</span>
           <span aria-hidden className="text-ink-faint">·</span>
           <span>every spec traced to source</span>
         </p>

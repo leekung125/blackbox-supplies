@@ -103,7 +103,11 @@ export const PORTABLE_AC_PRODUCTS: ProductFor<"portable_ac">[] = [
     unverified: ["energyStar", "rating", "reviewCount"],
   },
 
-  // ── Best for bedrooms (quietest) ───────────────────────────────────────────
+  // ── Quietest published sleep mode — LISTED, NO AWARD ───────────────────────
+  // We hold no verified Amazon ASIN for this exact model, so it has no buy link. An award slot
+  // whose CTA can't be clicked is worse than no award: the "Best for bedrooms" slot moved to the
+  // Frigidaire below (the only unit here published under 50 dBA at EVERY fan speed), and the LG
+  // stays in the lineup on its specs. Do not re-award it until the ASIN is confirmed via PA-API.
   {
     id: "lg-lp1419ivsm-dual-inverter-14000-btu",
     name: "LG LP1419IVSM 14,000 BTU DUAL Inverter Portable AC",
@@ -119,8 +123,8 @@ export const PORTABLE_AC_PRODUCTS: ProductFor<"portable_ac">[] = [
     ],
     rating: null,
     reviewCount: null,
-    role: "Best for bedrooms",
-    bestFor: "A bedroom where near-silent sleep-mode operation matters more than anything.",
+    bestFor:
+      "The quietest published sleep mode in this lineup — but we have no verified Amazon listing, so you'd be buying it from LG, Lowe's, or Abt.",
     pros: [
       "Variable-speed dual-inverter runs as low as 44 dBA and modulates instead of hard on/off cycling",
       "Strong 10,000 SACC — among the best real capacity for a single-hose unit",
@@ -145,7 +149,12 @@ export const PORTABLE_AC_PRODUCTS: ProductFor<"portable_ac">[] = [
     unverified: ["affiliateUrl", "dehumidifyPintsDay", "energyStar", "rating", "reviewCount"],
   },
 
-  // ── Best quiet smart single-hose (living room) ─────────────────────────────
+  // ── Best for bedrooms (quiet at EVERY published speed, and linkable) ───────
+  // Its full published range is 46/48/49 dB — the only unit here that stays under 50 dBA on high,
+  // which is the figure that decides whether you sleep through it. (The LG's low is quieter at
+  // 44 but its own range runs to 53; the Midea/Whynter 42-ish figures are LOW-setting only and
+  // both are noted loud on high.) ~400 sq ft at 8,000 SACC is bedroom-sized by the guide's own
+  // ~20 SACC BTU/sq ft rule.
   {
     id: "frigidaire-gallery-ghpc132ab1-13000-btu",
     name: "Frigidaire Gallery GHPC132AB1 Cool Connect 13,000 BTU Portable AC",
@@ -162,8 +171,8 @@ export const PORTABLE_AC_PRODUCTS: ProductFor<"portable_ac">[] = [
     ],
     rating: null,
     reviewCount: null,
-    role: "Best quiet smart pick",
-    bestFor: "A medium living room where low noise and clean styling beat max cooling.",
+    role: "Best for bedrooms",
+    bestFor: "A bedroom or medium room where it has to stay quiet at every speed, not just on low.",
     pros: [
       "Genuinely quiet — stays under ~49 dBA even on high, well-rated by Consumer Reports",
       "Wi-Fi (Frigidaire app), Alexa/Google, ionizer, and clean modern styling",

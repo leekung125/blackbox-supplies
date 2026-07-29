@@ -5,6 +5,11 @@ import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/json-ld";
 import { webPageSchema } from "@/lib/schema";
 import { BRAND } from "@/lib/content";
+import { displayUpdated, getDateModified } from "@/lib/freshness";
+
+// §06 says we update this page when the policy changes — so the stamp is the REAL git commit
+// time of this page's own source, never a hand-typed date that can silently go stale.
+const LAST_UPDATED = displayUpdated(getDateModified("app/(site)/privacy/page.tsx"));
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -100,7 +105,7 @@ export default function PrivacyPage() {
           We collect as little as possible, never sell it, and tell you exactly how affiliate links, analytics,
           and email work on this site.
         </p>
-        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: July 9, 2026</p>
+        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: {LAST_UPDATED}</p>
       </Reveal>
 
       <div className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">

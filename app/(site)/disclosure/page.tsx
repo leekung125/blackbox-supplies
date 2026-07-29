@@ -5,6 +5,11 @@ import { Reveal } from "@/components/motion/reveal";
 import { JsonLd } from "@/components/json-ld";
 import { webPageSchema } from "@/lib/schema";
 import { BRAND } from "@/lib/content";
+import { displayUpdated, getDateModified } from "@/lib/freshness";
+
+// The REAL git commit time of this page's own source — a disclosure page that stamps a date it
+// hasn't earned undercuts the one thing it exists to establish.
+const LAST_UPDATED = displayUpdated(getDateModified("app/(site)/disclosure/page.tsx"));
 
 export const metadata: Metadata = {
   title: "How We Work & Disclosure",
@@ -100,7 +105,7 @@ export default function DisclosurePage() {
           BlackBox helps people find useful everyday gear before they need it. Here&rsquo;s exactly how the
           site is built, how we make money, and what we will and won&rsquo;t claim — in plain terms.
         </p>
-        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: July 9, 2026</p>
+        <p className="mono mt-4 text-xs uppercase tracking-wider text-ink-dim">Last updated: {LAST_UPDATED}</p>
       </Reveal>
 
       <div className="mt-10 divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface">

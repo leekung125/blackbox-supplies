@@ -12,6 +12,12 @@
  * research-based, cited, never a faked hands-on test.
  */
 
+import { displayUpdated, getDateModified } from "./freshness";
+
+/** Every scenario's editorial content lives in THIS module, so its real git commit time is the
+ *  honest freshness for all ten /when pages. Exported so callers can resolve it themselves. */
+export const SCENARIOS_SOURCE = "lib/scenarios.ts";
+
 export interface ScenarioStep {
   step: string;
   detail: string;
@@ -39,10 +45,13 @@ export interface Scenario {
   faq: { q: string; a: string }[];
   /** Other scenarios worth cross-linking. */
   related: string[];
+  /** Display freshness for the byline. DERIVED from git below — never hand-typed. */
   updated: string;
 }
 
-export const SCENARIOS: Scenario[] = [
+/** The editorial content. `updated` is attached below from the real file date, so a scenario
+ *  can never carry a stamped date that outlives the last time its copy actually changed. */
+const SCENARIO_CONTENT: Omit<Scenario, "updated">[] = [
   {
     slug: "car-wont-start",
     situation: "Car won't start",
@@ -107,7 +116,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["power-outage"],
-    updated: "Jul 2026",
   },
   {
     slug: "power-outage",
@@ -173,7 +181,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["car-wont-start"],
-    updated: "Jul 2026",
   },
   {
     slug: "flat-tire-on-the-shoulder",
@@ -239,7 +246,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["car-wont-start"],
-    updated: "Jul 2026",
   },
   {
     slug: "ac-died-in-a-heatwave",
@@ -305,7 +311,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["room-wont-cool-no-central-air"],
-    updated: "Jul 2026",
   },
   {
     slug: "room-wont-cool-no-central-air",
@@ -371,7 +376,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["ac-died-in-a-heatwave"],
-    updated: "Jul 2026",
   },
   {
     slug: "phone-dead-no-outlet",
@@ -437,7 +441,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["power-outage"],
-    updated: "Jul 2026",
   },
   {
     slug: "stranded-on-a-dark-shoulder",
@@ -503,7 +506,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["car-wont-start"],
-    updated: "Jul 2026",
   },
   {
     slug: "fender-bender-no-proof",
@@ -569,7 +571,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["car-wont-start"],
-    updated: "Jul 2026",
   },
   {
     slug: "too-hot-to-sleep",
@@ -635,7 +636,6 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["ac-died-in-a-heatwave"],
-    updated: "Jul 2026",
   },
   {
     slug: "blackout-with-a-cpap",
@@ -701,9 +701,17 @@ export const SCENARIOS: Scenario[] = [
       },
     ],
     related: ["power-outage"],
-    updated: "Jul 2026",
   },
 ];
+
+/** One real, git-derived date for the whole set — the pages share a source file, so they
+ *  honestly share its freshness, and it moves only when this content actually changes. */
+const SCENARIOS_UPDATED = displayUpdated(getDateModified(SCENARIOS_SOURCE));
+
+export const SCENARIOS: Scenario[] = SCENARIO_CONTENT.map((s) => ({
+  ...s,
+  updated: SCENARIOS_UPDATED,
+}));
 
 export function getScenario(slug: string): Scenario | undefined {
   return SCENARIOS.find((s) => s.slug === slug);

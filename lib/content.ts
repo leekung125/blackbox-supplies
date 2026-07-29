@@ -1,14 +1,16 @@
 import type { Category } from "@/lib/products";
 
 /** Brand constants — single source of truth for name/tagline/positioning.
- *  BlackBox Supplies is a buying-guide + gear brand for genuinely useful gear: cooling, car,
- *  desk, home, and travel. We research the right one, explain what matters, link straight to it,
- *  and name the catch. Chosen on merit, never paid placement. */
+ *  BlackBox Supplies is a buying-guide + gear brand for utility & readiness gear: car & roadside,
+ *  power & backup, cooling, tools, and everyday carry. We research the right one, explain what
+ *  matters, link straight to it, and name the catch. Chosen on merit, never paid placement.
+ *  The niche list here must match what the site actually browses — kitchen, sleep, and home-org
+ *  drift are flagged offBrand and hidden, so they are not advertised in metadata or schema. */
 export const BRAND = {
   name: "BlackBox Supplies",
   tagline: "Genuinely useful gear, researched — not sponsored.",
   positioning:
-    "BlackBox Supplies researches genuinely useful gear — cooling, car, desk, home, and travel — and links you straight to the one worth buying. Chosen on merit, never paid placement, and honest about the catch.",
+    "BlackBox Supplies researches genuinely useful gear — car & roadside, power & backup, cooling, tools, and everyday carry — and links you straight to the one worth buying. Chosen on merit, never paid placement, and honest about the catch.",
   shortPositioning:
     "Genuinely useful gear, researched — with the guides to choose the right one.",
   instagram: "black_boxsupplies",
@@ -97,10 +99,26 @@ export const VIDEO_DROPS: VideoDrop[] = [
   },
 ];
 
-/** Short disclosure line for footers and near links. Affiliate links are live (Amazon Associates,
- *  tag blackboxsuppl-20); the per-link disclosure renders automatically wherever an affiliate link
- *  is shown. */
+/**
+ * THE newsletter cadence — one string, every surface. The site previously promised "a few times a
+ * month" and "about once a week" on the same page, which reads as careless on a signup surface.
+ * A few sends a month is what we can actually sustain, so it is the promise we make everywhere.
+ * Written as a lowercase mid-sentence phrase; capitalize at the call site if a sentence starts with it.
+ */
+export const NEWSLETTER_CADENCE = "a few times a month";
+
+/**
+ * THE affiliate disclosure, in exactly two lengths. Both always use the full legal-ish brand name
+ * "BlackBox Supplies" — an FTC / Amazon Associates disclosure that names itself four different ways
+ * reads as careless, so no surface should hardcode its own wording.
+ * SHORT: inline, next to affiliate links and product CTAs.
+ * LONG: footers and standalone disclosure blocks, where the merit + price caveats also belong.
+ * Affiliate links are live (Amazon Associates, tag blackboxsuppl-20).
+ */
 export const DISCLOSURE_SHORT =
+  "As an Amazon Associate, BlackBox Supplies earns from qualifying purchases — at no extra cost to you.";
+
+export const DISCLOSURE_LONG =
   "As an Amazon Associate, BlackBox Supplies earns from qualifying purchases — outbound links are affiliate links, at no extra cost to you. Picks are chosen on merit, not paid placement; prices are approximate, so confirm the current price on Amazon.";
 
 /** Neutral sourcing microcopy — specs come from public research, confirm at the retailer. */

@@ -32,13 +32,71 @@ export const dynamicParams = false;
  */
 const AS_OF = displayUpdated(getDateModified(PRODUCTS_SOURCE));
 
-/** Clamp to a char budget on a word boundary (no mid-word cuts, no ellipsis). */
+/** Words a clamped phrase must never end on — a tag that trails off in "and"/"with" reads as
+ *  broken in a SERP, and a broken title leaks the exact credibility the page is built on. */
+const TAIL_STOPWORDS = new Set([
+  "and", "or", "with", "w", "for", "the", "a", "an", "of", "in", "on", "at", "to", "by", "plus", "per", "up",
+]);
+
+/** Drop a bracket fragment a cut orphaned: "Tire Inflator (150 PSI" -> "Tire Inflator". */
+function dropUnclosed(s: string): string {
+  let t = s;
+  for (const [open, close] of [["(", ")"], ["[", "]"], ["{", "}"]] as const) {
+    let i = t.lastIndexOf(open);
+    while (i !== -1 && t.indexOf(close, i) === -1) {
+      t = t.slice(0, i);
+      i = t.lastIndexOf(open);
+    }
+  }
+  return t;
+}
+
+/** Make a cut string end as a COMPLETE, balanced phrase: no orphaned bracket, no dangling
+ *  connector ("&", "+", "/", ","), no trailing stop-word. */
+function tidyPhrase(s: string): string {
+  let t = dropUnclosed(s).trim();
+  for (;;) {
+    const before = t;
+    t = t.replace(/[\s,;:·|/+&—–-]+$/, "");
+    const m = /\s([A-Za-z]+)$/.exec(t);
+    if (m && TAIL_STOPWORDS.has(m[1].toLowerCase())) t = t.slice(0, m.index);
+    if (t === before) return t.trim();
+  }
+}
+
+/** Clamp to a char budget on a word boundary (no mid-word cuts, no ellipsis), then tidy the
+ *  tail. Input already inside the budget is returned untouched. */
 function clampWords(s: string, max: number): string {
   const t = s.trim();
   if (t.length <= max) return t;
   const cut = t.slice(0, max);
   const at = cut.lastIndexOf(" ");
-  return (at > max * 0.6 ? cut.slice(0, at) : cut).replace(/[\s,;:—-]+$/, "");
+  return tidyPhrase(at > max * 0.6 ? cut.slice(0, at) : cut);
+}
+
+/** Clause separators a long product name can shed from the right. */
+const NAME_SEPARATORS = [" — ", " – ", " / ", ", ", "; ", ": "];
+
+/**
+ * The shortest COMPLETE form of a product name that fits `soft`: first drop parenthetical
+ * qualifiers ("(3-Pack, DOT Approved)"), then trailing clauses. If nothing complete fits, a
+ * whole name up to `hard` beats a mid-phrase cut — a long title is only visually truncated in
+ * the SERP, whereas one that ships as "…Charger & Maintainer (5A" ships broken.
+ */
+function shortenName(name: string, soft: number, hard: number): string {
+  const full = name.trim();
+  if (full.length <= soft) return full;
+  const bare = full.replace(/\s*[([{][^)\]}]*[)\]}]/g, " ").replace(/\s{2,}/g, " ").trim();
+  let clause = bare;
+  for (let i = 0; i < 8 && clause.length > soft; i++) {
+    const at = Math.max(...NAME_SEPARATORS.map((sep) => clause.lastIndexOf(sep)));
+    if (at <= 0) break;
+    clause = clause.slice(0, at).trim();
+  }
+  for (const candidate of [clause, bare, full]) {
+    if (candidate.length <= hard) return tidyPhrase(candidate);
+  }
+  return tidyPhrase(clampWords(clause, soft)) || full.slice(0, soft);
 }
 
 export function generateStaticParams() {
@@ -52,13 +110,18 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
   // Keyword-first title: "<Name> Review — <key spec/benefit>". The root layout template
   // appends " · BlackBox Supplies", so the brand is NOT repeated here. Budget the %s core so
-  // the full tag stays near the ~60-char / 600px cutoff.
+  // the full tag stays near the ~60-char / 600px cutoff — but never by hard-truncating: when
+  // neither full form fits we shorten the NAME and keep "Review", so every title ends as a
+  // complete, balanced phrase (55 -> ~62 chars typical; 65 is the absolute name cap).
   const hook = (product.keySpec || product.bestFor).trim();
   const withHook = `${product.name} Review — ${hook}`;
+  const withSpecs = `${product.name} Review: specs, verdict & honest trade-offs`;
   const title =
     hook && withHook.length <= 62
       ? withHook
-      : clampWords(`${product.name} Review: specs, verdict & honest trade-offs`, 60);
+      : withSpecs.length <= 60
+        ? withSpecs
+        : `${shortenName(product.name, 55, 65)} Review`;
 
   // Answer-first description (~150–160 chars): lead with the verdict, then who it's for,
   // trimmed to a word boundary. Never fabricated — all fields are editorial copy.

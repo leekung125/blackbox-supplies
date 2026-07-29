@@ -84,18 +84,23 @@ export function organizationSchema() {
       url: `${BASE}/logo.png`,
     },
     slogan: "Genuinely useful gear that solves real problems.",
+    // description + knowsAbout describe the niche the site ACTUALLY browses. Kitchen, cooling-sleep
+    // and home/lifestyle drift are flagged offBrand and hidden from every browse surface, so they
+    // must not be advertised here — an Organization node claiming categories the site doesn't
+    // carry is a credibility (and entity-understanding) problem, not just stale copy.
     description:
-      "BlackBox Supplies researches and curates premium, genuinely useful gear — cooling (portable AC, fans, cooling sleep), everyday useful gear (desk & tech, kitchen, travel, home), and car & roadside essentials — and publishes honest, research-based buying guides. Picks are based on cross-checked verified-buyer reviews, manufacturer spec sheets, and price history.",
+      "BlackBox Supplies researches and curates utility & readiness gear — car & roadside (jump starters, tire inflators, dash cams), power & backup, cooling, tools, and everyday carry — and publishes honest, research-based buying guides. Picks are based on cross-checked verified-buyer reviews, manufacturer spec sheets, and price history.",
     knowsAbout: [
-      "portable air conditioners",
-      "cooling fans",
-      "cooling sleep products",
-      "desk and tech gear",
-      "kitchen gear",
-      "travel and everyday-carry gear",
       "car jump starters",
       "tire inflators",
       "dash cams",
+      "roadside safety gear",
+      "portable power stations",
+      "power banks and backup power",
+      "portable air conditioners",
+      "cooling fans",
+      "work lights and hand tools",
+      "everyday-carry gear",
     ],
     foundingDate: "2026",
     email: "info@blackboxsupplies.com",
