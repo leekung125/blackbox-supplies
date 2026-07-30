@@ -44,11 +44,17 @@ export const metadata: Metadata = {
   //
   // Empty strings are omitted by Next rather than emitted blank, so this is safe to ship
   // before the tokens exist - it just does nothing until they are filled in.
+  // The Pinterest token is committed rather than kept in env: it is a PUBLIC ownership
+  // token that renders into every page's <head> anyway, so treating it as a secret buys
+  // nothing and costs a Vercel env var that has to be set before any deploy can verify.
+  // Google's slot stays env-driven because it is still unissued.
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
-    other: process.env.NEXT_PUBLIC_PINTEREST_VERIFICATION
-      ? { "p:domain_verify": process.env.NEXT_PUBLIC_PINTEREST_VERIFICATION }
-      : undefined,
+    other: {
+      "p:domain_verify":
+        process.env.NEXT_PUBLIC_PINTEREST_VERIFICATION ||
+        "7319a785ad62350ff35b6fdbe85693f7",
+    },
   },
   // No global canonical — it was inherited by EVERY page, so guides/products/kits all
   // declared the homepage as their canonical (a self-canonicalization SEO leak). Each page
