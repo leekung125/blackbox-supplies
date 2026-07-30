@@ -38,6 +38,18 @@ export const metadata: Metadata = {
   description: BRAND.positioning,
   applicationName: BRAND.name,
   authors: [{ name: BRAND.name }],
+  // Search Console and Pinterest ownership. Both tokens are account-specific and can only be
+  // generated from inside a logged-in session, so they arrive from Lee and get pasted here.
+  // Next emits these into <head> as the exact meta tags each platform looks for.
+  //
+  // Empty strings are omitted by Next rather than emitted blank, so this is safe to ship
+  // before the tokens exist - it just does nothing until they are filled in.
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.NEXT_PUBLIC_PINTEREST_VERIFICATION
+      ? { "p:domain_verify": process.env.NEXT_PUBLIC_PINTEREST_VERIFICATION }
+      : undefined,
+  },
   // No global canonical — it was inherited by EVERY page, so guides/products/kits all
   // declared the homepage as their canonical (a self-canonicalization SEO leak). Each page
   // now sets its own canonical; the home page's lives in app/(site)/page.tsx.
