@@ -160,7 +160,7 @@ export const HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID: Art
     },
     {
       label: "Jackery Explorer 1000 v2 official specifications",
-      url: "https://www.jackery.com/collections/portable-power-stations",
+      url: "https://www.amazon.com/dp/B0D7PPG25F?tag=blackboxsuppl-20",
     },
     {
       label: "EcoFlow RIVER 2 Pro official specifications (solar input)",

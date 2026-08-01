@@ -179,7 +179,7 @@ export const WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE: Ar
     },
     {
       label: "Jackery Explorer 1000 v2 official specifications",
-      url: "https://www.jackery.com/collections/portable-power-stations",
+      url: "https://www.amazon.com/dp/B0D7PPG25F?tag=blackboxsuppl-20",
     },
     {
       label: "EcoFlow RIVER 2 Pro official specifications",

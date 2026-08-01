@@ -138,7 +138,7 @@ export const CORDLESS_VS_12V_INFLATOR_TRUCK_SUV: Article = {
   ],
   relatedGuides: ["roadside-emergency-kit", "car-gear-worth-keeping-in-your-trunk"],
   sources: [
-    { label: "Fanttik X8 Apex official specifications", url: "https://fanttik.com/" },
+    { label: "Fanttik X8 Apex official specifications", url: "https://www.amazon.com/dp/B09YD2D96V?tag=blackboxsuppl-20" },
     { label: "DEWALT 20V MAX inflator (DCC020IB) official page", url: "https://www.dewalt.com/product/dcc020ib/20v-max-corded-cordless-air-inflator-tool-only" },
     { label: "AstroAI official site (tire inflators)", url: "https://www.astroai.com/" },
   ],
