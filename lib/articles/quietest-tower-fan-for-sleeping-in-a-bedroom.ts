@@ -68,7 +68,7 @@ export const QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM: Article = {
           ["Dreo 42-inch Bladeless (our pick)", "Brushless DC", "~20 dB (Dreo)", "12", "Yes (+ 12h timer)", "$80–100"],
           ["Dreo Tower Fan 2026 (DC, WiFi)", "Brushless DC", "~20 dB (Dreo)", "8", "Yes, ultra-quiet", "$70–110"],
           ["Dreo Cruiser Pro T1", "Quiet (not stated as DC)", "Not published", "12", "Yes", "$90–110"],
-          ["Lasko Wind Curve 2551", "AC (bladed)", "Not published", "3", "No (timer only)", "$55–80"],
+          ["Lasko T42951", "AC (bladed)", "Not published", "3", "No (timer only)", "$55–80"],
         ],
       },
     },
@@ -78,7 +78,7 @@ export const QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM: Article = {
         "The pick for a light sleeper is the Dreo 42-inch Bladeless Tower Fan. It's the cleanest expression of the two signals in this article: a brushless DC motor Dreo rates as low as ~20 dB, plus a bladeless body that's safe around kids and pets and easy to wipe down. The catch: it's remote-and-touch only, with no app or voice control, and — like every bladeless tower — it moves less raw air than a big bladed box fan. It's built for quiet all-night comfort, not brute wind.",
         "If you want the same quiet DC motor plus smart control, the Dreo Tower Fan (2026 Upgraded, DC) adds WiFi and Alexa/Google voice so you can drop the speed from bed without reaching for a remote — its sleep mode is the one Dreo rates at ~20 dB. The catch: its oscillation is 90 degrees (narrower than the 42-inch's 120), the smart features need app setup and Wi-Fi, and at $70–110 it's a hair pricier than the plain model for airflow that's otherwise near-identical.",
         "The Dreo Cruiser Pro T1 is the value oscillator: 12 speeds and four modes including Sleep, for well under $100. It's a strong everyday pick, but be honest about two things — Dreo doesn't publish a low-speed dB figure for it (so we won't claim one), and its oscillation is 90 degrees, which a large open bedroom may not cover evenly.",
-        "The Lasko Wind Curve 2551 is the budget bladed pick at $55–80 — a long-running best-seller that simply works, with a timer and remote. Here's the catch this whole article is really about: it's an AC-motor, three-speed bladed fan, so its 'low' isn't as low as a DC fan's, and there's no sleep mode that dims the display. It's also the category where the well-known long-term failure mode shows up — inexpensive AC bladed towers are the ones most likely to develop a rattle or a periodic click as the bushings wear over a season or two. Buy it for a spare room or a heavier sleeper; step up to a Dreo DC tower for the primary bedroom.",
+        "The Lasko T42951 is the budget bladed pick at $55–80 — a long-running best-seller that simply works, with a timer and remote. Here's the catch this whole article is really about: it's an AC-motor, three-speed bladed fan, so its 'low' isn't as low as a DC fan's, and there's no sleep mode that dims the display. It's also the category where the well-known long-term failure mode shows up — inexpensive AC bladed towers are the ones most likely to develop a rattle or a periodic click as the bushings wear over a season or two. Buy it for a spare room or a heavier sleeper; step up to a Dreo DC tower for the primary bedroom.",
       ],
       productIds: [
         "dreo-42-inch-bladeless-tower-fan",
@@ -149,7 +149,7 @@ export const QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM: Article = {
   ],
   sources: [
     { label: "Dreo Tower Fans — official product line and specifications", url: "https://www.dreo.com/collections/tower-fans" },
-    { label: "Lasko Wind Curve 2551 — official product page", url: "https://www.lasko.com/products/2551-wind-curve-tower-fan-with-fresh-air-ionizer" },
+    { label: "Lasko T42951 — Amazon listing", url: "https://www.amazon.com/dp/B00C7N2W72?tag=blackboxsuppl-20" },
     { label: "CDC / NIOSH — noise levels and hearing (decibel reference)", url: "https://www.cdc.gov/niosh/noise/about/noise.html" },
   ],
   heroImage: "/products/scene/dreo-42-inch-bladeless-tower-fan.png",

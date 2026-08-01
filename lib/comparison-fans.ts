@@ -230,17 +230,17 @@ export const FANS_PRODUCTS: ProductFor<"fans">[] = [
   // ── Best budget (cheapest, dependable slim tower) ──────────────────────────
   {
     id: "lasko-wind-curve-2551-42-inch",
-    name: "Lasko Wind Curve 2551 42-Inch Tower Fan (Ionizer + Remote)",
+    name: "Lasko T42951 42-Inch Oscillating Tower Fan (Remote)",
     brand: "Lasko",
     category: "fans",
     image: "/products/scene/lasko-wind-curve-2551-42-inch.png",
     price: 68,
     priceRange: "$55–$80",
-    affiliateUrl: "https://www.amazon.com/s?k=Lasko+Wind+Curve+2551+42+inch+tower+fan&tag=blackboxsuppl-20",
+    affiliateUrl: "https://www.amazon.com/dp/B00C7N2W72?tag=blackboxsuppl-20",
     sourceUrls: [
-      "https://lasko.com/products/lasko-42-wind-curve-tower-fan-with-ionizer-and-remote-2551-silver",
+      "https://www.amazon.com/dp/B00C7N2W72?tag=blackboxsuppl-20", // T42951 - the 2551 with its ionizer is discontinued
       "https://www.toptenreviews.com/tower-fans-lasko-wind-curve-review",
-      "https://www.amazon.com/s?k=Lasko+Wind+Curve+2551+42+inch+tower+fan&tag=blackboxsuppl-20", // Amazon listing (reliably reachable; the lasko.com page bot-blocks automated fetches)
+      "https://www.amazon.com/dp/B00C7N2W72?tag=blackboxsuppl-20", // Amazon listing (reliably reachable; the lasko.com page bot-blocks automated fetches)
     ],
     rating: null,
     reviewCount: null,
@@ -249,7 +249,7 @@ export const FANS_PRODUCTS: ProductFor<"fans">[] = [
     pros: [
       "Cheapest pick here and a long-proven design — slim 13×13 in. footprint, 42.5 in. tall",
       "Review-measured up to ~634 CFM on high — solid airflow for the price",
-      "Fresh-air ionizer, 7.5-hr timer, widespread oscillation, and a multi-function remote",
+      "7.5-hr timer, widespread oscillation, and a multi-function remote",
     ],
     cons: [
       "Only 3 speeds — far less fine control than the Dreo or Dyson",

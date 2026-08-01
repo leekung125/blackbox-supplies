@@ -1266,7 +1266,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "Other fans worth knowing",
         "body": [
-          "If a fan is all you need, a few others stand out. The Dreo 42-Inch Bladeless Tower Fan runs a ~20 dB DC motor and is Forbes Vetted's pick for sleeping. The Shark TurboBlade Bladeless Tower Fan (TF202S) is the viral 2026 bladeless model that pivots from a tall tower to a horizontal 'air blanket' and oscillates 180 degrees. The Dyson Purifier Cool TP07 doubles as a sealed HEPA H13 air purifier with 350-degree oscillation. And the Lasko Wind Curve 2551 42-Inch is the long-running budget best-seller at $55-$80, a repeat Forbes and HGTV value pick.",
+          "If a fan is all you need, a few others stand out. The Dreo 42-Inch Bladeless Tower Fan runs a ~20 dB DC motor and is Forbes Vetted's pick for sleeping. The Shark TurboBlade Bladeless Tower Fan (TF202S) is the viral 2026 bladeless model that pivots from a tall tower to a horizontal 'air blanket' and oscillates 180 degrees. The Dyson Purifier Cool TP07 doubles as a sealed HEPA H13 air purifier with 350-degree oscillation. And the Lasko T42951 42-Inch is the long-running budget best-seller at $55-$80, a repeat Forbes and HGTV value pick.",
           "For dry-heat renters who can't install an AC, the Dreo 43-inch Evaporative Swamp Cooler (~33 dB on low, ice-pack cooling) is a quieter indoor alternative to the Hessaire. And the Shark FlexBreeze Pro Mist Fan (FA302) adds an ice-fillable mister that Shark rates at air up to ~12 degrees cooler, corded or cordless up to 24 hours, indoor or outdoor."
         ]
       },
@@ -1560,10 +1560,10 @@ export const EXTRA_ARTICLES: Article[] = [
               "90-deg oscillation, 12 speeds, 26 ft throw, 12H timer, remote"
             ],
             [
-              "Lasko Wind Curve 2551",
+              "Lasko T42951",
               "Budget",
               "$55-$80",
-              "42.5 in, 3 speeds, ionizer, 7.5H timer, remote"
+              "42.5 in, 3 speeds, 7.5H timer, remote"
             ],
             [
               "Shark TurboBlade TF202S",
@@ -1595,9 +1595,9 @@ export const EXTRA_ARTICLES: Article[] = [
         ]
       },
       {
-        "heading": "Best budget: Lasko Wind Curve 2551",
+        "heading": "Best budget: Lasko T42951",
         "body": [
-          "The Wind Curve is the evergreen best-seller for a reason: it is $55-$80, stands 42.5 inches on a compact 13-by-13-inch base, and has tens of thousands of ratings behind it. Forbes Vetted and HGTV both flag it as the value pick. You get widespread oscillation, a fresh-air ionizer, a 7.5-hour auto-off timer, and a multi-function remote.",
+          "The T42951 is the evergreen best-seller for a reason: it is $55-$80, stands 42.5 inches on a compact 13-by-13-inch base, and has tens of thousands of ratings behind it. Forbes Vetted and HGTV both flag it as the value pick. You get widespread oscillation, a 7.5-hour auto-off timer, and a multi-function remote.",
           "The catch: it is an AC-motor fan with just three speeds, so the top setting hums louder than any of the DC-motor towers here, and there is no app, no sleep-specific whisper mode, and the timer caps at 7.5 hours. This is background cooling done cheaply, not quiet precision."
         ]
       },
@@ -2317,7 +2317,7 @@ export const EXTRA_ARTICLES: Article[] = [
           "Shark TurboBlade Bladeless (TF202S), $279–$300. The breakout 2026 fan: bladeless, and it pivots from a vertical tower to a horizontal 'air blanket,' with twisting vents that aim airflow and 180° oscillation. Best for: precise, powerful airflow across a room or a bed. The catch: it is the most expensive tower fan here, and — like every fan — it cools you, not the room.",
           "Dyson Purifier Cool TP07, $430–$550. The iconic bladeless ring, plus fully sealed HEPA H13 and activated-carbon filtration and 350° oscillation. Best for: anyone who wants a fan and a real air purifier in one. The catch: you are paying a heavy premium for the design and filtration; as a pure fan, cheaper models move similar air.",
           "Dreo 42-Inch Bladeless, Quiet DC Motor, $80–$100. A 20 dB brushless DC motor makes it a Forbes Vetted quiet pick, with 120° oscillation and 12 speeds. Best for: light sleepers — it is near-silent and costs roughly $2 a month to run. The catch: airflow is gentler than the Shark, and it is a fan, so it will not drop the temperature.",
-          "Two more if you want range: the Dreo Cruiser Pro T1 ($90–$110) is the reviewer-favorite best-value tower, and the Lasko Wind Curve 2551 ($55–$80) is the evergreen best-seller if you just want a reliable breeze."
+          "Two more if you want range: the Dreo Cruiser Pro T1 ($90–$110) is the reviewer-favorite best-value tower, and the Lasko T42951 ($55–$80) is the evergreen best-seller if you just want a reliable breeze."
         ]
       },
       {
@@ -2796,7 +2796,7 @@ export const EXTRA_ARTICLES: Article[] = [
           "For a bedroom, the specs that matter are the noise floor (look for a DC motor and a published dB rating) and oscillation.",
           "Dreo 42-Inch Bladeless Tower Fan (Quiet DC Motor), $80-$100 — our bedroom pick. Rated 20 dB on its quiet brushless DC motor (about the volume of a whisper), with 120° oscillation and 12 speeds. Best for: light sleepers who want airflow without a droning hum. The catch: bladeless towers move a focused column of air; for a whole-room breeze you'll run it on a higher, louder speed.",
           "Levoit Classic 36-Inch Smart Tower Fan, $60-$80. Quiet at 28 dB, 90° oscillation, clean matte-black tower. Best for: the best value in a quiet bedroom tower. The catch: it's shorter than the 42-inch fans, so airflow sits lower - fine beside a bed, less so across a big room.",
-          "Lasko Wind Curve 2551 42-Inch Tower Fan, $55-$80. The evergreen best-seller: 42.5 inches, three speeds, widespread oscillation, a 7.5-hour timer and an ionizer. Best for: a proven, inexpensive tower with tens of thousands of reviews behind it. The catch: it has an AC motor, so it isn't as whisper-quiet as the DC-motor Dreo, and the speed control is coarser.",
+          "Lasko T42951 42-Inch Tower Fan, $55-$80. The evergreen best-seller: 42.5 inches, three speeds, widespread oscillation and a 7.5-hour timer. Best for: a proven, inexpensive tower with tens of thousands of reviews behind it. The catch: it has an AC motor, so it isn't as whisper-quiet as the DC-motor Dreo, and the speed control is coarser.",
           "Dreo Cruiser Pro T1 Oscillating Tower Fan, $90-$110. The reviewer-favorite 'best overall' Dreo: up to 12 speeds, 90° oscillation, about 26 ft of throw. Best for: someone who wants fine speed control and a bit more push than the sleep-focused 42-inch model. The catch: priced above the basic towers for features you may not need if all you want is quiet night airflow.",
           "Shark TurboBlade Bladeless Tower Fan (TF202S), $279-$300. The premium option: pivots from a vertical Tower Mode to a horizontal Air Blanket Mode that lays a wide sheet of air across the whole bed, with 180° oscillation. Best for: couples who want to cover a king bed from one unit. The catch: it costs as much as a small portable AC that would actually lower the room temperature - buy it for the airflow flexibility, not to replace cooling.",
           "Dyson Purifier Cool TP07, $430-$550. Bladeless fan plus a sealed HEPA H13 and activated-carbon filter, 350° oscillation. Best for: people who want clean air and a breeze in one year-round appliance. The catch: you're paying a large premium for the air-purifier half; as pure cooling, the Dreo and Levoit deliver similar wind-chill for a fraction of the price."

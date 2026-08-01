@@ -2561,12 +2561,12 @@
   },
   {
     "id": "avid-power-20v-cordless-impact",
-    "name": "AVID POWER 20V Cordless Impact Wrench 1/2in Kit (330 ft-lbs)",
+    "name": "AVID POWER 20V Brushless Cordless Impact Wrench 1/2in Kit (370 ft-lbs)",
     "brand": "AVID POWER",
     "category": "Car Utility",
     "subcategory": "Car Gear Worth Keeping in Your Trunk",
-    "sourceUrl": "https://www.amazon.com/s?k=AVID+POWER+20V+cordless+impact+wrench+1%2F2+inch&tag=blackboxsuppl-20",
-    "affiliateUrl": "https://www.amazon.com/s?k=AVID+POWER+20V+cordless+impact+wrench+1%2F2+inch&tag=blackboxsuppl-20",
+    "sourceUrl": "https://www.amazon.com/dp/B0CZ999ZSH?tag=blackboxsuppl-20",
+    "affiliateUrl": "https://www.amazon.com/dp/B0CZ999ZSH?tag=blackboxsuppl-20",
     "priceRange": "$80-100",
     "tested": false,
     "verified": true,
@@ -2574,7 +2574,7 @@
     "failureMoment": "A roadside flat with lug nuts torqued so tight the factory wrench won't move them.",
     "bestFor": "Drivers who want to change a roadside flat in minutes without wrestling a breaker bar, plus light garage DIY.",
     "keyFeatures": [
-      "330 ft-lbs (450 N.m) max torque, well beyond typical 80-100 ft-lb lug-nut spec"
+      "370 ft-lbs (500 N.m) max torque, well beyond typical 80-100 ft-lb lug-nut spec"
     ],
     "cons": [
       "A value brand, not DeWALT or Milwaukee.",
@@ -2594,29 +2594,29 @@
     "priority": 80,
     "guide": "Car Gear Worth Keeping in Your Trunk",
     "guideSlug": "car-gear-worth-keeping-in-your-trunk",
-    "keySpec": "330 ft-lbs (450 N.m) max torque, well beyond typical 80-100 ft-lb lug-nut spec",
-    "verdict": "The strongest self-contained trunk pick at this price: 330 ft-lbs breaks loose rusted or over-torqued lug nuts a manual wrench can't, and shipping with battery, charger and sockets makes it a ready-to-go roadside tire-change kit in one box.",
-    "whyItMatters": "The strongest self-contained trunk pick at this price: 330 ft-lbs breaks loose rusted or over-torqued lug nuts a manual wrench can't, and shipping with battery, charger and sockets makes it a ready-to-go roadside tire-change kit in one box.",
+    "keySpec": "370 ft-lbs (500 N.m) max torque, well beyond typical 80-100 ft-lb lug-nut spec",
+    "verdict": "The strongest self-contained trunk pick at this price: 370 ft-lbs breaks loose rusted or over-torqued lug nuts a manual wrench can't, and shipping with battery, charger and sockets makes it a ready-to-go roadside tire-change kit in one box.",
+    "whyItMatters": "The strongest self-contained trunk pick at this price: 370 ft-lbs breaks loose rusted or over-torqued lug nuts a manual wrench can't, and shipping with battery, charger and sockets makes it a ready-to-go roadside tire-change kit in one box.",
     "buyingNotes": "A value brand, not DeWALT/Milwaukee — a minority of reviews report battery degradation over time; the brushless 370 ft-lbs sibling is a modest step up.",
     "homepageEligible": true,
     "linksEligible": false,
     "amazon": {
-      "recommendedProduct": "AVID POWER 20V Cordless Impact Wrench 1/2in Kit (330 ft-lbs)",
+      "recommendedProduct": "AVID POWER 20V Brushless Cordless Impact Wrench 1/2in Kit (370 ft-lbs)",
       "brand": "AVID POWER",
       "model": "",
-      "amazonAsin": "B09G992B9C",
-      "amazonUrl": "https://www.amazon.com/s?k=AVID+POWER+20V+cordless+impact+wrench+1%2F2+inch&tag=blackboxsuppl-20",
+      "amazonAsin": "B0CZ999ZSH",
+      "amazonUrl": "https://www.amazon.com/dp/B0CZ999ZSH?tag=blackboxsuppl-20",
       "matchStatus": "AMAZON_READY",
       "matchConfidence": "high",
       "priceBand": "$80-100",
-      "verdict": "The strongest self-contained trunk pick at this price: 330 ft-lbs breaks loose rusted or over-torqued lug nuts a manual wrench can't, and shipping with battery, charger and sockets makes it a ready-to-go roadside tire-change kit in one box.",
+      "verdict": "The strongest self-contained trunk pick at this price: 370 ft-lbs breaks loose rusted or over-torqued lug nuts a manual wrench can't, and shipping with battery, charger and sockets makes it a ready-to-go roadside tire-change kit in one box.",
       "whatToCheck": "A value brand, not DeWALT/Milwaukee — a minority of reviews report battery degradation over time; the brushless 370 ft-lbs sibling is a modest step up.",
       "tradeoffs": "A value brand, not DeWALT/Milwaukee — a minority of reviews report battery degradation over time; the brushless 370 ft-lbs sibling is a modest step up.",
       "leeReviewNeeded": false,
       "alt": ""
     },
     "whoShouldAvoid": "Skip it if you're a pro or heavy daily user who needs name-brand durability, since this is a value brand rather than DeWALT or Milwaukee and a minority of reviews report battery degradation over time.",
-    "mainTradeoff": "You accept value-tier brand reliability and battery-longevity questions in exchange for a complete ready-to-go kit (battery, charger, and sockets) that still delivers 330 ft-lbs for roadside lug nuts.",
+    "mainTradeoff": "You accept value-tier brand reliability and battery-longevity questions in exchange for a complete ready-to-go kit (battery, charger, and sockets) that still delivers 370 ft-lbs for roadside lug nuts.",
     "whatCouldChange": "If you're already in the DeWALT or Milwaukee battery ecosystem or want longer-term durability, a bare tool from those brands may serve better; the brushless 370 ft-lb sibling is a modest step up."
   },
   {
