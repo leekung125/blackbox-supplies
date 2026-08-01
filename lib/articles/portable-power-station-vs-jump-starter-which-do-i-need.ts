@@ -157,7 +157,7 @@ export const POWER_STATION_VS_JUMP_STARTER_WHICH_DO_I_NEED: Article = {
   ],
   relatedGuides: ["roadside-emergency-kit", "car-gear-worth-keeping-in-your-trunk"],
   sources: [
-    { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.jackery.com/products/explorer-1000-v2-portable-power-station" },
+    { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.jackery.com/collections/portable-power-stations" },
     { label: "NOCO Boost HD GB70 official specifications", url: "https://no.co/gb70" },
   ],
   heroImage: "/products/scene/jackery-explorer-1000-v2-portable.png",

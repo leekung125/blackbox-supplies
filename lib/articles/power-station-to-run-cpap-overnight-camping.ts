@@ -132,7 +132,7 @@ export const CPAP_POWER_STATION_ARTICLE: Article = {
   sources: [
     { label: "Anker SOLIX C300 official product page", url: "https://www.anker.com/products/a17260z1" },
     { label: "EcoFlow RIVER 2 Pro official product page", url: "https://www.ecoflow.com/us/river-2-pro-portable-power-station" },
-    { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.jackery.com/products/explorer-1000-v2-portable-power-station" },
+    { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.jackery.com/collections/portable-power-stations" },
     { label: "FAA guidance on portable batteries and watt-hour limits", url: "https://www.faa.gov/hazmat/packsafe/lithium-batteries" },
   ],
   heroImage: "/products/scene/anker-solix-c300-portable-power.png",

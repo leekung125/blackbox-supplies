@@ -199,7 +199,7 @@ export const DO_POWER_STATIONS_WORK_IN_COLD_WEATHER: Article = {
   sources: [
     {
       label: "Jackery Explorer 1000 v2 official specifications",
-      url: "https://www.jackery.com/products/explorer-1000-v2-portable-power-station",
+      url: "https://www.jackery.com/collections/portable-power-stations",
     },
     {
       label: "BLUETTI AC180 official specifications",

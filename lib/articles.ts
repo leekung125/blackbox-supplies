@@ -144,7 +144,7 @@ export const ARTICLES: Article[] = [
     relatedGuides: ["best-jump-starters-compared", "roadside-emergency-kit"],
     sources: [
       { label: "NOCO GB40 official specifications", url: "https://no.co/gb40" },
-      { label: "HULKMAN Alpha85 official specifications", url: "https://www.hulkman.com/products/hulkman-alpha-85-jump-starter" },
+      { label: "HULKMAN Alpha85 official specifications", url: "https://www.hulkman.com/" },
     ],
   },
   {
@@ -209,7 +209,7 @@ export const ARTICLES: Article[] = [
     ],
     relatedGuides: ["best-power-stations-compared", "best-jump-starters-compared"],
     sources: [
-      { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.jackery.com/products/explorer-1000-v2-portable-power-station" },
+      { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.jackery.com/collections/portable-power-stations" },
       { label: "NOCO GB40 official specifications", url: "https://no.co/gb40" },
     ],
   },
@@ -294,7 +294,7 @@ ARTICLES.push(
     ],
     relatedGuides: ["best-tire-inflators-compared", "roadside-emergency-kit"],
     sources: [
-      { label: "Fanttik X8 Apex official specifications", url: "https://fanttik.com/products/fanttik-x8-apex-tire-inflator" },
+      { label: "Fanttik X8 Apex official specifications", url: "https://fanttik.com/" },
       { label: "DEWALT 20V MAX inflator (DCC020IB) official page", url: "https://www.dewalt.com/product/dcc020ib/20v-max-corded-cordless-air-inflator-tool-only" },
     ],
   },

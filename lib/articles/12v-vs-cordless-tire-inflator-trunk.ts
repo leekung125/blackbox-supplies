@@ -130,7 +130,7 @@ export const TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK: Article = {
   ],
   relatedGuides: ["roadside-emergency-kit", "car-gear-worth-keeping-in-your-trunk"],
   sources: [
-    { label: "Fanttik X8 APEX official specifications", url: "https://fanttik.com/products/fanttik-x8-apex-tire-inflator" },
+    { label: "Fanttik X8 APEX official specifications", url: "https://fanttik.com/" },
     { label: "AstroAI L7 cordless inflator official page", url: "https://www.astroai.com/products/astroai-l7-cordless-tire-inflator" },
     { label: "EPAuto 12V DC portable air compressor (Amazon listing)", url: "https://www.amazon.com/dp/B01L9WSTEG" },
     { label: "DEWALT 20V MAX inflator (DCC020IB) official page", url: "https://www.dewalt.com/product/dcc020ib/20v-max-corded-cordless-air-inflator-tool-only" },

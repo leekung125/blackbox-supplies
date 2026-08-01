@@ -155,7 +155,7 @@ export const BEST_POWER_STATION_APARTMENT_POWER_OUTAGE: Article = {
     },
     {
       label: "Jackery Explorer 1000 v2 official specifications",
-      url: "https://www.jackery.com/products/explorer-1000-v2-portable-power-station",
+      url: "https://www.jackery.com/collections/portable-power-stations",
     },
     {
       label: "Anker SOLIX C300 Portable Power Station official page",

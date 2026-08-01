@@ -122,7 +122,7 @@ export const POWER_STATION_PRODUCTS: ProductFor<"power_stations">[] = [
     priceRange: "$329–$599",
     affiliateUrl: "https://www.amazon.com/dp/B0BVLPGS79?tag=blackboxsuppl-20",
     sourceUrls: [
-      "https://us.ecoflow.com/products/river-2-pro-portable-power-station",
+      "https://us.ecoflow.com/collections/portable-power-station",
       "https://www.amazon.com/EF-ECOFLOW-Portable-Charging-Generator/dp/B0BVLPGS79",
     ],
     rating: null,
@@ -458,7 +458,7 @@ export const POWER_STATION_GUIDE: ComparisonGuide = {
   sources: [
     { label: "BLUETTI AC180 — official spec sheet", url: "https://www.bluettipower.com/products/ac180" },
     { label: "Jackery Explorer 1000 v2 — official spec sheet", url: "https://www.jackery.com/products/jackery-explorer-1000-v2" },
-    { label: "EcoFlow RIVER 2 Pro — official spec sheet", url: "https://us.ecoflow.com/products/river-2-pro-portable-power-station" },
+    { label: "EcoFlow RIVER 2 Pro — official spec sheet", url: "https://us.ecoflow.com/collections/portable-power-station" },
     { label: "Anker SOLIX C300 — official spec sheet", url: "https://www.ankersolix.com/products/c300" },
     { label: "Consumer Reports — Best Portable Power Stations (testing method & ratings)", url: "https://www.consumerreports.org/home-garden/generators/best-portable-power-stations-a4748703075/" },
     { label: "Consumer Reports — 5 Things to Know About Portable Power Stations (battery & inverter basics)", url: "https://www.consumerreports.org/portable-power-stations/portable-power-stations-things-to-know-battery-inverter-generators/" },

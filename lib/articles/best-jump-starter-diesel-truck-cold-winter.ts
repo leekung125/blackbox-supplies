@@ -129,7 +129,7 @@ export const BEST_JUMP_STARTER_DIESEL_TRUCK_COLD_WINTER: Article = {
   relatedGuides: ["roadside-emergency-kit", "car-gear-worth-keeping-in-your-trunk"],
   sources: [
     { label: "NOCO Boost HD GB70 official specifications", url: "https://no.co/gb70" },
-    { label: "Hulkman Alpha85 official specifications", url: "https://www.hulkman.com/products/hulkman-alpha-85-jump-starter" },
+    { label: "Hulkman Alpha85 official specifications", url: "https://www.hulkman.com/" },
     { label: "Battery University — discharging at low temperatures (why lithium output drops in cold)", url: "https://batteryuniversity.com/article/bu-502-discharging-at-high-and-low-temperatures" },
     { label: "Battery Council International — the industry body behind the CCA / cold-cranking standard", url: "https://batterycouncil.org" },
   ],
