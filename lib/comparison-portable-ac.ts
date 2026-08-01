@@ -375,11 +375,11 @@ export const PORTABLE_AC_PRODUCTS: ProductFor<"portable_ac">[] = [
     image: "/products/scene/ecoflow-wave-3-portable-air-conditioner.png",
     price: 1299,
     priceRange: "$1,299 (+$899 battery)",
-    affiliateUrl: "https://www.amazon.com/dp/B0F4D4Z18S?tag=blackboxsuppl-20",
+    affiliateUrl: "https://www.amazon.com/s?k=EcoFlow+WAVE+3+portable+air+conditioner+heater&tag=blackboxsuppl-20",
     sourceUrls: [
       "https://www.ecoflow.com/us/wave-3-portable-air-conditioner/specs",
       "https://www.storagereview.com/review/ecoflow-wave-3-review-smarter-stronger-and-ready-for-the-field",
-      "https://www.amazon.com/dp/B0F4D4Z18S",
+      "https://www.amazon.com/s?k=EcoFlow+WAVE+3+portable+air+conditioner+heater&tag=blackboxsuppl-20",
     ],
     rating: null,
     reviewCount: null,

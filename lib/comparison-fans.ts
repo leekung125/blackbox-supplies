@@ -236,11 +236,11 @@ export const FANS_PRODUCTS: ProductFor<"fans">[] = [
     image: "/products/scene/lasko-wind-curve-2551-42-inch.png",
     price: 68,
     priceRange: "$55–$80",
-    affiliateUrl: "https://www.amazon.com/dp/B006SROQ3Q?tag=blackboxsuppl-20",
+    affiliateUrl: "https://www.amazon.com/s?k=Lasko+Wind+Curve+2551+42+inch+tower+fan&tag=blackboxsuppl-20",
     sourceUrls: [
       "https://lasko.com/products/lasko-42-wind-curve-tower-fan-with-ionizer-and-remote-2551-silver",
       "https://www.toptenreviews.com/tower-fans-lasko-wind-curve-review",
-      "https://www.amazon.com/dp/B006SROQ3Q", // Amazon listing (reliably reachable; the lasko.com page bot-blocks automated fetches)
+      "https://www.amazon.com/s?k=Lasko+Wind+Curve+2551+42+inch+tower+fan&tag=blackboxsuppl-20", // Amazon listing (reliably reachable; the lasko.com page bot-blocks automated fetches)
     ],
     rating: null,
     reviewCount: null,
