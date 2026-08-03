@@ -1,3 +1,4 @@
+import { TrackedAffiliateLink } from "@/components/tracked-affiliate-link";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -66,15 +67,16 @@ export function AffiliateCard({ p }: { p: AffiliateProduct }) {
         <p className="mt-1.5 line-clamp-3 flex-1 text-sm leading-relaxed text-ink-dim">{p.blurb}</p>
 
         <div className="mt-4 flex items-center gap-3">
-          <a
+          <TrackedAffiliateLink
             href={p.affiliateUrl}
-            target="_blank"
             rel="sponsored nofollow noopener noreferrer"
+            productId={p.id}
+            surface="affiliate_card"
             className="group/btn inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-on-accent shadow-[0_0_0_rgba(0,0,0,0)] transition-all duration-300 hover:bg-accent-strong hover:shadow-[0_10px_26px_-10px_rgba(217,154,69,0.75)]"
           >
             Check price on Amazon
             <svg className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M7 17 L17 7 M9 7 h8 v8" /></svg>
-          </a>
+          </TrackedAffiliateLink>
           <Link href={detailHref} className="ulink shrink-0 text-xs font-semibold">
             Details
           </Link>
