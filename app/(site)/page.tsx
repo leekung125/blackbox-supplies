@@ -160,12 +160,21 @@ export default function HomePage() {
             {/* Field CWV is mobile-weighted, so only the mobile crop gets priority (preloaded).
                 The desktop crop is off-screen for phones — lazy so we don't ship ~2.7MB per visit. */}
             <Image src="/brand/hero-command.png" alt="" fill sizes="100vw" className="hidden object-cover object-center sm:block" />
-            <Image src="/brand/hero-command-mobile.png" alt="" fill priority sizes="100vw" className="object-cover object-center sm:hidden" />
+            {/* Portrait crop, but the phone viewport is far taller than the art (390/700 ≈ 0.56 vs
+                896/1152 ≈ 0.78), so object-cover scales to HEIGHT and slices ~150px off each side.
+                Centred, that put the lamp — the entire point of the art direction — off-frame and
+                left a near-black rectangle. Biased right so the bulb stays in the picture. */}
+            <Image src="/brand/hero-command-mobile.png" alt="" fill priority sizes="100vw" className="object-cover object-[68%_50%] sm:hidden" />
           </div>
-          {/* readability scrims: dark on the left (behind copy) fading to reveal the gear + glow on the right */}
-          <div className="absolute inset-0" style={{ background: "linear-gradient(90deg, #070504 0%, rgba(7,5,4,0.93) 24%, rgba(7,5,4,0.6) 50%, rgba(7,5,4,0.18) 76%, rgba(7,5,4,0.05) 100%)" }} />
+          {/* readability scrims: dark on the left (behind copy) fading to reveal the gear + glow on the right.
+              DESKTOP ONLY — this gradient encodes the landscape composition (copy left, lamp right). On a
+              phone the copy spans the full width and the lamp is top-right, so applying it there blacked
+              out the whole upper-left and flattened the scene. Mobile gets its own vertical scrim below. */}
+          <div className="absolute inset-0 hidden sm:block" style={{ background: "linear-gradient(90deg, #070504 0%, rgba(7,5,4,0.93) 24%, rgba(7,5,4,0.6) 50%, rgba(7,5,4,0.18) 76%, rgba(7,5,4,0.05) 100%)" }} />
           <div className="absolute inset-0" style={{ background: "linear-gradient(0deg, #070504 2%, rgba(7,5,4,0.25) 26%, transparent 56%)" }} />
-          <div className="absolute inset-0 sm:hidden" style={{ background: "linear-gradient(0deg, #070504 0%, rgba(7,5,4,0.4) 34%, rgba(7,5,4,0.55) 100%)" }} />
+          {/* mobile scrim: light at the top so the lamp burns through, deepening under the copy.
+              (Was 0.55 opaque at the TOP — it dimmed the one thing the photograph is for.) */}
+          <div className="absolute inset-0 sm:hidden" style={{ background: "linear-gradient(180deg, rgba(7,5,4,0.10) 0%, rgba(7,5,4,0.30) 13%, rgba(7,5,4,0.68) 27%, rgba(7,5,4,0.85) 45%, rgba(7,5,4,0.92) 68%, #070504 100%)" }} />
           {/* the lamp: a breathing amber bloom over the gear side of the scene */}
           <div className="glow-amber-soft scn-breathe right-[-8%] top-[6%] hidden h-[62%] w-[46%] sm:block" style={{ opacity: 0.7 }} />
           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-accent/25 to-transparent" />
@@ -175,7 +184,9 @@ export default function HomePage() {
           <div className="bbxh-ember left-[84%]" style={{ animationDelay: "6.8s", animationDuration: "10s" }} />
           <div className="bbxh-ember left-[64%]" style={{ animationDelay: "8.6s", animationDuration: "14s" }} />
         </div>
-        <div className="mx-auto flex min-h-[86vh] max-w-6xl flex-col justify-center px-4 py-24 sm:px-6 lg:min-h-[90vh]">
+        {/* py-14 on phones (was py-24): 80px of the fold back, which also shortens the section and
+            so shrinks object-cover's side-crop — the lamp stays in frame. Desktop keeps py-24. */}
+        <div className="mx-auto flex min-h-[86vh] max-w-6xl flex-col justify-center px-4 py-14 sm:px-6 sm:py-24 lg:min-h-[90vh]">
           <div className="max-w-xl">
             <div className="bbxh-in bbxh-d1 flex items-center gap-2.5">
               <span className="bbxh-tick h-px w-6 bg-accent" aria-hidden />
@@ -184,11 +195,11 @@ export default function HomePage() {
             <h1 className="bbxh-h1 hero-display headline-glow mt-6 text-ink-strong">
               The right gear,<br />before you <span className="amber-word" style={{ textShadow: "0 0 34px rgba(237,186,102,0.45)" }}>need</span> it.
             </h1>
-            <p className="bbxh-in bbxh-d3 mt-6 max-w-md text-[1.15rem] leading-relaxed text-ink/90">
+            <p className="bbxh-in bbxh-d3 mt-5 max-w-md text-[1.02rem] leading-[1.55] text-ink sm:mt-6 sm:text-[1.15rem] sm:leading-relaxed sm:text-ink/90">
               Utility &amp; readiness gear for real problems — dead batteries, flat tires, outages, heat. We research,
               compare, and cite, so you decide in minutes: what to buy, why it wins, and the honest catch.
             </p>
-            <div className="bbxh-in bbxh-d4 mt-9 flex flex-wrap items-center gap-4">
+            <div className="bbxh-in bbxh-d4 mt-7 flex flex-wrap items-center gap-4 sm:mt-9">
               <Link href="#start-here" className="cta-amber cta-sheen">
                 What&rsquo;s the problem?
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M12 5 V19 M6 13 L12 19 L18 13" /></svg>
@@ -198,13 +209,13 @@ export default function HomePage() {
                 <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 12 H19 M13 6 L19 12 L13 18" /></svg>
               </Link>
             </div>
-            <div className="bbxh-in bbxh-d5 relative mt-12 flex gap-10 pt-6">
+            <div className="bbxh-in bbxh-d5 relative mt-8 flex gap-8 pt-5 sm:mt-12 sm:gap-10 sm:pt-6">
               <div aria-hidden className="rule-fade absolute inset-x-0 top-0" />
               {/* "N+" is rounded DOWN via approx() so the claim stays true as the catalog moves; the
                   exact totals live on /about. Guides = every published guide page, not just articles. */}
               {[{ n: approx(TOTAL_PICKS), s: "+", label: "researched picks" }, { n: TOTAL_GUIDES, s: "", label: "buying guides" }, { n: 0, s: "", label: "paid placements" }].map((st) => (
                 <div key={st.label} className="bbxh-stat">
-                  <div className="nums font-display text-[2.4rem] font-medium leading-none text-ink-strong">
+                  <div className="nums font-display text-[2rem] font-medium leading-none text-ink-strong sm:text-[2.4rem]">
                     <CountUp to={st.n} /><span className="text-accent-bright" style={{ textShadow: "0 0 18px rgba(237,186,102,0.5)" }}>{st.s}</span>
                   </div>
                   <div className="mono mt-2 text-[0.6rem] uppercase tracking-[0.14em] text-ink-faint">{st.label}</div>

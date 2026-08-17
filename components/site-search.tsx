@@ -125,7 +125,7 @@ export function SiteSearch({
     <div ref={boxRef} className={`relative ${className}`}>
       {/* input — glass with amber focus glow */}
       <div
-        className="flex items-center gap-2.5 rounded-full border px-3.5 py-2 transition-all duration-300"
+        className="flex items-center gap-2 rounded-full border px-3 py-2 transition-all duration-300 sm:gap-2.5 sm:px-3.5"
         style={{
           background: focused ? "rgba(217,154,69,0.06)" : "rgba(255,255,255,0.04)",
           borderColor: focused ? "rgba(217,154,69,0.55)" : "rgba(64,52,31,0.9)",
@@ -146,7 +146,7 @@ export function SiteSearch({
           onKeyDown={onKeyDown}
           placeholder={placeholder}
           aria-label="Search the site"
-          className="w-full min-w-0 bg-transparent text-sm text-on-dark placeholder:text-on-dark-dim focus:outline-none [&::-webkit-search-cancel-button]:appearance-none"
+          className="w-full min-w-0 bg-transparent text-[0.82rem] text-on-dark placeholder:text-on-dark-dim focus:outline-none sm:text-sm [&::-webkit-search-cancel-button]:appearance-none"
         />
         {!typed ? (
           <kbd className="mono hidden shrink-0 select-none rounded-md border border-dark-line px-1.5 py-0.5 text-[0.62rem] font-medium text-on-dark-dim sm:inline-block">

@@ -42,7 +42,10 @@ export function SiteHeader() {
         scrolled ? "border-dark-line shadow-[0_12px_34px_-18px_rgba(0,0,0,0.95)]" : "border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-3 px-4 sm:gap-4 sm:px-6">
+      {/* gap-2 on phones: at 390px the wordmark takes 162px and the search input was left with
+          76px for a placeholder needing 92px, so it rendered as "Search gea". Every pixel here
+          goes to the search field. sm+ keeps gap-4 exactly as before. */}
+      <div className="mx-auto flex h-16 max-w-7xl items-center gap-2 px-4 sm:gap-4 sm:px-6">
         <Link href="/" aria-label="BlackBox Supplies — home" className="shrink-0">
           <Wordmark light markClassName="h-6 w-6 sm:h-7 sm:w-7" size="text-[0.95rem] sm:text-[1.05rem]" showMark />
         </Link>
