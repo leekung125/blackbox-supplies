@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import path from "node:path";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -36,19 +38,40 @@ function titleField(raw: string): string | { absolute: string } {
   return raw.length >= 44 ? { absolute: raw } : raw;
 }
 
+/**
+ * The share image for a guide, with a fallback.
+ *
+ * `openGraph.images` was emitted only when an entry declared `heroImage`, and nine live
+ * guides don't — so sharing those links anywhere (Facebook, Pinterest, iMessage, Slack)
+ * produced a bare text card. The legacy `guides.ts` branch below already fell back to its
+ * lead product image; the article and comparison branches had no fallback at all, which is
+ * why the gap tracked the content model rather than anything about the page.
+ *
+ * Every guide already ships a Pinterest image at /pins/guide-<slug>.jpg, so that is the
+ * fallback. Existence is checked on disk rather than assumed: a 404 in og:image is worse
+ * than no og:image, because the scraper caches the miss.
+ */
+function shareImage(slug: string, declared?: string): string | undefined {
+  if (declared) return declared;
+  const rel = `/pins/guide-${slug}.jpg`;
+  return existsSync(path.join(process.cwd(), "public", rel)) ? rel : undefined;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const article = getArticleBySlug(slug);
   if (article) {
+    const og = shareImage(article.slug, article.heroImage);
     return {
       title: titleField(article.title),
       description: article.dek,
       alternates: { canonical: `/guides/${article.slug}` },
-      openGraph: { type: "article", title: article.title, description: article.dek, url: `/guides/${article.slug}`, ...(article.heroImage ? { images: [{ url: article.heroImage }] } : {}) },
+      openGraph: { type: "article", title: article.title, description: article.dek, url: `/guides/${article.slug}`, ...(og ? { images: [{ url: og }] } : {}) },
     };
   }
   const cmp = getComparisonGuideBySlug(slug);
   if (cmp) {
+    const og = shareImage(cmp.slug, cmp.heroImage);
     return {
       title: titleField(cmp.title),
       description: cmp.dek,
@@ -58,14 +81,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         title: cmp.title,
         description: cmp.dek,
         url: `/guides/${cmp.slug}`,
-        ...(cmp.heroImage ? { images: [{ url: cmp.heroImage }] } : {}),
+        ...(og ? { images: [{ url: og }] } : {}),
       },
     };
   }
   const guide = getGuideBySlug(slug);
   if (!guide) return { title: "Guide not found" };
   const lead = getProductById(guide.picks[0]?.productId ?? "");
-  const ogImage = guide.heroImage ?? lead?.image;
+  const ogImage = guide.heroImage ?? lead?.image ?? shareImage(guide.slug);
   return {
     title: titleField(guide.title),
     description: guide.dek,
