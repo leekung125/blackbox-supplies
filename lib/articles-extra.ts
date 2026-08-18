@@ -3351,7 +3351,7 @@ export const EXTRA_ARTICLES: Article[] = [
     "category": "Useful Gear",
     "readMinutes": 7,
     "updated": "2026-07-04",
-    "answerFirst": "For most homes, the highest-impact upgrade is a True HEPA air purifier — the Coway Airmega AP-1512HH ($160-$230) cleans the air you breathe all day for pennies. Below it, four more premium picks fix the daily friction of dirty floors, aching hips, dry air, and restless sleep.",
+    "answerFirst": "For most homes, the highest-impact upgrade is a True HEPA air purifier — the Coway Airmega AP-1512HH ($160-$230) cleans the air you breathe all day for pennies. Below it, five more premium picks fix the daily friction of dirty floors, aching hips, dry air, and restless sleep.",
     "sections": [
       {
         "heading": "The six upgrades at a glance",
