@@ -167,7 +167,7 @@ export const DASH_CAMS_PRODUCTS: ProductFor<"dash_cams">[] = [
     role: "Best budget front + rear",
     bestFor: "Budget-minded drivers who want both front and rear coverage in one inexpensive, screen-equipped kit.",
     pros: [
-      "4K/2.5K front + 1080p rear with a bright 3.18-inch screen and a 64GB card in the box",
+      "2.5K (1440p) front + 1080p rear with a bright 3.18-inch screen and a 64GB card in the box",
       "170° wide front angle, Wi-Fi, GPS, and 24H parking mode",
       "The value front + rear best-seller people compare against Rove and Viofo",
     ],
@@ -438,7 +438,7 @@ export const DASH_CAMS_GUIDE: ComparisonGuide = {
     "Underestimating the rear-camera cable run — it's a real 30–45 minute job or a shop visit before a two-channel kit is usable.",
   ],
   tradeoffs:
-    "Resolution, coverage, discretion, and price all pull against each other. The STARVIS 2 VIOFO cams give the best night legibility and, in the two- and three-channel kits, the most coverage — but cost more and take longer to install. Budget 4K cams like the ROVE and REDTIGER are sharp by day and easy on the wallet, trading some night performance and, on the REDTIGER, a 1080p rear. The Nextbase iQ is a different animal — a connected 4G guardian that streams live and can call for help, if you'll pay for the cam and the subscription. And the Garmin Mini 2 trades resolution and GPS for a body smaller than a car key. Match the cam to the risk you're covering, not the biggest number.",
+    "Resolution, coverage, discretion, and price all pull against each other. The STARVIS 2 VIOFO cams give the best night legibility and, in the two- and three-channel kits, the most coverage — but cost more and take longer to install. Budget cams like the ROVE and REDTIGER are sharp by day and easy on the wallet, trading some night performance and, on the REDTIGER, a 1080p rear and a sensor independent testers put at 1440p rather than the advertised 4K. The Nextbase iQ is a different animal — a connected 4G guardian that streams live and can call for help, if you'll pay for the cam and the subscription. And the Garmin Mini 2 trades resolution and GPS for a body smaller than a car key. Match the cam to the risk you're covering, not the biggest number.",
   products: DASH_CAMS_PRODUCTS,
   meta: DASH_CAMS_META,
   sorts: [
