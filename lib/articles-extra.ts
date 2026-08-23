@@ -3,6 +3,7 @@ import type { Article } from "./articles";
 // --- Deep SEO article batch (30 long-tail buyer-intent pages) ---
 import { TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK } from "./articles/12v-vs-cordless-tire-inflator-trunk";
 import { BATTERY_OR_ALTERNATOR_ARTICLE } from "./articles/battery-or-alternator-how-to-tell";
+import { DASH_CAM_DIDNT_RECORD_THE_INCIDENT } from "./articles/dash-cam-didnt-record-the-incident";
 import { BEST_BATTERY_MAINTAINER_WINTER_STORAGE } from "./articles/best-battery-maintainer-for-a-car-in-winter-storage";
 import { BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID } from "./articles/best-battery-powered-portable-ac-for-tent-camping-off-grid";
 import { BEST_BLUETOOTH_TRACKER_WALLET_ANDROID } from "./articles/best-bluetooth-tracker-for-wallet-android-phone";
@@ -35,6 +36,7 @@ import { WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER } from "./articles/winter-car-emerg
 const DEEP_SEO_BATCH: Article[] = [
   TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK,
   BATTERY_OR_ALTERNATOR_ARTICLE,
+  DASH_CAM_DIDNT_RECORD_THE_INCIDENT,
   BEST_BATTERY_MAINTAINER_WINTER_STORAGE,
   BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID,
   BEST_BLUETOOTH_TRACKER_WALLET_ANDROID,
