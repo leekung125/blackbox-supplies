@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ProductThumb } from "@/components/product-thumb";
-import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
+import type { Product } from "@/lib/products";
+import { getOutboundLink, outboundRel } from "@/lib/product-link";
 import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 
 /**

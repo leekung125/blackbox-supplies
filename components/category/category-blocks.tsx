@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ProductThumb } from "@/components/product-thumb";
 import { Spotlight } from "@/components/fx/spotlight";
-import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
+import type { Product } from "@/lib/products";
+import { getOutboundLink, outboundRel } from "@/lib/product-link";
 import type { GuideRef } from "@/lib/guides";
 import type { ResolvedUseCase } from "@/components/category/category-data";
 import { categoryAccent } from "@/components/category/category-hero";
