@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withAffiliateTag } from "@/lib/affiliate-tag";
 
 /** True for a real outbound URL we should render as a clickable citation, not plain text. */
 function isUrl(s: string): boolean {
@@ -85,7 +86,7 @@ export function MethodologyPanel({
               <span key={a} className="inline-flex items-center">
                 {isUrl(a) ? (
                   <a
-                    href={a}
+                    href={withAffiliateTag(a)}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                     className="ulink text-ink-2"

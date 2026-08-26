@@ -9,6 +9,7 @@ import { SectionNav } from "@/components/section-nav";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { resolvePicks, matchByText, productToPick } from "@/lib/affiliate-picks";
+import { withAffiliateTag } from "@/lib/affiliate-tag";
 import { getDateModified, displayUpdated, articleSourcePath } from "@/lib/freshness";
 
 /** A related link normalized across ALL content types so the card render is shape-safe. */
@@ -227,7 +228,7 @@ export function ArticleView({ article }: { article: Article }) {
           <ul className="mt-3 space-y-1.5 text-[0.9rem]">
             {article.sources.map((src) => (
               <li key={src.url}>
-                <a href={src.url} target="_blank" rel="noopener noreferrer" className="ulink">{src.label}</a>
+                <a href={withAffiliateTag(src.url)} target="_blank" rel="noopener noreferrer" className="ulink">{src.label}</a>
               </li>
             ))}
           </ul>

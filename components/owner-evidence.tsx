@@ -1,4 +1,5 @@
 import { getOwnerEvidence } from "@/lib/owner-evidence";
+import { withAffiliateTag } from "@/lib/affiliate-tag";
 
 /** "https://www.rtings.com/…" → "rtings.com" for a tidy chip label. */
 function hostLabel(url: string): string {
@@ -83,7 +84,7 @@ export function OwnerEvidence({ id, updated, className = "" }: { id: string; upd
         <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
           <span>Owner evidence, cited:</span>
           {e.sources.slice(0, 4).map((s) => (
-            <a key={s} href={s} target="_blank" rel="nofollow noopener noreferrer" className="ulink text-ink-2">
+            <a key={s} href={withAffiliateTag(s)} target="_blank" rel="nofollow noopener noreferrer" className="ulink text-ink-2">
               {hostLabel(s)}
             </a>
           ))}

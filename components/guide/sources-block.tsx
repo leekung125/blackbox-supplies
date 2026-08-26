@@ -1,5 +1,6 @@
 import type { ComparisonGuide } from "@/lib/comparison-guides";
 import type { ComparableProduct } from "@/lib/comparison-schema";
+import { withAffiliateTag } from "@/lib/affiliate-tag";
 
 /** Display host for a citation chip, e.g. "https://www.rtings.com/…" → "rtings.com". */
 function hostLabel(url: string): string {
@@ -58,7 +59,7 @@ export function SourcesBlock({
               </span>
               <span className="min-w-0">
                 <a
-                  href={s.url}
+                  href={withAffiliateTag(s.url)}
                   target="_blank"
                   rel={CITE_REL}
                   className="ulink font-medium text-ink"
@@ -87,7 +88,7 @@ export function SourcesBlock({
                   {p.urls.map((u, i) => (
                     <a
                       key={u}
-                      href={u}
+                      href={withAffiliateTag(u)}
                       target="_blank"
                       rel={CITE_REL}
                       className="mono inline-flex items-center gap-1 rounded-md border border-line-soft bg-surface-2 px-2 py-0.5 text-[0.7rem] text-ink-dim transition-colors hover:border-accent/40 hover:text-accent-strong"
