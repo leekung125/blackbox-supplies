@@ -8,7 +8,7 @@
 //
 //   node scripts/gen-freshness.mjs        (run from the site dir)
 import { execSync } from "node:child_process";
-import { readdirSync, writeFileSync, existsSync } from "node:fs";
+import { readdirSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 const SITE = process.cwd();
@@ -43,5 +43,29 @@ for (const rel of rels) {
 
 // Deterministic key order so the committed file has a stable, reviewable diff.
 const sorted = Object.fromEntries(Object.keys(data).sort().map((k) => [k, data[k]]));
-writeFileSync(path.join(SITE, "lib", "freshness-data.json"), JSON.stringify(sorted, null, 1) + "\n");
-console.log(`gen-freshness: wrote ${Object.keys(sorted).length} real git dates -> lib/freshness-data.json`);
+
+// ⛔ REFUSE TO SHRINK THE MAP. This now runs as a `prebuild`, and Vercel builds from a SHALLOW
+// clone where `git log -1 -- <file>` returns nothing for most files. Verified by running this
+// script in a directory with no git history: it happily reported "wrote 0 real git dates". Without
+// this guard the prebuild would overwrite 71 real dates with an empty object, collapse every page
+// onto the fallback, and re-create the blanket-stamp problem this file exists to fix - silently,
+// on the deploy, where nobody would ever see it.
+// Writing FEWER dates than are already committed is never an improvement.
+const OUT = path.join(SITE, "lib", "freshness-data.json");
+let existing = {};
+try {
+  existing = JSON.parse(readFileSync(OUT, "utf8"));
+} catch {
+  /* first run - nothing to protect */
+}
+const have = Object.keys(existing).length;
+const got = Object.keys(sorted).length;
+if (have && got < have * 0.9) {
+  console.log(
+    `gen-freshness: SKIPPED - resolved only ${got} dates against ${have} already committed. ` +
+      `This is a shallow clone or a checkout without history; keeping the existing map.`,
+  );
+} else {
+  writeFileSync(OUT, JSON.stringify(sorted, null, 1) + String.fromCharCode(10));
+  console.log(`gen-freshness: wrote ${got} real git dates -> lib/freshness-data.json`);
+}

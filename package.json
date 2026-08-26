@@ -2,12 +2,13 @@
   "name": "blackbox-supply-site",
   "version": "0.1.0",
   "private": true,
-  "description": "Blackbox Supply — dark-premium affiliate product catalog. Self-contained; never imported by the main Ascension app or the Remotion engine.",
+  "description": "Blackbox Supply \u2014 dark-premium affiliate product catalog. Self-contained; never imported by the main Ascension app or the Remotion engine.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prebuild": "node scripts/gen-freshness.mjs || true"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
