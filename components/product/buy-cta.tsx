@@ -2,7 +2,8 @@
 
 import { track } from "@vercel/analytics";
 import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
-import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
+import type { Product } from "@/lib/products";
+import { getOutboundLink, outboundRel } from "@/lib/product-link";
 
 function ExternalArrow({ className = "" }: { className?: string }) {
   return (

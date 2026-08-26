@@ -4,7 +4,8 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, animate, motion, useReducedMotion } from "motion/react";
-import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
+import type { Product } from "@/lib/products";
+import { getOutboundLink, outboundRel } from "@/lib/product-link";
 import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 
 /* ============================================================================

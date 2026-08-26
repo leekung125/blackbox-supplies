@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import { track } from "@vercel/analytics";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
+import type { Product } from "@/lib/products";
+import { getOutboundLink, outboundRel } from "@/lib/product-link";
 
 /** The page places this id right after the main in-page buy CTA; the bar keys off it. */
 const ANCHOR_ID = "sticky-cta-anchor";

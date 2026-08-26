@@ -4,7 +4,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { searchItems, bestSellers, type SearchItem, type SearchKind } from "@/lib/search-index";
+import { scoreItems, pickBestSellers, type SearchItem, type SearchKind } from "@/lib/search-types";
 
 const POPULAR = ["Portable AC", "Dash cam", "Cooling sheets", "Jump starter", "Power station", "Tire inflator"];
 
@@ -44,6 +44,20 @@ export function SiteSearch({
 }) {
   const [q, setQ] = useState("");
   const [open, setOpen] = useState(false);
+  // ⛔ The index is FETCHED, not imported. Importing lib/search-index pulled every product,
+  // guide and article into the client bundle on every page (969 KB chunk, article bodies and
+  // all) because this component lives in the header. Now it downloads once, lazily, the first
+  // time someone actually interacts with search - and never for anyone who doesn't.
+  const [index, setIndex] = useState<SearchItem[]>([]);
+  const loadedRef = useRef(false);
+  const loadIndex = useCallback(() => {
+    if (loadedRef.current) return;
+    loadedRef.current = true;
+    fetch("/search-index.json")
+      .then((r) => (r.ok ? r.json() : []))
+      .then((d: SearchItem[]) => setIndex(Array.isArray(d) ? d : []))
+      .catch(() => { loadedRef.current = false; });
+  }, []);
   const [active, setActive] = useState(0);
   const [focused, setFocused] = useState(false);
   const router = useRouter();
@@ -51,12 +65,12 @@ export function SiteSearch({
   const inputRef = useRef<HTMLInputElement>(null);
   const reduce = useReducedMotion();
 
-  const results = useMemo(() => searchItems(q, 10), [q]);
+  const results = useMemo(() => scoreItems(index, q, 10), [index, q]);
   const typed = q.trim().length > 0;
 
   // ordered groups → flat nav list (display order) so ↑/↓ steps through what's shown
   const { groups, flat } = useMemo(() => {
-    const source = results.length ? results : typed ? bestSellers(4) : [];
+    const source = results.length ? results : typed ? pickBestSellers(index, 4) : [];
     const g = GROUP_ORDER.map((grp) => ({
       ...grp,
       items: source.filter((it) => it.kind === grp.kind),
@@ -140,8 +154,8 @@ export function SiteSearch({
           ref={inputRef}
           type="search"
           value={q}
-          onChange={(e) => setQ(e.target.value)}
-          onFocus={() => { setOpen(true); setFocused(true); }}
+          onChange={(e) => { loadIndex(); setQ(e.target.value); }}
+          onFocus={() => { setOpen(true); setFocused(true); loadIndex();; }}
           onBlur={() => setFocused(false)}
           onKeyDown={onKeyDown}
           placeholder={placeholder}
