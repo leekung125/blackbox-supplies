@@ -130,8 +130,8 @@ export const CPAP_POWER_STATION_ARTICLE: Article = {
   ],
   relatedGuides: ["roadside-emergency-kit"],
   sources: [
-    { label: "Anker SOLIX C300 official product page", url: "https://www.anker.com/products/a17260z1" },
-    { label: "EcoFlow RIVER 2 Pro official product page", url: "https://www.ecoflow.com/us/river-2-pro-portable-power-station" },
+    { label: "Anker SOLIX C300 (AC model) official product page", url: "https://www.ankersolix.com/products/c300" },
+    { label: "EcoFlow RIVER 2 Pro official product page", url: "https://us.ecoflow.com/products/river-2-pro-portable-power-station" },
     { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.amazon.com/dp/B0D7PPG25F?tag=blackboxsuppl-20" },
     { label: "FAA guidance on portable batteries and watt-hour limits", url: "https://www.faa.gov/hazmat/packsafe/lithium-batteries" },
   ],

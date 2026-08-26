@@ -313,8 +313,8 @@ const PORTABLE_AC: ComparisonGuide = {
   // Guide-level clickable citations backing the SACC/spec claims. All verified reachable.
   sources: [
     {
-      label: "U.S. DOE — Portable Air Conditioners standards & test procedure (10 CFR 430, Appendix CC — SACC)",
-      url: "https://www.energy.gov/eere/buildings/portable-air-conditioners",
+      label: "U.S. DOE — Portable Air Conditioners: current standard & test procedure (10 CFR 430, Appendix CC)",
+      url: "https://www.energy.gov/cmei/buildings/portable-air-conditioners",
     },
     {
       label: "ENERGY STAR — Room Air Conditioners (certified-model program and efficiency criteria)",

@@ -542,7 +542,7 @@ export const FANS_GUIDE: ComparisonGuide = {
       url: "https://www.expertreviews.co.uk/beauty-wellness/air-treatment/shark-turboblade-fan-review",
     },
     {
-      label: "Forbes — The Best Tower Fans (independent CFM & noise testing)",
+      label: "Forbes Vetted — The Best Tower Fans (editor-selected picks, with CFM and decibel specs)",
       url: "https://www.forbes.com/sites/forbes-personal-shopper/article/best-tower-fan/",
     },
   ],

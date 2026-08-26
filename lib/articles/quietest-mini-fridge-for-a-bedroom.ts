@@ -130,7 +130,7 @@ export const QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM: Article = {
     "best-tower-fans-compared",
   ],
   sources: [
-    { label: "USDA — Refrigeration and Food Safety (the 40°F safe-storage ceiling)", url: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/refrigeration-and-food-safety" },
+    { label: "USDA — Refrigeration and Food Safety (the 40°F safe-storage ceiling)", url: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/refrigeration" },
     { label: "ENERGY STAR — Refrigerators (efficiency ratings)", url: "https://www.energystar.gov/products/refrigerators" },
     { label: "CDC/NIOSH — What Noises Cause Hearing Loss? (decibel reference scale)", url: "https://www.cdc.gov/niosh/noise/about/noise.html" },
   ],

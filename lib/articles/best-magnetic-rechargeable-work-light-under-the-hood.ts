@@ -135,6 +135,6 @@ export const BEST_MAGNETIC_WORK_LIGHT_UNDER_HOOD: Article = {
   ],
   relatedGuides: ["car-gear-worth-keeping-in-your-trunk", "roadside-emergency-kit"],
   sources: [
-    { label: "NEBO Tools — official manufacturer site", url: "https://www.nebotools.com/" },
+    { label: "NEBO — BIG LARRY 3 official product page (600-lumen work light, magnetic base)", url: "https://nebo.acgbrands.com/en_US/big-larry-3-work-light-flashlight.html" },
   ],
 };

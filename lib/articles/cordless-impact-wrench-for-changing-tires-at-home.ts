@@ -4,7 +4,7 @@ import type { Article } from "@/lib/articles";
  * Long-tail buyer-intent article (self-contained; orchestrator wires it into
  * EXTRA_ARTICLES). Target keyword: "cordless impact wrench for changing tires
  * at home". Honest framing: researched from published manufacturer specs and
- * named third-party torque data (Pro Tool Reviews / RoadSumo / Tire Rack), not
+ * named third-party torque data (Pro Tool Reviews / RoadSumo), not
  * personally tested. No invented torque tests, no fabricated ratings — the
  * 370 ft-lbs figure is AVID POWER's own max-torque rating, and the install-vs-
  * removal gap is standard, published torque behavior, not a bench result.
@@ -127,9 +127,8 @@ export const CORDLESS_IMPACT_WRENCH_FOR_CHANGING_TIRES_AT_HOME: Article = {
   ],
   relatedGuides: ["car-gear-worth-keeping-in-your-trunk", "roadside-emergency-kit"],
   sources: [
-    { label: "Pro Tool Reviews — impact wrench torque and lug-nut removal guidance", url: "https://www.protoolreviews.com" },
-    { label: "RoadSumo — lug nut torque specifications and removal torque data", url: "https://roadsumo.com" },
-    { label: "Tire Rack — wheel torque specifications and star-pattern torque procedure", url: "https://www.tirerack.com" },
+    { label: "Pro Tool Reviews — impact driver and impact wrench reviews and buying guides", url: "https://www.protoolreviews.com/category/tools/power/impact-drivers-wrenches/" },
+    { label: "RoadSumo — how much torque it takes to remove lug nuts (and whether an impact wrench will do it)", url: "https://roadsumo.com/how-much-torque-to-remove-lug-nuts/" },
   ],
   heroImage: "/products/scene/avid-power-20v-cordless-impact.webp",
 };

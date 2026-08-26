@@ -151,7 +151,7 @@ export const BEST_POWER_STATION_APARTMENT_POWER_OUTAGE: Article = {
   sources: [
     {
       label: "BLUETTI AC180 official specifications",
-      url: "https://www.bluettipower.com/products/bluetti-ac180-portable-power-station",
+      url: "https://www.bluettipower.com/products/ac180",
     },
     {
       label: "Jackery Explorer 1000 v2 official specifications",
@@ -159,11 +159,11 @@ export const BEST_POWER_STATION_APARTMENT_POWER_OUTAGE: Article = {
     },
     {
       label: "Anker SOLIX C300 Portable Power Station official page",
-      url: "https://www.anker.com/products/a17260z1-solix-c300-portable-power-station",
+      url: "https://www.ankersolix.com/products/c300",
     },
     {
-      label: "CPSC — Portable Generator Safety (carbon monoxide)",
-      url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/portable-generators",
+      label: "CPSC — Carbon Monoxide Information Center (portable generators and CO)",
+      url: "https://www.cpsc.gov/Safety-Education/Safety-Education-Centers/Carbon-Monoxide-Information-Center",
     },
   ],
 };

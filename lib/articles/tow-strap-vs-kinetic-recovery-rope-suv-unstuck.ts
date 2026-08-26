@@ -151,7 +151,6 @@ export const TOW_STRAP_VS_KINETIC_ROPE_ARTICLE: Article = {
   relatedGuides: ["car-gear-worth-keeping-in-your-trunk", "roadside-emergency-kit"],
   sources: [
     { label: "Rhino USA Recovery Tow Strap — product listing (specs: 31,518 lb break strength, 10,000 lb WLL)", url: "https://www.amazon.com/dp/B01M1SMPOS" },
-    { label: "Rhino USA — recovery gear manufacturer", url: "https://www.rhinousa.com" },
     { label: "Bubba Rope — kinetic recovery rope manufacturer (stretch/technique background)", url: "https://www.bubbarope.com" },
     { label: "Factor 55 — soft shackle and recovery rigging manufacturer", url: "https://www.factor55.com" },
   ],

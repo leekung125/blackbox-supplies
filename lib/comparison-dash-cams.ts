@@ -35,7 +35,7 @@ export const DASH_CAMS_PRODUCTS: ProductFor<"dash_cams">[] = [
     priceRange: "$200–$260",
     affiliateUrl: "https://www.amazon.com/dp/B0CKX14L34?tag=blackboxsuppl-20",
     sourceUrls: [
-      "https://www.viofo.com/products/viofo-a229-plus-2ch-front-and-rear-2k2k-hdr-5ghz-wi-fi-gps-voice-control-dual-dash-camera-with-sony-starvis-2-sensor",
+      "https://www.viofo.com/pages/a229-plus-1ch-2ch-3ch-landing-page",
       "https://www.amazon.com/VIOFO-A229-Plus-STARVIS-Ultra-Precise/dp/B0CKX14L34",
       "https://www.automoblog.com/viofo-a229-plus-review/",
     ],
@@ -581,8 +581,8 @@ export const DASH_CAMS_GUIDE: ComparisonGuide = {
   // Guide-level clickable citations backing the key claims (sensor, specs, prices).
   sources: [
     {
-      label: "VIOFO A229 Plus — official specifications",
-      url: "https://www.viofo.com/products/viofo-a229-plus-2ch-front-and-rear-2k2k-hdr-5ghz-wi-fi-gps-voice-control-dual-dash-camera-with-sony-starvis-2-sensor",
+      label: "VIOFO A229 Plus — official product page (dual Sony STARVIS 2 IMX675, 2K front + 2K rear)",
+      url: "https://www.viofo.com/pages/a229-plus-1ch-2ch-3ch-landing-page",
     },
     {
       label: "Sony Semiconductor — STARVIS 2 image-sensor technology",

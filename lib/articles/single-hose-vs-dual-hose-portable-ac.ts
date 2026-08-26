@@ -137,9 +137,9 @@ export const SINGLE_VS_DUAL_HOSE_AC: Article = {
   ],
   sources: [
     { label: "Whynter — official site (NEX ARC-1230WN dual-hose portable AC)", url: "https://www.whynter.com" },
-    { label: "Midea — official site (Duo dual-hose portable AC line)", url: "https://www.midea.com" },
-    { label: "BLACK+DECKER — official site (BPACT10WT portable AC)", url: "https://www.blackanddecker.com" },
-    { label: "ENERGY STAR — room air conditioner efficiency & sizing", url: "https://www.energystar.gov" },
+    { label: "Midea Duo (MAP14S1TBL) — official product page (dual-hose design)", url: "https://www.midea.com/us/store/cooling-and-heating/portable-air-conditioners/midea-duo-smart-inverter-portable-air-conditioner.map14s1tbl" },
+    { label: "BLACK+DECKER BPACT10WT — official product page", url: "https://www.blackanddecker.com/products/bpact10wt" },
+    { label: "ENERGY STAR — Room Air Conditioners Key Product Criteria (CEER efficiency criteria by BTU capacity)", url: "https://www.energystar.gov/products/room_air_conditioners/key_product_criteria" },
     { label: "BlackBox: The Best Portable Air Conditioners, compared (SACC-first)", url: "/guides/best-portable-air-conditioners" },
   ],
   heroImage: "/products/scene/whynter-nex-arc-1230wn-14-000.webp",

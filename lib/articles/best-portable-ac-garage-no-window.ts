@@ -166,8 +166,8 @@ export const BEST_PORTABLE_AC_GARAGE_NO_WINDOW: Article = {
   ],
   sources: [
     {
-      label: "ENERGY STAR — Portable Air Conditioners (explains SACC/DOE ratings)",
-      url: "https://www.energystar.gov/products/portable_air_conditioners",
+      label: "U.S. Department of Energy — Portable Air Conditioners: current standard & test procedure (10 CFR 430, Appendix CC)",
+      url: "https://www.energy.gov/cmei/buildings/portable-air-conditioners",
     },
     { label: "Whynter — official site", url: "https://www.whynter.com" },
     { label: "Midea — official site", url: "https://www.midea.com" },

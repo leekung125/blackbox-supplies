@@ -156,7 +156,7 @@ export const HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID: Art
   sources: [
     {
       label: "Jackery SolarSaga 100W Portable Solar Panel — official specifications",
-      url: "https://www.jackery.com/products/jackery-solarsaga-100w-solar-panel",
+      url: "https://www.jackery.com/products/solarsaga-100w-solar-panel",
     },
     {
       label: "Jackery Explorer 1000 v2 official specifications",
@@ -164,11 +164,11 @@ export const HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID: Art
     },
     {
       label: "EcoFlow RIVER 2 Pro official specifications (solar input)",
-      url: "https://www.ecoflow.com/us/river-2-pro-portable-power-station",
+      url: "https://us.ecoflow.com/products/river-2-pro-portable-power-station",
     },
     {
       label: "BLUETTI AC180 official specifications (solar input)",
-      url: "https://www.bluettipower.com/products/bluetti-ac180-portable-power-station",
+      url: "https://www.bluettipower.com/products/ac180",
     },
     {
       label: "NREL PVWatts — how real-world losses derate solar output",

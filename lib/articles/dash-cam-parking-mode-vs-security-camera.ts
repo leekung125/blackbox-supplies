@@ -171,7 +171,7 @@ export const DASH_CAM_VS_SECURITY_CAMERA: Article = {
   sources: [
     { label: "Companion explainer: Do I Need a Dash Cam? (BlackBox)", url: "https://www.blackboxsupplies.com/guides/do-i-need-a-dash-cam" },
     { label: "Full comparison: Best Dash Cams for Everyday Drivers (BlackBox)", url: "https://www.blackboxsupplies.com/guides/best-dash-cams-compared" },
-    { label: "VIOFO official site (A229 Plus / A139 Pro specs)", url: "https://www.viofo.com" },
+    { label: "VIOFO — official site", url: "https://www.viofo.com" },
     { label: "Nextbase official site (iQ smart dash cam specs)", url: "https://nextbase.com" },
   ],
 };

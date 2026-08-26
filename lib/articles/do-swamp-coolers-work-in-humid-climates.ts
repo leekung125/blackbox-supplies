@@ -147,16 +147,12 @@ export const SWAMP_COOLER_HUMIDITY_ARTICLE: Article = {
   ],
   sources: [
     {
-      label: "U.S. Department of Energy — Evaporative Coolers (climate suitability & operation)",
-      url: "https://www.energy.gov/energysaver/evaporative-coolers",
-    },
-    {
       label: "DREO 43\" Evaporative Air Cooler — official product page",
       url: "https://www.dreo.com/",
     },
     {
-      label: "Hessaire MC18M evaporative cooler — manufacturer product page",
-      url: "https://hessaire.com/products/mc18m",
+      label: "Hessaire MC18M (1300 CFM mobile cooler) — manufacturer product page",
+      url: "https://hessaire.com/mobile-cooling/1300-cfm-mobile-cooler",
     },
   ],
   heroImage: "/products/scene/dreo-43-evaporative-air-swamp-cooler.webp",

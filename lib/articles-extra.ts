@@ -1137,7 +1137,7 @@ export const EXTRA_ARTICLES: Article[] = [
     "sources": [
       {
         "label": "Forbes Vetted — The Best Portable Air Conditioners (Midea Duo named Best Overall)",
-        "url": "https://www.forbes.com/sites/forbesvetted/article/best-portable-air-conditioners/"
+        "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-portable-air-conditioner/"
       },
       {
         "label": "RTINGS — The Best Portable Air Conditioners (Whynter NEX top-tested)",
@@ -1145,15 +1145,11 @@ export const EXTRA_ARTICLES: Article[] = [
       },
       {
         "label": "Wirecutter (The New York Times) — The Best Portable Air Conditioner",
-        "url": "https://www.nytimes.com/wirecutter/reviews/best-portable-air-conditioner/"
+        "url": "https://www.nytimes.com/wirecutter/reviews/the-best-portable-air-conditioner/"
       },
       {
-        "label": "ENERGY STAR — Room Air Conditioners (efficiency and sizing)",
-        "url": "https://www.energystar.gov/products/heating_cooling/room_air_conditioners"
-      },
-      {
-        "label": "U.S. Department of Energy, Energy Saver — Room Air Conditioners",
-        "url": "https://www.energy.gov/energysaver/room-air-conditioners"
+        "label": "ENERGY STAR — Room Air Conditioners Key Product Criteria (CEER efficiency criteria by BTU capacity)",
+        "url": "https://www.energystar.gov/products/room_air_conditioners/key_product_criteria"
       }
     ],
     "relatedGuides": [],
@@ -1331,19 +1327,15 @@ export const EXTRA_ARTICLES: Article[] = [
     "sources": [
       {
         "label": "Forbes Vetted — The Best Portable Air Conditioners (Midea Duo, Best Overall)",
-        "url": "https://www.forbes.com/vetted/home/best-portable-air-conditioner/"
+        "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-portable-air-conditioner/"
       },
       {
         "label": "RTINGS — The Best Portable Air Conditioners We've Tested",
         "url": "https://www.rtings.com/air-conditioner/reviews/best/portable"
       },
       {
-        "label": "U.S. Department of Energy, Energy Saver — Tips: Cooling (window coverings & night ventilation)",
-        "url": "https://www.energy.gov/energysaver/tips-cooling"
-      },
-      {
-        "label": "Wirecutter (The New York Times) — The Best Tower Fans",
-        "url": "https://www.nytimes.com/wirecutter/reviews/best-tower-fan/"
+        "label": "Wirecutter (The New York Times) — The Best Fans (measured airflow, noise and power use)",
+        "url": "https://www.nytimes.com/wirecutter/reviews/best-fan/"
       },
       {
         "label": "Reviewed (USA Today) — The Best Tower Fans",
@@ -1529,23 +1521,19 @@ export const EXTRA_ARTICLES: Article[] = [
     "sources": [
       {
         "label": "Forbes Vetted — The Best Tower Fans",
-        "url": "https://www.forbes.com/vetted/home/best-tower-fans/"
+        "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-tower-fan/"
       },
       {
         "label": "Reviewed — The Best Tower Fans",
-        "url": "https://www.reviewed.com/home/best-right-now/best-tower-fans"
+        "url": "https://www.reviewed.com/home-outdoors/best-right-now/best-tower-fans"
       },
       {
         "label": "TechGearLab — Best Tower Fan Review",
-        "url": "https://www.techgearlab.com/topics/home-garden/best-tower-fan"
-      },
-      {
-        "label": "RTINGS — The Best Fans",
-        "url": "https://www.rtings.com/fan/reviews/best/by-type"
+        "url": "https://www.techgearlab.com/topics/home/best-tower-fan"
       },
       {
         "label": "Dyson — Purifier Cool TP07 Specifications",
-        "url": "https://www.dyson.com/air-treatment/purifiers/dyson-purifier-cool/overview"
+        "url": "https://www.dyson.com/air-treatment/air-purifiers/purifier-cool-tp07"
       }
     ],
     "relatedGuides": [],
@@ -1678,12 +1666,8 @@ export const EXTRA_ARTICLES: Article[] = [
     ],
     "sources": [
       {
-        "label": "Midea — WHS-121LB1 3.3 cu ft Compact Refrigerator (official spec page)",
-        "url": "https://www.midea.com/us/refrigerators/compact-refrigerators/3-3-cu-ft-compact-refrigerator-whs-121lb1"
-      },
-      {
         "label": "ENERGY STAR — Certified Refrigerators product finder (Midea WHS-121LB1)",
-        "url": "https://www.energystar.gov/productfinder/product/certified-residential-refrigerators/details/2210455"
+        "url": "https://www.energystar.gov/productfinder/product/certified-residential-refrigerators/details/2210457"
       },
       {
         "label": "Frigidaire EFR840 Retro 3.2 cu ft 2-Door Mini Fridge (spec listing)",
@@ -1841,10 +1825,6 @@ export const EXTRA_ARTICLES: Article[] = [
     ],
     "sources": [
       {
-        "label": "Wirecutter — The Best Monitor Light Bars",
-        "url": "https://www.nytimes.com/wirecutter/reviews/best-monitor-light-bars/"
-      },
-      {
         "label": "BenQ — Monitor Light Bars (official specs & comparison)",
         "url": "https://www.benq.com/en-us/knowledge-center/knowledge/monitor-light-bars-comparison.html"
       },
@@ -1857,8 +1837,8 @@ export const EXTRA_ARTICLES: Article[] = [
         "url": "https://www.faa.gov/hazmat/packsafe/airline-passengers-and-batteries"
       },
       {
-        "label": "Anker — Prime 6-in-1 Charging Station & Power Bank (official)",
-        "url": "https://www.anker.com/"
+        "label": "Anker Prime 6-in-1 Charging Station (140W) — official product page",
+        "url": "https://www.anker.com/products/a9128-6-in-1-charging-station"
       }
     ],
     "relatedGuides": [],
@@ -2005,16 +1985,16 @@ export const EXTRA_ARTICLES: Article[] = [
     ],
     "sources": [
       {
-        "label": "CDC — Extreme Heat: why fans alone aren't enough in very high temperatures",
-        "url": "https://www.cdc.gov/extreme-heat/prevention/index.html"
+        "label": "CDC — Heat and Your Health: use a fan only when indoor temperatures are below 90°F",
+        "url": "https://www.cdc.gov/heat-health/about/index.html"
       },
       {
-        "label": "Consumer Reports — Fan Buying Guide (fans cool people, not rooms; airflow and noise specs)",
-        "url": "https://www.consumerreports.org/appliances/fans/"
+        "label": "Consumer Reports — Best Room Fans (lab-tested for wind speed, noise and energy use)",
+        "url": "https://www.consumerreports.org/appliances/best-room-fans-a2629250573/"
       },
       {
-        "label": "The New York Times (Wirecutter) — fan and personal-cooler reviews",
-        "url": "https://www.nytimes.com/wirecutter/reviews/best-fans/"
+        "label": "Wirecutter (The New York Times) — The Best Fans (measured airflow, noise and power use)",
+        "url": "https://www.nytimes.com/wirecutter/reviews/best-fan/"
       },
       {
         "label": "Bob Vila — Best Neck Fans (buyer research and category picks)",
@@ -2264,10 +2244,6 @@ export const EXTRA_ARTICLES: Article[] = [
     ],
     "sources": [
       {
-        "label": "U.S. Department of Energy — Room Air Conditioners (BTU sizing guidance)",
-        "url": "https://www.energy.gov/energysaver/room-air-conditioners"
-      },
-      {
         "label": "U.S. Energy Information Administration — Electricity prices (average residential rate)",
         "url": "https://www.eia.gov/electricity/monthly/"
       },
@@ -2276,12 +2252,12 @@ export const EXTRA_ARTICLES: Article[] = [
         "url": "https://www.energystar.gov/products/room_air_conditioners"
       },
       {
-        "label": "CDC — Extreme Heat: staying cool and fan guidance",
-        "url": "https://www.cdc.gov/extreme-heat/prevention/index.html"
+        "label": "CDC — Heat and Your Health: staying cool and fan guidance",
+        "url": "https://www.cdc.gov/heat-health/about/index.html"
       },
       {
-        "label": "U.S. Department of Energy — Portable air conditioner test procedure (SACC)",
-        "url": "https://www.energy.gov/eere/buildings/articles/portable-air-conditioners-energy-conservation-standards"
+        "label": "U.S. Department of Energy — Portable Air Conditioners: current standard & test procedure (10 CFR 430, Appendix CC)",
+        "url": "https://www.energy.gov/cmei/buildings/portable-air-conditioners"
       }
     ],
     "relatedGuides": [],
@@ -2499,16 +2475,12 @@ export const EXTRA_ARTICLES: Article[] = [
         "url": "https://www.energystar.gov/products/room_air_conditioners"
       },
       {
-        "label": "U.S. Dept. of Energy, Energy Saver — Room Air Conditioners (BTU per sq ft)",
-        "url": "https://www.energy.gov/energysaver/room-air-conditioners"
-      },
-      {
         "label": "RTINGS — The Best Portable Air Conditioners (SACC, single vs. dual hose)",
         "url": "https://www.rtings.com/air-conditioner/reviews/best/portable"
       },
       {
         "label": "Forbes Vetted — The Best Portable Air Conditioners",
-        "url": "https://www.forbes.com/vetted/home/best-portable-air-conditioner/"
+        "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-portable-air-conditioner/"
       }
     ],
     "relatedGuides": [],
@@ -2741,10 +2713,6 @@ export const EXTRA_ARTICLES: Article[] = [
     ],
     "sources": [
       {
-        "label": "U.S. Department of Energy — Energy Saver: Fans (fans cool people, not rooms)",
-        "url": "https://www.energy.gov/energysaver/fans"
-      },
-      {
         "label": "Sleep Foundation — The Best Temperature for Sleep",
         "url": "https://www.sleepfoundation.org/bedroom-environment/best-temperature-for-sleep"
       },
@@ -2753,12 +2721,8 @@ export const EXTRA_ARTICLES: Article[] = [
         "url": "https://www.sleepfoundation.org/mattress-toppers/best-cooling-mattress-topper"
       },
       {
-        "label": "Forbes Vetted — The Best Fans For Sleeping",
-        "url": "https://www.forbes.com/sites/forbesvetted/article/best-fans-for-sleeping/"
-      },
-      {
-        "label": "RTINGS — The Best Quiet Fans",
-        "url": "https://www.rtings.com/fan/reviews/best/by-usage/quiet"
+        "label": "Forbes Vetted — Best Cooling Fans (decibel levels for bedroom use)",
+        "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-cooling-fans/"
       }
     ],
     "relatedGuides": [],
@@ -2950,8 +2914,8 @@ export const EXTRA_ARTICLES: Article[] = [
         "url": "https://www.faa.gov/hazmat/packsafe/lithium-batteries"
       },
       {
-        "label": "Apple Support — AirTag and the Find My network",
-        "url": "https://support.apple.com/airtag"
+        "label": "Apple Support — Use AirTag and Find My to keep track of your personal items",
+        "url": "https://support.apple.com/en-us/109021"
       },
       {
         "label": "Peak Design — Everyday Backpack V2 specifications",
@@ -3149,7 +3113,7 @@ export const EXTRA_ARTICLES: Article[] = [
     "sources": [
       {
         "label": "NYT Wirecutter — The Best Chef's Knife",
-        "url": "https://www.nytimes.com/wirecutter/reviews/best-chefs-knife/"
+        "url": "https://www.nytimes.com/wirecutter/reviews/the-best-chefs-knife-for-most-cooks/"
       },
       {
         "label": "NYT Wirecutter — The Best Blender",
@@ -3160,8 +3124,8 @@ export const EXTRA_ARTICLES: Article[] = [
         "url": "https://nymag.com/strategist/article/best-electric-kettles.html"
       },
       {
-        "label": "Serious Eats — The Food Lab's Complete Guide to Sous Vide",
-        "url": "https://www.seriouseats.com/food-lab-complete-guide-to-sous-vide"
+        "label": "Serious Eats, The Food Lab — Complete Guide to Sous Vide Steak",
+        "url": "https://www.seriouseats.com/food-lab-complete-guide-to-sous-vide-steak"
       },
       {
         "label": "Breville — Barista Express (BES870XL) Product Specifications",

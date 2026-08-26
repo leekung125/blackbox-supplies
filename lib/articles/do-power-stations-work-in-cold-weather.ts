@@ -203,11 +203,11 @@ export const DO_POWER_STATIONS_WORK_IN_COLD_WEATHER: Article = {
     },
     {
       label: "BLUETTI AC180 official specifications",
-      url: "https://www.bluettipower.com/products/bluetti-ac180-portable-power-station",
+      url: "https://www.bluettipower.com/products/ac180",
     },
     {
       label: "EcoFlow RIVER 2 Pro official specifications",
-      url: "https://www.ecoflow.com/us/river-2-pro-portable-power-station",
+      url: "https://us.ecoflow.com/products/river-2-pro-portable-power-station",
     },
     {
       label: "Battery University — charging lithium-ion at low temperature (lithium plating)",

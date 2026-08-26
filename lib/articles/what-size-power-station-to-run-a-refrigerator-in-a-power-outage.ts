@@ -175,7 +175,7 @@ export const WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE: Ar
   sources: [
     {
       label: "BLUETTI AC180 official specifications",
-      url: "https://www.bluettipower.com/products/bluetti-ac180-portable-power-station",
+      url: "https://www.bluettipower.com/products/ac180",
     },
     {
       label: "Jackery Explorer 1000 v2 official specifications",
@@ -183,11 +183,7 @@ export const WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE: Ar
     },
     {
       label: "EcoFlow RIVER 2 Pro official specifications",
-      url: "https://www.ecoflow.com/us/river-2-pro-portable-power-station",
-    },
-    {
-      label: "U.S. Department of Energy - Energy Saver: Refrigerators & Freezers",
-      url: "https://www.energy.gov/energysaver/refrigerators-and-freezers",
+      url: "https://us.ecoflow.com/products/river-2-pro-portable-power-station",
     },
   ],
 };

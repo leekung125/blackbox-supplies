@@ -207,8 +207,8 @@ export const WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER: Article = {
       url: "https://www.ready.gov/winter-weather",
     },
     {
-      label: "Consumer Reports — Car Safety",
-      url: "https://www.consumerreports.org/cars/car-safety/",
+      label: "Consumer Reports — Winter Driving Tips (recommended roadside emergency kit contents)",
+      url: "https://www.consumerreports.org/cars/winter-driving/winter-driving-tips-from-consumer-reports-experts-a8223951679/",
     },
   ],
   heroImage: "/brand/kit-winter.png",
