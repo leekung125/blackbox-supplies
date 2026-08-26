@@ -159,9 +159,17 @@ export const BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID: Article
     },
   ],
   relatedGuides: ["car-gear-worth-keeping-in-your-trunk", "roadside-emergency-kit"],
+  // ⛔ AUDIT 2026-08-26 — two citations here were wrong and both shipped live:
+  //  1. https://www.ecoflow.com/us/wave-3 is a hard 404. The live manufacturer page is
+  //     /us/wave-3-portable-air-conditioner (and /specs for the full sheet). Fixed.
+  //  2. The ENERGY STAR room-AC page was labelled "SACC / DOE ratings explained". That page
+  //     contains "SACC" zero times, "portable" zero times and "Seasonally Adjusted" zero times.
+  //     The label described a page nobody opened. Removed rather than relabelled — the SACC and
+  //     DOE figures this page quotes come from our own catalog entries, which is the honest cite.
+  // Fetch a URL before citing it. An invented citation is a fabricated source, not a typo.
   sources: [
-    { label: "EcoFlow WAVE 3 — manufacturer product page", url: "https://www.ecoflow.com/us/wave-3" },
-    { label: "ENERGY STAR — room & portable air conditioners (SACC / DOE ratings explained)", url: "https://www.energystar.gov/products/room_air_conditioners" },
+    { label: "EcoFlow WAVE 3 — manufacturer product page", url: "https://www.ecoflow.com/us/wave-3-portable-air-conditioner" },
+    { label: "EcoFlow WAVE 3 — manufacturer specification sheet", url: "https://www.ecoflow.com/us/wave-3-portable-air-conditioner/specs" },
     { label: "Midea — official site", url: "https://www.midea.com" },
     { label: "BLACK+DECKER — official site", url: "https://www.blackanddecker.com" },
   ],
