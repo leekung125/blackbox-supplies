@@ -1,3 +1,10 @@
+/*
+ * attribcheck-allow: 42 - Midea's own copy on the listing we link: "silent operation(42dB)".
+ * attribcheck-allow: 0.56 - same listing: "No more than 0.56 KWh/day consumption".
+ * Both read out of the RAW listing HTML in the browser rig on 2026-08-26. Amazon returns 403
+ * to every script, so attribcheck can never fetch this source - hence the explicit markers
+ * rather than a silent pass. Neither figure is on any Midea page still online.
+ */
 import type { Article } from "@/lib/articles";
 
 /**
@@ -130,6 +137,11 @@ export const QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM: Article = {
     "best-tower-fans-compared",
   ],
   sources: [
+    {
+      label: "Midea WHS-121LB1 mini fridge - Amazon listing (manufacturer copy: "
+        + "\"silent operation(42dB)\" and \"No more than 0.56 KWh/day consumption\")",
+      url: "https://www.amazon.com/dp/B00JXQ4PFS?tag=blackboxsuppl-20",
+    },
     { label: "USDA — Refrigeration and Food Safety (the 40°F safe-storage ceiling)", url: "https://www.fsis.usda.gov/food-safety/safe-food-handling-and-preparation/food-safety-basics/refrigeration" },
     { label: "ENERGY STAR — Refrigerators (efficiency ratings)", url: "https://www.energystar.gov/products/refrigerators" },
     { label: "CDC/NIOSH — What Noises Cause Hearing Loss? (decibel reference scale)", url: "https://www.cdc.gov/niosh/noise/about/noise.html" },

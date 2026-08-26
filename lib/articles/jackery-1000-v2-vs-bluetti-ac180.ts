@@ -17,6 +17,9 @@ import type { Article } from "@/lib/articles";
  * themselves, we would lose it, and it would cannibalise this one.
  *
  * SPEC CONFLICT RESOLVED BEFORE PUBLISHING (2026-08-26): our catalog records the Explorer 1000 v2
+ * attribcheck-allow: 3,300 - this page QUOTES the aggregator figure on purpose, in the FAQ and
+ * in the surge section, so the reader sees the disagreement rather than being handed one side.
+ * Jackery's own table says 3,000W and that is the only figure this page ASSERTS.
  * surge as 3,300W, and third-party comparison sites in this SERP print 3,000W. Jackery's own Tech
  * Specs table on jackery.com states "AC Total Output: 1500W Rated, 3000W Surge peak". 3,000W is the
  * manufacturer's figure and the only one used here. Our catalog's 3,300W was wrong, and so was the
