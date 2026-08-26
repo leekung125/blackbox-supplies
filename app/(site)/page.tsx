@@ -58,10 +58,18 @@ const VERTICALS = [
 ];
 
 // Real, on-brand readiness articles (the prior slugs didn't exist → the section rendered empty).
+//
+// ⛔ ORDERED BY COMMISSION, WITHIN THE BRAND. These three slots and the flagship below are the
+// most prominent editorial placements on the site. They were pointing at the cheapest categories
+// in the catalog: measured at Amazon's ~3% on each guide's top product, the old set paid $4.50,
+// $2.40 and $13.47 a sale, and the flagship was best-jump-starters-compared at $3.00.
+//
+// Every replacement is still readiness/car/power - the brand is unchanged, only the order of what
+// it leads with. A $70 tire inflator and a $449 power station cost the same to feature.
 const FEATURED_SLUGS = [
-  "best-jump-starter-diesel-truck-cold-winter",
-  "winter-car-emergency-kit-new-driver",
-  "best-power-station-apartment-power-outage",
+  "what-size-power-station-to-run-a-refrigerator-in-a-power-outage", // ~$13.47/sale
+  "dash-cam-parking-mode-vs-security-camera",                        // ~$12.00/sale
+  "best-power-station-apartment-power-outage",                       // ~$13.47/sale
 ];
 
 const WHY = [
@@ -79,7 +87,10 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const articles = getAllArticles();
   const featured = FEATURED_SLUGS.map((s) => articles.find((a) => a.slug === s)).filter(Boolean).slice(0, 3);
-  const flagship = COMPARISON_GUIDES.find((g) => g.slug === "best-jump-starters-compared") ?? COMPARISON_GUIDES[0];
+  // ⛔ The flagship slot is the single most prominent guide placement on the site. It pointed
+  // at best-jump-starters-compared, whose top product is a $100 jump starter (~$3.00 a sale).
+  // Power stations are the same audience - the car/readiness buyer - at ~$13.47 a sale.
+  const flagship = COMPARISON_GUIDES.find((g) => g.slug === "best-power-stations-compared") ?? COMPARISON_GUIDES[0];
   const otherGuides = COMPARISON_GUIDES.filter((g) => g.slug !== flagship.slug);
 
   // Homepage identity node + an ItemList of the primary verticals (the "what we cover" map)
