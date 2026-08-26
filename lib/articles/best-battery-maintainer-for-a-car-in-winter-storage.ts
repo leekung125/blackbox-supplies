@@ -135,5 +135,5 @@ export const BEST_BATTERY_MAINTAINER_WINTER_STORAGE: Article = {
     { label: "NOCO GENIUS5 official product page & specifications", url: "https://no.co/genius5" },
     { label: "NOCO GENIUS series (full lineup: GENIUS1 / GENIUS5 / GENIUS10)", url: "https://no.co/genius" },
   ],
-  heroImage: "/products/scene/noco-genius5-smart-battery-charger.png",
+  heroImage: "/products/scene/noco-genius5-smart-battery-charger.webp",
 };

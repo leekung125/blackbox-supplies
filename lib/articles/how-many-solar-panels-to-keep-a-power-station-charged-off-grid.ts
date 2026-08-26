@@ -152,7 +152,7 @@ export const HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID: Art
     },
   ],
   relatedGuides: ["car-gear-worth-keeping-in-your-trunk"],
-  heroImage: "/products/scene/jackery-solarsaga-100w-portable-solar.png",
+  heroImage: "/products/scene/jackery-solarsaga-100w-portable-solar.webp",
   sources: [
     {
       label: "Jackery SolarSaga 100W Portable Solar Panel — official specifications",

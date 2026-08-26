@@ -258,7 +258,7 @@ export const THUNDERBOLT_4_DOCK_VS_USB_C_HUB: Article = {
       url: "https://www.amazon.com/dp/B09GK8LBWS?tag=blackboxsuppl-20",
     },
   ],
-  heroImage: "/products/scene/ts4-18-port-thunderbolt-4-dock.png",
+  heroImage: "/products/scene/ts4-18-port-thunderbolt-4-dock.webp",
   picks: [
     {
       id: "ts4-18-port-thunderbolt-4-dock",

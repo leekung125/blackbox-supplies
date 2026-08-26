@@ -172,7 +172,7 @@ export const BEST_PORTABLE_AC_GARAGE_NO_WINDOW: Article = {
     { label: "Whynter — official site", url: "https://www.whynter.com" },
     { label: "Midea — official site", url: "https://www.midea.com" },
   ],
-  heroImage: "/products/heat/whynter-nex-arc-1230wn-14-000.png",
+  heroImage: "/products/heat/whynter-nex-arc-1230wn-14-000.webp",
   picks: [
     { id: "whynter-nex-arc-1230wn-14-000", cat: "heat", label: "Best dual-hose pick" },
     { id: "midea-duo-14-000-btu-smart", cat: "heat", label: "Quiet alternative" },

@@ -264,7 +264,7 @@ export const ARE_PREMIUM_NOISE_CANCELLING_EARBUDS_WORTH_IT: Article = {
       url: "https://www.amazon.com/dp/B00HD0ELFK?tag=blackboxsuppl-20",
     },
   ],
-  heroImage: "/products/scene/sony-wf-1000xm5-wireless-noise-cancelling.png",
+  heroImage: "/products/scene/sony-wf-1000xm5-wireless-noise-cancelling.webp",
   picks: [
     {
       id: "sony-wf-1000xm5-wireless-noise-cancelling",

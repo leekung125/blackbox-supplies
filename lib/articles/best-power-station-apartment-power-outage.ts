@@ -147,7 +147,7 @@ export const BEST_POWER_STATION_APARTMENT_POWER_OUTAGE: Article = {
     },
   ],
   relatedGuides: ["best-power-stations-compared"],
-  heroImage: "/products/scene/bluetti-ac180-portable-power-station.png",
+  heroImage: "/products/scene/bluetti-ac180-portable-power-station.webp",
   sources: [
     {
       label: "BLUETTI AC180 official specifications",

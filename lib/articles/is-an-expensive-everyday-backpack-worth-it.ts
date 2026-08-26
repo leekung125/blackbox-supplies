@@ -221,7 +221,7 @@ export const IS_AN_EXPENSIVE_EVERYDAY_BACKPACK_WORTH_IT: Article = {
       url: "https://www.amazon.com/dp/B0932QJ2JZ?tag=blackboxsuppl-20",
     },
   ],
-  heroImage: "/products/scene/peak-design-everyday-backpack-20l-v2.png",
+  heroImage: "/products/scene/peak-design-everyday-backpack-20l-v2.webp",
   picks: [
     {
       id: "peak-design-everyday-backpack-20l-v2",

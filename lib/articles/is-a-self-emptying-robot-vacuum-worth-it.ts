@@ -194,7 +194,7 @@ export const IS_A_SELF_EMPTYING_ROBOT_VACUUM_WORTH_IT: Article = {
       url: "https://www.amazon.com/dp/B01728NLRG?tag=blackboxsuppl-20",
     },
   ],
-  heroImage: "/products/scene/q-revo-robot-vacuum-and-mop.png",
+  heroImage: "/products/scene/q-revo-robot-vacuum-and-mop.webp",
   picks: [
     {
       id: "q-revo-robot-vacuum-and-mop",

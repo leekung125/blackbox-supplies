@@ -131,5 +131,5 @@ export const CORDLESS_IMPACT_WRENCH_FOR_CHANGING_TIRES_AT_HOME: Article = {
     { label: "RoadSumo — lug nut torque specifications and removal torque data", url: "https://roadsumo.com" },
     { label: "Tire Rack — wheel torque specifications and star-pattern torque procedure", url: "https://www.tirerack.com" },
   ],
-  heroImage: "/products/scene/avid-power-20v-cordless-impact.png",
+  heroImage: "/products/scene/avid-power-20v-cordless-impact.webp",
 };

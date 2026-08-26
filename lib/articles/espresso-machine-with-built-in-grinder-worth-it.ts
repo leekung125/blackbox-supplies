@@ -140,7 +140,7 @@ export const ESPRESSO_MACHINE_WITH_BUILT_IN_GRINDER_WORTH_IT: Article = {
       url: "https://www.amazon.com/dp/B00CH9QWOU?tag=blackboxsuppl-20",
     },
   ],
-  heroImage: "/products/scene/breville-barista-express-espresso-machine-bes870xl.png",
+  heroImage: "/products/scene/breville-barista-express-espresso-machine-bes870xl.webp",
   picks: [
     {
       id: "breville-barista-express-espresso-machine-bes870xl",

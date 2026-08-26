@@ -140,7 +140,7 @@ export const BEST_TSA_LEGAL_LAPTOP_POWER_BANK: Article = {
     },
   ],
   relatedGuides: ["roadside-emergency-kit"],
-  heroImage: "/products/scene/anker-prime-power-bank.png",
+  heroImage: "/products/scene/anker-prime-power-bank.webp",
   sources: [
     { label: "FAA PackSafe - Batteries carried by airline passengers (lithium 100Wh/160Wh rule)", url: "https://www.faa.gov/hazmat/packsafe/lithium-batteries" },
     { label: "IATA - Lithium battery guidance for passengers", url: "https://www.iata.org/en/programs/cargo/dgr/lithium-batteries/" },

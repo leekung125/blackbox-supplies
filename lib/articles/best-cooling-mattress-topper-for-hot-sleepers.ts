@@ -282,7 +282,7 @@ export const BEST_COOLING_MATTRESS_TOPPER_FOR_HOT_SLEEPERS: Article = {
       url: "https://www.amazon.com/dp/B07R6TB9L2?tag=blackboxsuppl-20",
     },
   ],
-  heroImage: "/products/scene/saatva-graphite-memory-foam-mattress-topper.png",
+  heroImage: "/products/scene/saatva-graphite-memory-foam-mattress-topper.webp",
   picks: [
     {
       id: "saatva-graphite-memory-foam-mattress-topper",

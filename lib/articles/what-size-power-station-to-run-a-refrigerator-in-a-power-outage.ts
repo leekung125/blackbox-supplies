@@ -171,7 +171,7 @@ export const WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE: Ar
     },
   ],
   relatedGuides: ["best-power-stations-compared"],
-  heroImage: "/products/scene/jackery-explorer-1000-v2-portable.png",
+  heroImage: "/products/scene/jackery-explorer-1000-v2-portable.webp",
   sources: [
     {
       label: "BLUETTI AC180 official specifications",

@@ -234,7 +234,7 @@ export const IS_AN_EXPENSIVE_BLENDER_WORTH_IT: Article = {
       url: "https://www.amazon.com/dp/B008H4SLV6?tag=blackboxsuppl-20",
     },
   ],
-  heroImage: "/products/scene/vitamix-5200-professional-grade-blender-64.png",
+  heroImage: "/products/scene/vitamix-5200-professional-grade-blender-64.webp",
   picks: [
     {
       id: "vitamix-5200-professional-grade-blender-64",

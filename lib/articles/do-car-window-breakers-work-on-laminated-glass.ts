@@ -133,5 +133,5 @@ export const WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE: Article = {
     { label: "NHTSA ESV — Injury Analysis of Laminated and Tempered Side Glazing (PDF)", url: "https://www-esv.nhtsa.dot.gov/Proceedings/20/07-0101-W.pdf" },
     { label: "resqme — The Original Car Escape Tool (manufacturer)", url: "https://www.resqme.com/" },
   ],
-  heroImage: "/products/scene/resqme-the-original-car-escape.png",
+  heroImage: "/products/scene/resqme-the-original-car-escape.webp",
 };

@@ -144,7 +144,7 @@ export const BEST_NECK_FAN_HOT_FLASHES_NIGHT_SWEATS: Article = {
     { label: "TORRAS official brand site (COOLiFY line)", url: "https://www.torraslife.com" },
     { label: "JISULIFE official neck-fan collection", url: "https://www.jisulife.com/collections/neck-fan" },
   ],
-  heroImage: "/products/scene/torras-coolify-2s-neck-air-conditioner.png",
+  heroImage: "/products/scene/torras-coolify-2s-neck-air-conditioner.webp",
   picks: [
     { id: "torras-coolify-2s-neck-air-conditioner", cat: "heat", label: "Real cold-plate relief" },
     { id: "jisulife-portable-neck-fan-pro-100", cat: "heat", label: "Lightest, all-day airflow" },

@@ -160,5 +160,5 @@ export const POWER_STATION_VS_JUMP_STARTER_WHICH_DO_I_NEED: Article = {
     { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.amazon.com/dp/B0D7PPG25F?tag=blackboxsuppl-20" },
     { label: "NOCO Boost HD GB70 official specifications", url: "https://no.co/gb70" },
   ],
-  heroImage: "/products/scene/jackery-explorer-1000-v2-portable.png",
+  heroImage: "/products/scene/jackery-explorer-1000-v2-portable.webp",
 };

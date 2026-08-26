@@ -165,7 +165,7 @@ export const BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID: Article
     { label: "Midea — official site", url: "https://www.midea.com" },
     { label: "BLACK+DECKER — official site", url: "https://www.blackanddecker.com" },
   ],
-  heroImage: "/products/scene/ecoflow-wave-3-portable-air-conditioner.png",
+  heroImage: "/products/scene/ecoflow-wave-3-portable-air-conditioner.webp",
   picks: [
     { id: "ecoflow-wave-3-portable-air-conditioner", cat: "heat", label: "Best for off-grid" },
     { id: "midea-duo-14-000-btu-smart", cat: "heat", label: "If you have a window" },

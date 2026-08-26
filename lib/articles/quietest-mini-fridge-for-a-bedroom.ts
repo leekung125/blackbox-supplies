@@ -134,7 +134,7 @@ export const QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM: Article = {
     { label: "ENERGY STAR — Refrigerators (efficiency ratings)", url: "https://www.energystar.gov/products/refrigerators" },
     { label: "CDC/NIOSH — What Noises Cause Hearing Loss? (decibel reference scale)", url: "https://www.cdc.gov/niosh/noise/about/noise.html" },
   ],
-  heroImage: "/products/scene/midea-whs-121lb1-mini-fridge-3.png",
+  heroImage: "/products/scene/midea-whs-121lb1-mini-fridge-3.webp",
   picks: [
     { id: "midea-whs-121lb1-mini-fridge-3", cat: "heat", label: "Quiet compressor pick (real cold)" },
     { id: "frigidaire-efr840-retro-2-door-mini", cat: "heat", label: "Retro style + separate freezer" },

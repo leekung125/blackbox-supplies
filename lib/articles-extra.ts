@@ -1155,7 +1155,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/ecoflow-wave-3-portable-air-conditioner.png",
+    "heroImage": "/products/heat/ecoflow-wave-3-portable-air-conditioner.webp",
     "picks": [
       {
         "id": "midea-duo-14-000-btu-smart",
@@ -1349,7 +1349,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/dyson-purifier-cool-tp07-bladeless-tower.png",
+    "heroImage": "/products/heat/dyson-purifier-cool-tp07-bladeless-tower.webp",
     "picks": [
       {
         "id": "midea-duo-14-000-btu-smart",
@@ -1522,7 +1522,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/tempur-pedic-tempur-adapt-cooling-3.png",
+    "heroImage": "/products/heat/tempur-pedic-tempur-adapt-cooling-3.webp",
     "picks": [
       {
         "id": "saatva-graphite-memory-foam-mattress-topper",
@@ -1716,7 +1716,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/dreo-cruiser-pro-t1-oscillating-tower.png",
+    "heroImage": "/products/heat/dreo-cruiser-pro-t1-oscillating-tower.webp",
     "picks": [
       {
         "id": "dreo-cruiser-pro-t1-oscillating-tower",
@@ -1866,7 +1866,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/frigidaire-efr840-retro-2-door-mini.png",
+    "heroImage": "/products/heat/frigidaire-efr840-retro-2-door-mini.webp",
     "picks": [
       {
         "id": "midea-whs-121lb1-mini-fridge-3",
@@ -2029,7 +2029,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/useful/benq-screenbar-monitor-light-bar.png",
+    "heroImage": "/products/useful/benq-screenbar-monitor-light-bar.webp",
     "picks": [
       {
         "id": "benq-screenbar-monitor-light-bar",
@@ -2189,7 +2189,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/torras-coolify-2s-neck-air-conditioner.png",
+    "heroImage": "/products/heat/torras-coolify-2s-neck-air-conditioner.webp",
     "picks": [
       {
         "id": "torras-coolify-2s-neck-air-conditioner",
@@ -2452,7 +2452,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/midea-duo-14-000-btu-smart.png",
+    "heroImage": "/products/heat/midea-duo-14-000-btu-smart.webp",
     "picks": [
       {
         "id": "midea-duo-14-000-btu-smart",
@@ -2679,7 +2679,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/black-decker-10-000-btu-3.png",
+    "heroImage": "/products/heat/black-decker-10-000-btu-3.webp",
     "picks": [
       {
         "id": "midea-duo-14-000-btu-smart",
@@ -2929,7 +2929,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/heat/viscosoft-4-inch-active-cooling-copper.png",
+    "heroImage": "/products/heat/viscosoft-4-inch-active-cooling-copper.webp",
     "picks": [
       {
         "id": "viscosoft-4-inch-active-cooling-copper",
@@ -3126,7 +3126,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/useful/peak-design-everyday-backpack-20l-v2.png",
+    "heroImage": "/products/useful/peak-design-everyday-backpack-20l-v2.webp",
     "picks": [
       {
         "id": "peak-design-everyday-backpack-20l-v2",
@@ -3336,7 +3336,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/useful/breville-barista-express-espresso-machine-bes870xl.png",
+    "heroImage": "/products/useful/breville-barista-express-espresso-machine-bes870xl.webp",
     "picks": [
       {
         "id": "wusthof-classic-8-inch-chef-s",
@@ -3519,7 +3519,7 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "relatedGuides": [],
-    "heroImage": "/products/useful/q-revo-robot-vacuum-and-mop.png",
+    "heroImage": "/products/useful/q-revo-robot-vacuum-and-mop.webp",
     "picks": [
       {
         "id": "airmega-ap-1512hh-mighty-true-hepa",

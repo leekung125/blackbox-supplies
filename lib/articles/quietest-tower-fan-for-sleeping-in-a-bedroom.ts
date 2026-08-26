@@ -152,7 +152,7 @@ export const QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM: Article = {
     { label: "Lasko T42951 — Amazon listing", url: "https://www.amazon.com/dp/B00C7N2W72?tag=blackboxsuppl-20" },
     { label: "CDC / NIOSH — noise levels and hearing (decibel reference)", url: "https://www.cdc.gov/niosh/noise/about/noise.html" },
   ],
-  heroImage: "/products/scene/dreo-42-inch-bladeless-tower-fan.png",
+  heroImage: "/products/scene/dreo-42-inch-bladeless-tower-fan.webp",
   picks: [
     { id: "dreo-42-inch-bladeless-tower-fan", cat: "heat", label: "Quietest for light sleepers" },
     { id: "dreo-tower-fan-2026-upgraded-dc", cat: "heat", label: "Quiet + smart control" },

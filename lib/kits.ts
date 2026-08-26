@@ -115,7 +115,7 @@ export const KITS: Kit[] = [
     problem:
       "Cold weather is when a marginal battery finally quits, and a dusting of snow is enough to spin your tires on a slope. Two problems, a handful of items that solve them.",
     buyFirstId: "noco-boost-gb40-1000a-ultrasafe",
-    heroImage: "/products/scene/lifeline-4388aaa-excursion-road-76.png",
+    heroImage: "/products/scene/lifeline-4388aaa-excursion-road-76.webp",
     starterIds: ["noco-boost-gb40-1000a-ultrasafe", "maxsa-escaper-buddy-traction-mats"],
     betterIds: [
       "swiss-safe-emergency-mylar-thermal",
@@ -153,7 +153,7 @@ export const KITS: Kit[] = [
     problem:
       "When the grid drops or you're camped miles from an outlet, you still need to charge phones, run a laptop, and keep a light on. A right-sized power station does it quietly.",
     buyFirstId: "jackery-explorer-1000-v2-portable",
-    heroImage: "/products/scene/bluetti-ac180-portable-power-station.png",
+    heroImage: "/products/scene/bluetti-ac180-portable-power-station.webp",
     starterIds: ["jackery-explorer-1000-v2-portable", "anker-prime-power-bank"],
     betterIds: [
       "bluetti-ac180-portable-power-station",

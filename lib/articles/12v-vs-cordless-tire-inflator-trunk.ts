@@ -135,5 +135,5 @@ export const TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK: Article = {
     { label: "EPAuto 12V DC portable air compressor (Amazon listing)", url: "https://www.amazon.com/dp/B01L9WSTEG" },
     { label: "DEWALT 20V MAX inflator (DCC020IB) official page", url: "https://www.dewalt.com/product/dcc020ib/20v-max-corded-cordless-air-inflator-tool-only" },
   ],
-  heroImage: "/products/scene/epauto-12v-dc-portable-air.png",
+  heroImage: "/products/scene/epauto-12v-dc-portable-air.webp",
 };

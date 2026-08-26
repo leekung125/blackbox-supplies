@@ -135,5 +135,5 @@ export const CPAP_POWER_STATION_ARTICLE: Article = {
     { label: "Jackery Explorer 1000 v2 official specifications", url: "https://www.amazon.com/dp/B0D7PPG25F?tag=blackboxsuppl-20" },
     { label: "FAA guidance on portable batteries and watt-hour limits", url: "https://www.faa.gov/hazmat/packsafe/lithium-batteries" },
   ],
-  heroImage: "/products/scene/anker-solix-c300-portable-power.png",
+  heroImage: "/products/scene/anker-solix-c300-portable-power.webp",
 };

@@ -133,5 +133,5 @@ export const BEST_JUMP_STARTER_DIESEL_TRUCK_COLD_WINTER: Article = {
     { label: "Battery University — discharging at low temperatures (why lithium output drops in cold)", url: "https://batteryuniversity.com/article/bu-502-discharging-at-high-and-low-temperatures" },
     { label: "Battery Council International — the industry body behind the CCA / cold-cranking standard", url: "https://batterycouncil.org" },
   ],
-  heroImage: "/products/scene/noco-boost-hd-gb70-2000a.png",
+  heroImage: "/products/scene/noco-boost-hd-gb70-2000a.webp",
 };

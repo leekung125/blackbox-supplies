@@ -142,7 +142,7 @@ export const SINGLE_VS_DUAL_HOSE_AC: Article = {
     { label: "ENERGY STAR — room air conditioner efficiency & sizing", url: "https://www.energystar.gov" },
     { label: "BlackBox: The Best Portable Air Conditioners, compared (SACC-first)", url: "/guides/best-portable-air-conditioners" },
   ],
-  heroImage: "/products/scene/whynter-nex-arc-1230wn-14-000.png",
+  heroImage: "/products/scene/whynter-nex-arc-1230wn-14-000.webp",
   picks: [
     { id: "whynter-nex-arc-1230wn-14-000", cat: "heat", label: "Best dual-hose · large/sunny rooms" },
     { id: "black-decker-10-000-btu-3", cat: "heat", label: "Best single-hose value · small/shaded" },

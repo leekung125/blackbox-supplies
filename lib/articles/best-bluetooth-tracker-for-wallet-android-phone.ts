@@ -141,7 +141,7 @@ export const BEST_BLUETOOTH_TRACKER_WALLET_ANDROID: Article = {
     { label: "Pebblebee Clip (rechargeable tracker) official page", url: "https://pebblebee.com/products/clip" },
     { label: "Google Find Hub (find your devices and items) help", url: "https://support.google.com/android/answer/6160491" },
   ],
-  heroImage: "/products/scene/pebblebee-clip-5-rechargeable-bluetooth-tracker.png",
+  heroImage: "/products/scene/pebblebee-clip-5-rechargeable-bluetooth-tracker.webp",
   picks: [
     { id: "pebblebee-clip-5-rechargeable-bluetooth-tracker", cat: "useful", label: "Best for Android" },
     { id: "apple-airtag-4-pack", cat: "useful", label: "Best for iPhone (not Android)" },

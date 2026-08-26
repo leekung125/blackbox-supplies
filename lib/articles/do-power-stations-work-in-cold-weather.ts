@@ -214,5 +214,5 @@ export const DO_POWER_STATIONS_WORK_IN_COLD_WEATHER: Article = {
       url: "https://batteryuniversity.com/article/bu-410-charging-at-high-and-low-temperatures",
     },
   ],
-  heroImage: "/products/scene/jackery-explorer-1000-v2-portable.png",
+  heroImage: "/products/scene/jackery-explorer-1000-v2-portable.webp",
 };

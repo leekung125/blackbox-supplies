@@ -159,7 +159,7 @@ export const SWAMP_COOLER_HUMIDITY_ARTICLE: Article = {
       url: "https://hessaire.com/products/mc18m",
     },
   ],
-  heroImage: "/products/scene/dreo-43-evaporative-air-swamp-cooler.png",
+  heroImage: "/products/scene/dreo-43-evaporative-air-swamp-cooler.webp",
   picks: [
     { id: "dreo-43-evaporative-air-swamp-cooler", cat: "heat", label: "Best quiet indoor swamp cooler (dry climates)" },
     { id: "hessaire-mc18m-portable-evaporative-swamp-cooler", cat: "heat", label: "Best high-output swamp cooler (dry climates)" },

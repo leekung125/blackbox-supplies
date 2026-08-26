@@ -125,5 +125,5 @@ export const MILWAUKEE_M12_VS_DEWALT_20V_INFLATOR: Article = {
       url: "https://www.milwaukeetool.com/Products/Power-Tools/Compressors-and-Inflators/2475-20",
     },
   ],
-  heroImage: "/products/scene/milwaukee-m12-compact-inflator-2475.png",
+  heroImage: "/products/scene/milwaukee-m12-compact-inflator-2475.webp",
 };

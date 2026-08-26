@@ -16,7 +16,7 @@ export const BEST_MONITOR_LIGHT_BAR_EYE_STRAIN_ARTICLE: Article = {
   category: "Desk & Tech",
   readMinutes: 8,
   updated: "July 2026",
-  heroImage: "/products/scene/benq-screenbar-monitor-light-bar.png",
+  heroImage: "/products/scene/benq-screenbar-monitor-light-bar.webp",
   picks: [
     { id: "benq-screenbar-monitor-light-bar", cat: "useful", label: "Best monitor light bar for eye strain" },
   ],

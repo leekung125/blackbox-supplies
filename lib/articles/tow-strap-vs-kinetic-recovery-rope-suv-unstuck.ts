@@ -155,5 +155,5 @@ export const TOW_STRAP_VS_KINETIC_ROPE_ARTICLE: Article = {
     { label: "Bubba Rope — kinetic recovery rope manufacturer (stretch/technique background)", url: "https://www.bubbarope.com" },
     { label: "Factor 55 — soft shackle and recovery rigging manufacturer", url: "https://www.factor55.com" },
   ],
-  heroImage: "/products/scene/rhino-usa-recovery-tow-strap.png",
+  heroImage: "/products/scene/rhino-usa-recovery-tow-strap.webp",
 };

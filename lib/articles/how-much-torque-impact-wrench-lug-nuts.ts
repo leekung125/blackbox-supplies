@@ -121,5 +121,5 @@ export const HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS: Article = {
     { label: "Impact wrench — mechanism, fastening vs breakaway torque (Wikipedia)", url: "https://en.wikipedia.org/wiki/Impact_wrench" },
     { label: "Torque wrench — why final lug-nut torque is set by hand to spec (Wikipedia)", url: "https://en.wikipedia.org/wiki/Torque_wrench" },
   ],
-  heroImage: "/products/scene/avid-power-20v-cordless-impact.png",
+  heroImage: "/products/scene/avid-power-20v-cordless-impact.webp",
 };
