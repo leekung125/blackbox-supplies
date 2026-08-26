@@ -21,6 +21,12 @@ import { DASH_CAM_VS_SECURITY_CAMERA } from "./articles/dash-cam-parking-mode-vs
 import { WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE } from "./articles/do-car-window-breakers-work-on-laminated-glass";
 import { DO_POWER_STATIONS_WORK_IN_COLD_WEATHER } from "./articles/do-power-stations-work-in-cold-weather";
 import { ESPRESSO_MACHINE_WITH_BUILT_IN_GRINDER_WORTH_IT } from "./articles/espresso-machine-with-built-in-grinder-worth-it";
+import { BEST_COOLING_MATTRESS_TOPPER_FOR_HOT_SLEEPERS } from "./articles/best-cooling-mattress-topper-for-hot-sleepers";
+import { IS_A_SELF_EMPTYING_ROBOT_VACUUM_WORTH_IT } from "./articles/is-a-self-emptying-robot-vacuum-worth-it";
+import { IS_AN_EXPENSIVE_BLENDER_WORTH_IT } from "./articles/is-an-expensive-blender-worth-it";
+import { THUNDERBOLT_4_DOCK_VS_USB_C_HUB } from "./articles/thunderbolt-4-dock-vs-usb-c-hub";
+import { IS_AN_EXPENSIVE_EVERYDAY_BACKPACK_WORTH_IT } from "./articles/is-an-expensive-everyday-backpack-worth-it";
+import { ARE_PREMIUM_NOISE_CANCELLING_EARBUDS_WORTH_IT } from "./articles/are-premium-noise-cancelling-earbuds-worth-it";
 import { SWAMP_COOLER_HUMIDITY_ARTICLE } from "./articles/do-swamp-coolers-work-in-humid-climates";
 import { HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID } from "./articles/how-many-solar-panels-to-keep-a-power-station-charged-off-grid";
 import { HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS } from "./articles/how-much-torque-impact-wrench-lug-nuts";
@@ -55,6 +61,12 @@ const DEEP_SEO_BATCH: Article[] = [
   WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE,
   DO_POWER_STATIONS_WORK_IN_COLD_WEATHER,
   ESPRESSO_MACHINE_WITH_BUILT_IN_GRINDER_WORTH_IT,
+  BEST_COOLING_MATTRESS_TOPPER_FOR_HOT_SLEEPERS,
+  IS_A_SELF_EMPTYING_ROBOT_VACUUM_WORTH_IT,
+  IS_AN_EXPENSIVE_BLENDER_WORTH_IT,
+  THUNDERBOLT_4_DOCK_VS_USB_C_HUB,
+  IS_AN_EXPENSIVE_EVERYDAY_BACKPACK_WORTH_IT,
+  ARE_PREMIUM_NOISE_CANCELLING_EARBUDS_WORTH_IT,
   SWAMP_COOLER_HUMIDITY_ARTICLE,
   HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID,
   HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS,
@@ -3181,7 +3193,7 @@ export const EXTRA_ARTICLES: Article[] = [
               "Vitamix 5200 Professional-Grade Blender (64 oz)",
               "Smoothies, soups, buy-it-for-life blending",
               "$400-$500",
-              "2.0-peak-HP motor, 64 oz container, 7-year full warranty"
+              "2.0-peak-HP motor, 64 oz container, 7-Year Limited Warranty"
             ],
             [
               "Breville Joule Turbo Sous Vide Machine (BSV600PSS)",
@@ -3224,7 +3236,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "Best for blending: Vitamix 5200 (64 oz)",
         "body": [
           "The Vitamix 5200 Professional-Grade Blender (64 oz, $400-$500) is the classic 'cry once' kitchen buy. Its 2.0-peak-horsepower motor and aircraft-grade stainless blades spin fast enough to pulverize ice, fibrous greens, and nuts into genuinely silky texture — the result cheaper blenders can't fake, because they lack the motor torque to keep the blades moving through a thick load. Run it long enough and blade friction alone heats a batch to steaming hot soup, no stove needed.",
-          "The 64 oz self-cleaning container handles family-size batches, and the variable speed dial gives you control from a coarse salsa to a running-smooth puree. It's backed by a 7-year full warranty, and verified-buyer reviews routinely report units running strong past a decade — which is the whole worth-the-money argument versus replacing a $60 blender every couple of years."
+          "The 64 oz self-cleaning container handles family-size batches, and the variable speed dial gives you control from a coarse salsa to a running-smooth puree. Vitamix backs it with a 7-Year Limited Warranty on parts and performance — and that warranty term is the whole worth-the-money argument versus replacing a $60 blender every couple of years, because it is the manufacturer's own statement of how long it expects the machine to last."
         ],
         "list": [
           "Best for: daily smoothie drinkers, soup makers, and anyone who blends often enough to wear out lesser machines.",
