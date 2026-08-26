@@ -74,6 +74,29 @@ function clampWords(s: string, max: number): string {
   return tidyPhrase(at > max * 0.6 ? cut.slice(0, at) : cut);
 }
 
+/** Take the longest run of WHOLE SENTENCES that fits the budget.
+ *
+ * ⛔ WHY THIS EXISTS. The description was word-clamped, which never cuts mid-WORD but happily
+ * cuts mid-SENTENCE. Measured on the built site: 111 of the product pages ended their meta
+ * description in the middle of a thought - "...shows air quality at a glance. A dependable",
+ * "...sold in a 50-pack so you can convert a whole". That is the snippet Google shows for the
+ * highest-commission pages on the site, and a sentence that stops dead reads as a broken page.
+ *
+ * Falls back to the old word clamp only when even the FIRST sentence overruns the budget, so a
+ * single very long sentence still produces something rather than nothing. */
+function wholeSentences(s: string, max: number): string {
+  const t = s.trim();
+  if (t.length <= max) return t;
+  const parts = t.split(/(?<=[.!?])\s+/);
+  let out = "";
+  for (const part of parts) {
+    const next = out ? `${out} ${part}` : part;
+    if (next.length > max) break;
+    out = next;
+  }
+  return out.length >= 60 ? out : clampWords(t, max);
+}
+
 /** Clause separators a long product name can shed from the right. */
 const NAME_SEPARATORS = [" — ", " – ", " / ", ", ", "; ", ": "];
 
@@ -125,12 +148,24 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
 
   // Answer-first description (~150–160 chars): lead with the verdict, then who it's for,
   // trimmed to a word boundary. Never fabricated — all fields are editorial copy.
-  const lead = (product.verdict || product.problemSolved).trim();
-  const withWho =
-    product.bestFor && `${lead} Best for ${product.bestFor.trim()}.`.length <= 160
-      ? `${lead} Best for ${product.bestFor.trim()}.`
-      : lead;
-  const description = clampWords(withWho, 160);
+  // ⛔ TRY SEVERAL SOURCES, NOT ONE. `verdict` is often a single long run-on sentence, so
+  // sentence-trimming it still overruns 160 chars and falls back to a mid-sentence word clamp -
+  // that left 49 product pages with a SERP snippet ending in "...convert a whole". Many of those
+  // products carry a `problemSolved` that is already a COMPLETE sentence inside the budget. So
+  // build candidates richest-first and take the first that ends on a real full stop.
+  const verdict = (product.verdict || "").trim();
+  const solved = (product.problemSolved || "").trim();
+  const who = product.bestFor ? ` Best for ${product.bestFor.trim()}.` : "";
+  const candidates = [
+    verdict && `${verdict}${who}`,
+    verdict,
+    solved && `${solved}${who}`,
+    solved,
+  ].filter(Boolean) as string[];
+
+  const description =
+    candidates.map((c) => wholeSentences(c, 160)).find((d) => /[.!?]$/.test(d)) ??
+    wholeSentences(candidates[0] ?? "", 160);
 
   // OpenGraph is standalone (no template applied), so it keeps the brand for shareability.
   const ogTitle = `${title} · BlackBox Supplies`;
