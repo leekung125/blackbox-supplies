@@ -1153,6 +1153,10 @@ export const EXTRA_ARTICLES: Article[] = [
       }
     ],
     "sources": [
+        {
+          "label": "EcoFlow WAVE 3 - official product page (6100 BTU cooling / 6800 BTU heating)",
+          "url": "https://www.ecoflow.com/us/wave-3-portable-air-conditioner"
+        },
       {
         "label": "Forbes Vetted — The Best Portable Air Conditioners (Midea Duo named Best Overall)",
         "url": "https://www.forbes.com/sites/forbes-personal-shopper/article/best-portable-air-conditioner/"

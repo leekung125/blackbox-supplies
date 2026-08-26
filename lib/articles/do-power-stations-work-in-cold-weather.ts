@@ -116,7 +116,7 @@ export const DO_POWER_STATIONS_WORK_IN_COLD_WEATHER: Article = {
           [
             "Jackery Explorer 1000 v2",
             "1,070Wh LiFePO4",
-            "1500W (3300W surge)",
+            "1500W (3000W surge)",
             "~1 hr",
             "~23.8 lb",
             "$449–799",
