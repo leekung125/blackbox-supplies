@@ -1613,7 +1613,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "Best budget: Lasko T42951",
         "body": [
-          "The T42951 is the evergreen best-seller for a reason: it is $55-$80, stands 42.5 inches on a compact 13-by-13-inch base, and has tens of thousands of ratings behind it. Forbes Vetted and HGTV both flag it as the value pick. You get widespread oscillation, a 7.5-hour auto-off timer, and a multi-function remote.",
+          "The T42951 is the evergreen best-seller for a reason: it is $55-$80 and stands 42.5 inches on a compact 13-by-13-inch base. Forbes Vetted and HGTV both flag it as the value pick. You get widespread oscillation, a 7.5-hour auto-off timer, and a multi-function remote.",
           "The catch: it is an AC-motor fan with just three speeds, so the top setting hums louder than any of the DC-motor towers here, and there is no app, no sleep-specific whisper mode, and the timer caps at 7.5 hours. This is background cooling done cheaply, not quiet precision."
         ]
       },

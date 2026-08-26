@@ -155,7 +155,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     ],
   },
   "viofo-a119-mini-2": {
-    reviewsBasis: "RedditRecs aggregates 258 Reddit reports (84% positive across 208 owners); Amazon listing has thousands of ratings. Strong positive consensus — the most-recommended budget pick on r/Dashcam.",
+    reviewsBasis: "RedditRecs aggregates 258 Reddit reports (84% positive across 208 owners); Strong positive consensus — the most-recommended budget pick on r/Dashcam.",
     realWorldNumbers: [{ label: "Resolution", value: "2K 1440p 60fps, STARVIS 2 IMX675" }, { label: "Night video", value: "Strong; owners say plates readable" }, { label: "Power", value: "Supercapacitor, no lithium battery" }, { label: "Parking mode", value: "24h, buffered/low-bitrate" }],
     failureModes: [{ mode: "App / Wi-Fi flakiness", note: "The single most common complaint is a clunky app and dropped Wi-Fi handshakes when pulling clips." }, { mode: "SD card pickiness", note: "Owners report the cam is fussy about cards and want a high-endurance U3 to avoid errors." }, { mode: "Occasional dropped clips", note: "A minority report missing or short recordings, usually traced back to a failing or incompatible card." }],
     praise: ["STARVIS 2 clarity captures plates day and night for the price", "Supercapacitor shrugs off heat; easy discreet install"],
@@ -163,7 +163,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://redditrecs.com/dash-cam/model/viofo-a119-mini-2/", "https://www.amazon.com/VIOFO-STARVIS-Control-Parking-Supercapacitor/dp/B0C5MVB7NX"],
   },
   "rove-r2-4k": {
-    reviewsBasis: "Amazon best-seller listed since 2017 with tens of thousands of ratings; independently tested by TechGearLab and CarXplorer. Broad, long-running positive consensus, tempered by the fact its '4K' is an 8MP sensor.",
+    reviewsBasis: "On sale since 2017 and independently tested by TechGearLab and CarXplorer. Broad, long-running positive consensus, tempered by the fact its '4K' is an 8MP sensor.",
     realWorldNumbers: [{ label: "Resolution", value: "2160p, f/1.5 aperture, 150 degree FOV" }, { label: "Night video", value: "Grainy but plates legible" }, { label: "Heat", value: "Survived 115F dash, no shutdown" }, { label: "Power", value: "Supercapacitor, not lithium" }],
     failureModes: [{ mode: "SD card format prompts / beeping", note: "The dominant complaint: cheap or Class-10-U1 cards trigger constant format prompts and beeping, so owners must use a U3 card." }, { mode: "Mediocre low-light detail", note: "Night footage is noticeably grainy and testers had to squint to read plates on unlit roads." }, { mode: "Card-brand sensitivity", note: "Recording interruptions are common and usually stem from an incompatible or corrupted microSD card." }],
     praise: ["Supercapacitor gives instant boot and reliable operation in extreme heat and cold", "Strong value — long-proven best-seller with real GPS and Wi-Fi"],
