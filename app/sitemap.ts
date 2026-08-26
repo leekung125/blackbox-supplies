@@ -75,9 +75,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // the $650 Breville, the $450 Q Revo, the $400 Vitamix - each of which now has a full
   // buyer-intent guide pointing at it.
   //
-  // So the rule is editorial context, not niche membership: an offBrand product is indexed IF at
-  // least one guide, article or comparison references it. 20 of the 41 qualify; the other 21 are
-  // genuine orphans (pizza scissors, a wake-up light) and stay out.
+  // ⛔ REVISED 2026-08-26: the remaining 21 are now indexed too, and the note below explains why
+  // the earlier call was half-right. It said they were "genuine orphans (pizza scissors, a wake-up
+  // light) and stay out". They ARE orphans - MEASURED: zero inbound internal links across all 254
+  // built pages, and absent from this file - which means they were built, served, and completely
+  // undiscoverable. That is not a conservative choice, it is a page that costs build time and
+  // earns exactly nothing.
+  //
+  // What settled it was measuring them rather than judging them by their names: 639-1,474 words
+  // each (median 740), every one with 3-6 correctly tagged buy links. Not thin. So the honest
+  // options were INDEX them or DELETE them; serving a page nobody can reach is the worst of the
+  // three, and it was the status quo.
+  //
+  // Indexing is still a different question from ranking, and the offBrand flag still does its job:
+  // these stay OUT of the browse grids, so a car-and-roadside site does not put pizza scissors in
+  // front of someone shopping for a jump starter. They are reachable by search only.
+  // To reverse: restore the `coreIds.has(p.id) || editorialIds.has(p.id)` filter below.
   const editorialIds = new Set<string>();
   for (const g of GUIDES) for (const pk of g.picks) editorialIds.add(pk.productId);
   for (const a of [...ARTICLES, ...EXTRA_ARTICLES]) {
@@ -91,8 +104,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }
 
   const coreIds = new Set(getCoreProducts().map((p) => p.id));
+  // every built product page is declared; generateStaticParams already builds them all, so any
+  // filter here re-creates the exact code-disagrees-with-itself bug described above.
+  void coreIds;
+  void editorialIds;
   const products: MetadataRoute.Sitemap = getAllProducts()
-    .filter((p) => coreIds.has(p.id) || editorialIds.has(p.id))
     .map((p) => ({
       url: `${BASE}/products/${p.id}`,
       lastModified: getDateModified(PRODUCTS_SOURCE),
