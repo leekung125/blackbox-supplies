@@ -14,7 +14,7 @@
  *  - `reviewsBasis` describes the real evidence base; `sources` are real, cited URLs.
  */
 export interface OwnerEvidence {
-  /** The evidence base, e.g. "45,000+ Amazon ratings, 4.7 avg + Reddit long-term threads". */
+  /** The evidence base, e.g. "a large body of Amazon owner reviews + Reddit long-term threads". */
   reviewsBasis: string;
   /** Real-world figures owners actually cite (NOT spec-sheet numbers). */
   realWorldNumbers: { label: string; value: string }[];
@@ -34,7 +34,7 @@ export interface OwnerEvidence {
  */
 export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
   "noco-boost-gb40-1000a-ultrasafe": {
-    reviewsBasis: "~100,000 Amazon ratings (Amazon's #1 automotive best-seller), ~4.7 avg, plus recurring cold-weather threads on Reddit and owner forums",
+    reviewsBasis: "a very large body of Amazon owner reviews (Amazon's #1 automotive best-seller), plus recurring cold-weather threads on Reddit and owner forums",
     realWorldNumbers: [
       { label: "Jumps per charge", value: "~15–20 gas starts" },
       { label: "Cold-weather limit", value: "Weakens below ~10°F" },
@@ -54,7 +54,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     ],
   },
   "jackery-explorer-1000-v2-portable": {
-    reviewsBasis: "~2,900 Amazon ratings, ~4.6 avg, plus independent blackout-simulation bench tests",
+    reviewsBasis: "several thousand Amazon owner reviews, plus independent blackout-simulation bench tests",
     realWorldNumbers: [
       { label: "Usable capacity", value: "~1,070Wh (near full)" },
       { label: "Recharge time", value: "~1 hr to 80%" },
@@ -75,7 +75,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     ],
   },
   "viofo-a229-plus": {
-    reviewsBasis: "~390 Amazon ratings (~4.3 avg) plus a ~136-review Reddit aggregation at ~91% positive",
+    reviewsBasis: "a few hundred Amazon owner reviews, plus a ~136-review Reddit aggregation at ~91% positive",
     realWorldNumbers: [
       { label: "Recording", value: "2K front + 2K rear @30fps" },
       { label: "Heat shutdown", value: "~183°F internal" },
@@ -94,7 +94,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     ],
   },
   "fanttik-x8-apex-portable-tire": {
-    reviewsBasis: "~1,000 verified retailer reviews at ~4.8 avg, plus independent long-term tests (CleanTechnica, Tom's Guide, Automoblog)",
+    reviewsBasis: "around a thousand verified retailer reviews, plus independent long-term tests (CleanTechnica, Tom's Guide, Automoblog)",
     realWorldNumbers: [
       { label: "Car tires per charge", value: "~4 dead tires" },
       { label: "Inflate time", value: "~1–2 min a low tire" },
@@ -115,7 +115,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     ],
   },
   "midea-duo-14-000-btu-smart": {
-    reviewsBasis: "~400 Best Buy verified ratings (~3.7 avg) plus a ~77-review Reddit owner analysis at ~81% positive — a genuinely mixed record",
+    reviewsBasis: "several hundred Best Buy verified reviews plus a ~77-review Reddit owner analysis at ~81% positive — a genuinely mixed record",
     realWorldNumbers: [
       { label: "Cooling speed", value: "86→72°F in ~12 min" },
       { label: "Noise", value: "~52 dB low / 63 dB high" },
@@ -135,7 +135,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     ],
   },
   "shark-turboblade-bladeless-tower-fan-tf202s": {
-    reviewsBasis: "~4.7 avg across retailers plus independent bench tests (Tom's Guide, Expert Reviews); no recalls",
+    reviewsBasis: "strong owner sentiment across retailers plus independent bench tests (Tom's Guide, Expert Reviews); no recalls",
     realWorldNumbers: [
       { label: "Noise", value: "~30 dB low / 52 dB max" },
       { label: "Power draw", value: "~4.5–51 W" },
@@ -171,7 +171,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.techgearlab.com/reviews/cool-gadgets/dash-cam/rove-r2-4k", "https://carxplorer.com/rove-r2-4k-dash-cam-review/"],
   },
   "redtiger-f7n": {
-    reviewsBasis: "Amazon's #1 best-selling dash-cam brand by units in 2024 (~570k buyers); variants average 4.2-4.8 stars across thousands of ratings. High retail satisfaction but thin independent scrutiny, and reviewers flag marketing overclaims.",
+    reviewsBasis: "Amazon's #1 best-selling dash-cam brand by units in 2024 (~570k buyers); variants are well reviewed across thousands of owner reports. High retail satisfaction but thin independent scrutiny, and reviewers flag marketing overclaims.",
     realWorldNumbers: [{ label: "Resolution", value: "Marketed 4K; sensor maxes at 1440p" }, { label: "Night video", value: "Weak low-light per independent test" }, { label: "Bundle", value: "Includes rear cam + SD card" }, { label: "GPS", value: "Encrypted; needs their own app" }],
     failureModes: [{ mode: "Heat-triggered reboot loop", note: "Owners report the cam gets hot to the touch and reboots repeatedly, cycling on and off until it cools." }, { mode: "'4K' overclaim", note: "Independent reviewers found the CMOS sensor tops out near 2.5K (1440p), not the advertised native 4K." }, { mode: "Average app / Wi-Fi conflicts", note: "The app is basic with infrequent updates, and its Wi-Fi can fight with in-car systems like Audi Connect." }],
     praise: ["Complete bundle (front+rear, touchscreen, card included) at a low price", "High everyday Amazon satisfaction and easy setup"],
@@ -251,7 +251,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.autoguide.com/auto/products/product-tests/epauto-12v-dc-portable-air-compressor-pump-review-44610364", "https://www.amazon.com/EPAuto-Portable-Compressor-Digital-Inflator/product-reviews/B01L9WSTEG"],
   },
   "dreo-42-inch-bladeless-tower-fan": {
-    reviewsBasis: "Several thousand Amazon ratings (~4.4-4.5 stars), plus Walmart buyer reviews and third-party review sites; no RTINGS lab test exists for this model",
+    reviewsBasis: "Several thousand Amazon owner reviews, plus Walmart buyer reviews and third-party review sites; no RTINGS lab test exists for this model",
     realWorldNumbers: [{ label: "Noise floor", value: "20dB claimed (whistles at max)" }, { label: "Air velocity", value: "28 ft/s (marketing spec)" }, { label: "Controls", value: "120 degree oscillation, 12 speeds" }],
     failureModes: [{ mode: "High-speed whistle", note: "Owners report a low-pitched whine or whistle at top speed that runs louder than the advertised 20dB figure." }, { mode: "Rattle/ticking out of box", note: "Some buyers received units that rattled or ticked from day one, and one reported both replacement units did the same with unhelpful support." }, { mode: "Remote and app quirks", note: "The LED remote is hard to read in low light and owners note occasional app/Bluetooth connectivity glitches." }],
     praise: ["Genuinely quiet and smooth on low and medium speeds", "Strong airflow that pushes cool air across a whole room, and assembles in under 10 minutes"],
@@ -259,7 +259,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.amazon.com/Dreo-Oscillating-Bladeless-Bedroom-Standing/dp/B09M8PMW26", "https://www.walmart.com/reviews/product/226185493"],
   },
   "dyson-purifier-cool-tp07-bladeless-tower": {
-    reviewsBasis: "Dyson.com 4.5 stars from ~1,750 ratings, thousands more across Amazon and Best Buy, plus RTINGS, HouseFresh lab tests and Reddit owner threads",
+    reviewsBasis: "Around 1,750 owner reviews on Dyson.com and thousands more across Amazon and Best Buy, plus RTINGS, HouseFresh lab tests and Reddit owner threads",
     realWorldNumbers: [{ label: "Noise (HouseFresh measured)", value: "35.5 dB low, 54.4 dB max" }, { label: "Power (HouseFresh measured)", value: "3.5W low, 28.9W max" }, { label: "Air clearing", value: "728 cu ft in 62 min" }, { label: "Annual running cost", value: "~$124/yr incl $80 filter" }],
     failureModes: [{ mode: "Bearing squeak / oscillation click", note: "Owners report squeaky bearings developing within months and a known oscillation clicking as the gear mechanism wears, especially on units run 24/7." }, { mode: "Loud for the airflow", note: "Multiple Reddit owners call it 'stupid loud on even medium speeds' with low CFM, making it a weak pure fan for the price." }, { mode: "Cost and software friction", note: "Replacement filters are expensive, the app/software draws complaints, and repair-or-replace turnaround can take about a month." }],
     praise: ["When healthy it delivers a smooth, even rush of air with no motor whine or rattle", "Genuinely purifies with real-time air-quality monitoring and a sleek, well-built design"],
@@ -267,8 +267,8 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://housefresh.com/dyson-purifier-cool-tp07-review/", "https://www.rtings.com/air-purifier/reviews/dyson/purifier-cool-tp07"],
   },
   "dreo-cruiser-pro-t1-oscillating-tower": {
-    reviewsBasis: "~20,000+ Amazon ratings at roughly 4.6-4.7 stars, plus Forbes and BestReviews hands-on decibel testing (no RTINGS review)",
-    realWorldNumbers: [{ label: "Noise (Forbes/BestReviews measured)", value: "41 dB speed 2, 52 dB max" }, { label: "Power draw", value: "45 watts rated" }, { label: "Reach", value: "Airflow felt to ~29.5 ft" }, { label: "Amazon rating", value: "~4.6 stars, 20,000+ ratings" }],
+    reviewsBasis: "20,000+ Amazon owner reviews, plus Forbes and BestReviews hands-on decibel testing (no RTINGS review)",
+    realWorldNumbers: [{ label: "Noise (Forbes/BestReviews measured)", value: "41 dB speed 2, 52 dB max" }, { label: "Power draw", value: "45 watts rated" }, { label: "Reach", value: "Airflow felt to ~29.5 ft" }],
     failureModes: [{ mode: "Failure after 1-2 years", note: "A subset of owners report the fan simply stopping or the oscillation failing after one to two years of use." }, { mode: "Base wobble / instability", note: "Testers note a slightly unstable base with a brief wobble, so it wants a hard floor rather than carpet." }, { mode: "Remote and oscillation hitches", note: "Some owners cite remote-control sensitivity problems and minor hitches in the oscillation motion." }],
     praise: ["Quiet and smooth with strong air output that punches above its price", "Trim, compact design that pairs well with AC during extreme heat"],
     longevity: "Most owners report years of reliable service, but a meaningful minority see the motor or oscillation quit around the 1-2 year mark.",
@@ -299,7 +299,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.storagereview.com/review/bluetti-ac180-portable-power-station-review", "https://www.outdoorgearlab.com/reviews/camping-and-hiking/power-station/bluetti-ac180"],
   },
   "ecoflow-river-2-pro-portable": {
-    reviewsBasis: "~4.5 stars across thousands of Amazon verified buyers, plus RV/CPAP owner-pattern aggregation and independent tests (OutdoorGearLab, RVoutfitting)",
+    reviewsBasis: "Thousands of Amazon verified-buyer reviews, plus RV/CPAP owner-pattern aggregation and independent tests (OutdoorGearLab, RVoutfitting)",
     realWorldNumbers: [{ label: "Full recharge (wall)", value: "~70 minutes 0-100%" }, { label: "Inverter efficiency", value: "~88-92%, usable under 768Wh" }, { label: "60W CPAP runtime", value: "~10+ hrs, a full night" }, { label: "175W mixed load", value: "4.2 hrs to 50%" }],
     failureModes: [{ mode: "Standby self-drain", note: "Owners report noticeable self-discharge in storage when wireless/app features are left on, so it is not reliable for charge-and-forget backup." }, { mode: "App/charging glitches", note: "Bluetooth/app connection drops and solar-charging quirks (odd behavior near full, adapter mismatches) are recurring in owner reports." }, { mode: "Heat shutdowns and occasional AC defects", note: "A minority of units show AC-charge faults or overload lockups, and hot enclosed storage (truck beds, summer cars) can trigger thermal shutdowns." }],
     praise: ["Fast ~1-hour AC recharge is the single most-praised feature", "Runs real devices reliably (fridge, CPAP, coffee maker) and stays portable at ~17 lb"],
@@ -307,7 +307,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://rvoutfitting.com/ef-ecoflow-river-2-pro-review/", "https://www.outdoorgearlab.com/reviews/camping-and-hiking/power-station/ecoflow-river-2-pro"],
   },
   "anker-solix-c300-portable-power": {
-    reviewsBasis: "~4.6 stars from ~1,750+ Amazon verified buyers, plus independent reviews (Trusted Reviews, Battery Skills) and Anker community troubleshooting threads",
+    reviewsBasis: "~1,750+ Amazon verified-buyer reviews, plus independent reviews (Trusted Reviews, Battery Skills) and Anker community troubleshooting threads",
     realWorldNumbers: [{ label: "Rated capacity", value: "288Wh LiFePO4" }, { label: "Recharge to 80%", value: "~50 min at 140W" }, { label: "Travel CPAP (30-60W)", value: "~4-5 hours runtime" }, { label: "60Wh laptop charges", value: "~4.8 full charges" }],
     failureModes: [{ mode: "Fan cycling and heat under load", note: "Despite the marketed 25dB whisper-quiet rating, owners report the fan kicking in audibly during 140W fast-charge and heavy AC load, with the unit running hot near full charge because charging does not taper." }, { mode: "App/Bluetooth connectivity drops", note: "Owners frequently report trouble pairing or staying connected to the Anker app, needing restart, Bluetooth toggle, or re-pairing." }, { mode: "Auto-shutoff and isolated charge faults", note: "The power-saving mode switches off with low-draw devices unless low-current mode is enabled, and at least one owner reports a unit that will not accept charge past 25%." }],
     praise: ["Strong value with genuine LiFePO4 longevity and fast 140W recharge", "Compact and travel-friendly (~15% smaller than similar-capacity rivals)"],
@@ -323,7 +323,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.androidcentral.com/accessories/anker-prime-27650mah-250w-power-bank-review", "https://www.macworld.com/article/2345205/anker-prime-27650mah-power-bank-250w-review.html"],
   },
   "whynter-nex-arc-1230wn-14-000": {
-    reviewsBasis: "~940+ Amazon ratings averaging ~4.5 stars, plus Reddit owner threads and independent lab tests (TechGearLab, RTINGS)",
+    reviewsBasis: "~940+ Amazon owner reviews, plus Reddit owner threads and independent lab tests (TechGearLab, RTINGS)",
     realWorldNumbers: [{ label: "Cooling (tested)", value: "11.9°F drop in 60 min" }, { label: "SACC vs box BTU", value: "12,000 SACC / 14,000 ASHRAE" }, { label: "Power draw (tested)", value: "~1,240-1,290W at full" }, { label: "Noise (tested at 4ft)", value: "58.4 dBA vs 42.5 claim" }],
     failureModes: [{ mode: "Window-kit fit", note: "The ~28-inch extension panel is too wide for common windows and often must be cut down to seal properly." }, { mode: "Drainage / condensate leak", note: "Owners report water leaking from the bottom when the unit is moved, as the self-evaporation system can overflow in humid conditions." }, { mode: "Louder than advertised", note: "Independent testing measured 58.4 dBA at four feet, well above the 42.5 dB spec, so it is not as quiet as the box claims." }],
     praise: ["Superior cooling power that out-cooled every other portable unit in independent testing", "Inverter dual-hose design runs efficiently and quietly idles rather than cycling hard"],
@@ -331,7 +331,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.techgearlab.com/reviews/electronics/portable-air-conditioner/whynter-arc-1230wn", "https://www.rtings.com/air-conditioner/reviews/whynter/nex-arc-1230wn", "https://redditrecs.com/portable-air-conditioner/model/whynter-arc-1230wn/", "https://portableacreviews.com/portable-air-conditioners/review/whynter-arc-1230wn/"],
   },
   "lg-lp1419ivsm-dual-inverter-14000-btu": {
-    reviewsBasis: "Aggregated from ~168 verified Best Buy buyers (4.2/5), plus Home Depot/Abt owner reviews and independent lab tests (ConsumerAnalysis, Rtings); a former Wirecutter pick.",
+    reviewsBasis: "Aggregated from ~168 verified Best Buy buyers, plus Home Depot/Abt owner reviews and independent lab tests (ConsumerAnalysis, Rtings); a former Wirecutter pick.",
     realWorldNumbers: [{ label: "Cooling speed (150 sq ft)", value: "90°F to 75°F in ~30 min" }, { label: "Measured noise (high)", value: "58-62 dB (marketed 44 dB)" }, { label: "Power draw (max)", value: "1370 watts" }, { label: "SACC vs ASHRAE rating", value: "10,000 SACC / 14,000 ASHRAE" }],
     failureModes: [{ mode: "Water leakage in humid climates", note: "Roughly 15% of owners report the self-evaporating system overflowing in high humidity or when the drain pan clogs or the unit sits unlevel, spilling water onto the floor." }, { mode: "Louder than advertised", note: "Owners and testers measure 58-62 dB at full cooling versus the ~44 dB marketing figure, exceeding the claim by 7-11 dB." }, { mode: "Early compressor/electronic failure", note: "About 10% of units are reported to suffer compressor or electronic failure within the first two years, painful against LG's 1-year parts-and-labor warranty." }],
     praise: ["Best-in-class energy efficiency (SACC/watt ratio ~7.3), the most efficient portable unit in several test roundups", "Strong cooling and dehumidification with notably quiet operation at low fan speed compared to rival portables"],
@@ -339,7 +339,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.consumeranalysis.com/guides/portable-ac/lg-lp1419ivsm-review/", "https://www.rtings.com/air-conditioner/reviews/lg/dual-inverter-lp1419ivsm", "https://www.bestbuy.com/site/reviews/lg-14-000-btu-smart-portble-air-conditioner-white/6354675", "https://www.justanswer.com/hvac/h5fkv-lg-lp1419ivsm-water-constantly-coming-floor-when.html"],
   },
   "whynter-arc-14s-14000-btu-dual-hose": {
-    reviewsBasis: "~3,891 Amazon ratings avg 4.2 stars, plus Best Buy, RTINGS/independent lab tests and Reddit threads",
+    reviewsBasis: "~3,891 Amazon owner reviews, plus Best Buy, RTINGS/independent lab tests and Reddit threads",
     realWorldNumbers: [{ label: "Real capacity (SACC vs rated)", value: "9,500 SACC vs 14,000 ASHRAE" }, { label: "Measured noise (max)", value: "75 dBA (claim: 51)" }, { label: "Power draw", value: "~1,300 watts at max" }, { label: "Cooling speed", value: "~2-3 hrs per room" }],
     failureModes: [{ mode: "Window-kit fit and leaks", note: "The included window bracket and weatherstrip are thin and leave gaps, so hot outside air leaks back in unless owners add aftermarket foam or seals." }, { mode: "Noise far above the claim", note: "Independent testing measured up to 75 dBA versus the ~51 dBA low-speed spec, and owners repeatedly call it too loud for a bedroom." }, { mode: "Cooling degradation / fan wear over years", note: "Some owners report the compressor running but barely cooling around the 2-year mark, and fan bearings starting to grind after several years of use." }],
     praise: ["Genuinely strong cooling on the hottest days; one owner held a 1,300 sq ft house near 70-71°F during 108°F heat", "Dual-hose design cools efficiently and many units run as reliable long-lived workhorses"],
@@ -355,7 +355,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.reviewed.com/home-outdoors/content/delonghi-pacex390lvyn-pinguino-portable-air-conditioner-review", "https://redditrecs.com/portable-air-conditioner/model/delonghi-pinguino-arctic-whisper-extreme-portable-air-conditioner/", "https://versus.com/en/delonghi-pinguino-arctic-whisper-extreme-pac-ex390lvyn", "https://www.justanswer.co.uk/hvac/jlppp-delonghi-pacex100-pinguino-portable-air-conditioner.html"],
   },
   "black-decker-10-000-btu-3": {
-    reviewsBasis: "Aggregated from tens of thousands of Amazon verified-buyer ratings on the BPACT10WT listing (ASIN B01DLPUWG2), averaging roughly 4 stars, plus Home Depot reviews and independent test writeups; exact live rating count not verified at time of writing.",
+    reviewsBasis: "Aggregated from tens of thousands of Amazon verified-buyer ratings on the BPACT10WT listing (ASIN B01DLPUWG2), plus Home Depot reviews and independent test writeups; exact live rating count not verified at time of writing.",
     realWorldNumbers: [{ label: "BTU rating gap", value: "10,000 ASHRAE vs ~5,500 SACC" }, { label: "Noise on high", value: "~75 dB (fan-like)" }, { label: "Realistic coverage", value: "~150 sq ft, not 450" }, { label: "Power draw", value: "not independently verified" }],
     failureModes: [{ mode: "Undersized real cooling / BTU-vs-SACC gap", note: "Marketed as 10,000 BTU (ASHRAE) but the real SACC/DOE rating is only about 5,500 BTU, so owners find it comfortably cools roughly 150 sq ft rather than the advertised 450 sq ft." }, { mode: "Condensate tank fills fast / water leaks", note: "In humid conditions owners report the internal reservoir filling within a day or two and needing frequent draining, and some say it overflows or leaks onto the floor when not monitored." }, { mode: "Bare-bones window kit fit", note: "Reviewers report the window-mount pieces fit poorly and need modification, with minimal weather stripping and a short exhaust hose that lets warm air seep back in." }],
     praise: ["Strong value for the price and cools a small bedroom or office quickly on the coldest setting", "Easy to move room-to-room on its casters, with a well-liked Follow Me remote"],
@@ -379,7 +379,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://redditrecs.com/portable-air-conditioner/model/ecoflow-ecoflow-wave-3-portable-air-conditioner/", "https://nerdtechy.com/ecoflow-wave-3-review", "https://www.storagereview.com/review/ecoflow-wave-3-review-smarter-stronger-and-ready-for-the-field", "https://www.notebookcheck.net/Smart-cooling-in-hot-summers-Portable-air-conditioner-EcoFlow-Wave-3-review.1048905.0.html"],
   },
   "noco-boost-hd-gb70-2000a": {
-    reviewsBasis: "Widely-reviewed popular unit; secondary sources cite 18,000+ Amazon ratings at ~4.7/5 (listing figure, not independently re-counted)",
+    reviewsBasis: "Widely-reviewed popular unit; secondary sources cite 18,000+ Amazon owner reviews (listing figure, not independently re-counted)",
     realWorldNumbers: [{ label: "Jumps per charge (owner field test)", value: "~35 (spec claims 40)" }, { label: "Cold usable limit", value: "down to about -4F/-20C" }, { label: "Cold-weather jump reduction", value: "30-50% fewer jumps" }, { label: "Charge retention degrades", value: "after 12-18 months unused" }],
     failureModes: [{ mode: "Deep-discharge lockout / won't recharge", note: "The lithium protection circuit disables the pack once voltage drops too low, and neglected units refuse to recharge (one owner of two had one fail after ~2 years)." }, { mode: "Cell swelling / bulging case", note: "Owners report internal cells expanded and bulged the plastic case after storage in a hot vehicle trunk, forcing disposal." }, { mode: "Self-discharge in storage", note: "It loses charge below the operating threshold if not topped up roughly every 3 months, and the 1-year warranty often expires before failures surface." }],
     praise: ["UltraSafe reverse-polarity and spark-proof clamps make it forgiving and beginner-safe", "Strong 2000A output with thick rugged clamps that start large gas/diesel engines"],
@@ -387,7 +387,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.garagejournal.com/forum/threads/battery-jump-box-noco-is-a-no-go.489624/", "https://www.garagejournal.com/forum/threads/noco-boost-issues.465513/", "https://leadfootautomotive.com/car-maintenance/car-jump-starter/noco-gb70-review/"],
   },
   "hulkman-alpha85-2000a-smart-jump": {
-    reviewsBasis: "~4.7/5 stars across 13,000+ Amazon ratings",
+    reviewsBasis: "13,000+ Amazon owner reviews",
     realWorldNumbers: [{ label: "Dead-battery starts per charge", value: "7 starts drained 90%->50%" }, { label: "Per V8 gas jump drain", value: "~5% (99%->94%)" }, { label: "Cold storage loss", value: "-2% after 3 weeks at 15F" }, { label: "Full recharge time", value: "~1.5 hours" }],
     failureModes: [{ mode: "Won't engage a fully dead battery", note: "Owners report it detects nothing on a completely flat battery unless they manually trigger Force Start, which disables reverse-polarity protection." }, { mode: "Overheats / drains fast under heavy load", note: "On a 6.5L diesel with dual batteries it managed only two cranks before overheating, and seven consecutive starts drained it from 90% to 50%." }, { mode: "Short cables, no screen protection", note: "The ~15-inch clamps struggle to reach deep engine bays, and the drawstring bag offers no impact protection for the large glass display." }],
     praise: ["The large color READY display removes the anxiety of hooking clamps up correctly", "Fast ~1.5-hour recharge and roughly 20-second starts on a healthy connection"],
@@ -395,15 +395,15 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.howtogeek.com/128471/hulkman-alpha-85-portable-jump-starter-review-perfect-in-a-pinch/", "https://carxplorer.com/hulkman-alpha85-jump-starter-review/", "https://www.autoguide.com/hulkman-alpha-85-s-jump-starter-review", "https://www.amazon.com/HULKMAN-Alpha85-Starter-20000mAh-Portable/dp/B08M41FX48"],
   },
   "fanttik-t8-apex-2000a-jump": {
-    reviewsBasis: "Amazon rating ~4.4/5 (exact count not verifiable); plus independent hands-on reviews and Fanttik support-ticket clusters",
-    realWorldNumbers: [{ label: "Amazon rating", value: "~4.4 of 5 stars" }, { label: "Jumps per charge (support est.)", value: "20-30 on 4-6 cyl" }, { label: "Self-discharge (maker support)", value: "~5-8% per month" }, { label: "Cold-weather limit", value: "rated 5F, sags below" }],
+    reviewsBasis: "A broad base of Amazon owner reviews (exact count not verifiable); plus independent hands-on reviews and Fanttik support-ticket clusters",
+    realWorldNumbers: [{ label: "Jumps per charge (support est.)", value: "20-30 on 4-6 cyl" }, { label: "Self-discharge (maker support)", value: "~5-8% per month" }, { label: "Cold-weather limit", value: "rated 5F, sags below" }],
     failureModes: [{ mode: "Won't hold or take a charge", note: "Multiple verified Amazon buyers report units, including warranty replacements, that would not hold a charge or showed a continuously blinking LCD." }, { mode: "Self-discharge dead after trunk storage", note: "Fanttik's own support says low-state-of-charge storage is the leading 'won't recharge' cause, requiring a top-up every ~60 days." }, { mode: "Cold-weather voltage sag / refuses to boost", note: "Below its rated 5F limit the lithium cells lose output and the unit may refuse to jump until warmed indoors." }],
     praise: ["Compact and light for its 2000A/20000mAh capacity", "Bright, easy-to-read 3-inch display and solid IP65 build"],
     longevity: "Rated 500 cycles to 80% capacity with a 24-month warranty; owners' main complaint is early 'won't hold charge' defects rather than gradual wear, plus storage self-discharge if not topped up.",
     sources: ["https://www.yuenx.com/2021/review-fanttik-t8-apex-lithium-car-jump-starter-vs-noco/", "https://www.protoolreviews.com/fanttik-t8-apex-jump-starter/", "https://nerdtechy.com/fanttik-t8-apex-review", "https://fanttik.com/blogs/support/fanttik-t8-apex-troubleshooting-guide", "https://www.amazon.com/Fanttik-T8-APEX-Deluxe-Package/product-reviews/B09GW2NC12/"],
   },
   "gooloo-gp4000-4000a-peak-lithium": {
-    reviewsBasis: "~4.6 stars from 8,500+ Amazon ratings",
+    reviewsBasis: "8,500+ Amazon owner reviews",
     realWorldNumbers: [{ label: "Measured under load", value: "~400A at 11V, 500A at 9V" }, { label: "Advertised peak", value: "4000A (burst spec only)" }, { label: "Amps a car actually needs", value: "~100-300A to start" }, { label: "Idle recharge interval", value: "every 2-3 months" }],
     failureModes: [{ mode: "Inflated 4000A peak-amp claim", note: "Independent load-testers measure only a few hundred sustained amps, far below the headline 4000A burst figure, though still enough to start most engines." }, { mode: "Quality-control / DOA units", note: "Owners report units dead out of the box or cables with thin cracked insulation exposing copper, plus difficulty getting refunds from GOOLOO." }, { mode: "Cold weather + self-discharge in storage", note: "Extreme cold cuts starts-per-charge and the cell self-discharges, so GOOLOO itself says recharge every 2-3 months and avoid long glovebox/trunk storage." }],
     praise: ["Small, light, and powerful enough to crank large diesels at a fraction of NOCO's price", "Holds charge well over long idle periods (one owner: 5 years, ~90% capacity)"],
@@ -419,7 +419,7 @@ export const OWNER_EVIDENCE: Record<string, OwnerEvidence> = {
     sources: ["https://www.protoolreviews.com/dewalt-jump-starter-and-power-station-review/", "https://www.manualslib.com/manual/1498464/Dewalt-Dxaeps2.html?page=12", "https://www.everstartjumpstarter.com/the-easy-fix-to-all-common-dewalt-dxaeps14-problems/", "https://www.justanswer.com/electronics/mm6rw-dxaeps2-powerstation-won-t-charge-dxaeps2-i-ve-tried.html", "https://sawmillcreek.org/threads/dewalt-1400-jump-starter.307074/"],
   },
   "gooloo-gp2000-2000a-compact-lithium": {
-    reviewsBasis: "Roughly 4.7 stars across ~1,400+ Amazon ratings (affiliate-cited, unverified exact count), corroborated by Whirlpool forum owner threads and independent review write-ups",
+    reviewsBasis: "~1,400+ Amazon owner reviews (affiliate-cited, unverified exact count), corroborated by Whirlpool forum owner threads and independent review write-ups",
     realWorldNumbers: [{ label: "Jumps per full charge", value: "~4-5 (owner-reported)" }, { label: "Rated cold-weather limit", value: "-4F / -20C" }, { label: "Recharge interval in storage", value: "every ~3 months" }, { label: "Auto shut-off per attempt", value: "~15 seconds" }],
     failureModes: [{ mode: "Self-discharge death in storage", note: "Owners report the unit failing to recharge or start after long idle storage unless topped up roughly every three months." }, { mode: "Weak cranking on fully-dead or large diesel batteries", note: "Owners describe the starter just clicking without turning over, and the ~15-second auto-off preventing any pre-charge of a flat battery." }, { mode: "Cell swelling/degradation from hot-car storage", note: "Leaving the lithium pack in a vehicle above ~140F degrades or swells the cells, a widely cautioned lithium failure." }],
     praise: ["Compact and strong value - genuinely starts cars and even diesels when kept charged", "USB Quick Charge port doubles as a handy power bank"],
