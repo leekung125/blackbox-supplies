@@ -317,7 +317,7 @@ export const PORTABLE_AC_PRODUCTS: ProductFor<"portable_ac">[] = [
       noiseDb: 52, // approximate/typical — manufacturer publishes no precise figure
       dehumidifyPintsDay: null,
       hasHeatMode: false,
-      weightLbs: 49, // Amazon 48.6 / Walmart 50.7
+      weightLbs: 47.3, // BLACK+DECKER's own spec sheet. Amazon 48.6 / Walmart 50.7 are packed weights.
       energyStar: false,
     },
     // noiseDb approximate (unpublished); coverage estimate; weight approx.

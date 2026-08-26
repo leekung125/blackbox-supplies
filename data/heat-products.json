@@ -143,16 +143,16 @@
     "brand": "BLACK+DECKER",
     "category": "Portable AC",
     "priceRange": "$280-$360",
-    "keySpec": "10,000 BTU (5,550 DOE), cools up to 450 sq ft, 3-in-1 AC/dehumidifier/fan, 'Follow Me' remote thermostat, casters + window kit, ~26 lb.",
-    "blurb": "A 10,000 BTU 3-in-1 AC, dehumidifier, and fan for rooms up to 450 sq ft. Light enough on its casters to roll from bedroom to living room as you need it.",
+    "keySpec": "10,000 BTU (5,500 DOE), cools up to 450 sq ft, 3-in-1 AC/dehumidifier/fan, 'Follow Me' remote thermostat, casters + window kit, 47.3 lb.",
+    "blurb": "A 10,000 BTU 3-in-1 AC, dehumidifier, and fan for rooms up to 450 sq ft. It rolls from bedroom to living room on its casters, though at 47.3 lb it is a two-hands job on stairs.",
     "verdict": "A no-frills, budget-friendly 3-in-1 that cools, dehumidifies, and runs as a fan, with a 'Follow Me' remote that reads the temperature where you are. A dependable pick for a medium room without paying for smart features.",
-    "bestFor": "Renters and budget shoppers cooling a bedroom or office up to 450 sq ft who want a light, roll-anywhere unit.",
+    "bestFor": "Renters and budget shoppers cooling a bedroom or office up to 450 sq ft who want a roll-anywhere unit and do not need to carry it up a flight of stairs.",
     "keyFeatures": [
-      "10,000 BTU (5,550 DOE) cooling for rooms up to 450 sq ft",
+      "10,000 BTU (5,500 DOE) cooling for rooms up to 450 sq ft",
       "3-in-1 air conditioner, dehumidifier, and fan",
       "'Follow Me' remote acts as a thermostat where you sit",
       "Casters and an included window kit",
-      "Light at about 26 lb for a portable AC"
+      "47.3 lb on casters with side carrying handles - it rolls between rooms, but it is not a carry-it-upstairs unit"
     ],
     "cons": [
       "Single-hose design re-draws some warm air, so it's less efficient than dual-hose",
@@ -164,14 +164,14 @@
     "affiliateUrl": "https://www.amazon.com/dp/B01DLPUWG2?tag=blackboxsuppl-20",
     "asin": "B01DLPUWG2",
     "whoShouldAvoid": "Light sleepers and anyone cooling a large or sun-facing room - the fixed-speed compressor cycles louder than an inverter unit and single-hose cooling struggles past 450 sq ft, so a bedroom or bigger space is better served by a quieter inverter.",
-    "mainTradeoff": "You give up inverter quiet, smart control, and dual-hose efficiency in exchange for the lowest price and a light (~26 lb), roll-anywhere body.",
+    "mainTradeoff": "You give up inverter quiet, smart control, and dual-hose efficiency in exchange for the lowest price and a roll-anywhere body on casters.",
     "whatCouldChange": "If your budget can stretch, the Midea Duo trades up to a much quieter inverter with app and voice control; and if your room runs over 450 sq ft you'll want more BTU or a dual-hose design to keep up.",
     "whyItMatters": "It's the honest budget pick: a no-frills single-hose 3-in-1 that cools, dehumidifies, and runs as a fan for a mid-size room without paying for inverter or smart features.",
-    "buyingNotes": "Look past the 10,000 BTU headline to the ~5,550 DOE rating - that newer, stricter number reflects real-world cooling and matches its up-to-450 sq ft claim. Being a fixed-speed single-hose unit, it cycles on and off louder than an inverter, so it's not the pick if noise is your priority.",
+    "buyingNotes": "Look past the 10,000 BTU headline to the ~5,500 DOE rating - that newer, stricter number reflects real-world cooling and matches its up-to-450 sq ft claim. Being a fixed-speed single-hose unit, it cycles on and off louder than an inverter, so it's not the pick if noise is your priority.",
     "faq": [
       {
-        "q": "Why does the box say 10,000 BTU but reviews mention 5,550?",
-        "a": "5,550 is the DOE rating, a stricter modern test that better reflects actual cooling; 10,000 is the older ASHRAE-style number. Both describe the same machine - size your room against the DOE figure."
+        "q": "Why does the box say 10,000 BTU but reviews mention 5,500?",
+        "a": "5,500 is the DOE rating, a stricter modern test that better reflects actual cooling; 10,000 is the older ASHRAE-style number. Both describe the same machine - size your room against the DOE figure."
       },
       {
         "q": "What is 'Follow Me' on the remote?",

@@ -17,6 +17,11 @@ import type { Article } from "@/lib/articles";
  * two pages cross-link and must NOT converge: keep the power-station runtime TABLE and
  * the head-to-head spec grid on the off-grid page, and keep the total-cost arithmetic,
  * the rating-standards explanation and the heat-pump mechanism here.
+ * ⛔ CROSS-LINK IS ONE-WAY TODAY: this page lists the off-grid guide in relatedGuides; the
+ * off-grid page does NOT list this one (its relatedGuides are the two car-kit pages). An
+ * earlier version of this comment claimed "the two pages cross-link" — they do not yet.
+ * Add this slug to that page's relatedGuides in the SAME commit that ships this page, not
+ * before: a live page must never link to a slug that does not resolve.
  *
  * WHY THIS PAGE EXISTS (commercial reasoning, 2026-08-26):
  * MEASURED against the merged catalog (135 priced items): the median product's price-range
@@ -45,9 +50,22 @@ import type { Article } from "@/lib/articles";
  *  - The catalog's own `cons` array supplies the negative case verbatim in substance:
  *    the battery is a separate add-on that raises total cost significantly, 6,100 BTU
  *    is a small-space rating, the price is a premium, runtime collapses at full power.
- *  - Where a spec is unknown (the WAVE 3's rated input wattage, its test standard, its
- *    battery's Wh), the page SAYS it is unknown and gives the reader the formula and the
- *    place to look. An inference that defaults to a claim is a lie with a fallback.
+ *  - Where a spec is genuinely unknown the page SAYS it is unknown. ⛔ AUDIT 2026-08-26 (2nd
+ *    pass) found the page doing the opposite of that in one place: it declared the WAVE 3's
+ *    rated input wattage and its battery's Wh unobtainable ("one number we deliberately do
+ *    not have") while citing, two hundred lines below, a source whose own label said that
+ *    page carried them. It does. The /specs sheet was opened this time and publishes Rated
+ *    Cooling Power (AC/DC) 690W/640W, Rated Heating Input Power (AC/DC) 645W/606W, an add-on
+ *    battery of 1024Wh, and a run time of "2-8 hr". Those are now in the body, attributed to
+ *    EcoFlow. Declaring a number unknowable without opening the page you cite for it is the
+ *    same defect as inventing one — both are claims made about a page nobody read.
+ *  - ⛔ AUDIT 2026-08-26 (2nd pass) also killed a REAL-URL-INVENTED-LABEL claim, the exact
+ *    species that produced the ENERGY STAR error: the body and the FAQ both told the reader
+ *    to "check EcoFlow's spec sheet for the standard" behind the 6,100 BTU figure. That page
+ *    contains "SACC", "DOE", "ASHRAE" and "Seasonally Adjusted" zero times each — it prints
+ *    "Cooling Capacity 6100BTU (1800W)" with no standard attached. Sending a reader to a page
+ *    for an answer that is not on it is a fabricated citation with extra steps. Both passages
+ *    now state what the sheet actually shows: no standard is published.
  *  - Cost-per-night arithmetic is done on the two published endpoints of our catalog's
  *    price range and names everything it excludes.
  */
@@ -76,8 +94,8 @@ export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
       body: [
         "Every argument about this product ends up at 6,100 BTU. EcoFlow rates the WAVE 3 at 6,100 BTU of cooling and 6,800 BTU of heating. People see that next to a $300 unit advertising 10,000 BTU and conclude the WAVE 3 is terrible value. That conclusion is roughly right for the wrong reason, and understanding why protects you from a much more expensive mistake later.",
         "Start with what BTU means, because it is a rate, not a size. A BTU is a quantity of heat; the rating is BTU per hour — the rate at which the machine can pull heat out of a space. Whether that rate is enough has nothing to do with square footage in isolation. It depends on the heat load: how much heat is entering the space per hour through the walls, the roof, the sun, the bodies inside it, and anything electrical that is switched on. A well-shaded, insulated van at dusk and a west-facing single-glazed sunroom at 4pm can be the same floor area and present the machine with wildly different amounts of heat to remove. Manufacturer square-footage ratings assume a normal, shaded, insulated room, which is precisely the assumption a tent breaks in both directions — a tent has almost no insulation, but it is also very small.",
-        "Now the part that actually invalidates the comparison. Portable AC ratings are published against different test standards, and the numbers are not interchangeable. Our catalog records the Midea Duo as 14,000 BTU marketed with roughly 12,000 SACC, and the BLACK+DECKER BPACT10WT as 10,000 BTU marketed with 5,550 DOE. Look at that second pair for a moment: the same machine is a 10,000 BTU unit and a 5,550 BTU unit depending on which line of the spec sheet you read. SACC — Seasonally Adjusted Cooling Capacity — exists because single-hose portable units blow conditioned indoor air out of the exhaust and therefore suck an equal volume of hot outdoor air in through every gap in the building. The headline BTU figure ignores that. SACC does not.",
-        "Which means the honest statement about the WAVE 3's 6,100 is this: our catalog records it as EcoFlow's rating and does not record which standard produced it, and we are not going to guess. If you intend to compare it against a room unit, check EcoFlow's own spec sheet for the standard first. Comparing a headline BTU to a SACC number is how people conclude a portable AC will cool twice the room it actually cools.",
+        "Now the part that actually invalidates the comparison. Portable AC ratings are published against different test standards, and the numbers are not interchangeable. Our catalog records the Midea Duo as 14,000 BTU marketed with roughly 12,000 SACC, and the BLACK+DECKER BPACT10WT as 10,000 BTU marketed with 5,500 DOE. Look at that second pair for a moment: the same machine is a 10,000 BTU unit and a 5,500 BTU unit depending on which line of the spec sheet you read. SACC — Seasonally Adjusted Cooling Capacity — exists because single-hose portable units blow conditioned indoor air out of the exhaust and therefore suck an equal volume of hot outdoor air in through every gap in the building. The headline BTU figure ignores that. SACC does not.",
+        "Which means the honest statement about the WAVE 3's 6,100 is this: there is no standard attached to it. Our catalog records it as EcoFlow's rating without one, and EcoFlow's published spec sheet — which we opened rather than assumed — prints \"Cooling Capacity 6100BTU (1800W)\" and names no test procedure beside it. No SACC, no DOE, no ASHRAE, anywhere on the sheet. So do not go hunting for the label; it is not there to find. Treat 6,100 as an unlabelled headline figure, and understand what that costs you: an unlabelled headline number is precisely the kind that should never be set against a room unit's SACC rating. Comparing a headline BTU to a SACC number is how people conclude a portable AC will cool twice the room it actually cools.",
         "The useful reframe: stop scoring this unit on capacity. On capacity it will lose to almost anything with a window kit, and it is supposed to. Score it on the only axis where it has no competition — whether it can run at all in the place you need cooling.",
       ],
       table: {
@@ -126,7 +144,7 @@ export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
           ],
           [
             "WAVE 3 + EcoFlow add-on battery",
-            "Fully cordless; EcoFlow rates up to about 8 hours, at lower settings",
+            "Fully cordless; EcoFlow rates the 1,024Wh add-on battery at 2-8 hours, the 8 only at lower settings",
             "Our catalog notes the battery is sold separately and raises total cost significantly — verify what is in the box",
           ],
           [
@@ -141,7 +159,7 @@ export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
           ],
           [
             "BLACK+DECKER BPACT10WT, $280-$360",
-            "Cools up to ~450 sq ft (10,000 BTU / 5,550 DOE), rolls between rooms",
+            "Cools up to ~450 sq ft (10,000 BTU / 5,500 DOE), rolls between rooms",
             "Needs a window and an outlet; no heat mode; the DOE figure is the honest one",
           ],
         ],
@@ -155,7 +173,7 @@ export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
         "The sum itself is trivial: hours equal usable watt-hours divided by average watts drawn. Everything interesting is hidden in the word average.",
         "An air conditioner does not draw a constant load. It draws hard while it is pulling the space down to your setpoint, and then — once it gets there — it either cycles off and on or, on a variable-speed compressor, throttles down to whatever rate merely cancels the heat still leaking in. That second phase can be a small fraction of the first. This is the whole explanation for 'up to 8 hours at lower settings': at a modest setpoint in a small insulated space, the machine spends most of the night barely working. Set it cold, in a tent with a sun-warmed fly and a door you keep opening, and it never reaches setpoint at all, so it never gets to throttle down, so it draws near its maximum for as long as the battery lasts. Same machine, same battery, wildly different night.",
         "Which gives you three levers, and they are all yours rather than the manufacturer's. Insulation and shade reduce the heat you are fighting. A higher setpoint — cooling to comfortable rather than to cold — lets the compressor spend the night idling instead of sprinting. And pre-cooling while you still have shore power or sun means the battery starts the night maintaining a cool space rather than rescuing a hot one.",
-        "One number we deliberately do not have: the WAVE 3's rated input wattage is not in our catalog, and we are not going to invent one to make a table look complete. Get it from EcoFlow's spec sheet or the unit's own nameplate, then divide your battery's watt-hours by it for the worst case, and expect real-world runtime to land somewhere north of that depending on how hard the machine has to work.",
+        "Two published numbers make that concrete, and both come from EcoFlow's spec sheet rather than from us, because our catalog carries neither: the add-on battery is rated 1,024Wh, and the WAVE 3's rated cooling power is 690W on AC and 640W on DC. Do the division the way the sum above says to and the flat-out worst case is roughly an hour and a half. That is not the number to plan around, but it is the floor, and it explains something the marketing shortens: EcoFlow's own runtime line is not \"8 hours\", it is \"2-8 hr\". The 2 is the machine sprinting and never reaching setpoint; the 8 is the machine throttled down in a small sealed space on a mild night. Same unit, same battery, and both figures honest. Which end of that range you land on is decided almost entirely by the three levers above, not by the product.",
         "If you are pairing it with a power station rather than the add-on battery, there is a second spec that catches people out, and it is not capacity. A compressor draws a brief inrush at startup that is well above its running draw, so a station has to clear both the continuous load and that surge. This is why stations publish two numbers — our catalog lists the Jackery Explorer 1000 v2 at 1,070Wh with 1500W AC and a 3300W surge, the BLUETTI AC180 at 1,152Wh with 1800W and a 2700W peak, and the EcoFlow RIVER 2 Pro at 768Wh with 800W AC and 1600W X-Boost. A station that trips on startup is useless regardless of how large its battery is. It is also worth checking whether the unit accepts DC input directly, because running a DC machine through an inverter and back down again costs you a slice of every watt-hour you own.",
       ],
       productIds: [
@@ -206,7 +224,7 @@ export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
         "Buy it if you have neither a window nor grid power|A tent, a van, a trailer, a remote build. This is the one scenario where nothing cheaper does the job at all, and the premium is buying capability rather than convenience.",
         "Buy it if you would otherwise carry a separate heater|At EcoFlow's 6,800 BTU heating rating it removes a combustion appliance, its fuel and its ventilation requirements from your kit. Count that on the same side of the ledger as the cooling.",
         "Buy it if you already own a 1,000Wh-class power station|The expensive half of the cordless setup is already in your possession, which changes the total more than any sale will.",
-        "Do not buy it if you have a window and an outlet|You would be paying four figures for freedom you already have. The Midea Duo cools up to about 550 sq ft at roughly 42 dB by Midea's rating for $500-$650, and the BLACK+DECKER covers up to ~450 sq ft from $280.",
+        "Do not buy it if you have a window and an outlet|You would be paying $899 at the very least, and up to $1,499, for freedom you already have. The Midea Duo cools up to about 550 sq ft at roughly 42 dB by Midea's rating for $500-$650, and the BLACK+DECKER covers up to ~450 sq ft from $280.",
         "Do not buy it to cool a bedroom or a living room|At EcoFlow's 6,100 BTU rating it is built for a small enclosed space. Pointing it at a real room is the most expensive available way to be too warm.",
         "Do not buy it for five nights a year|Look at the top row of the table. At that rate you are buying it because you want it, which is allowed — just do not tell yourself it is a sensible purchase, because the arithmetic disagrees.",
         "Do not buy it if your climate is dry and your budget is tight|An evaporative cooler moves far more air per dollar in low humidity. It is a genuinely different machine with a genuinely different failure mode, not a budget version of this one.",
@@ -236,11 +254,11 @@ export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
     },
     {
       q: "How big a space will the EcoFlow WAVE 3 cool?",
-      a: "A small, enclosed, reasonably sealed one — a one or two person tent, a van build, a pop-up camper, a compact off-grid room. EcoFlow rates it at 6,100 BTU, which is a rate of heat removal rather than a room size, so the real answer depends on how much heat is entering your space through the sun, the walls and the bodies inside it. A standard bedroom or living room needs a larger unit vented through a window. One caution on comparisons: portable AC capacities are published against different standards, so before setting 6,100 BTU against a room unit's SACC or DOE figure, check EcoFlow's spec sheet for which standard its number uses.",
+      a: "A small, enclosed, reasonably sealed one — a one or two person tent, a van build, a pop-up camper, a compact off-grid room. EcoFlow rates it at 6,100 BTU, which is a rate of heat removal rather than a room size, so the real answer depends on how much heat is entering your space through the sun, the walls and the bodies inside it. A standard bedroom or living room needs a larger unit vented through a window. One caution on comparisons: portable AC capacities are published against different standards, and EcoFlow does not name one for the WAVE 3 — its spec sheet lists the cooling capacity as 6,100 BTU with no SACC, DOE or ASHRAE label attached anywhere on the page. So do not set that number against a room unit's SACC or DOE rating as though the two were the same measurement. They are not, and the room unit's figure is the stricter one.",
     },
     {
       q: "Can I run the WAVE 3 off a power station I already own?",
-      a: "Often yes, and it is frequently the smarter buy than the add-on battery because the cost gets shared across your whole kit rather than charged to the air conditioner alone. Check two specs rather than one: the continuous output has to cover the running draw, and the surge or peak rating has to absorb the compressor's startup inrush, which is briefly much higher. That second number is why our catalog lists two figures for every station — the Jackery Explorer 1000 v2, for instance, at 1500W AC with a 3300W surge. A station that trips at startup is no use however large its battery. The section above sets out the capacities side by side, and our off-grid tent-camping guide sizes the watt-hours for a full night.",
+      a: "Often yes, and it is frequently the smarter buy than the add-on battery because the cost gets shared across your whole kit rather than charged to the air conditioner alone. Check two specs rather than one: the continuous output has to cover the running draw, and the surge or peak rating has to absorb the compressor's startup inrush, which is briefly much higher. That second number is why our catalog lists two figures for every station — the Jackery Explorer 1000 v2, for instance, at 1500W AC with a 3300W surge. A station that trips at startup is no use however large its battery. The section above sets out the capacities side by side, and our off-grid tent-camping guide sizes the watt-hours against a night of cooling — including the uncomfortable part, which is that a 1,000Wh-class station is a few hours at full power rather than dusk to dawn.",
     },
   ],
   relatedGuides: [
@@ -255,7 +273,8 @@ export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
       url: "https://www.ecoflow.com/us/wave-3-portable-air-conditioner",
     },
     {
-      label: "EcoFlow WAVE 3 — manufacturer specification sheet (rated cooling and heating input power)",
+      label:
+        "EcoFlow WAVE 3 — manufacturer specification sheet (rated cooling power 690W/640W AC/DC, rated heating input power 645W/606W, 1,024Wh add-on battery, 2-8 hr run time, 44-58 dB; no cooling test standard is named)",
       url: "https://www.ecoflow.com/us/wave-3-portable-air-conditioner/specs",
     },
     {

@@ -75,7 +75,7 @@ export const BEST_PORTABLE_AC_GARAGE_NO_WINDOW: Article = {
           ],
           [
             "BLACK+DECKER BPACT10WT",
-            "10,000 BTU / ~5,550 DOE",
+            "10,000 BTU / ~5,500 DOE",
             "Single-hose",
             "Fixed-speed, cycles louder",
             "Don't do this for a sealed garage — great for a windowed room",
@@ -93,7 +93,7 @@ export const BEST_PORTABLE_AC_GARAGE_NO_WINDOW: Article = {
       list: [
         "Whynter NEX ARC-1230WN|The catch: two hoses need more width than a single-hose kit and take longer to route, and it carries a premium price. For a sealed garage that efficiency is exactly what you're paying for — but confirm your planned wall or door opening can fit the dual-hose bracket first.",
         "Midea Duo (quiet alternative)|The catch: our catalog lists it as a single-hose inverter, so in a truly sealed garage it gives up some of the dual-hose efficiency the Whynter keeps. Its real edge is near-silent ~42 dB inverter operation — pick it only if the unit sits beside a workspace where noise matters more than squeezing out maximum efficiency.",
-        "BLACK+DECKER BPACT10WT|The catch: it's a single-hose unit rated ~5,550 DOE (its '10,000 BTU' is the old number), which is genuinely fine for a windowed bedroom or office up to ~450 sq ft — and genuinely undersized and self-defeating in a sealed, sun-loaded garage. We list it so you can recognize the tempting bargain that's the wrong tool here.",
+        "BLACK+DECKER BPACT10WT|The catch: it's a single-hose unit rated ~5,500 DOE (its '10,000 BTU' is the old number), which is genuinely fine for a windowed bedroom or office up to ~450 sq ft — and genuinely undersized and self-defeating in a sealed, sun-loaded garage. We list it so you can recognize the tempting bargain that's the wrong tool here.",
       ],
     },
     {

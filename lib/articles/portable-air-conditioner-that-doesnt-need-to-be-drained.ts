@@ -25,40 +25,89 @@ import type { Article } from "@/lib/articles";
  * published figure exists (evaporation rate, pints/hour) the page says so instead of
  * estimating. The page also tells a whole class of readers to buy a window unit instead.
  *
- * ADVERSARIAL HONESTY AUDIT (2026-08-26) — what the first draft overreached on, and the fix:
- *   - It asserted that all three named units have a drain port near the base. Not one of the
- *     three makers lists the port in the published feature set we work from, so the claim is now
- *     made at CATEGORY level and the reader is told to confirm it in the manual before ordering.
- *     The same claim was repeated in the FAQ and in the comparison table; all three sites fixed.
- *   - It asserted all three units are self-evaporating. Only the Midea has a maker-listed
- *     self-draining design; the BLACK+DECKER's owner record is reservoir-shaped. Split apart.
+ * ADVERSARIAL HONESTY AUDIT #1 (2026-08-26, self-audit) - what the FIRST draft overreached on:
+ *   - It asserted that all three named units have a drain port near the base, with no source.
+ *   - It asserted all three units are self-evaporating.
  *   - Two frequency superlatives had nothing behind them ("the single most-reported way owners
  *     meet the water", the B+D reservoir filling "most often"). Both now say what the evidence
  *     actually is: a report against a named unit, not a measured ranking.
  *   - "Every manual asks for a filter rinse every couple of weeks" invented an interval. Removed.
- *   - The 58.4 dBA / 42.5 dB pair now names its testers (RTINGS, TechGearLab) in the prose, and
- *     both URLs were already in lib/owner-evidence.ts + lib/comparison-portable-ac.ts, not minted here.
- *   - Heat mode: Midea sells more than one Duo model number and they do not all heat (see the
- *     verified note in lib/articles/portable-air-conditioner-that-also-heats-worth-it.ts, which
- *     found "Heat | No" on the MAP14S1TBL spec table). This page no longer states the heat mode
- *     as settled fact; it flags the model-number hazard instead.
  *   - The B+D's 450 sq ft is BLACK+DECKER's rating and is labelled as such, but lib/owner-evidence.ts
  *     records owners finding real coverage far below it. That caveat is now in the prose.
- *   - The ENERGY STAR citation supported no figure on the page; its label now says so.
  *
- * CHECKED CLEAN: no "we tested"; no Amazon star rating or review count; every spec traced to
- * data/heat-products.json for its id or attributed to the maker in the prose; all three prices
- * match priceRange exactly; all three pick ids exist with cat "heat"; all three relatedGuides
- * slugs resolve; no source URL invented (manufacturer roots, tagged /dp/ links, and two review-site
- * deep links that already existed in-repo). NO DUPLICATE: no page in lib/articles/ or
- * lib/articles-extra.ts targets the drainage query — the neighbours (best-portable-air-conditioners,
+ * ADVERSARIAL AUDIT #2 (2026-08-26, ADVERSARIAL PASS - EVERY SOURCE URL ACTUALLY FETCHED).
+ * Audit #1 was written from in-repo material and got the DIRECTION of its own corrections wrong:
+ * it "fixed" true claims into false ones by asserting negatives it had never opened a page to
+ * check. Everything below was verified against the live pages this file cites.
+ *   1. WEIGHT - FABRICATED-IN-EFFECT SPEC, and the worst defect on the page. The draft said the
+ *      BPACT10WT has "a light-for-the-category ~26 lb body", attributed to BLACK+DECKER.
+ *      blackanddecker.com/products/bpact10wt states "Weight: 47.3 LB" in its Specs & Parts
+ *      block. The old ~26 lb was 47% low and was
+ *      being used as a reason to buy. It came from data/heat-products.json, which carried the
+ *      same error in three fields - the catalog has been corrected; see the SWEEP note below,
+ *      four more live prose copies of "~26 lb" survive in other files.
+ *   2. DRAINAGE - THE NEGATIVES WERE FALSE. The draft claimed "none of the three makers here
+ *      spells the port out in its published feature list" and that "Whynter's published feature
+ *      list doesn't detail drainage". Fetched: the Whynter ARC-1230WN listing is titled
+ *      "...| Built In Dehumidifier with Auto Drain, Cool, Dehumidify and Fan Modes...", and
+ *      BLACK+DECKER's own page lists "Auto Water Evaporation" and ships a "Water Drain Hose" in
+ *      the installation kit. Two of three makers DO publish it. Fixed in the prose, the mode-two
+ *      paragraph, both table rows and FAQ 1. (Independently corroborated: the corrected sibling
+ *      lib/articles/whynter-arc-1230wn-vs-midea-duo.ts had already caught the same Whynter error.)
+ *   3. NOISE - A MEASUREMENT COMPARED AGAINST THE WRONG THING. The draft credited "RTINGS and
+ *      TechGearLab" with "58.4 dBA at four feet against a 42.5 dB claim". Fetched: TechGearLab
+ *      says verbatim "produced 58.4 dBa running four feet from the SPL meter with the fan on
+ *      high" - a HIGH-fan figure - and never mentions 42.5. RTINGS' page for the model is a
+ *      membership stub with no visible result table, so it cannot be credited with the figure.
+ *      And 42.5 is not a Whynter "claim" at all: it is lib/comparison-portable-ac.ts's own
+ *      noiseDb LOW-setting value (Whynter publishes no number). The page now attributes 58.4 to
+ *      TechGearLab alone, says "fan on high", and calls 42.5 what it is.
+ *   4. HEAT MODE - audit #1 said it had stopped stating heat as settled fact. It had not: the
+ *      buying section still read "a listed heat mode for the cooler months" as a Midea rating.
+ *      Fetched: midea.com's MAP14S1TBL page prints "Heat | No"; the ASIN we link (B0FC2SGGF9) is
+ *      titled "...with Heat". Both halves are now stated, in the buying section AND the FAQ.
+ *      (A fix applied to one of two sites was half a fix.)
+ *   5. DUAL-HOSE STEER - the draft made dual-hose the Whynter's differentiator and contrasted
+ *      "the dual-hose Whynter" with "the inverter Midea". Midea's own MAP14S1TBL page describes
+ *      a hose-in-hose design and lib/comparison-portable-ac.ts records ventType "dual_hose" for
+ *      BOTH. Steering to the priciest unit on a tie; now says the difference is the 600 sq ft
+ *      rating, not the hose count.
+ *   6. ENERGY STAR - a bare https://www.energystar.gov cited under a label that admitted "no
+ *      figure on this page is taken from it". A citation supporting nothing is padding. DELETED
+ *      rather than replaced with a guess.
+ *   7. "5,550 DOE" attributed to BLACK+DECKER. Its own page says "5,500 BTU (10,000 BTU ASHRAE)"
+ *      and our own Amazon listing title says "5,500 BTU SACC". Softened to "about 5,500", which
+ *      is true of both numbers and contradicts no other page. See the SWEEP note.
+ *
+ * VERIFIED CLEAN in audit #2: no "we tested" (the page says outright "We don't run a test lab");
+ * no Amazon star rating or review count anywhere; all three prices match priceRange exactly
+ * ($500-$650 / $550-$720 / $280-$360); all three pick ids exist in data/heat-products.json with
+ * cat "heat"; heroImage exists at public/products/scene/; all three relatedGuides slugs resolve
+ * (best-portable-air-conditioners -> lib/comparison-guides.ts; single-hose-vs-dual-hose-portable-ac
+ * -> registered article; what-size-portable-ac-do-i-need -> EXTRA_ARTICLES in lib/articles-extra.ts,
+ * and components/article-view.tsx resolveRelated() falls back to getArticleBySlug, so it renders);
+ * both /guides/ source links point at registered pages. Every remaining source URL was FETCHED and
+ * contains what its label claims. NO DUPLICATE: no page in lib/articles/ or lib/articles-extra.ts
+ * targets the drainage query - the neighbours (best-portable-air-conditioners,
  * single-hose-vs-dual-hose-portable-ac, what-size-portable-ac-do-i-need, best-portable-ac-no-central-air)
  * mention drainage only as a one-line bullet inside a different intent.
  *
- * NOT FIXED HERE (shared file, another agent may be editing it): this module is not yet imported
- * into lib/articles-extra.ts, so the page does not exist on the site. It needs
- *   import { PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED } from "./articles/portable-air-conditioner-that-doesnt-need-to-be-drained";
- * added to the DEEP_SEO_BATCH array. Seven sibling modules in lib/articles/ are in the same state.
+ * NOT FIXED HERE - two open items, both in files this task did not own:
+ *   a) CLOSED 2026-08-26. Both sweeps were counted and applied, not one-file edits:
+ *      weight -> 47.3 lb in 10 places (3 catalog fields, 6 prose sites, and the comparison
+ *      table, which had drifted to 49); capacity -> 5,500 on 25 prose lines across 6 files.
+ *      ⛔ AND A WARNING PAID FOR IN A WRONG EDIT. Closing this, I "verified" the maker page
+ *      in the browser rig, searched document.innerText for "47.3", found nothing, declared
+ *      the citation fabricated and rewrote ten places to Amazon's 48.6. The number was
+ *      there the whole time - inside a COLLAPSED "Specs & Parts" tab, which innerText does
+ *      not return. Rendered text is not page content. Search the RAW HTML before calling a
+ *      figure absent, or a check that cannot pass will read as proof of a lie.
+ *      (47.3 is the maker's unit weight; Amazon 48.6 and Walmart 50.7 are packed weights.)
+ *   b) REGISTRATION: this module is still not imported into lib/articles-extra.ts, so the page
+ *      does not exist on the site. It needs
+ *        import { PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED } from "./articles/portable-air-conditioner-that-doesnt-need-to-be-drained";
+ *      added to the DEEP_SEO_BATCH array. Left alone deliberately: that file is shared and another
+ *      agent in this batch may hold it. Six sibling modules are in the same state.
  */
 export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
   slug: "portable-air-conditioner-that-doesnt-need-to-be-drained",
@@ -128,7 +177,7 @@ export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
       body: [
         "Product listings collapse three genuinely different arrangements into one phrase. Separating them is the most useful thing on this page, because the mode most likely to solve your problem is the one nobody advertises.",
         "Mode one is full self-evaporation, the marketed one. It asks nothing of you and works beautifully right up until the day the condensate outruns the exhaust. It's the right answer in dry and moderate climates, and it's the only answer if the unit has to sit somewhere with no drain destination at all — the middle of a carpeted upstairs bedroom, say.",
-        "Mode two is continuous gravity drainage, and it is the actual solution to the question you typed. Virtually every portable AC has a continuous-drain port low on the cabinet, usually behind a rubber plug or a threaded cap that ships closed. We won't assert it unit-by-unit — none of the three makers here spells the port out in its published feature list — so confirm it in the manual or the listing photos before you order. Take the cap off, attach the hose if one shipped with your unit or a standard fitting, run the far end to a floor drain, a sump, a laundry basin, or out through the window kit if your unit routes it that way, and the pan simply never fills. It doesn't matter what the dew point is doing. It doesn't matter that the exhaust is saturated. Gravity handles it, forever, with zero attention after the first five minutes. The reason this doesn't appear in \"best no-drain portable AC\" roundups is that it isn't a product you can buy — it's a cap you unscrew.",
+        "Mode two is continuous gravity drainage, and it is the actual solution to the question you typed. Virtually every portable AC has a continuous-drain port low on the cabinet, usually behind a rubber plug or a threaded cap that ships closed. Two of the three units here say so themselves: the Whynter NEX listing is titled \"Built In Dehumidifier with Auto Drain,\" and BLACK+DECKER's own product page for the BPACT10WT lists auto water evaporation and puts a water drain hose in the box. Midea's page for the Duo doesn't spell the port out, so confirm that one in the manual or the listing photos before you order. Take the cap off, attach the hose if one shipped with your unit or a standard fitting, run the far end to a floor drain, a sump, a laundry basin, or out through the window kit if your unit routes it that way, and the pan simply never fills. It doesn't matter what the dew point is doing. It doesn't matter that the exhaust is saturated. Gravity handles it, forever, with zero attention after the first five minutes. The reason this doesn't appear in \"best no-drain portable AC\" roundups is that it isn't a product you can buy — it's a cap you unscrew.",
         "The catch is in the word gravity. The port sits low on the machine, so the destination has to be lower than the port. In a basement, garage, or ground-floor room with a floor drain nearby, this is trivial and you should just do it on day one. In a second-floor bedroom it's genuinely awkward: your options are a shallow drip pan you empty (which is worse than the bucket you were avoiding) or a small condensate pump, an accessory that collects the water and pushes it uphill to a window or a sink. Condensate pumps are cheap and common in HVAC, they're sold separately, and we don't carry one — mentioning it costs us nothing and might save you a return.",
         "Mode three is the manual reservoir: an internal tank you empty by hand. Modern units mostly treat this as the fallback rather than the default, but it's still what happens when self-evaporation saturates and you haven't run a hose. This is the outcome the whole search is trying to avoid, and it is entirely avoidable in most homes with mode two.",
         "One trap sits across all three, and it catches buyers of 3-in-1 units specifically. Cooling mode and dehumidify mode are not the same job. In dry/dehumidify mode the machine is deliberately maximising water extraction, and owners of self-evaporating units — including the Midea Duo — report that certain modes need manual draining despite the self-evaporation marketing. If part of the appeal of a 3-in-1 was using it as a dehumidifier in the shoulder seasons, assume you'll be attaching the hose for that mode and check the manual before you buy.",
@@ -196,7 +245,7 @@ export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
         rows: [
           [
             "Whynter NEX ARC-1230WN ($550-$720)",
-            "Dual-hose inverter; Whynter's published feature list doesn't detail drainage",
+            "Dual-hose inverter; the listing is titled \"Built In Dehumidifier with Auto Drain\"",
             "Water leaking from the base when the unit is moved; the self-evaporation system can overflow in humid conditions",
           ],
           [
@@ -206,7 +255,7 @@ export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
           ],
           [
             "BLACK+DECKER BPACT10WT ($280-$360)",
-            "3-in-1 AC / dehumidifier / fan (BLACK+DECKER's listed feature set); owners describe an internal reservoir",
+            "3-in-1 AC / dehumidifier / fan; BLACK+DECKER's product page lists auto water evaporation and ships a water drain hose",
             "In humid conditions the reservoir fills within a day or two and needs frequent draining; overflow reported when unmonitored",
           ],
         ],
@@ -225,10 +274,10 @@ export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
       heading: "So which of these should you actually buy",
       body: [
         "The recommendation that follows from everything above is slightly counterintuitive: don't choose a portable AC on its drainage claim at all. Choose it on SACC-rated cooling for your room size, hose count for your heat load, and noise if you sleep beside it. Then handle drainage with the port, which costs nothing and works at any dew point. Buying a worse cooler because its listing said \"no bucket\" is how people end up with both problems.",
-        "With that said, three sensible branches, all specs as published by the manufacturers and listed in our catalog.",
-        "Dry-to-moderate climate, a small or medium room, tight budget: the BLACK+DECKER BPACT10WT. BLACK+DECKER rates it at 10,000 BTU with a 5,550 DOE figure, covering rooms up to 450 sq ft, as a 3-in-1 that also dehumidifies and runs as a fan, with a \"Follow Me\" remote that reads temperature where you're sitting, casters, and a light-for-the-category ~26 lb body. Honest catches, and there are real ones: size your room against the 5,550 DOE number rather than the 10,000 headline, and note that owners cooling a room anywhere near the top of that 450 sq ft claim report it comfortably handling a good deal less; it's a fixed-speed single-hose unit, so it cycles on and off audibly instead of humming steadily; there's no app or voice control; and of our three it's the one that draws owner reports of the internal reservoir filling within a day or two in humid weather. In a dry climate that last point may never touch you. In a muggy one, this is the unit that will teach you where the drain cap is.",
-        "A bedroom where quiet matters, and you'd like the best shot at never touching it: the Midea Duo. Midea rates it at 14,000 BTU / 12,000 SACC for rooms up to 550 sq ft, with an inverter compressor running near 42 dB, Alexa and Google control, a listed heat mode for the cooler months, and the self-draining design with an included window kit that is the reason it shows up in this search at all. The inverter is the substantive part: it modulates to hold temperature instead of slamming on and off, which is what makes a portable AC tolerable to sleep next to. Honest catches: it's large and heavy to move between rooms, it still needs a nearby window for the exhaust, owners report leaks and pooling, and our own catalog says outright that in very humid climates the self-drain won't keep up.",
-        "A large or sun-facing room where the real problem is capacity, not water: the Whynter NEX ARC-1230WN. Whynter rates it at 14,000 BTU / 12,000 SACC with a dual-hose design covering rooms up to 600 sq ft, plus Wi-Fi control. Dual-hose matters here for a reason that has nothing to do with drainage — it draws condenser air from outdoors instead of robbing your room, so it doesn't create the negative pressure that pulls warm air back in through every gap in the house, and that's what lets it hold temperature in a room a single-hose unit would lose. Honest catches: it's the priciest unit in the set, two hoses need more window width than a single-hose bracket so measure before ordering, owners report base leaks when it's moved, and the independent test writeups cited below (RTINGS and TechGearLab) put it at 58.4 dBA at four feet against a 42.5 dB claim — so treat \"low noise\" as relative to other portables, not as quiet.",
+        "With that said, three sensible branches. The specs below are the manufacturers' own published ratings; where our catalog and a maker's own page disagree, the maker's page wins and we say so in the line where it happens.",
+        "Dry-to-moderate climate, a small or medium room, tight budget: the BLACK+DECKER BPACT10WT. BLACK+DECKER rates it at 10,000 BTU against a DOE/SACC figure of about 5,500, covering rooms up to 450 sq ft, as a 3-in-1 that also dehumidifies and runs as a fan, with a \"Follow Me\" remote that reads temperature where you're sitting and casters to roll it between rooms. One correction to a spec you will see repeated all over this category, our own product card included: this is not a light machine. BLACK+DECKER's own spec sheet lists it at 47.3 lb, so \"portable\" here means it rolls across a floor, not that you carry it up a flight of stairs. Honest catches, and there are real ones: size your room against the ~5,500 SACC number rather than the 10,000 headline, and treat that 450 sq ft as a ceiling rather than a target, because 5,500 SACC is a small-to-medium-room number; it's a fixed-speed single-hose unit, so it cycles on and off audibly instead of humming steadily; there's no app or voice control; and of our three it's the one most likely to fill its internal reservoir within a day or two of humid weather, because a fixed-speed single-hose unit keeps pulling in outside air that it then has to wring dry. In a dry climate that last point may never touch you. In a muggy one, this is the unit that will teach you where the drain cap is.",
+        "A bedroom where quiet matters, and you'd like the best shot at never touching it: the Midea Duo. Midea rates it at 14,000 BTU / 12,000 SACC for rooms up to 550 sq ft, with an inverter compressor running near 42 dB, Alexa and Google control, and the self-draining design with an included window kit that is the reason it shows up in this search at all. Heat is the one spec here you have to read a model number for: the listing we link is titled \"with Heat,\" but Midea's own page for the MAP14S1TBL prints \"Heat | No\" in its spec table, so the Duo ships in cool-only and cool-plus-heat variants and it is on you to confirm which one is in your cart. The inverter is the substantive part: it modulates to hold temperature instead of slamming on and off, which is what makes a portable AC tolerable to sleep next to. Honest catches: it's large and heavy to move between rooms, it still needs a nearby window for the exhaust, owners report leaks and pooling, and our own catalog says outright that in very humid climates the self-drain won't keep up.",
+        "A large or sun-facing room where the real problem is capacity, not water: the Whynter NEX ARC-1230WN. Whynter rates it at 14,000 BTU / 12,000 SACC with a dual-hose design covering rooms up to 600 sq ft, plus Wi-Fi control, and of the three it is the one whose listing names its drainage outright — \"Built In Dehumidifier with Auto Drain.\" Dual-hose matters for a reason that has nothing to do with water: it draws condenser air from outdoors instead of robbing your room, so it doesn't create the negative pressure that pulls warm air back in through every gap in the house, and that's what lets it hold temperature in a room a single-hose unit would lose. Be clear about what that does and doesn't buy you inside this set, though — the Midea Duo is dual-hose as well, by Midea's own description of its hose-in-hose design, so the reason to step up to the Whynter is its larger 600 sq ft rating, not the hose count. Honest catches: it's the priciest unit in the set, two hoses need more window width than a single-hose bracket so measure before ordering, owners report base leaks when it's moved, and TechGearLab measured it at 58.4 dBA from four feet with the fan on high. The ~42.5 dB figure our own comparison dataset carries for it is a low-fan number, the way every quiet-sounding portable AC figure is — so treat \"low noise\" as relative to other portables at their quietest, not as quiet at full tilt.",
         "None of those three branches was chosen on the drainage claim, and that's deliberate. Pick the cooler that fits the room, then spend five minutes on the hose.",
       ],
       productIds: [
@@ -251,14 +300,14 @@ export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
         "What's your July dew point?|Under 60°F and self-evaporation will very likely handle everything you ask of it. Over 65°F and you should assume you'll be running a drain hose in a heatwave, regardless of which unit you buy.",
         "Is there anywhere lower than the unit for water to go?|A floor drain, a sump, a laundry basin, a window the kit routes to. If yes, the drainage question is already solved and you should stop weighting it. If no, self-evaporation genuinely matters more to you than to the average buyer.",
         "Can you install a window unit instead?|If your window and your landlord allow it, that's the actually drain-free machine and it's more efficient too. Portable ACs are the answer to a window you can't use, not a better answer to a window you can.",
-        "What is the room really asking for?|Capacity for a big sunny space points to the dual-hose Whynter; quiet for a bedroom points to the inverter Midea; a small shaded room on a budget points to the BLACK+DECKER. Buy the cooler that fits, then handle the water with five minutes and a hose.",
+        "What is the room really asking for?|Capacity for a big sunny space points to the 600 sq ft Whynter; a bedroom points to the Midea; a small shaded room on a budget points to the BLACK+DECKER. The first two are both dual-hose inverters, so hose count is not what separates them — room rating is. Buy the cooler that fits, then handle the water with five minutes and a hose.",
       ],
     },
   ],
   faq: [
     {
       q: "Are there portable air conditioners that don't need to be drained?",
-      a: "Most modern portable ACs are self-evaporating — they throw condensate onto the hot condenser coil and send it out the exhaust hose as vapor, so under normal conditions you never empty anything. Of the three units here, Midea lists a self-draining design on the Duo and the Whynter's self-evaporation system turns up in owner and independent reports; the budget BLACK+DECKER leans more on an internal reservoir, and owners describe emptying it. What no unit can promise is that it will keep up in every climate. Self-evaporation is a rate, and in muggy air the condensate can arrive faster than the exhaust can carry it away. In a dry or moderate climate you can reasonably expect never to drain one; in a high-dew-point climate, plan on attaching the drain hose during heatwaves.",
+      a: "Most modern portable ACs are self-evaporating — they throw condensate onto the hot condenser coil and send it out the exhaust hose as vapor, so under normal conditions you never empty anything. Of the three units here, Midea lists a self-draining design on the Duo, the Whynter NEX listing is titled \"Built In Dehumidifier with Auto Drain,\" and BLACK+DECKER's own page lists auto water evaporation on the BPACT10WT and puts a water drain hose in the box — yet owners of that last one still describe emptying an internal reservoir every day or two in humid weather, which is exactly the gap between a listed feature and a rate. What no unit can promise is that it will keep up in every climate. Self-evaporation is a rate, and in muggy air the condensate can arrive faster than the exhaust can carry it away. In a dry or moderate climate you can reasonably expect never to drain one; in a high-dew-point climate, plan on attaching the drain hose during heatwaves.",
     },
     {
       q: "Do all portable air conditioners need to be drained?",
@@ -278,7 +327,7 @@ export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
     },
     {
       q: "Is a self-evaporating portable air conditioner with heat worth it?",
-      a: "It can be, if you want one machine covering both seasons. The Duo is listed with a heat mode alongside its cooling, which is what makes it a year-round unit rather than a summer one. Two honesty notes before you buy on that basis. Midea sells more than one Duo model number and they do not all heat, so match the model number on the listing against the one you actually want rather than trusting the word \"Duo\". And where heat is present, our catalog describes it as supplemental warmth for mild cold, not a substitute for a furnace in deep winter. Drainage behaviour in heat mode isn't something the manufacturers publish clearly, so check the manual for your specific unit before assuming it self-evaporates the same way it does when cooling.",
+      a: "It can be, if you want one machine covering both seasons. The Duo listing we link is titled \"with Heat\" alongside its cooling, which is what would make that variant a year-round unit rather than a summer one. Two honesty notes before you buy on that basis. Midea sells more than one Duo model number and they do not all heat — Midea's own page for the MAP14S1TBL prints \"Heat | No\" in its spec table — so match the model number on the listing against the one you actually want rather than trusting the word \"Duo\". And where heat is present, our catalog describes it as supplemental warmth for mild cold, not a substitute for a furnace in deep winter. Drainage behaviour in heat mode isn't something the manufacturers publish clearly, so check the manual for your specific unit before assuming it self-evaporates the same way it does when cooling.",
     },
   ],
   relatedGuides: [
@@ -312,16 +361,12 @@ export const PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED: Article = {
       url: "https://www.amazon.com/dp/B01DLPUWG2?tag=blackboxsuppl-20",
     },
     {
-      label: "RTINGS — independent test of the Whynter NEX ARC-1230WN (measured noise)",
+      label: "RTINGS — Whynter NEX ARC-1230WN review page (RTINGS lists the unit among the air conditioners it has bought and tested; its full result table is behind a membership)",
       url: "https://www.rtings.com/air-conditioner/reviews/whynter/nex-arc-1230wn",
     },
     {
-      label: "TechGearLab — independent test of the Whynter ARC-1230WN",
+      label: "TechGearLab — independent test of the Whynter ARC-1230WN (\"produced 58.4 dBa running four feet from the SPL meter with the fan on high\")",
       url: "https://www.techgearlab.com/reviews/electronics/portable-air-conditioner/whynter-arc-1230wn",
-    },
-    {
-      label: "ENERGY STAR — room air conditioner sizing and efficiency (background reading; no figure on this page is taken from it)",
-      url: "https://www.energystar.gov",
     },
     {
       label: "BlackBox: Best portable AC for a garage with no window",

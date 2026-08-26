@@ -91,7 +91,7 @@ export const SINGLE_VS_DUAL_HOSE_AC: Article = {
       heading: "Who should buy single-hose (our value pick)",
       body: [
         "Buy single-hose if your room is small to medium (up to ~450 sq ft), shaded, and reasonably sealed — a typical bedroom or home office. You get the lowest price, the simplest one-hose setup, and cooling that's perfectly adequate for the space. You give up inverter quiet and dual-hose efficiency you wouldn't have used anyway.",
-        "The BLACK+DECKER BPACT10WT is the honest budget pick: 10,000 BTU (5,550 DOE) rated to 450 sq ft, a 3-in-1 that also dehumidifies and runs as a fan, with a 'Follow Me' remote that reads the temperature where you sit. At about 26 lb on casters it rolls between rooms easily — lighter than most portable ACs.",
+        "The BLACK+DECKER BPACT10WT is the honest budget pick: 10,000 BTU (5,500 DOE) rated to 450 sq ft, a 3-in-1 that also dehumidifies and runs as a fan, with a 'Follow Me' remote that reads the temperature where you sit. At about 47.3 lb on casters, with side carrying handles, it rolls between rooms easily enough — no lighter than most portable ACs, so plan for it to live in one room.",
         "The honest catch: it's a fixed-speed single-hose unit, so it cycles on and off with an audible thump rather than the steady low hum of an inverter, and there's no app or voice control. Light sleepers and anyone cooling a large, sunny room should step up to an inverter or dual-hose unit instead.",
       ],
       productIds: ["black-decker-10-000-btu-3"],
@@ -104,7 +104,7 @@ export const SINGLE_VS_DUAL_HOSE_AC: Article = {
         "Comparing units by the box BTU|The giant headline number is the old ASHRAE rating. SACC (or DOE) is the tested, real-world figure and it's often 30–50% lower. Compare units by SACC/DOE or you're comparing marketing to marketing.",
         "Undersizing the unit|Roughly 20 SACC BTU per square foot, then add margin for sun, top floors, and kitchens. A too-small unit that runs non-stop is the most common complaint in the category.",
         "Not measuring the window|Dual-hose kits need more width than single-hose ones. Confirm your window opening fits the bracket before ordering — this is easy to miss and expensive to return.",
-        "Assuming 'portable' means light|Most real units are heavy; only step down to a lighter body (like the ~26 lb BLACK+DECKER) if you truly need to move it between floors, and don't expect it to cool a large room.",
+        "Assuming 'portable' means light|Most real units are heavy; even the budget BLACK+DECKER is 47.3 lb, so read 'portable' as rolls-on-casters rather than carryable, and don't expect it to cool a large room.",
       ],
     },
   ],

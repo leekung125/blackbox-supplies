@@ -104,7 +104,7 @@ export const BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID: Article
       heading: "If you actually have a window and grid power, buy this instead",
       body: [
         "The most useful thing an honest guide can tell most readers is that they don't need the expensive answer. If you have a standard window and an outlet — even in a cabin, a rental, or a room with no central air — a conventional portable AC is dramatically more cooling per dollar. It plugs into the wall and vents through the window, so the battery premium disappears entirely.",
-        "For a quiet, efficient room unit, the Midea Duo (14,000 BTU / ~12,000 SACC) cools spaces up to about 550 sq ft at a near-silent ~42 dB thanks to its inverter compressor, and it heats too — roughly the price of the WAVE 3's battery add-on alone, for many times the cooling. On a tighter budget, the BLACK+DECKER BPACT10WT (10,000 BTU / 5,550 DOE) cools up to ~450 sq ft and rolls room to room for well under half the WAVE 3's price. Both need a window; neither runs off a battery. That's the whole trade: window + outlet buys you far more cooling; battery + no-fixed-window is what you pay a steep premium for when you genuinely can't have the window.",
+        "For a quiet, efficient room unit, the Midea Duo (14,000 BTU / ~12,000 SACC) cools spaces up to about 550 sq ft at a near-silent ~42 dB thanks to its inverter compressor, and it heats too — roughly the price of the WAVE 3's battery add-on alone, for many times the cooling. On a tighter budget, the BLACK+DECKER BPACT10WT (10,000 BTU / 5,500 DOE) cools up to ~450 sq ft and rolls room to room for well under half the WAVE 3's price. Both need a window; neither runs off a battery. That's the whole trade: window + outlet buys you far more cooling; battery + no-fixed-window is what you pay a steep premium for when you genuinely can't have the window.",
       ],
       productIds: ["midea-duo-14-000-btu-smart", "black-decker-10-000-btu-3"],
     },
@@ -116,7 +116,7 @@ export const BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID: Article
         rows: [
           ["Runs on a battery", "Yes (add-on battery / power station)", "No — wall power only", "No — wall power only"],
           ["Needs a fixed window vent", "No — vents through a flap or duct", "Yes", "Yes"],
-          ["Cooling (rated)", "6,100 BTU", "14,000 BTU (~12,000 SACC)", "10,000 BTU (5,550 DOE)"],
+          ["Cooling (rated)", "6,100 BTU", "14,000 BTU (~12,000 SACC)", "10,000 BTU (5,500 DOE)"],
           ["Space it suits", "1-2 person tent, van, small cabin", "Room up to ~550 sq ft", "Room up to ~450 sq ft"],
           ["Also heats", "Yes (6,800 BTU)", "Yes", "No"],
           ["Approx. price range", "~$899-$1,499", "~$500-$650", "~$280-$360"],

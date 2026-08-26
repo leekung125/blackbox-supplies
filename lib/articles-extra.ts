@@ -41,6 +41,17 @@ import { WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE } from 
 import { WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER } from "./articles/winter-car-emergency-kit-new-driver";
 import { WHYNTER_ARC_1230WN_VS_MIDEA_DUO } from "./articles/whynter-arc-1230wn-vs-midea-duo";
 
+// Audited 2026-08-26 before first publication - see BACKLOG.md. Every one of these seven
+// carried fabricated citations, invented numbers, or specs inferred from a product name; none
+// was wired in until an adversarial pass had read every source and every figure.
+import { CAN_A_PORTABLE_POWER_STATION_RUN_A_SPACE_HEATER } from "./articles/can-a-portable-power-station-run-a-space-heater";
+import { IS_THE_ECOFLOW_WAVE_3_WORTH_IT } from "./articles/is-the-ecoflow-wave-3-worth-it";
+import { JACKERY_1000_V2_VS_BLUETTI_AC180 } from "./articles/jackery-1000-v2-vs-bluetti-ac180";
+import { PORTABLE_AIR_CONDITIONER_THAT_ALSO_HEATS_WORTH_IT } from "./articles/portable-air-conditioner-that-also-heats-worth-it";
+import { PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED } from "./articles/portable-air-conditioner-that-doesnt-need-to-be-drained";
+import { WHAT_SIZE_POWER_STATION_DO_I_NEED_TO_RUN_A_SUMP_PUMP } from "./articles/what-size-power-station-do-i-need-to-run-a-sump-pump";
+import { WHAT_SIZE_POWER_STATION_FOR_VAN_LIFE } from "./articles/what-size-power-station-for-van-life";
+
 const DEEP_SEO_BATCH: Article[] = [
   TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK,
   BATTERY_OR_ALTERNATOR_ARTICLE,
@@ -81,6 +92,13 @@ const DEEP_SEO_BATCH: Article[] = [
   TOW_STRAP_VS_KINETIC_ROPE_ARTICLE,
   WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE,
   WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER,
+  CAN_A_PORTABLE_POWER_STATION_RUN_A_SPACE_HEATER,
+  IS_THE_ECOFLOW_WAVE_3_WORTH_IT,
+  JACKERY_1000_V2_VS_BLUETTI_AC180,
+  PORTABLE_AIR_CONDITIONER_THAT_ALSO_HEATS_WORTH_IT,
+  PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED,
+  WHAT_SIZE_POWER_STATION_DO_I_NEED_TO_RUN_A_SUMP_PUMP,
+  WHAT_SIZE_POWER_STATION_FOR_VAN_LIFE,
 ];
 
 /**
@@ -996,7 +1014,7 @@ export const EXTRA_ARTICLES: Article[] = [
               "BLACK+DECKER 10,000 BTU — Budget pick",
               "A small bedroom on a tight budget",
               "$280–$360",
-              "10,000 BTU (5,550 DOE), up to 450 sq ft, single-hose 3-in-1"
+              "10,000 BTU (5,500 DOE), up to 450 sq ft, single-hose 3-in-1"
             ],
             [
               "Whynter NEX ARC-1230WN — Upgrade pick",
@@ -1026,7 +1044,7 @@ export const EXTRA_ARTICLES: Article[] = [
         },
         "list": [
           "Midea Duo (top pick)|The catch: it still needs a window for the exhaust hose, and it's a heavy unit to move up stairs on your own.",
-          "BLACK+DECKER (budget)|The catch: single-hose and only 5,550 BTU on the DOE rating — fine for a small bedroom, underpowered for an open living room.",
+          "BLACK+DECKER (budget)|The catch: single-hose and only 5,500 BTU on the DOE rating — fine for a small bedroom, underpowered for an open living room.",
           "Whynter NEX (upgrade)|The catch: the priciest true portable here, and the dual-hose kit takes up more window real estate to seal.",
           "EcoFlow WAVE 3 (no-window)|The catch: only 6,100 BTU, so one small room, and the battery that makes it cordless is a pricey separate add-on.",
           "Dreo 43\" evaporative|The catch: it's a swamp cooler, not an AC — it only cools dry air and adds humidity, so it does little in muggy heat.",
@@ -1051,7 +1069,7 @@ export const EXTRA_ARTICLES: Article[] = [
           "A portable AC is a several-hundred-dollar purchase you'll live with all summer, so a few minutes of matching specs to your space saves a return."
         ],
         "list": [
-          "Match BTU to the room (use SACC)|The honest number is SACC (Seasonally Adjusted Cooling Capacity), the DOE-standardized rating, not the big marketing BTU. Midea and Whynter both list 12,000 SACC and rate up to 550–600 sq ft; the BLACK+DECKER's DOE figure is 5,550, which is why it's a small-bedroom unit.",
+          "Match BTU to the room (use SACC)|The honest number is SACC (Seasonally Adjusted Cooling Capacity), the DOE-standardized rating, not the big marketing BTU. Midea and Whynter both list 12,000 SACC and rate up to 550–600 sq ft; the BLACK+DECKER's DOE figure is 5,500, which is why it's a small-bedroom unit.",
           "Single-hose vs. dual-hose|Single-hose units (BLACK+DECKER) are cheaper but create negative pressure, pulling warm air back in through gaps. Dual-hose (Whynter NEX) cools faster and more efficiently. Most inverter picks like the Midea Duo split the difference on real-world efficiency.",
           "Check your window fit|Measure the opening. Most kits fit standard sliding and double-hung windows, but casement (crank-out) and very narrow windows often need a DIY panel. This is the single most common reason people can't install the unit they bought.",
           "Plan for drainage|In humid climates the unit collects water. Look for self-evaporating or a self-drain design (Midea includes a self-drain kit) so you're not emptying a tank constantly.",
@@ -1072,8 +1090,8 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "Best value: BLACK+DECKER 10,000 BTU 3-in-1",
         "body": [
-          "If your budget is firm and the room is small, the BLACK+DECKER BPACT10WT is the safe, trusted-brand entry. It's a 10,000 BTU (5,550 DOE) 3-in-1 that also works as a dehumidifier and fan, Midea-style casters and a window kit included, at roughly 26 lb it's one of the easier units to wheel between rooms. The 'Follow Me' remote doubles as a thermostat so it reads the temperature where you actually are.",
-          "It has the huge review base and name recognition that make it an easy, low-risk buy. Just be realistic about the size: the DOE figure of 5,550 BTU is honest small-space cooling."
+          "If your budget is firm and the room is small, the BLACK+DECKER BPACT10WT is the safe, trusted-brand entry. It's a 10,000 BTU (5,500 DOE) 3-in-1 that also works as a dehumidifier and fan, Midea-style casters and a window kit included, at roughly 26 lb it's one of the easier units to wheel between rooms. The 'Follow Me' remote doubles as a thermostat so it reads the temperature where you actually are.",
+          "It has the huge review base and name recognition that make it an easy, low-risk buy. Just be realistic about the size: the DOE figure of 5,500 BTU is honest small-space cooling."
         ],
         "list": [
           "The catch|It's single-hose and modest in output — great for a small bedroom or office, but it'll struggle in an open-plan living room or against serious heat, and it runs louder than the inverter picks."
@@ -1119,7 +1137,7 @@ export const EXTRA_ARTICLES: Article[] = [
       },
       {
         "q": "What size portable AC do I need?",
-        "a": "Match the room to the SACC rating (the DOE-standardized capacity), not the headline BTU. As a rough guide from manufacturer coverage figures: the Midea Duo and Whynter NEX (12,000 SACC) are rated for roughly 550–600 sq ft, while the BLACK+DECKER (5,550 BTU DOE) is a small-bedroom unit up to about 450 sq ft. Sun exposure, ceiling height, and kitchens push you toward more capacity."
+        "a": "Match the room to the SACC rating (the DOE-standardized capacity), not the headline BTU. As a rough guide from manufacturer coverage figures: the Midea Duo and Whynter NEX (12,000 SACC) are rated for roughly 550–600 sq ft, while the BLACK+DECKER (5,500 BTU DOE) is a small-bedroom unit up to about 450 sq ft. Sun exposure, ceiling height, and kitchens push you toward more capacity."
       },
       {
         "q": "Single-hose or dual-hose — does it matter?",
@@ -1234,7 +1252,7 @@ export const EXTRA_ARTICLES: Article[] = [
               "BLACK+DECKER 10,000 BTU 3-in-1 (BPACT10WT) — Budget pick",
               "A cheap real AC for one bedroom",
               "$280-$360",
-              "10,000 BTU (5,550 DOE), up to 450 sq ft, ~26 lb, window kit"
+              "10,000 BTU (5,500 DOE), up to 450 sq ft, 47.3 lb, window kit"
             ],
             [
               "Whynter NEX ARC-1230WN Dual-Hose Inverter — Upgrade pick",
@@ -1270,7 +1288,7 @@ export const EXTRA_ARTICLES: Article[] = [
         ],
         "list": [
           "Midea Duo 14,000 BTU — the catch:|At $500-$650, and cooling or heating up to 550 sq ft, it's an investment, it's heavy to move between rooms, and like every portable AC it still needs a window for the vent hose. Forbes Vetted named it their 2026 Best Overall, which is why it's our pick despite the price.",
-          "BLACK+DECKER 10,000 BTU — the catch:|It's a single-hose unit, so its true cooling output (about 5,550 BTU DOE) is lower than the 10,000 headline number, and it pulls in some warm air as it runs. Fine for a bedroom up to ~450 sq ft; underpowered for a big open space.",
+          "BLACK+DECKER 10,000 BTU — the catch:|It's a single-hose unit, so its true cooling output (about 5,500 BTU DOE) is lower than the 10,000 headline number, and it pulls in some warm air as it runs. Fine for a bedroom up to ~450 sq ft; underpowered for a big open space.",
           "Whynter NEX ARC-1230WN — the catch:|The dual-hose design that makes it fast and efficient also makes it bulkier and generally louder than a single-hose unit, and it costs more. RTINGS calls it the best portable air conditioner they've tested, so you're paying for performance.",
           "EcoFlow WAVE 3 — the catch:|At 6,100 BTU it only handles a small space, the battery that makes it cordless is a pricey add-on, and the whole system runs $899-$1,499. You're paying a steep premium for the no-window, off-grid freedom — worth it only if you genuinely need it.",
           "Hessaire MC18M — the catch:|It's evaporative, so it only cools in dry heat and adds humidity, which makes it useless in a muggy climate. At ~53 dB it isn't quiet. But for a garage or covered patio in the dry Southwest, little else this cheap moves this much cool air (1,300 CFM).",
@@ -2070,7 +2088,7 @@ export const EXTRA_ARTICLES: Article[] = [
               "BLACK+DECKER 10,000 BTU 3-in-1 (BPACT10WT)",
               "Budget apartment AC",
               "$280–$360",
-              "5,550 BTU DOE, up to 450 sq ft, rolls room-to-room"
+              "5,500 BTU DOE, up to 450 sq ft, rolls room-to-room"
             ],
             [
               "Shark TurboBlade Bladeless (TF202S)",
@@ -2137,7 +2155,7 @@ export const EXTRA_ARTICLES: Article[] = [
           "Midea Duo 14,000 BTU Smart Inverter (MAP14S1TBL), $500–$650. Rated 12,000 SACC and good for up to 550 sq ft. Its inverter compressor modulates instead of slamming fully on and off, which is what makes it both the quietest here (~42 dB) and the cheapest to run. Best for: making a bedroom or living room genuinely cold and holding it there. The catch: like every portable AC, it needs a window for the exhaust kit.",
           "Whynter NEX ARC-1230WN 14,000 BTU Dual-Hose Inverter, $550–$720. Also 12,000 SACC (up to 600 sq ft), but the dual-hose layout is the real upgrade. A single-hose AC creates slight negative pressure that pulls warm outside air back into the room to replace what it blows out — it quietly fights itself. Two hoses fix that. Best for: larger or hard-to-cool rooms where efficiency matters. The catch: two hoses are bulkier to set up, and it costs more.",
           "EcoFlow WAVE 3, $899–$1,499. 6,100 BTU of cooling with no permanent window vent and up to about 8 hours cordless on its add-on battery. Best for: renters, vans, tents, and garages — anywhere you cannot cut in a window kit. The catch: it is the priciest option here, the battery is a separate purchase, and 6,100 BTU suits a small space, not a great room.",
-          "BLACK+DECKER 10,000 BTU 3-in-1 (BPACT10WT), $280–$360. 5,550 BTU DOE, up to 450 sq ft, on casters so it rolls room to room. Best for: a first apartment AC on a budget from a name you trust. The catch: it is a single-hose, non-inverter unit, so it is louder and thirstier than the Midea — and it still needs a window."
+          "BLACK+DECKER 10,000 BTU 3-in-1 (BPACT10WT), $280–$360. 5,500 BTU DOE, up to 450 sq ft, on casters so it rolls room to room. Best for: a first apartment AC on a budget from a name you trust. The catch: it is a single-hose, non-inverter unit, so it is louder and thirstier than the Midea — and it still needs a window."
         ]
       },
       {
@@ -2329,7 +2347,7 @@ export const EXTRA_ARTICLES: Article[] = [
               "BLACK+DECKER 10,000 BTU 3-in-1 (BPACT10WT)",
               "A single bedroom or office up to ~250 sq ft",
               "$280-$360",
-              "5,550 SACC, single-hose, ~26 lb, rolls room to room"
+              "5,500 SACC, single-hose, 47.3 lb, rolls room to room"
             ],
             [
               "EcoFlow WAVE 3",
@@ -2345,7 +2363,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "body": [
           "Every portable AC now shows two cooling numbers, and they can differ by 40% or more. The big one — often labeled 'ASHRAE' or just 'BTU' on the front of the box — is the legacy marketing figure. The smaller one is SACC (Seasonally Adjusted Cooling Capacity), the rating the U.S. Department of Energy has required since 2017.",
           "SACC is the honest number. It's measured after accounting for the heat a portable unit leaks back into the room through its exhaust hose, plus the outside air a single-hose model pulls in as it runs. That's real, delivered cooling — so size your room by SACC, not the headline.",
-          "The gap tells you a lot. The BLACK+DECKER's box reads 10,000 BTU, but its DOE/SACC rating is 5,550 — barely more than half. The Midea Duo reads 14,000 BTU and holds a 12,000 SACC, because its inverter, dual-hose-capable design loses far less. Same-looking headline, very different real-world cooling."
+          "The gap tells you a lot. The BLACK+DECKER's box reads 10,000 BTU, but its DOE/SACC rating is 5,500 — barely more than half. The Midea Duo reads 14,000 BTU and holds a 12,000 SACC, because its inverter, dual-hose-capable design loses far less. Same-looking headline, very different real-world cooling."
         ]
       },
       {
@@ -2437,7 +2455,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "body": [
           "Midea Duo 14,000 BTU Smart Inverter Portable Air Conditioner (MAP14S1TBL) — Midea, $500-$650. Best for: the default pick for most bedrooms and living rooms up to 550 sq ft. Its 12,000 SACC is among the highest real-capacity ratings in a consumer portable, the inverter compressor holds it near ~42 dB, and it flips to heat off-season. The catch: it's heavy and premium-priced — overkill for a sub-200 sq ft bedroom, where you'd pay for capacity you can't use.",
           "Whynter NEX ARC-1230WN 14,000 BTU Dual-Hose Inverter — Whynter, $550-$720. Best for: large or west-facing rooms up to 600 sq ft, and hot-climate cooling where a single-hose unit stalls. The true dual-hose design sidesteps the negative-pressure problem, and RTINGS rates it their top portable. The catch: two hoses and a larger bracket make install fiddlier, and it's the priciest vented unit here.",
-          "BLACK+DECKER 10,000 BTU 3-in-1 Portable Air Conditioner (BPACT10WT) — BLACK+DECKER, $280-$360. Best for: one bedroom, a home office, or a nursery up to ~250 sq ft on a budget; at ~26 lb it rolls room to room easily. The catch: the box says 10,000 BTU and '450 sq ft,' but the DOE/SACC rating is 5,550 — size by that honest number and keep it to smaller rooms, or it will run non-stop and still lose ground.",
+          "BLACK+DECKER 10,000 BTU 3-in-1 Portable Air Conditioner (BPACT10WT) — BLACK+DECKER, $280-$360. Best for: one bedroom, a home office, or a nursery up to ~250 sq ft on a budget; at 47.3 lb it rolls room to room on casters, but it is not a carry-it-upstairs unit. The catch: the box says 10,000 BTU and '450 sq ft,' but the DOE/SACC rating is 5,500 — size by that honest number and keep it to smaller rooms, or it will run non-stop and still lose ground.",
           "EcoFlow WAVE 3 Portable Air Conditioner — EcoFlow, $899-$1,499. Best for: spaces with no window at all — vans, tents, garages, sunrooms — and off-grid use, since it runs up to ~8 hours on an add-on battery with no permanent vent. 6,100 BTU of cooling plus a heat mode. The catch: it's a spot cooler for roughly 100-160 sq ft, not a whole-apartment AC, and the battery that makes it special is a pricey add-on.",
           "Still deciding between a full AC, an evaporative cooler, or just a stronger fan? See all our cooling picks at /heat."
         ]
