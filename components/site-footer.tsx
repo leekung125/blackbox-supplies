@@ -4,11 +4,26 @@ import { BRAND, DISCLOSURE_LONG } from "@/lib/content";
 
 const COLS: { title: string; links: { href: string; label: string; external?: boolean }[] }[] = [
   {
+    // ⛔ THESE FOUR SLOTS ARE THE MOST VALUABLE INTERNAL LINKS ON THE SITE - the footer renders
+    // on every page, so each slot carries ~200 inbound links and a real share of the site's
+    // internal authority. Two of them used to point at the LOWEST-commission categories.
+    //
+    // Measured from the catalog, commission per sale at Amazon's ~3% on each guide's top product:
+    //     best-portable-air-conditioners   $16.50   (EcoFlow WAVE 3 / Whynter / Midea)
+    //     best-power-stations-compared     $13.47   (Jackery / BLUETTI / EcoFlow RIVER 2 Pro)
+    //     best-tower-fans-compared         $12.90   (Dyson TP07 / Shark TurboBlade)
+    //     best-dash-cams-compared          $12.00   (Nextbase iQ / VIOFO A139 Pro)
+    //     ---- replaced ----
+    //     best-jump-starters-compared       $3.00
+    //     best-tire-inflators-compared      $2.10
+    //
+    // The two replaced categories are NOT orphaned: the Categories column below still links
+    // /category/jump-starters and /category/tire-inflators, so the car audience keeps its path.
     title: "Guides",
     links: [
       { href: "/guides/best-portable-air-conditioners", label: "Portable air conditioners" },
-      { href: "/guides/best-jump-starters-compared", label: "Jump starters" },
-      { href: "/guides/best-tire-inflators-compared", label: "Tire inflators" },
+      { href: "/guides/best-power-stations-compared", label: "Power stations" },
+      { href: "/guides/best-tower-fans-compared", label: "Tower fans" },
       { href: "/guides/best-dash-cams-compared", label: "Dash cams" },
     ],
   },
