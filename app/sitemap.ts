@@ -6,7 +6,7 @@ import { COMPARISON_GUIDES } from "@/lib/comparison-guides";
 import { KITS } from "@/lib/kits";
 import { CATEGORIES } from "@/lib/categories";
 import { SCENARIOS } from "@/lib/scenarios";
-import { getCoreProducts } from "@/lib/products";
+import { getCoreProducts, getAllProducts } from "@/lib/products";
 import {
   getDateModified,
   comparisonSourcePath,
@@ -64,10 +64,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const scenarios: MetadataRoute.Sitemap = SCENARIOS.map((s) => ({ url: `${BASE}/when/${s.slug}` }));
   const kits: MetadataRoute.Sitemap = KITS.map((k) => ({ url: `${BASE}/kits/${k.id}` }));
   const categories: MetadataRoute.Sitemap = CATEGORIES.map((c) => ({ url: `${BASE}/category/${c.slug}` }));
-  const products: MetadataRoute.Sitemap = getCoreProducts().map((p) => ({
-    url: `${BASE}/products/${p.id}`,
-    lastModified: getDateModified(PRODUCTS_SOURCE),
-  }));
+  // ⛔ 41 REAL, INDEXABLE PRODUCT PAGES USED TO BE MISSING FROM THIS FILE.
+  // generateStaticParams uses getAllProducts() so every product gets a built page, but the
+  // sitemap used getCoreProducts(), which drops everything flagged offBrand. The code disagreed
+  // with itself: the page existed, was linked, was crawlable - and was never declared.
+  //
+  // The offBrand flag is not wrong. It keeps kitchen/sleep/home drift out of the browse grids so
+  // a car-and-roadside site does not dilute its topical authority. But indexing is a different
+  // question from ranking, and among those 41 were the HIGHEST-VALUE products in the catalog -
+  // the $650 Breville, the $450 Q Revo, the $400 Vitamix - each of which now has a full
+  // buyer-intent guide pointing at it.
+  //
+  // So the rule is editorial context, not niche membership: an offBrand product is indexed IF at
+  // least one guide, article or comparison references it. 20 of the 41 qualify; the other 21 are
+  // genuine orphans (pizza scissors, a wake-up light) and stay out.
+  const editorialIds = new Set<string>();
+  for (const g of GUIDES) for (const pk of g.picks) editorialIds.add(pk.productId);
+  for (const a of [...ARTICLES, ...EXTRA_ARTICLES]) {
+    for (const pk of a.picks ?? []) editorialIds.add(pk.id);
+    for (const s of a.sections) for (const id of s.productIds ?? []) editorialIds.add(id);
+  }
+  for (const c of COMPARISON_GUIDES) {
+    for (const p of (c as unknown as { products?: { id?: string }[] }).products ?? []) {
+      if (p.id) editorialIds.add(p.id);
+    }
+  }
+
+  const coreIds = new Set(getCoreProducts().map((p) => p.id));
+  const products: MetadataRoute.Sitemap = getAllProducts()
+    .filter((p) => coreIds.has(p.id) || editorialIds.has(p.id))
+    .map((p) => ({
+      url: `${BASE}/products/${p.id}`,
+      lastModified: getDateModified(PRODUCTS_SOURCE),
+    }));
 
   return [...core, ...scenarios, ...comparisonGuides, ...guides, ...articles, ...kits, ...categories, ...products];
 }
