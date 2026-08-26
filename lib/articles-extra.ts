@@ -20,6 +20,7 @@ import { CORDLESS_VS_12V_INFLATOR_TRUCK_SUV } from "./articles/cordless-vs-12v-t
 import { DASH_CAM_VS_SECURITY_CAMERA } from "./articles/dash-cam-parking-mode-vs-security-camera";
 import { WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE } from "./articles/do-car-window-breakers-work-on-laminated-glass";
 import { DO_POWER_STATIONS_WORK_IN_COLD_WEATHER } from "./articles/do-power-stations-work-in-cold-weather";
+import { ESPRESSO_MACHINE_WITH_BUILT_IN_GRINDER_WORTH_IT } from "./articles/espresso-machine-with-built-in-grinder-worth-it";
 import { SWAMP_COOLER_HUMIDITY_ARTICLE } from "./articles/do-swamp-coolers-work-in-humid-climates";
 import { HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID } from "./articles/how-many-solar-panels-to-keep-a-power-station-charged-off-grid";
 import { HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS } from "./articles/how-much-torque-impact-wrench-lug-nuts";
@@ -53,6 +54,7 @@ const DEEP_SEO_BATCH: Article[] = [
   DASH_CAM_VS_SECURITY_CAMERA,
   WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE,
   DO_POWER_STATIONS_WORK_IN_COLD_WEATHER,
+  ESPRESSO_MACHINE_WITH_BUILT_IN_GRINDER_WORTH_IT,
   SWAMP_COOLER_HUMIDITY_ARTICLE,
   HOW_MANY_SOLAR_PANELS_TO_KEEP_A_POWER_STATION_CHARGED_OFF_GRID,
   HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS,
