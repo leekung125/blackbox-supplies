@@ -50,8 +50,10 @@ export interface Article {
   sources?: { label: string; url: string }[];
   /** Optional cinematic hero image (relit product shot) for the guides index card. */
   heroImage?: string;
-  /** Affiliate "buy" picks for this guide — heat/useful product ids, rendered as Check-Price CTAs. */
-  picks?: { id: string; cat: "heat" | "useful"; label?: string }[];
+  /** Affiliate "buy" picks. `cat` is optional and decorative - resolvePicks looks the id up
+   * across ALL catalogs. Changing this shape without changing lib/affiliate-picks.ts breaks
+   * the build; they are two declarations of the same thing. */
+  picks?: { id: string; cat?: "heat" | "useful"; label?: string }[];
 }
 
 export const ARTICLES: Article[] = [

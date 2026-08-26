@@ -1,6 +1,4 @@
-import heatData from "@/data/heat-products.json";
-import usefulData from "@/data/useful-products.json";
-import type { Product } from "@/lib/products";
+import { getProductById, type Product } from "@/lib/products";
 
 type Row = {
   id: string;
@@ -14,13 +12,23 @@ type Row = {
   affiliateUrl: string;
 };
 
-const HEAT = heatData as Row[];
-const USEFUL = usefulData as Row[];
-
-export type Pick = { id: string; cat: "heat" | "useful"; label?: string };
+export type Pick = { id: string; cat?: "heat" | "useful"; label?: string };
 export type ResolvedPick = Row & { cat: "heat" | "useful"; label?: string };
 
-/** Resolve a guide's affiliate picks (id + catalog) to full product rows for rendering buy CTAs. */
+/** Resolve a guide's affiliate picks to full product rows for rendering buy CTAs.
+ *
+ * ⛔ THIS USED TO READ ONLY heat-products.json AND useful-products.json, AND THAT SILENTLY KILLED
+ * THE BUY BOX ON HALF THE SITE. `Pick.cat` was typed `"heat" | "useful"`, so an article could not
+ * even DECLARE a pick for anything in products.json — which is where every power station, dash cam
+ * and jump starter lives. 30 of 60 articles therefore rendered no buy box and no sticky bar at all
+ * (GuidePicks returns null on an empty array, StickyBuyBar returns null with no href), including
+ * the entire $300-$800 power-station and dash-cam cluster. Measured on the live site: one 2,965-word
+ * page had 3 outbound links with the first at 63% depth and 990 words of dead air after the last,
+ * while a sibling page of the same length and template had 10 CTAs starting at 6% — the only
+ * difference being which JSON file its products happened to sit in.
+ *
+ * getProductById already merges all three catalogs (lib/products.ts), so one lookup covers
+ * everything and `cat` is now optional and decorative. */
 const STOP = new Set(
   ("the a an of for with and to in portable air conditioner tower fan bladeless oscillating smart inverter cooling gel " +
    "memory foam mattress topper sheet sheets blanket neck mini fridge wireless noise cancelling earbuds performance " +
@@ -52,9 +60,12 @@ export function resolvePicks(picks?: Pick[]): ResolvedPick[] {
   if (!picks?.length) return [];
   const out: ResolvedPick[] = [];
   for (const pk of picks) {
-    const src = pk.cat === "heat" ? HEAT : USEFUL;
-    const p = src.find((x) => x.id === pk.id);
-    if (p) out.push({ ...p, cat: pk.cat, label: pk.label });
+    const p = getProductById(pk.id);
+    // ⛔ Guard on the image, not on the product. GuidePicks renders next/image with a required
+    // src and productToPick coerces a missing image to "" — that is a BUILD-TIME crash, not a
+    // silent miss, and dynamicParams=false means it takes the whole prerender down.
+    if (!p?.image) continue;
+    out.push({ ...productToPick(p, pk.label), cat: pk.cat ?? "useful" });
   }
   return out;
 }

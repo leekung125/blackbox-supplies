@@ -23,6 +23,10 @@ export function StickyBuyBar({
   const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // ⛔ WAS `sm:hidden` — the bar existed only below 640px, so every tablet, laptop and desktop
+    // reader had NO persistent buy action. On a 4,000-word guide that is ~3,000 words of scrolling
+    // past the one inline buy box with no way back to it. The comparison guides never had this
+    // problem: they use a different component at `lg:hidden` plus a pinned desktop rail.
     const onScroll = () => setShow(window.scrollY > 700);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
@@ -35,7 +39,7 @@ export function StickyBuyBar({
   if (!href || !label) return null;
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line-strong bg-surface/95 px-4 py-2.5 backdrop-blur transition-transform duration-300 sm:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line-strong bg-surface/95 px-4 py-2.5 backdrop-blur transition-transform duration-300 ${
         show ? "translate-y-0" : "translate-y-full"
       }`}
     >

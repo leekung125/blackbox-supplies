@@ -7,7 +7,7 @@ import { ProductCard } from "@/components/product-card";
 import { GuidePicks } from "@/components/guide-picks";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
-import { resolvePicks, matchByText } from "@/lib/affiliate-picks";
+import { resolvePicks, matchByText, productToPick } from "@/lib/affiliate-picks";
 import { getDateModified, displayUpdated, articleSourcePath } from "@/lib/freshness";
 
 /** A related link normalized across ALL content types so the card render is shape-safe. */
@@ -43,7 +43,20 @@ export function ArticleView({ article }: { article: Article }) {
   const related = article.relatedGuides
     .map(resolveRelated)
     .filter((r): r is RelatedRef => r !== null);
-  const picks = resolvePicks(article.picks);
+  // ⛔ ONE EDIT THAT GIVES 30 ARTICLES A BUY PATH. Half the corpus never declared `picks` because
+  // the resolver could not see products.json, so those pages rendered no buy box and no sticky bar
+  // and simply ended on the newsletter block. Every one of them DOES already declare `productIds`
+  // on its sections, and all of those ids resolve — so derive the buy box from the content the page
+  // already carries rather than hand-authoring 30 picks arrays and risking a mismatched product.
+  // An explicit `picks` array still wins. The `image` guard is load-bearing: a missing image is a
+  // build-time crash under dynamicParams=false, not a silent miss.
+  const picks = article.picks?.length
+    ? resolvePicks(article.picks)
+    : Array.from(new Set(article.sections.flatMap((sec) => sec.productIds ?? [])))
+        .slice(0, 3)
+        .map((id) => getProductById(id))
+        .filter((prod): prod is NonNullable<typeof prod> => Boolean(prod?.image))
+        .map((prod) => productToPick(prod));
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
