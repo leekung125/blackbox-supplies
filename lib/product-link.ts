@@ -1,4 +1,5 @@
 import type { Product } from "@/lib/products";
+import { withAffiliateTag } from "./affiliate-tag";
 
 /**
  * Outbound-link helpers, in a module that imports NO DATA.
@@ -21,9 +22,19 @@ import type { Product } from "@/lib/products";
  */
 
 export function getOutboundLink(p: Product): { href: string; isAffiliate: boolean } {
+  // ⛔ The fallback below is the trap. `sourceUrl` is DOCUMENTED as the plain untagged URL (it is
+  // the source of truth for the ASIN and must stay that way), so a product that ever ships without
+  // an `affiliateUrl` would render a buy button that earns nothing - silently, on a site where
+  // Amazon is 100% of revenue. Today all 151 catalogue products carry a tagged `affiliateUrl`, so
+  // nothing leaks; that is a fact about the DATA, not a property of the code, and the next product
+  // added by hand is one omission away from breaking it.
+  //
+  // withAffiliateTag is idempotent (it returns the URL untouched if a `tag=` is already present,
+  // and ignores non-Amazon hosts), so wrapping both branches costs nothing and makes the leak
+  // structurally impossible. None of the four call sites wrapped it; now none of them has to.
   const affiliate = p.affiliateUrl?.trim();
-  if (affiliate) return { href: affiliate, isAffiliate: true };
-  return { href: p.amazon?.amazonUrl || p.sourceUrl, isAffiliate: false };
+  if (affiliate) return { href: withAffiliateTag(affiliate), isAffiliate: true };
+  return { href: withAffiliateTag(p.amazon?.amazonUrl || p.sourceUrl), isAffiliate: true };
 }
 
 /** The `rel` attribute for an outbound link — affiliate links get `sponsored`. */

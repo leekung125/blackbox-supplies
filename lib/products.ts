@@ -270,10 +270,22 @@ export function getLinksProducts(): Product[] {
     .sort((a, b) => b.priority - a.priority);
 }
 
-/** Related picks for a product page: same category, highest priority, excluding self + off-brand. */
+/**
+ * Related picks for a product page: same category, highest priority, excluding self.
+ *
+ * ⛔ off-brand is excluded FROM CORE PAGES ONLY. Excluding it unconditionally meant an off-brand
+ * page had no related rail at all - every one of its category siblings is off-brand too - so 21
+ * substantial product pages (639-1,474 words, 3-6 tagged buy links each) were dead ends in BOTH
+ * directions: zero inbound internal links across all 254 built pages, and no outbound ones either.
+ *
+ * So: a core product still never surfaces kitchen/sleep drift (that is what the flag is for), but
+ * an off-brand product may show its off-brand siblings. The cluster becomes reachable and readers
+ * on it get somewhere to go, without putting pizza scissors in front of someone buying a jump
+ * starter.
+ */
 export function getRelatedProducts(p: Product, n = 3): Product[] {
   return products
-    .filter((x) => x.id !== p.id && x.category === p.category && !x.offBrand)
+    .filter((x) => x.id !== p.id && x.category === p.category && (p.offBrand || !x.offBrand))
     .sort((a, b) => b.priority - a.priority)
     .slice(0, n);
 }
