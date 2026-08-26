@@ -74,7 +74,7 @@ const FAQ_FALLBACK: Faq[] = [
   },
   {
     q: "Have you personally tested these?",
-    a: "No — and we won't claim we have. Picks are grounded in manufacturer spec sheets, cross-checked verified-buyer reviews, and price history, cited so you can check our work.",
+    a: "No — and we won't claim we have. Picks are grounded in manufacturer spec sheets and cross-checked verified-buyer reviews, cited so you can check our work.",
   },
 ];
 

@@ -25,7 +25,7 @@ const PRINCIPLES = [
   },
   {
     title: "Honest by default",
-    body: "Every pick is researched hard: we read verified-buyer reviews, manufacturer spec sheets, and price history, and weigh them against the independent outlets that lab-test — then tell you the best one and its honest catch. Every number is traceable. No invented reviews, no paid placement.",
+    body: "Every pick is researched hard: we read verified-buyer reviews and manufacturer spec sheets, and weigh them against the independent outlets that lab-test — then tell you the best one and its honest catch. Every number is traceable. No invented reviews, no paid placement.",
   },
   {
     title: "A real person, not an influencer",

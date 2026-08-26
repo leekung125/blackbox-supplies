@@ -36,11 +36,16 @@ export function MethodologyPanel({
   className?: string;
   specsLabel?: string;
 }) {
+  // ⛔ "Price history tracked" was removed 2026-08-26. It appeared on EVERY money page and
+  // nothing in this repo tracks price history - no scraper, no stored series, no Keepa or
+  // CamelCamelCamel integration, nothing. It was a fabricated process claim sitting inside a
+  // panel headed "Research trail", which is the worst possible place for one: the panel exists
+  // to earn trust on a site that cannot show testing. Every remaining badge is a thing that is
+  // actually done - owner-review analysis alone has 43 reviewsBasis entries in owner-evidence.ts.
   const badges = [
     specsLabel,
     "Warranty & support reviewed",
     "Owner-review patterns analyzed",
-    "Price history tracked",
     "Independent reviews cross-referenced",
     "Safety / recall checks where relevant",
   ];

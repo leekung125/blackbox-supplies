@@ -89,7 +89,7 @@ export function organizationSchema() {
     // must not be advertised here — an Organization node claiming categories the site doesn't
     // carry is a credibility (and entity-understanding) problem, not just stale copy.
     description:
-      "BlackBox Supplies researches and curates utility & readiness gear — car & roadside (jump starters, tire inflators, dash cams), power & backup, cooling, tools, and everyday carry — and publishes honest, research-based buying guides. Picks are based on cross-checked verified-buyer reviews, manufacturer spec sheets, and price history.",
+      "BlackBox Supplies researches and curates utility & readiness gear — car & roadside (jump starters, tire inflators, dash cams), power & backup, cooling, tools, and everyday carry — and publishes honest, research-based buying guides. Picks are based on cross-checked verified-buyer reviews and manufacturer spec sheets.",
     knowsAbout: [
       "car jump starters",
       "tire inflators",

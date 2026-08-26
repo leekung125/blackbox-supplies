@@ -18,7 +18,7 @@ export function GET() {
   const lines = [
     "# BlackBox Supplies",
     "",
-    "> Premium, honest buying guides and curated Amazon picks — cooling gear, genuinely useful everyday gear, and car & roadside essentials. Every product is a real, verified Amazon listing. Picks are based on verified-buyer reviews, manufacturer spec sheets, price history, and the independent outlets that lab-test. As an Amazon Associate, BlackBox earns from qualifying purchases.",
+    "> Premium, honest buying guides and curated Amazon picks — cooling gear, genuinely useful everyday gear, and car & roadside essentials. Every product is a real, verified Amazon listing. Picks are based on verified-buyer reviews, manufacturer spec sheets, and the independent outlets that lab-test. As an Amazon Associate, BlackBox earns from qualifying purchases.",
     "",
     "## Product categories",
     `- [Cooling gear](${BASE}/heat): portable AC, tower & bladeless fans, cooling sleep, mini fridges, personal cooling`,
@@ -35,7 +35,7 @@ export function GET() {
     ...[...guides, ...articles].map((g) => `- [${g.title}](${BASE}/guides/${g.slug}): ${g.dek}`),
     "",
     "## About",
-    `- [How we pick](${BASE}/methodology): our research method — specs, verified-buyer reviews, price history; no fabricated testing`,
+    `- [How we pick](${BASE}/methodology): our research method — specs, verified-buyer reviews, independent outlets; no fabricated testing`,
     `- [Affiliate disclosure](${BASE}/disclosure)`,
     `- [Privacy](${BASE}/privacy)`,
     "",

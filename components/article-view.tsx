@@ -5,6 +5,7 @@ import { getProductById } from "@/lib/products";
 import { EDITOR } from "@/lib/content";
 import { ProductCard } from "@/components/product-card";
 import { GuidePicks } from "@/components/guide-picks";
+import { SectionNav } from "@/components/section-nav";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
 import { resolvePicks, matchByText, productToPick } from "@/lib/affiliate-picks";
@@ -17,6 +18,31 @@ interface RelatedRef {
   title: string;
   label: string;
   dek: string;
+}
+
+/** Heading → stable anchor id, same scheme the /useful category anchors use. */
+function anchorId(heading: string): string {
+  return heading.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+/**
+ * Heading → jump-nav chip label. SectionNav was built for CATEGORY names ("Dorm Cooling");
+ * article headings are full sentences — 280 of 324 in the corpus run past 32 characters and the
+ * longest is 96. Passed raw, a single `shrink-0` chip renders ~560px wide, so at 360px the reader
+ * gets one unreadable half-sentence and has to scroll the bar sideways to find anything. Take the
+ * leading clause before an em-dash/colon when that alone is a real label, else truncate on a word
+ * boundary. Max output is 32 chars ≈ 250px including the chip's padding and dot — it fits.
+ */
+const NAV_LABEL_MAX = 32;
+function navLabel(heading: string): string {
+  const clause = heading.split(/\s+[—–]\s+|:\s+/)[0].trim();
+  let s = clause.length >= 12 && clause.length <= NAV_LABEL_MAX ? clause : heading.trim();
+  if (s.length > NAV_LABEL_MAX) {
+    const cut = s.slice(0, NAV_LABEL_MAX);
+    const sp = cut.lastIndexOf(" ");
+    s = `${(sp >= 16 ? cut.slice(0, sp) : cut).replace(/[\s,;:.—–-]+$/, "")}…`;
+  }
+  return s;
 }
 
 /**
@@ -85,24 +111,48 @@ export function ArticleView({ article }: { article: Article }) {
         <p className="lede mt-4">{article.dek}</p>
       </header>
 
-      {/* answer-first */}
-      <div className="mt-8 rounded-2xl border border-accent/25 bg-accent-tint p-5 sm:p-6">
-        <h2 className="font-sans text-xs font-semibold uppercase tracking-[0.12em] text-accent-strong">The short answer</h2>
-        <p className="mt-2 text-[1.02rem] leading-relaxed text-ink">{article.answerFirst}</p>
+      {/* answer-first — the most valuable 40–60 words on the page. Rendered on the warm-PAPER
+          reading surface (the design system's long-form-readability panel) so it is the one
+          bright, lit object near the top of the dark page instead of another tinted paragraph. */}
+      <div className="read-surface mt-8 p-5 sm:p-7">
+        <h2 className="eyebrow">The short answer</h2>
+        <p className="mt-3 font-display text-[1.16rem] leading-[1.6] text-readink sm:text-[1.28rem]">{article.answerFirst}</p>
       </div>
 
       {/* quick-verdict buy box — the highest-lift conversion element */}
       <GuidePicks picks={picks} />
 
-      {article.sections.map((s) => (
-        <section key={s.heading} className="mt-10">
-          <h2 className="font-display text-2xl font-semibold text-ink">{s.heading}</h2>
+      {/* sticky jump-nav — the same SectionNav the category pages use. On a 3–4k-word page this
+          is the reader's map: every section heading is one tap away, and the bar rides under the
+          site header for the rest of the scroll. Anchor ids must match the section ids below. */}
+      <SectionNav
+        sections={[
+          ...article.sections.map((s) => ({ id: anchorId(s.heading), label: navLabel(s.heading) })),
+          ...(article.faq?.length ? [{ id: "common-questions", label: "Common questions" }] : []),
+        ]}
+      />
+
+      {/* scroll-mt-28 ≈ sticky header (64px) + jump-nav (~44px), same offset the comparison
+          board uses, so an anchor jump never hides the heading under the chrome. */}
+      {/* `si`, not `i`: the paragraph map below already binds `i`, and an outer `i` would shadow it. */}
+      {article.sections.map((s, si) => (
+        <section key={s.heading} id={anchorId(s.heading)} className="mt-12 scroll-mt-28 sm:mt-14">
+          {/* honest progress marker: 03 / 07 — where you are in a real 4k-word read */}
+          <div aria-hidden className="flex items-center gap-3">
+            <span className="mono tabular text-[0.65rem] tracking-[0.14em] text-accent">
+              {String(si + 1).padStart(2, "0")}&thinsp;/&thinsp;{String(article.sections.length).padStart(2, "0")}
+            </span>
+            <span className="rule-fade min-w-0 flex-1" />
+          </div>
+          <h2 className="mt-3 font-display text-2xl font-semibold text-ink">{s.heading}</h2>
           {s.body?.map((p, i) => (
             <p key={i} className="article mt-3 text-[0.98rem] leading-relaxed text-ink-2">{p}</p>
           ))}
           {s.table ? (
             <div className="mt-5 overflow-x-auto rounded-xl border border-line">
-              <table className="w-full text-left text-[0.92rem]">
+              {/* min-w: at 360px a 3-column spec table crushed to ~90px columns of vertical
+                  word-stacks; a floor lets it scroll sideways inside this wrapper instead. */}
+              <table className="w-full min-w-[540px] text-left text-[0.92rem]">
                 {s.table.caption ? <caption className="sr-only">{s.table.caption}</caption> : null}
                 <thead>
                   <tr className="border-b border-line bg-surface-2">
@@ -158,7 +208,7 @@ export function ArticleView({ article }: { article: Article }) {
       ))}
 
       {article.faq?.length ? (
-        <section className="mt-12">
+        <section id="common-questions" className="mt-12 scroll-mt-28">
           <h2 className="font-display text-2xl font-semibold text-ink">Common questions</h2>
           <div className="mt-4 space-y-4">
             {article.faq.map((f) => (

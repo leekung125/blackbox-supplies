@@ -32,7 +32,7 @@ const DO_STACK = [
   {
     title: "Safety and recall checks",
     detail:
-      "Jump starters are checked for spark-proof and reverse-polarity protection claims; products are screened against CPSC and NHTSA recall databases before they enter a guide.",
+      "Jump starters are checked for spark-proof and reverse-polarity protection claims. Where a recall or a safety notice is known to us — from CPSC, NHTSA or the manufacturer — we say so on the page. We do not run a systematic recall sweep across the whole catalogue, so treat the absence of a note as the absence of a note, not as a clean bill of health.",
   },
   {
     title: "Category expertise over product hype",

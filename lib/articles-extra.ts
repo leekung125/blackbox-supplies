@@ -973,7 +973,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "The short version",
         "body": [
           "If you rent and there's no central air, a portable AC is usually your most realistic option. A window unit needs a window that opens the right way and a sill that can hold the weight, and plenty of leases ban them outright. A portable rolls on casters, vents through a slim hose, and comes out at the end of summer.",
-          "For this guide we cross-checked verified-buyer reviews, editorial roundups, manufacturer spec sheets, and price history across the units below. Our top pick is the Midea Duo 14,000 BTU, which Forbes Vetted named its 2026 'Best Overall' portable AC. It uses an inverter compressor, so it ramps up and down instead of slamming fully on and off — that's why Midea rates it around 42 dB and why inverter portables generally cost less to run than standard single-speed models."
+          "For this guide we cross-checked verified-buyer reviews, editorial roundups and manufacturer spec sheets across the units below. Our top pick is the Midea Duo 14,000 BTU, which Forbes Vetted named its 2026 'Best Overall' portable AC. It uses an inverter compressor, so it ramps up and down instead of slamming fully on and off — that's why Midea rates it around 42 dB and why inverter portables generally cost less to run than standard single-speed models."
         ],
         "table": {
           "caption": "Six real cooling options for a no-central-air apartment, from our top pick to the cheapest no-vent route. BTU and dB figures are manufacturer specs unless noted.",
@@ -1210,7 +1210,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "What actually lowers the temperature: three kinds of machine",
         "body": [
           "There are only three categories of gear here, and they are not interchangeable. Buy the wrong one for your climate and you'll be disappointed.",
-          "We cross-checked verified-buyer reviews, spec sheets, and price history across the units below. Prices are typical street ranges and move around; specs are the manufacturer's unless we credit a reviewer."
+          "We cross-checked verified-buyer reviews and manufacturer spec sheets across the units below. Prices are typical street ranges and move around; specs are the manufacturer's unless we credit a reviewer."
         ],
         "list": [
           "Portable air conditioner (the only true room-cooler)|Uses a refrigerant cycle and vents hot air out a window through a hose. It genuinely drops air temperature in any climate, humid or dry. Downsides: it's the priciest, heaviest, and loudest option, and it needs a window to vent.",
@@ -1389,7 +1389,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "Our picks at a glance",
         "body": [
-          "Every fan below is one we would actually own. We cross-checked verified-buyer reviews, manufacturer spec sheets, and price history across the major fan roundups, then narrowed a crowded category down to five. Start with the table, then read the catch on each pick before you buy."
+          "Every fan below is one we would actually own. We cross-checked verified-buyer reviews and manufacturer spec sheets against the major fan roundups, then narrowed a crowded category down to five. Start with the table, then read the catch on each pick before you buy."
         ],
         "table": {
           "caption": "Prices are BlackBox tracked ranges as of July 2026; specs come from each maker's sheet.",
@@ -1497,7 +1497,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "How we picked",
         "body": [
-          "We do not run a lab. We cross-checked verified-buyer reviews, manufacturer spec sheets, and price history, then weighed those against the fan roundups at Forbes Vetted, Reviewed, TechGearLab, HGTV, and RTINGS. Prices are the ranges we track and move with sales; specs come straight from each maker's sheet.",
+          "We do not run a lab. We cross-checked verified-buyer reviews and manufacturer spec sheets, then weighed those against the fan roundups at Forbes Vetted, Reviewed, TechGearLab, HGTV, and RTINGS. Prices are approximate ranges and move with sales; specs come straight from each maker's sheet.",
           "One honest truth to leave with: no fan lowers a room's temperature. Tower and bladeless fans move air to speed evaporation off your skin, so you feel cooler — but if you need to actually drop the heat, you want a portable AC or evaporative cooler. See all our cooling picks at /heat."
         ]
       }
@@ -1584,10 +1584,10 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "The short version",
         "body": [
           "Two mini fridges clear the bar for a dorm, a home office, or a bedroom nook — and they win for opposite reasons. The Midea WHS-121LB1 Mini Fridge (3.3 cu ft, Black) from Midea ($110-$160) is the quiet, efficient, no-drama default. The Frigidaire EFR840 Retro 2-Door Mini Fridge with Freezer (3.2 cu ft, Black) from Frigidaire ($140-$200) is the one that looks like furniture and has an actual separate freezer.",
-          "We didn't lab-test these. We cross-checked verified-buyer reviews, manufacturer spec sheets, and price history to land on the two worth your money."
+          "We didn't lab-test these. We cross-checked verified-buyer reviews and manufacturer spec sheets to land on the two worth your money."
         ],
         "table": {
-          "caption": "Both fit typical dorm size caps; prices are current street ranges cross-checked against price history.",
+          "caption": "Both fit typical dorm size caps; prices are approximate ranges and move with sales.",
           "columns": [
             "Pick",
             "Best for",
@@ -1712,7 +1712,7 @@ export const EXTRA_ARTICLES: Article[] = [
   {
     "slug": "best-work-from-home-desk-upgrades",
     "title": "The Best Desk Upgrades for Working From Home (2026)",
-    "dek": "Four upgrades that fix the real problems of a home desk — eye strain, cable chaos, dead batteries, and lost gear — chosen from verified-buyer reviews, spec sheets, and price history.",
+    "dek": "Four upgrades that fix the real problems of a home desk — eye strain, cable chaos, dead batteries, and lost gear — chosen from verified-buyer reviews and spec sheets.",
     "category": "Useful Gear",
     "readMinutes": 6,
     "updated": "2026-07-04",
@@ -1722,7 +1722,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "The one-desk method",
         "body": [
           "A home desk doesn't need a dozen gadgets. It needs to fix four things you feel every day: eye strain from bad light, a nest of charging cables, a phone that dies the moment you step away, and the ten minutes a week you lose hunting for keys, a badge, or a bag.",
-          "To choose these, we cross-checked verified-buyer reviews, manufacturer spec sheets, and price history — and kept only gear good enough to be the last thing you buy for that job. Every pick here is $50 or more; this is a curated setup, not a bargain bin."
+          "To choose these, we cross-checked verified-buyer reviews, manufacturer spec sheets — and kept only gear good enough to be the last thing you buy for that job. Every pick here is $50 or more; this is a curated setup, not a bargain bin."
         ]
       },
       {
@@ -1892,7 +1892,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "The picks at a glance",
         "body": [
-          "Three products earned a spot, all cross-checked against verified-buyer reviews, manufacturer spec sheets, and price history. Every one sits at $50 or above — this is gear meant to survive a summer of daily use, not a drawer gadget.",
+          "Three products earned a spot, all cross-checked against verified-buyer reviews and manufacturer spec sheets. Every one sits at $50 or above — this is gear meant to survive a summer of daily use, not a drawer gadget.",
           "Two are wearable neck coolers you run hands-free at a desk; one is a compact tower fan for people who'd rather cool the air around them than wear anything."
         ],
         "table": {
@@ -2061,7 +2061,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "At a glance: AC vs tower fan",
         "body": [
           "A portable AC and a tower fan are not two versions of the same thing. One is a heat pump that removes warmth from the room; the other is an air mover that makes you feel cooler without changing the temperature. That single difference decides which one you should buy.",
-          "Here are the picks we would actually reach for, spanning both categories. We cross-checked verified-buyer reviews, published spec sheets, and price history to choose them."
+          "Here are the picks we would actually reach for, spanning both categories. We cross-checked verified-buyer reviews and published spec sheets to choose them."
         ],
         "table": {
           "caption": "Top picks across both categories. Prices reflect recent ranges and move with sales.",
@@ -2324,7 +2324,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "At a glance: our top portable AC picks",
         "body": [
           "Sizing a portable AC comes down to one honest number and one simple rule. The number is SACC; the rule is about 20 BTU per square foot of room. Everything below builds on those two things.",
-          "We cross-checked verified-buyer reviews, published spec sheets, and price history to choose these four units — we don't run a lab."
+          "We cross-checked verified-buyer reviews and published spec sheets to choose these four units — we don't run a lab."
         ],
         "table": {
           "caption": "Our portable AC picks, by the room each one actually fits.",
@@ -2560,7 +2560,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "The gear at a glance",
         "body": [
-          "We cross-checked verified-buyer reviews, spec sheets, and price history. Prices are typical Amazon ranges and shift with sales."
+          "We cross-checked verified-buyer reviews and spec sheets. Prices are typical Amazon ranges and shift with sales."
         ],
         "table": {
           "caption": "BlackBox cooling-sleep picks, most impactful first.",
@@ -2801,7 +2801,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "The short answer: EDC is five slots, not one gadget",
         "body": [
           "Everyday carry (EDC) is the small, deliberate set of things you keep on you or in your bag every day. The mistake is treating it as a pile of gadgets. Treat it as five slots — carry, multitool, audio, tracking, and power — and buy one thing that genuinely owns each slot.",
-          "We didn't lab-test these; we cross-checked verified-buyer reviews, published spec sheets, and price history, then leaned on the physics of each category. The picks skew premium on purpose: EDC gear rides in your pocket and bag every day for years, so cost-per-use rewards buying once."
+          "We didn't lab-test these; we cross-checked verified-buyer reviews, published spec sheets, then leaned on the physics of each category. The picks skew premium on purpose: EDC gear rides in your pocket and bag every day for years, so cost-per-use rewards buying once."
         ],
         "table": {
           "caption": "Best EDC gear by slot — top pick and the runners you'll pair with it",
@@ -2988,7 +2988,7 @@ export const EXTRA_ARTICLES: Article[] = [
   {
     "slug": "best-kitchen-gear-worth-buying",
     "title": "The Best Kitchen Gear Worth the Money (2026)",
-    "dek": "Five premium kitchen tools that genuinely earn their price — each with an explicit best-for and an honest catch. Cross-checked against spec sheets, price history, and verified-buyer reviews.",
+    "dek": "Five premium kitchen tools that genuinely earn their price — each with an explicit best-for and an honest catch. Cross-checked against spec sheets and verified-buyer reviews.",
     "category": "Useful Gear",
     "readMinutes": 7,
     "updated": "2026-07-04",
@@ -2997,7 +2997,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "The short list",
         "body": [
-          "These are the few pieces of premium kitchen gear where paying up actually pays off — because you'll use them constantly, they outlast the cheap version by years, or they do something a budget tool physically can't. Everything here is drawn from current manufacturer spec sheets, price history, and verified-buyer reviews. Prices move, so check the live listing before you buy."
+          "These are the few pieces of premium kitchen gear where paying up actually pays off — because you'll use them constantly, they outlast the cheap version by years, or they do something a budget tool physically can't. Everything here is drawn from current manufacturer spec sheets and verified-buyer reviews. Prices move, so check the live listing before you buy."
         ],
         "table": {
           "caption": "Five premium kitchen tools worth the spend, with the top pick first.",
@@ -3114,7 +3114,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "heading": "The bottom line",
         "body": [
           "Five buys, one rule: pay premium only where you'll feel it every week. The Wusthof Classic knife and the Fellow Stagg EKG kettle are the easiest yeses because you use them constantly for well under $200. The Breville Barista Express is the biggest spend but the clearest math if you're a daily espresso drinker. The Vitamix 5200 and Breville Joule earn their price the moment they replace something you'd otherwise do worse, slower, or not at all.",
-          "Every price and spec here is drawn from current manufacturer spec sheets, price history, and verified-buyer reviews, and prices move — check the live listing before you buy. Browse the full list at /useful."
+          "Every price and spec here is drawn from current manufacturer spec sheets and verified-buyer reviews, and prices move — check the live listing before you buy. Browse the full list at /useful."
         ]
       }
     ],
@@ -3203,7 +3203,7 @@ export const EXTRA_ARTICLES: Article[] = [
       {
         "heading": "The six upgrades at a glance",
         "body": [
-          "This is a roundup of premium home and comfort gear — no cheap gadgets, nothing under $50 — organized around the four problems that wear on you daily: the air you breathe, the floors you clean, the chair you sit in, and the sleep you get. We cross-checked verified-buyer reviews, spec sheets, price history, and the category physics to pick one clear winner for each.",
+          "This is a roundup of premium home and comfort gear — no cheap gadgets, nothing under $50 — organized around the four problems that wear on you daily: the air you breathe, the floors you clean, the chair you sit in, and the sleep you get. We cross-checked verified-buyer reviews, spec sheets and the category physics to pick one clear winner for each.",
           "The Coway Airmega is our overall top pick because it delivers the broadest daily benefit for the lowest running cost. The rest are the best-in-lane answer to a specific problem."
         ],
         "table": {

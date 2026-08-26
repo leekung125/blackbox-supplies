@@ -452,7 +452,7 @@ export const POWER_STATION_GUIDE: ComparisonGuide = {
   changelog: [
     {
       date: "2026-07-09",
-      note: "Published. Specs, battery chemistry, and cycle-life figures verified against manufacturer spec pages and independent reviews (Consumer Reports, PCWorld, StorageReview); competitor flaws cross-checked against published reviews and owner reports. Prices shown are current street ranges, not per-day live quotes.",
+      note: "Published. Specs, battery chemistry, and cycle-life figures verified against manufacturer spec pages and independent reviews (Consumer Reports, PCWorld, StorageReview); competitor flaws cross-checked against published reviews and owner reports. Prices shown are approximate ranges and move with sales - confirm the current price on Amazon.",
     },
   ],
   sources: [

@@ -44,7 +44,7 @@ const PROBLEMS: Problem[] = [
     kit: { label: "The Roadside Kit", href: "/kits/roadside-kit" },
     category: "Jump starters",
     priceBand: "$70–$150",
-    img: "/products/scene/noco-boost-gb40-1000a-ultrasafe.png",
+    img: "/products/scene/noco-boost-gb40-1000a-ultrasafe.webp",
   },
   {
     id: "tire",
@@ -56,7 +56,7 @@ const PROBLEMS: Problem[] = [
     kit: { label: "The Roadside Kit", href: "/kits/roadside-kit" },
     category: "Tire inflators",
     priceBand: "$40–$90",
-    img: "/products/scene/fanttik-x8-apex-portable-tire.png",
+    img: "/products/scene/fanttik-x8-apex-portable-tire.webp",
   },
   {
     id: "power",
@@ -69,7 +69,7 @@ const PROBLEMS: Problem[] = [
     kit: { label: "The Backup Power Kit", href: "/kits/backup-power-kit" },
     category: "Backup power",
     priceBand: "$300–$900",
-    img: "/products/scene/jackery-explorer-1000-v2-portable.png",
+    img: "/products/scene/jackery-explorer-1000-v2-portable.webp",
   },
   {
     id: "heat",
@@ -81,7 +81,7 @@ const PROBLEMS: Problem[] = [
     kit: { label: "Cooling gear", href: "/heat" },
     category: "Cooling",
     priceBand: "$250–$500",
-    img: "/products/scene/midea-duo-14-000-btu-smart.png",
+    img: "/products/scene/midea-duo-14-000-btu-smart.webp",
   },
   {
     id: "dashcam",
@@ -93,7 +93,7 @@ const PROBLEMS: Problem[] = [
     kit: { label: "The Road Trip Kit", href: "/kits/road-trip-kit" },
     category: "Dash cams",
     priceBand: "$100–$250",
-    img: "/products/scene/viofo-a229-plus.png",
+    img: "/products/scene/viofo-a229-plus.webp",
   },
   {
     id: "kit",
@@ -105,7 +105,7 @@ const PROBLEMS: Problem[] = [
     kit: { label: "Browse the kits", href: "/kits" },
     category: "Loadouts",
     priceBand: "$120–$400",
-    img: "/products/scene/bluetti-ac180-portable-power-station.png",
+    img: "/products/scene/bluetti-ac180-portable-power-station.webp",
   },
 ];
 

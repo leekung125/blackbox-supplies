@@ -362,10 +362,20 @@ export default function HomePage() {
           {featured[0] ? (
             <Reveal blur={false} className="min-w-0">
               <Link href={`/guides/${featured[0].slug}`} className="lit-card lift group flex h-full flex-col overflow-hidden">
-                <div className="relative aspect-[16/9] overflow-hidden bg-well">
-                  <Image src="/brand/hero-cooling.png" alt="" fill sizes="(max-width:1024px) 100vw, 55vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#0d0906]/85 via-[#0d0906]/20 to-transparent" />
-                </div>
+                {/* The lead card shows the guide's OWN hero plate — this was a hardcoded cooling-fan
+                    bedroom scene over the diesel-truck jump-starter guide, an image contradicting the
+                    content it advertised. If a future featured slug ships without a heroImage, render
+                    no image (the guides-index pattern) rather than a wrong one.
+                    16/10, not 16/9: hero plates are square (1024×1024), and object-cover into 16/9
+                    sliced the bottom of the product off — on the GB70 plate, straight through the red
+                    clamp. 16/10 is the same box the guides index crops these plates into, and it
+                    contains the subject. The old 16/9 was safe only for the 1216×832 brand scene. */}
+                {featured[0].heroImage ? (
+                  <div className="relative aspect-[16/10] overflow-hidden bg-well">
+                    <Image src={featured[0].heroImage} alt={`${featured[0].title} — ${featured[0].category} buying guide`} fill sizes="(max-width:1024px) 100vw, 55vw" className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#0d0906]/85 via-[#0d0906]/20 to-transparent" />
+                  </div>
+                ) : null}
                 <div className="flex flex-1 flex-col p-6">
                   <span className="mono text-[0.62rem] font-semibold uppercase tracking-[0.14em] text-accent-bright">{featured[0].category} · {featured[0].readMinutes} min read</span>
                   <h3 className="mt-2 font-display text-2xl font-semibold leading-tight text-ink-strong transition-colors group-hover:text-accent-bright">{featured[0].title}</h3>
