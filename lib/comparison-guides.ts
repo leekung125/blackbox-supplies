@@ -317,7 +317,7 @@ const PORTABLE_AC: ComparisonGuide = {
       url: "https://www.energy.gov/eere/buildings/portable-air-conditioners",
     },
     {
-      label: "ENERGY STAR — Room Air Conditioners (CEER efficiency & sizing)",
+      label: "ENERGY STAR — Room Air Conditioners (certified-model program and efficiency criteria)",
       url: "https://www.energystar.gov/products/room_air_conditioners",
     },
     {

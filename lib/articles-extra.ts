@@ -39,6 +39,7 @@ import { SINGLE_VS_DUAL_HOSE_AC } from "./articles/single-hose-vs-dual-hose-port
 import { TOW_STRAP_VS_KINETIC_ROPE_ARTICLE } from "./articles/tow-strap-vs-kinetic-recovery-rope-suv-unstuck";
 import { WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE } from "./articles/what-size-power-station-to-run-a-refrigerator-in-a-power-outage";
 import { WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER } from "./articles/winter-car-emergency-kit-new-driver";
+import { WHYNTER_ARC_1230WN_VS_MIDEA_DUO } from "./articles/whynter-arc-1230wn-vs-midea-duo";
 
 const DEEP_SEO_BATCH: Article[] = [
   TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK,
@@ -76,6 +77,7 @@ const DEEP_SEO_BATCH: Article[] = [
   QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM,
   QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM,
   SINGLE_VS_DUAL_HOSE_AC,
+  WHYNTER_ARC_1230WN_VS_MIDEA_DUO,
   TOW_STRAP_VS_KINETIC_ROPE_ARTICLE,
   WHAT_SIZE_POWER_STATION_TO_RUN_A_REFRIGERATOR_IN_A_POWER_OUTAGE,
   WINTER_CAR_EMERGENCY_KIT_NEW_DRIVER,
@@ -2270,7 +2272,7 @@ export const EXTRA_ARTICLES: Article[] = [
         "url": "https://www.eia.gov/electricity/monthly/"
       },
       {
-        "label": "ENERGY STAR — Room Air Conditioners (SACC and efficiency)",
+        "label": "ENERGY STAR — Room Air Conditioners (certified-model program and efficiency criteria)",
         "url": "https://www.energystar.gov/products/room_air_conditioners"
       },
       {
@@ -2493,7 +2495,7 @@ export const EXTRA_ARTICLES: Article[] = [
     ],
     "sources": [
       {
-        "label": "ENERGY STAR — Room Air Conditioners (sizing & SACC)",
+        "label": "ENERGY STAR — Room Air Conditioners (certified-model program and efficiency criteria)",
         "url": "https://www.energystar.gov/products/room_air_conditioners"
       },
       {
