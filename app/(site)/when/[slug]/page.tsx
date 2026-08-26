@@ -42,7 +42,7 @@ function BuyCard({ product }: { product: Product }) {
         <h3 className="mt-1 font-display text-[1.05rem] font-semibold leading-snug text-ink-strong">{product.name}</h3>
         {product.verdict ? <p className="mt-1.5 line-clamp-2 text-[0.85rem] leading-relaxed text-ink-dim">{product.verdict}</p> : null}
         <div className="mt-3 flex flex-wrap items-center gap-3">
-          <OutboundLink product={product} disclosure="none" />
+          <OutboundLink product={product} disclosure="compact" />
           {product.priceRange ? <span className="mono text-[0.8rem] font-semibold text-accent-bright">{product.priceRange}</span> : null}
         </div>
       </div>

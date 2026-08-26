@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, animate, motion, useReducedMotion } from "motion/react";
 import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
+import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 
 /* ============================================================================
    KIT BUILDER — an interactive loadout tier switcher for /kits pages.
@@ -169,6 +170,7 @@ function BuyCta({ p, hero = false }: { p: KitTierProduct; hero?: boolean }) {
     );
   }
   return (
+    <>
     <a
       href={href}
       target="_blank"
@@ -178,6 +180,9 @@ function BuyCta({ p, hero = false }: { p: KitTierProduct; hero?: boolean }) {
       Check price
       <ArrowIcon className="h-3.5 w-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
     </a>
+    {/* ⛔ FTC disclosure adjacent to the monetised CTA (the kit pages had it ~300 words away). */}
+    <AffiliateDisclosure variant="compact" className="ml-2" />
+    </>
   );
 }
 

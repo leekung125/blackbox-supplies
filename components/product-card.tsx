@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ProductThumb } from "@/components/product-thumb";
 import { getOutboundLink, outboundRel, type Product } from "@/lib/products";
+import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 
 /**
  * Product card — framed, elevated card on the dark ground. Image + name link to the detail
@@ -71,6 +72,13 @@ export function ProductCard({ product, role }: { product: Product; role?: string
             Details
           </Link>
         </div>
+        {/* ⛔ FTC MATERIAL-CONNECTION DISCLOSURE, ADJACENT TO THE LINK.
+            Every page already carried a disclosure - in the FOOTER. Measured across the built
+            site, 23 pages put it more than 120 visible words from the first affiliate link, and
+            on /products it was 4,199 words away. ProductCard is what every browse grid renders
+            (/products, /gear, /finds, /heat, /useful, /category/*, /kits/*, home), so one marker
+            here is what makes those surfaces compliant. Only shown when the CTA is monetised. */}
+        {isAffiliate ? <AffiliateDisclosure variant="compact" className="mt-2" /> : null}
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import { GuidePicks } from "@/components/guide-picks";
 import { SectionNav } from "@/components/section-nav";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
+import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 import { resolvePicks, matchByText, productToPick } from "@/lib/affiliate-picks";
 import { withAffiliateTag } from "@/lib/affiliate-tag";
 import { getDateModified, displayUpdated, articleSourcePath } from "@/lib/freshness";
@@ -119,6 +120,12 @@ export function ArticleView({ article }: { article: Article }) {
         <h2 className="eyebrow">The short answer</h2>
         <p className="mt-3 font-display text-[1.16rem] leading-[1.6] text-readink sm:text-[1.28rem]">{article.answerFirst}</p>
       </div>
+
+      {/* ⛔ FTC MATERIAL-CONNECTION DISCLOSURE, PLACED BEFORE THE FIRST AFFILIATE LINK.
+          Every page already carried a disclosure - in the FOOTER. On 228 pages that put it
+          AFTER the first affiliate link, on one product page 3,693 words after it. "Clear and
+          conspicuous" means the reader sees it before they can click, not after they have. */}
+      {picks.length > 0 ? <AffiliateDisclosure className="mt-8" /> : null}
 
       {/* quick-verdict buy box — the highest-lift conversion element */}
       <GuidePicks picks={picks} />

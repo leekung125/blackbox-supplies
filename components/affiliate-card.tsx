@@ -1,6 +1,7 @@
 import { TrackedAffiliateLink } from "@/components/tracked-affiliate-link";
 import Image from "next/image";
 import Link from "next/link";
+import { AffiliateDisclosure } from "@/components/affiliate-disclosure";
 
 /**
  * Premium affiliate product card for the /heat and /useful verticals.
@@ -81,6 +82,10 @@ export function AffiliateCard({ p }: { p: AffiliateProduct }) {
             Details
           </Link>
         </div>
+        {/* ⛔ FTC disclosure adjacent to the monetised CTA. /heat, /useful and the home rails
+            render this card, and on those grids the footer notice sat 300-1,100 visible words
+            from the first affiliate link. */}
+        <AffiliateDisclosure variant="compact" className="mt-2" />
       </div>
     </article>
   );
