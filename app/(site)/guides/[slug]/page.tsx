@@ -10,7 +10,7 @@ import { GuidePicks } from "@/components/guide-picks";
 import { AwardStrip } from "@/components/award-strip";
 import { StickyBuyBar } from "@/components/sticky-buy-bar";
 import { NewsletterCta } from "@/components/newsletter-cta";
-import { getAllGuides, getGuideBySlug, GUIDE_SLUGS, type GuidePick } from "@/lib/guides";
+import { getAllGuides, getGuideBySlug, getAnyGuideBySlug, GUIDE_SLUGS, type Guide, type GuidePick } from "@/lib/guides";
 import { getDateModified, displayUpdated, GUIDES_SOURCE, articleSourcePath, comparisonSourcePath } from "@/lib/freshness";
 import { getKitById } from "@/lib/kits";
 import { getProductById } from "@/lib/products";
@@ -154,7 +154,24 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   const lead = getProductById(guide.picks[0]?.productId ?? "");
   const heroImg = guide.heroImage ?? lead?.image;
-  const related = guide.relatedGuides.map(getGuideBySlug).filter(Boolean).slice(0, 3);
+  // ⛔ SILENT DROP: this used getGuideBySlug, which resolves ONLY legacy guides, so any
+  // related slug pointing at an article or a comparison guide was filtered out with no error.
+  // Pages declaring three related links rendered one. getAnyGuideBySlug covers legacy +
+  // comparison; getArticleBySlug covers the deep-SEO articles.
+  const related = guide.relatedGuides
+    .map((s): Guide | null => {
+      const g = getAnyGuideBySlug(s);
+      // A legacy Guide already has everything GuideCard reads.
+      if (g && "picks" in g) return g as Guide;
+      // A comparison guide or an article does not carry `picks`/`category`. Adapt rather than
+      // duplicate the card: GuideCard only reads slug/title/dek/heroImage and picks[0] for its
+      // image fallback, and it already renders a no-image branch when there is nothing to show.
+      const src = g ?? getArticleBySlug(s);
+      if (!src) return null;
+      return { ...(src as object), picks: [], category: "" } as unknown as Guide;
+    })
+    .filter((g): g is Guide => g !== null)
+    .slice(0, 3);
   const kit = guide.relatedKit ? getKitById(guide.relatedKit) : undefined;
 
   // Resolve each guide pick (car catalog) to the buy-CTA shape used by GuidePicks / StickyBuyBar.

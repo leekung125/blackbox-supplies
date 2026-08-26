@@ -19,6 +19,13 @@ const nextConfig: NextConfig = {
   // Permanently redirect the old slugs so existing links, bookmarks, and SEO equity don't 404.
   async redirects() {
     return [
+      // ⛔ KEYWORD CANNIBALISATION, created 2026-08-26 and closed the same day. A new
+      // 3,757-word page went live at best-cooling-mattress-topper-FOR-hot-sleepers while a
+      // thin 7-minute page already sat at best-cooling-mattress-topper-hot-sleepers. Two URLs
+      // targeting one query split their own signal and neither wins. The thin page's unique
+      // material (the TENCEL sheet set and the budget LUCID topper) was folded into the deep
+      // page as its own section first, so this redirect loses no content.
+      { source: "/guides/best-cooling-mattress-topper-hot-sleepers", destination: "/guides/best-cooling-mattress-topper-for-hot-sleepers", permanent: true },
       { source: "/guides/best-portable-jump-starters", destination: "/guides/best-jump-starters-compared", permanent: true },
       { source: "/guides/best-cordless-tire-inflators", destination: "/guides/best-tire-inflators-compared", permanent: true },
       { source: "/guides/best-dash-cams", destination: "/guides/best-dash-cams-compared", permanent: true },

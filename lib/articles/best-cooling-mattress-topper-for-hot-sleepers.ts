@@ -224,6 +224,16 @@ export const BEST_COOLING_MATTRESS_TOPPER_FOR_HOT_SLEEPERS: Article = {
         "Where are you buying it, and under what return policy?|Toppers are the kind of purchase you can only judge after two weeks of sleeping on one, and the manufacturers' generous trials — Saatva's 180 nights, ViscoSoft's 90-day guarantee — are policies on their own storefronts. Buy through a marketplace and you are under that marketplace's return window instead. Know which clock you are on before the box arrives.",
       ],
     },
+    {
+      heading: "The two cheaper routes, and when each one is actually the right answer",
+      body: [
+        "A topper at $250-$350 is the right buy for a specific problem: a mattress that sleeps hot and that you are not replacing. It is not the only route, and for two common situations it is the wrong one.",
+        "If your mattress is fine and it is the bedding cooking you, a topper is solving the wrong layer. Sheets sit directly against skin, so their fibre does more for perceived temperature than anything under the mattress protector. TENCEL Lyocell is the material that matters: a cellulose fibre that draws moisture into itself rather than holding it against you, which is what cool-to-touch actually describes. SHEEX lists its Arctic Aire MAX set as 100% TENCEL Lyocell sateen with a moisture-wicking finish, $100-$160 for a queen set of four pieces. The honest catch: it is a silky sateen, so if you prefer crisp percale you will not like it, and lyocell wrinkles unless you fold it promptly.",
+        "If budget is the constraint, a gel-infused foam topper does part of the job for a fifth of the price. LUCID's 3-inch gel memory foam is $50-$75 for a queen, CertiPUR-US certified, with a ventilated open-cell structure. Be clear-eyed about what that buys: gel infusion SLOWS memory foam's heat retention, it does not remove it, and budget foam does not last like premium foam. It also has a break-in odour for the first few days. As a way to find out whether a topper helps you at all before spending $300, it is sensible. As the permanent answer for someone who runs genuinely hot, it is not.",
+        "The order that makes sense for most people: fix the sheets first, because that is both the cheapest layer and the one touching you, then add a topper if you are still hot.",
+      ],
+      productIds: ["sheex-arctic-aire-max-cooling-sheet", "lucid-3-inch-gel-memory-foam"],
+    },
   ],
   faq: [
     {
@@ -284,6 +294,8 @@ export const BEST_COOLING_MATTRESS_TOPPER_FOR_HOT_SLEEPERS: Article = {
   ],
   heroImage: "/products/scene/saatva-graphite-memory-foam-mattress-topper.webp",
   picks: [
+    { id: "sheex-arctic-aire-max-cooling-sheet", cat: "heat", label: "If it is the sheets, not the mattress" },
+    { id: "lucid-3-inch-gel-memory-foam", cat: "heat", label: "Budget route" },
     {
       id: "saatva-graphite-memory-foam-mattress-topper",
       cat: "heat",
