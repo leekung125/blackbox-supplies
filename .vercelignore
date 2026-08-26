@@ -1,0 +1,22 @@
+# ⛔ THIS FILE EXISTS TO OVERRIDE THE REPOSITORY-ROOT .vercelignore. Do not delete it.
+#
+# blackbox-supply-site is git-connected to the ascension-system monorepo with Root Directory
+# `venture-harness/content-engine/site`. Vercel looks for .vercelignore in the project's root
+# directory first and only falls back to the repository root - and the repository-root one ends
+# with:
+#
+#     venture-harness/content-engine
+#
+# That line is CORRECT for the Ascension app, which deploys from the repo root and must not carry
+# this venture with it. But applied to THIS project it deletes the site's own source before the
+# build: the log read "Removed 3842 ignored files defined in .vercelignore", then "Installing
+# dependencies... up to date in 426ms" (nothing to install, because package.json was gone), then
+# "No Next.js version detected". Two production builds failed at 17s that way.
+#
+# So the fix is a project-local .vercelignore, not an edit to the shared root one - editing that
+# would start dragging ~3,800 venture files into every Ascension deploy.
+
+node_modules
+.next
+.vercel
+*.log
