@@ -18,6 +18,7 @@ import { CHARGE_LAPTOP_PHONE_WATCH_ONE_OUTLET_DESK } from "./articles/charge-lap
 import { CORDLESS_IMPACT_WRENCH_FOR_CHANGING_TIRES_AT_HOME } from "./articles/cordless-impact-wrench-for-changing-tires-at-home";
 import { CORDLESS_VS_12V_INFLATOR_TRUCK_SUV } from "./articles/cordless-vs-12v-tire-inflator-truck-suv-tires";
 import { DASH_CAM_VS_SECURITY_CAMERA } from "./articles/dash-cam-parking-mode-vs-security-camera";
+import { DO_BATTERYLESS_SUPERCAPACITOR_JUMP_STARTERS_WORK } from "./articles/do-batteryless-supercapacitor-jump-starters-work";
 import { WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE } from "./articles/do-car-window-breakers-work-on-laminated-glass";
 import { DO_POWER_STATIONS_WORK_IN_COLD_WEATHER } from "./articles/do-power-stations-work-in-cold-weather";
 import { ESPRESSO_MACHINE_WITH_BUILT_IN_GRINDER_WORTH_IT } from "./articles/espresso-machine-with-built-in-grinder-worth-it";
@@ -60,6 +61,7 @@ const DEEP_SEO_BATCH: Article[] = [
   BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID,
   BEST_BLUETOOTH_TRACKER_WALLET_ANDROID,
   BEST_JUMP_STARTER_DIESEL_TRUCK_COLD_WINTER,
+  DO_BATTERYLESS_SUPERCAPACITOR_JUMP_STARTERS_WORK,
   BEST_MAGNETIC_WORK_LIGHT_UNDER_HOOD,
   BEST_MONITOR_LIGHT_BAR_EYE_STRAIN_ARTICLE,
   BEST_NECK_FAN_HOT_FLASHES_NIGHT_SWEATS,
