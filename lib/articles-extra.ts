@@ -49,6 +49,7 @@ import { CAN_A_PORTABLE_POWER_STATION_RUN_A_SPACE_HEATER } from "./articles/can-
 import { IS_THE_ECOFLOW_WAVE_3_WORTH_IT } from "./articles/is-the-ecoflow-wave-3-worth-it";
 import { JACKERY_1000_V2_VS_BLUETTI_AC180 } from "./articles/jackery-1000-v2-vs-bluetti-ac180";
 import { PORTABLE_AIR_CONDITIONER_THAT_ALSO_HEATS_WORTH_IT } from "./articles/portable-air-conditioner-that-also-heats-worth-it";
+import { PORTABLE_AC_RUNNING_BUT_ROOM_NOT_COOLING } from "./articles/portable-ac-running-but-room-not-cooling";
 import { PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED } from "./articles/portable-air-conditioner-that-doesnt-need-to-be-drained";
 import { WHAT_SIZE_POWER_STATION_DO_I_NEED_TO_RUN_A_SUMP_PUMP } from "./articles/what-size-power-station-do-i-need-to-run-a-sump-pump";
 import { WHAT_SIZE_POWER_STATION_FOR_VAN_LIFE } from "./articles/what-size-power-station-for-van-life";
@@ -98,6 +99,7 @@ const DEEP_SEO_BATCH: Article[] = [
   IS_THE_ECOFLOW_WAVE_3_WORTH_IT,
   JACKERY_1000_V2_VS_BLUETTI_AC180,
   PORTABLE_AIR_CONDITIONER_THAT_ALSO_HEATS_WORTH_IT,
+  PORTABLE_AC_RUNNING_BUT_ROOM_NOT_COOLING,
   PORTABLE_AC_THAT_DOESNT_NEED_TO_BE_DRAINED,
   WHAT_SIZE_POWER_STATION_DO_I_NEED_TO_RUN_A_SUMP_PUMP,
   WHAT_SIZE_POWER_STATION_FOR_VAN_LIFE,
