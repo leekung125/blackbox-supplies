@@ -393,6 +393,8 @@ export const DASH_CAMS_META: CategoryMeta = {
  */
 export const DASH_CAMS_GUIDE: ComparisonGuide = {
   slug: "best-dash-cams-compared",
+  seoDescription:
+    "Compared on the specs that decide a dispute: resolution, coverage and night legibility. Plates a claims adjuster can actually read are the point.",
   title: "The Best Dash Cams, Compared",
   dek: "The dash cam that saves you isn't the one with the biggest number on the box — it's the one whose footage a claims adjuster can actually read. Here's every pick compared by the specs that decide a dispute: resolution, coverage, and night legibility.",
   categoryLabel: "Dash Cams",

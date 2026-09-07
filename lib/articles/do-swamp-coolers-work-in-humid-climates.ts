@@ -11,6 +11,9 @@ import type { Article } from "@/lib/articles";
  */
 export const SWAMP_COOLER_HUMIDITY_ARTICLE: Article = {
   slug: "do-swamp-coolers-work-in-humid-climates",
+  seoTitle: "Do Swamp Coolers Work in Humid Climates?",
+  seoDescription:
+    "A 15-30F drop at 10-20% humidity, often just 5-13F near 50% - and they add moisture. How to check your own climate before you spend.",
   title: "Do Evaporative Swamp Coolers Work in Humid Climates? The Honest Answer",
   dek:
     "Swamp coolers excel in dry heat — a 15–30°F drop at low humidity — but degrade sharply as the air gets muggy, and they add moisture to air that's already damp. Here's how to check your own climate before you spend, and what to buy instead if you're in the humid South.",

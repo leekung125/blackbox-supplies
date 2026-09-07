@@ -357,6 +357,8 @@ export const TIRE_INFLATOR_META: CategoryMeta = {
  */
 export const TIRE_INFLATOR_GUIDE: ComparisonGuide = {
   slug: "best-tire-inflators-compared",
+  seoDescription:
+    "Compared by max pressure, power source and preset auto-shutoff - the cordless inflators actually worth keeping in the trunk.",
   title: "The Best Cordless Tire Inflators, Compared",
   dek: "A dead tire in a dark parking lot is not the moment to discover your pump is junk. We compared the real cordless inflators worth keeping in the trunk — by max pressure, power source, and the features that actually matter.",
   categoryLabel: "Tire Inflators",

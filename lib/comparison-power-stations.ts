@@ -318,6 +318,8 @@ export const POWER_STATION_META: CategoryMeta = {
  */
 export const POWER_STATION_GUIDE: ComparisonGuide = {
   slug: "best-power-stations-compared",
+  seoDescription:
+    "Two numbers decide it - watt-hours (how long it runs) and watts (what it runs at once). Every station compared side by side on both.",
   title: "The Best Portable Power Stations, Compared",
   dek: "The two numbers that matter are watt-hours (how long it runs) and watts (what it can run at once) — and a cheap battery quietly oversells both. Here's every station compared by the specs that actually decide it, side by side.",
   categoryLabel: "Power Stations",

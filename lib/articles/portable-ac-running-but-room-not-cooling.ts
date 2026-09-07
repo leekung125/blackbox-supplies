@@ -26,6 +26,9 @@ import type { Article } from "@/lib/articles";
  */
 export const PORTABLE_AC_RUNNING_BUT_ROOM_NOT_COOLING: Article = {
   slug: "portable-ac-running-but-room-not-cooling",
+  seoTitle: "Portable AC Running But Room Not Cooling? 3 Causes",
+  seoDescription:
+    "The compressor is on and the room will not drop. The three common causes are all boring - start at the window-kit seam, then check the SACC size.",
   title:
     "Your Portable AC Is Running and the Room Is Still Hot: The Three Real Reasons",
   dek: "The compressor is on, air is coming out, the thermostat says 72 and the room refuses to drop. Before you decide the unit is broken, know that the three common causes are all boring: the window kit is leaking hot air straight back in, the unit was sized to a marketing number instead of the tested one, or it is single-hose and fighting itself. Here is how to tell which one you have in about ten minutes, and which are worth fixing.",

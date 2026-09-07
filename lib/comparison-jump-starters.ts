@@ -417,6 +417,8 @@ export const JUMP_STARTER_META: CategoryMeta = {
  */
 export const JUMP_STARTER_GUIDE: ComparisonGuide = {
   slug: "best-jump-starters-compared",
+  seoDescription:
+    "Peak amps are marketing. Compared by what actually starts your car: engine-size rating, cranking power, and what else each unit does.",
   title: "The Best Portable Jump Starters, Compared",
   dek: "Peak-amp numbers are marketing — what actually starts your car is whether the unit is rated for your engine. Here's every pick compared by the specs that decide it: engine size, cranking power, and what else it does.",
   categoryLabel: "Jump Starters",

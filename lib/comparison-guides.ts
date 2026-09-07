@@ -128,6 +128,8 @@ export interface ComparisonGuide {
 
 const PORTABLE_AC: ComparisonGuide = {
   slug: "best-portable-air-conditioners",
+  seoDescription:
+    "The BTU on the box is a lie. What cools your room is SACC, often half the headline. Every unit compared on the honest spec.",
   title: "The Best Portable Air Conditioners",
   dek: "The BTU on the box is a lie. What actually cools your room is the SACC number — often half the headline. Here's every unit compared by the honest spec, side by side.",
   categoryLabel: "Cooling",

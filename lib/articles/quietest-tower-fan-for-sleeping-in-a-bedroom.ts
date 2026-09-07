@@ -13,6 +13,9 @@ import type { Article } from "@/lib/articles";
  */
 export const QUIETEST_TOWER_FAN_FOR_SLEEPING_IN_A_BEDROOM: Article = {
   slug: "quietest-tower-fan-for-sleeping-in-a-bedroom",
+  seoTitle: "The Quietest Tower Fan for Sleeping in a Bedroom",
+  seoDescription:
+    "A bladeless brushless-DC model rated as low as ~20 dB on its lowest speed, with a real sleep mode. How to read the dB number before you buy.",
   title:
     "The Quietest Tower Fan for Sleeping in a Bedroom (What the dB Number Actually Means)",
   dek: "The quietest tower fan for sleeping in a bedroom is a bladeless brushless-DC model that Dreo rates as low as ~20 dB on its lowest setting, with a real sleep mode that dims the display and mutes beeps. Here's how to read the dB number, the catch nobody warns you about, and who should skip a tower fan entirely.",
