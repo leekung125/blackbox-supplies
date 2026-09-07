@@ -17,6 +17,9 @@ import type { Article } from "@/lib/articles";
  */
 export const QUIETEST_MINI_FRIDGE_FOR_A_BEDROOM: Article = {
   slug: "quietest-mini-fridge-for-a-bedroom",
+  seoTitle: "The Quietest Mini Fridge for a Bedroom, Explained",
+  seoDescription:
+    "Why some mini fridges hum all night and others are silent: the compressor-vs-thermoelectric tradeoff, plus placement fixes that lower noise.",
   title: "The Quietest Mini Fridge for a Bedroom (Compressor Noise, Solved)",
   dek: "The quietest mini fridge for a bedroom, explained: why some mini fridges hum all night and others are silent — the compressor-vs-thermoelectric tradeoff, placement fixes that actually lower the noise, and the two picks for a bedroom that needs real cold.",
   category: "Cooling",

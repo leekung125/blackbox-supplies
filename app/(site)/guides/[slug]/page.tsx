@@ -63,8 +63,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (article) {
     const og = shareImage(article.slug, article.heroImage);
     return {
-      title: titleField(article.title),
-      description: article.dek,
+      // seoTitle / seoDescription win when present; otherwise nothing changes.
+      title: titleField(article.seoTitle ?? article.title),
+      description: article.seoDescription ?? article.dek,
       alternates: { canonical: `/guides/${article.slug}` },
       openGraph: { type: "article", title: article.title, description: article.dek, url: `/guides/${article.slug}`, ...(og ? { images: [{ url: og }] } : {}) },
     };
@@ -73,8 +74,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (cmp) {
     const og = shareImage(cmp.slug, cmp.heroImage);
     return {
-      title: titleField(cmp.title),
-      description: cmp.dek,
+      title: titleField(cmp.seoTitle ?? cmp.title),
+      description: cmp.seoDescription ?? cmp.dek,
       alternates: { canonical: `/guides/${cmp.slug}` },
       openGraph: {
         type: "article",

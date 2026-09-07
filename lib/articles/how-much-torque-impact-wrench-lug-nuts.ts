@@ -11,6 +11,9 @@ import type { Article } from "@/lib/articles";
  */
 export const HOW_MUCH_TORQUE_IMPACT_WRENCH_LUG_NUTS: Article = {
   slug: "how-much-torque-impact-wrench-lug-nuts",
+  seoTitle: "Impact Wrench Torque for Lug Nuts: 250-450 ft-lbs",
+  seoDescription:
+    "Lug nuts go on at 80-120 ft-lbs but can take 300-500+ to remove. Size for removal: 250-450 ft-lbs for cars, 500-700 for trucks.",
   title: "How Much Torque You Actually Need in an Impact Wrench for Lug Nuts",
   dek: "Lug nuts are installed at only ~80–120 ft-lbs — but that's not the number that sizes your tool. Removal is the hard job, and corrosion plus over-torqued shop guns can demand 300–500+ ft-lbs. Here's the plain sizing rule, why the 1000+ ft-lb marketing torque is mostly hype for home use, and one honestly right-sized pick.",
   category: "Car Utility",

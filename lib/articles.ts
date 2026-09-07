@@ -37,6 +37,27 @@ export interface Article {
   slug: string;
   title: string;
   dek: string;
+  /**
+   * SEO overrides. Optional, and both fall back to `title` / `dek` when absent, so no
+   * existing article changes behaviour by adding these.
+   *
+   * ⛔ WHY THEY EXIST. Measured in Search Console 2026-09-07 (Jul 1 - Sep 5): 9,740
+   * impressions, 28 clicks, 0.3% CTR, average position 36.3. Seven of the ten
+   * highest-impression pages carried a <title> over 60 characters (up to 93) and eight
+   * carried a `dek` of 239-331 characters as the meta description. Google renders roughly
+   * 60 and ~155, so on those pages the back half of every promise was invisible in the
+   * result a searcher actually reads.
+   *
+   * The tell is one page: /guides/how-much-torque-impact-wrench-lug-nuts ranks at position
+   * 10.1 with 371 impressions and earns 0.3%. Expected CTR at position 10 is ~2.5%. A page
+   * that RANKS and is not CLICKED has a presentation problem, not an authority problem -
+   * and unlike authority, this one is fixable the same afternoon.
+   *
+   * seoTitle    <= 60 chars, front-loaded with the words people actually type.
+   * seoDescription <= 155 chars, and it must be true of the page.
+   */
+  seoTitle?: string;
+  seoDescription?: string;
   /** Display tag. Car articles use a Category; broadened verticals use a free label (e.g. "Cooling"). */
   category: Category | string;
   readMinutes: number;

@@ -349,6 +349,9 @@ const FANS_SORTS: SortOption[] = [
  */
 export const FANS_GUIDE: ComparisonGuide = {
   slug: "best-tower-fans-compared",
+  seoTitle: "Tower and Bladeless Fans Compared, by Real Airflow",
+  seoDescription:
+    "Fan makers advertise everything except the one number that matters. Every tower and bladeless fan lined up by airflow and real speeds.",
   title: "The Best Tower & Bladeless Fans, Compared",
   dek: "Reach, velocity, 'noise levels' — fan makers advertise everything except the one number that means anything. Here's every fan lined up by what it actually does: airflow, real speeds, and how quiet it is when you need to sleep.",
   categoryLabel: "Cooling Fans",

@@ -52,6 +52,14 @@ export interface ComparisonGuide {
   slug: string;
   title: string;
   dek: string;
+  /**
+   * SEO overrides, same contract as Article: optional, falling back to `title` / `dek`.
+   * See lib/articles.ts for the Search Console measurement that motivated them - 9,740
+   * impressions at 0.3% CTR and average position 36.3, with most top pages carrying a title
+   * past Google's ~60-char render and a dek of 240-330 where it shows ~155.
+   */
+  seoTitle?: string;
+  seoDescription?: string;
   /** Human category label for breadcrumb/eyebrow. */
   categoryLabel: string;
   updated: string;

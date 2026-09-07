@@ -19,6 +19,8 @@ import type { Article } from "@/lib/articles";
  */
 export const BEST_NECK_FAN_HOT_FLASHES_NIGHT_SWEATS: Article = {
   slug: "best-neck-fan-for-hot-flashes-and-night-sweats",
+  seoDescription:
+    "Hands-free, quiet enough not to wake a partner, aimed straight at the neck - the fan you can trigger the instant a flash hits.",
   title: "The Best Neck Fan for Hot Flashes and Night Sweats",
   dek: "The best neck fan for hot flashes and night sweats is the one you can trigger the instant a flash hits — hands-free, quiet enough not to wake a partner, aimed right at the neck. Here's the honest split between a real cooling-plate neck air conditioner and a lighter airflow-only neck fan, and who each one is for.",
   category: "Cooling",

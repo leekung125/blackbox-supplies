@@ -10,6 +10,9 @@ import type { Article } from "@/lib/articles";
  */
 export const BEST_JUMP_STARTER_DIESEL_TRUCK_COLD_WINTER: Article = {
   slug: "best-jump-starter-diesel-truck-cold-winter",
+  seoTitle: "Best Jump Starter for a Diesel Truck in Cold Winter",
+  seoDescription:
+    "Not the biggest peak-amp sticker - the one whose manufacturer engine-size rating actually clears your 6.7L, and holds charge in the cold.",
   title: "Best Jump Starter for a Diesel Truck in Cold Winter (Amp Math, Not Hype)",
   dek: "The best jump starter for a diesel truck in cold winter isn't the one with the biggest peak-amp sticker — it's the one whose manufacturer engine-size rating actually clears your 6.7L, kept warm enough to deliver it. Here's the amp math, the cold-weather catch, and the honest picks.",
   category: "Jump Starters",

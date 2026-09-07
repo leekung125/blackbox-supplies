@@ -12,6 +12,9 @@ import type { Article } from "@/lib/articles";
  */
 export const BEST_TSA_LEGAL_LAPTOP_POWER_BANK: Article = {
   slug: "best-tsa-legal-power-bank-that-charges-a-laptop",
+  seoTitle: "TSA-Legal Power Bank That Charges a Laptop",
+  seoDescription:
+    "Under the 100Wh carry-on ceiling, but with enough USB-C wattage to refill a laptop and not just a phone. The narrow window that works.",
   title: "The Best Power Bank to Take on a Plane That Actually Charges a Laptop (TSA-Legal)",
   dek: "The best power bank to take on a plane that charges a laptop lives in a narrow window: under the 100Wh carry-on ceiling, but with enough USB-C wattage to refill a laptop and not just a phone. Here's the rule, the math, and the one bank that fits.",
   category: "Power & Charging",
