@@ -13,6 +13,9 @@ import type { Article } from "@/lib/articles";
  */
 export const POWER_STATION_VS_JUMP_STARTER_WHICH_DO_I_NEED: Article = {
   slug: "portable-power-station-vs-jump-starter-which-do-i-need",
+  seoTitle: "Portable Power Station vs Jump Starter: Which?",
+  seoDescription:
+    "A jump starter cranks a dead engine; a power station runs your gear and usually cannot crank a car at all. How to tell which you need, and when it is both.",
   title: "Portable Power Station vs Jump Starter: Which Do I Actually Need for My Car?",
   dek: "Portable power station vs jump starter — which do I need for my car? They solve two different problems: a jump starter dumps a huge amp burst to crank a dead engine, while a power station stores watt-hours to run your gear and usually can't crank a car at all. Here's how to tell which one (or both) you actually need.",
   category: "Power & Charging",

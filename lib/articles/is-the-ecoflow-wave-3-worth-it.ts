@@ -71,6 +71,9 @@ import type { Article } from "@/lib/articles";
  */
 export const IS_THE_ECOFLOW_WAVE_3_WORTH_IT: Article = {
   slug: "is-the-ecoflow-wave-3-worth-it",
+  seoTitle: "Is the EcoFlow WAVE 3 Worth It? The Honest Case",
+  seoDescription:
+    "Worth it only with no window or no grid power. You buy independence, not capacity - 6,100 BTU suits a tent or van, and the battery is sold separately.",
   title:
     "Is the EcoFlow WAVE 3 Worth It? The Honest Case For and Against the $899-$1,499 Battery Air Conditioner",
   dek: "The WAVE 3 is not expensive because it cools well — it is expensive because it cools where nothing else can. That makes it either the only product that solves your problem or the most costly way to be disappointed, with almost nothing in between. Here is the line that separates the two, the total cost the listing does not show you, and the spec everyone judges it on that turns out to be the wrong one.",

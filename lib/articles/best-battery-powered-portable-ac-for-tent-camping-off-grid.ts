@@ -17,6 +17,9 @@ import type { Article } from "@/lib/articles";
  */
 export const BEST_BATTERY_POWERED_PORTABLE_AC_FOR_TENT_CAMPING_OFF_GRID: Article = {
   slug: "best-battery-powered-portable-ac-for-tent-camping-off-grid",
+  seoTitle: "Best Battery-Powered Portable AC for Tent Camping",
+  seoDescription:
+    "The EcoFlow WAVE 3 is one of the few that runs cordless with no window vent. The catch: 6,100 BTU cools a tent, not a room, and the battery costs extra.",
   title:
     "The Best Battery-Powered Portable AC for Tent Camping and Off-Grid (And Its Real Catch)",
   dek: "The best battery powered portable AC for tent camping off-grid has to run on a battery and vent without a fixed window — which is why almost nothing qualifies. The EcoFlow WAVE 3 does, but the catch is real: it's expensive, the battery is often a separate add-on, and 6,100 BTU cools a tent or van, not a room. Honest specs, tradeoffs, and who should skip it.",

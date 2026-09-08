@@ -9,6 +9,9 @@ import type { Article } from "@/lib/articles";
  */
 export const MILWAUKEE_M12_VS_DEWALT_20V_INFLATOR: Article = {
   slug: "milwaukee-m12-vs-dewalt-20v-inflator-bare-tool",
+  seoTitle: "Milwaukee M12 vs DeWalt 20V Inflator: Which to Buy",
+  seoDescription:
+    "Own the batteries? Buy your platform's: M12 2475-20 or DeWalt DCC020IB. Own neither? A bare tool is a false bargain - get a self-contained inflator.",
   title: "Milwaukee M12 vs DeWalt 20V Inflator: Which Bare-Tool Inflator to Buy",
   dek: "Milwaukee M12 vs DeWalt 20V inflator, and which bare tool to buy — the ecosystem-specific answer most listicles skip: for platform owners, the right pick is almost always the brand you already own.",
   category: "Tire Inflators",

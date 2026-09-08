@@ -8,6 +8,9 @@ import type { Article } from "@/lib/articles";
  */
 export const TWELVE_V_VS_CORDLESS_TIRE_INFLATOR_TRUNK: Article = {
   slug: "12v-vs-cordless-tire-inflator-trunk",
+  seoTitle: "12V vs Cordless Tire Inflator: Which for Your Trunk?",
+  seoDescription:
+    "Cordless for topping up slow leaks and grabbing it fast. 12V corded for a dead-flat truck or SUV tire, or cold weather - it never quits mid-fill.",
   title: "12V vs Cordless Tire Inflator: Which One Actually Belongs in Your Trunk",
   dek: "12V corded compressors run forever off the socket and won't die mid-fill on a dead-flat SUV tire; cordless inflators are grab-and-go but can overheat or run out of battery on a big flat. Here's how to decide which to keep in your car — and when the answer is neither.",
   category: "Tire Inflators",

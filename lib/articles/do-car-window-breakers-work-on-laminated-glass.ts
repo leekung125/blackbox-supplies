@@ -11,6 +11,9 @@ import type { Article } from "@/lib/articles";
  */
 export const WINDOW_BREAKER_LAMINATED_GLASS_ARTICLE: Article = {
   slug: "do-car-window-breakers-work-on-laminated-glass",
+  seoTitle: "Do Car Window Breakers Work on Laminated Glass?",
+  seoDescription:
+    "They shatter tempered side glass - not laminated. Windshields are always laminated, and ~1 in 3 new models use it in side windows too.",
   title: "Do Car Window Breakers Work on Laminated Glass? What Actually Breaks (and What Doesn't)",
   dek: "Spring-loaded and carbide window breakers shatter tempered side glass in a heartbeat — but they do not break laminated glass, and newer cars increasingly use it in the side windows. Here's how to tell which your car has before you trust your life to a $12 tool.",
   category: "Roadside Safety",

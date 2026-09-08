@@ -96,6 +96,9 @@ import type { Article } from "@/lib/articles";
  */
 export const WHYNTER_ARC_1230WN_VS_MIDEA_DUO: Article = {
   slug: "whynter-arc-1230wn-vs-midea-duo",
+  seoTitle: "Whynter ARC-1230WN vs Midea Duo: Which 14,000 BTU?",
+  seoDescription:
+    "Same BTU, hoses, noise and weight, so those do not decide it. Whynter for the bigger room rating (600 vs 550 sq ft); Midea Duo to spend less.",
   title: "Whynter NEX ARC-1230WN vs Midea Duo: Which 14,000 BTU Portable AC Should You Buy?",
   dek: "Same capacity, same hose design, same noise class, same weight, same price band. Almost everything pages rank for on this comparison is a tie — including the two differences most often used to justify the price gap. What is left is room rating, price, and which company is willing to publish a number.",
   category: "Cooling",

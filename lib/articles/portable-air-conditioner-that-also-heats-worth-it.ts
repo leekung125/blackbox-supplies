@@ -104,6 +104,9 @@ import type { Article } from "@/lib/articles";
  */
 export const PORTABLE_AIR_CONDITIONER_THAT_ALSO_HEATS_WORTH_IT: Article = {
   slug: "portable-air-conditioner-that-also-heats-worth-it",
+  seoTitle: "Portable AC That Also Heats: Is It Worth It?",
+  seoDescription:
+    "Only if the heat is reverse-cycle, not a resistive element. Check the heating BTU: above ~5,100 on a standard plug it moves heat instead of making it.",
   title:
     "Portable Air Conditioner That Also Heats: Is a Cool-and-Heat Unit Worth It Year-Round?",
   dek: "Two completely different machines are sold under the same three words, and the listing almost never tells you which one you're getting. One is a genuine heat pump worth paying for. The other is a $40 space heater in a $600 chassis. Here is the number that separates them.",
