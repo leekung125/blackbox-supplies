@@ -59,7 +59,10 @@ export default function PowerStationSizingPage() {
         data={[
           breadcrumbSchema([
             { name: "Home", path: "/" },
-            { name: "Tools", path: "/tools" },
+            // No /tools index route exists - it is a bare folder with no page.tsx and returns 404
+            // live (verified 2026-09-08). A BreadcrumbList item pointing at a 404 is a structured-
+            // data defect on the one page whose entire job is to be citable, so this goes straight
+            // from Home to the tool. Add the crumb back the day a real /tools index ships.
             { name: "Power station sizing", path: "/tools/power-station-sizing" },
           ]),
           faqSchema(FAQ.map(([q, a]) => ({ q, a }))),
