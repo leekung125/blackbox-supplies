@@ -31,6 +31,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/useful",
     "/gear",
     "/guides",
+    // ⛔ A LINK ASSET, NOT A GUIDE. Added 2026-09-08 after Search Console showed EXTERNAL LINKS
+    // = 0 across 239 indexed pages. Prose does not get cited; a calculator with correct, visible
+    // arithmetic can be. It has to be crawlable and internally linked or it is a page nobody
+    // finds, which would defeat the entire point of building it.
+    "/tools/power-station-sizing",
     "/kits",
     "/products",
     "/finds",
