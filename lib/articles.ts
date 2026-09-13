@@ -161,7 +161,7 @@ export const ARTICLES: Article[] = [
       },
       {
         q: "How often should I recharge a jump starter I never use?",
-        a: "Every 3–6 months, and always before winter. Lithium packs hold charge for months, not forever, and cold accelerates the loss.",
+        a: "Follow your pack's own interval, and always charge it before winter. GOOLOO says every 2–3 months, Fanttik's support says about every 60 days for the T8 APEX, and DeWalt's manual asks for at least every 30 days on its lead-acid DXAEPS14. Lithium packs hold charge for months, not forever, and a pack left to drain too far can refuse to recharge.",
       },
     ],
     relatedGuides: ["best-jump-starters-compared", "roadside-emergency-kit"],
